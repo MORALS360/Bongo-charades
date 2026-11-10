@@ -1,0 +1,5 @@
+Baloo 2 — Copyright 2019 The Baloo 2 Project Authors (https://github.com/EkType/Baloo2)
+Nunito Sans — Copyright 2016 The Nunito Sans Project Authors (https://github.com/Fonthausen/NunitoSans)
+
+Both font families are licensed under the SIL Open Font License, Version 1.1.
+Available with a FAQ at: http://scripts.sil.org/OFL

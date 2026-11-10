@@ -1,0 +1,518 @@
+/* ==========================================================================
+   Bongo Charades — Design System Tokens & Foundational Styles
+   Source of Truth: Bongo Charades — Design System & Screens (PDF & HTML)
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Baloo 2';
+  font-style: normal;
+  font-weight: 600 800;
+  font-display: swap;
+  src: url('/fonts/baloo-2-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 400 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url('/fonts/nunito-sans-latin.woff2') format('woff2');
+}
+
+:root {
+  /* Colour Palette */
+  --color-purple-start: #5a49db;
+  --color-purple-mid: #7f66ee;
+  --color-purple-end: #b493f6;
+  --bg-app-gradient: linear-gradient(165deg, #5a49db 0%, #7f66ee 55%, #b493f6 100%);
+  --bg-featured-gradient: linear-gradient(135deg, #ffc83a, #f59a23);
+  --bg-badge-gradient: radial-gradient(circle at 35% 30%, #ffe98a, #f5a623);
+
+  /* Category Card Group Colours */
+  --color-card-classic: #7060e3; /* c1 */
+  --color-card-culture: #8a55e8; /* c2 */
+  --color-card-eastafrica: #4f6be0; /* c3 */
+
+  /* Accents & Semantic Colours */
+  --color-primary-yellow: #ffc83a;
+  --color-primary-shadow: #c98f0a;
+  --color-featured-orange: #f59a23;
+  --color-correct-teal: #14b8a6;
+  --color-stat-correct: #9cf5ea;
+  --color-stat-passed: #ffb36b;
+  --color-night: #2a1b6b;
+  --color-nav-bar: #3e2fa8;
+  --color-white: #ffffff;
+
+  /* Translucent Surfaces */
+  --surface-panel: rgba(255, 255, 255, 0.16);
+  --surface-segment: rgba(255, 255, 255, 0.18);
+  --surface-icon-btn: rgba(255, 255, 255, 0.2);
+  --surface-hud-pill: rgba(30, 15, 90, 0.55);
+  --border-card-default: rgba(255, 255, 255, 0.22);
+
+  /* Typography */
+  --font-display: 'Baloo 2', system-ui, -apple-system, sans-serif;
+  --font-body: 'Nunito Sans', system-ui, -apple-system, sans-serif;
+
+  /* Radii */
+  --radius-card: 24px;
+  --radius-panel: 24px;
+  --radius-tilt-btn: 20px;
+  --radius-nav-item: 18px;
+  --radius-nav-bar: 28px;
+  --radius-pill: 999px;
+
+  /* Shadows */
+  --shadow-card: 0 5px 0 rgba(30, 15, 90, 0.35);
+  --shadow-primary-btn: 0 4px 0 #c98f0a;
+
+  /* Spacing Scale (4 / 8 / 12 / 16 / 24 / 32) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+}
+
+/* Base Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-white);
+  background: var(--color-purple-start);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  font: inherit;
+  font-weight: 800;
+  border: 0;
+  color: var(--color-white);
+  cursor: pointer;
+  background: transparent;
+  padding: 0;
+  transition:
+    transform 0.1s ease,
+    filter 0.15s ease;
+}
+
+button:active:not(:disabled) {
+  transform: translateY(2px);
+}
+
+button:focus-visible {
+  outline: 3px solid var(--color-primary-yellow);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Typography Classes (Matching Design System Spec)
+   ========================================================================== */
+
+/* Display font (.d in design export) */
+.d {
+  font-family: var(--font-display);
+  margin: 0;
+  font-weight: 800;
+}
+
+.text-hero-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 42px;
+  margin: 0;
+}
+
+.text-page-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 38px;
+  margin: 0;
+}
+
+.text-section-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 28px;
+  margin: 0;
+}
+
+.text-game-prompt {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(56px, 9vw, 88px);
+  line-height: 1.03;
+  text-align: center;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Shared Component Classes (Exact Design Export Parity)
+   ========================================================================== */
+
+/* Category Card (.c, .c1, .c2, .c3, .n) */
+.c {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 152px;
+  border-radius: var(--radius-card);
+  padding: 12px 8px;
+  box-shadow: var(--shadow-card);
+  border: 2px solid var(--border-card-default);
+}
+
+.c.c-compact {
+  height: 132px;
+}
+
+.c.c-selected {
+  border: 3px solid var(--color-primary-yellow);
+}
+
+.c1 {
+  background: var(--color-card-classic);
+}
+
+.c2 {
+  background: var(--color-card-culture);
+}
+
+.c3 {
+  background: var(--color-card-eastafrica);
+}
+
+.n {
+  font-size: 15px;
+  line-height: 17px;
+  min-height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 800;
+}
+
+.c-compact .n {
+  min-height: 0;
+}
+
+/* Primary Yellow Button (.y) */
+.y {
+  background: var(--color-primary-yellow);
+  color: var(--color-night);
+  border-radius: var(--radius-pill);
+  min-height: 56px;
+  font-size: 18px;
+  font-weight: 800;
+  box-shadow: var(--shadow-primary-btn);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 24px;
+}
+
+/* Secondary Outlined Pill Button */
+.btn-secondary {
+  min-height: 56px;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--color-white);
+  background: transparent;
+  color: var(--color-white);
+  font-size: 18px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+}
+
+/* Icon Circle Button (.ic) */
+.ic {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--surface-icon-btn);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  flex-shrink: 0;
+}
+
+/* Featured Card ("Feeling lucky?") */
+.featured-card {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  background: var(--bg-featured-gradient);
+  color: var(--color-night);
+  border-radius: var(--radius-card);
+  padding: 16px 16px 16px 20px;
+  box-shadow: var(--shadow-card);
+}
+
+/* Translucent Panel (.pl) */
+.pl {
+  background: var(--surface-panel);
+  border-radius: var(--radius-panel);
+  padding: 14px;
+}
+
+/* Segmented Control (.sg, .sg .a) */
+.sg {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.sg button {
+  flex: 1;
+  min-height: 44px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-segment);
+  color: var(--color-white);
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.sg button.a {
+  background: var(--color-primary-yellow);
+  color: var(--color-night);
+}
+
+/* Category Chip (Game Setup selected category pill) */
+.category-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--color-primary-yellow);
+  color: var(--color-night);
+  border-radius: var(--radius-pill);
+  padding: 4px 12px 4px 4px;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+/* HUD Pills (TimerPill & ScorePill) */
+.hud-pill {
+  background: var(--surface-hud-pill);
+  border-radius: var(--radius-pill);
+  padding: 4px 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Tilt Fallback Buttons */
+.tilt-btn {
+  color: var(--color-night);
+  border-radius: var(--radius-tilt-btn);
+  min-height: 64px;
+  padding: 8px 24px;
+  font-size: 20px;
+  font-weight: 800;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.15;
+  box-shadow: var(--shadow-card);
+}
+
+.tilt-btn--pass {
+  background: var(--color-featured-orange);
+}
+
+.tilt-btn--correct {
+  background: var(--color-correct-teal);
+}
+
+.tilt-btn__sub {
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+/* Bottom Navigation Bar */
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 84px;
+  background: var(--color-nav-bar);
+  border-radius: var(--radius-nav-bar) var(--radius-nav-bar) 0 0;
+  display: flex;
+  gap: 6px;
+  padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
+  z-index: 40;
+}
+
+.bottom-nav__item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  font-size: 12px;
+  font-weight: 800;
+  border-radius: var(--radius-nav-item);
+  background: transparent;
+  color: var(--color-white);
+}
+
+.bottom-nav__item--active {
+  background: var(--color-primary-yellow);
+  color: var(--color-night);
+}
+
+/* ==========================================================================
+   Responsive Grid & App Shell Breakpoints
+   - Under 600px: Mobile (2-column category grid, full-bleed viewport)
+   - 600px–1023px: Tablet (3-column category grid)
+   - 1024px+: Desktop (Centred 440px app container for portrait views)
+   ========================================================================== */
+
+.g {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.app-shell-outer {
+  min-height: 100svh;
+  width: 100%;
+  background: radial-gradient(circle at 50% 0%, #4838b8 0%, #2a1b6b 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.app-shell-portrait {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  background: var(--bg-app-gradient);
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.app-shell-portrait__content {
+  flex: 1;
+  padding: 52px 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.app-shell-portrait__content--with-nav {
+  padding-bottom: 110px;
+}
+
+/* Landscape Gameplay Container (844x390 reference proportion) */
+.app-shell-landscape {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  background: var(--bg-app-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 20px 28px;
+}
+
+/* Tablet Breakpoint: 600px – 1023px (3-column category cards) */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .g--categories {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .app-shell-portrait {
+    max-width: 720px;
+    margin: 0 auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  }
+
+  .bottom-nav {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+}
+
+/* Desktop Breakpoint: 1024px+ (Centred 440px portrait app shell) */
+@media (min-width: 1024px) {
+  .app-shell-outer {
+    padding: 24px 16px;
+    justify-content: center;
+  }
+
+  .app-shell-portrait {
+    width: 440px;
+    max-width: 440px;
+    min-height: 844px;
+    border-radius: 36px;
+    box-shadow:
+      0 24px 64px rgba(15, 8, 50, 0.55),
+      0 0 0 6px rgba(255, 255, 255, 0.12);
+    overflow: hidden;
+  }
+
+  .bottom-nav {
+    position: absolute;
+    width: 100%;
+  }
+
+  .app-shell-landscape {
+    width: 844px;
+    max-width: 95vw;
+    min-height: 390px;
+    height: 390px;
+    border-radius: 32px;
+    box-shadow:
+      0 24px 64px rgba(15, 8, 50, 0.55),
+      0 0 0 6px rgba(255, 255, 255, 0.12);
+  }
+}
