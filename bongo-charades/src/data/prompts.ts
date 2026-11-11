@@ -347,30 +347,39 @@ export const PROMPTS: GamePrompt[] = [
 ]
 
 /**
- * Filter and retrieve prompts based on category IDs and language preference.
+ * Filter prompts by the categories and prompt language chosen on Game Setup.
+ *
+ * Rules:
+ * - Only prompts from the selected categories are used (all categories in "Feeling lucky").
+ * - English  → English prompts + Mixed prompts
+ * - Kiswahili → Kiswahili prompts + Mixed prompts
+ * - Mixed    → every prompt
+ * - If the chosen language has no prompts in the selected categories, we fall back to
+ *   ALL languages *within those same categories* — we never borrow prompts from
+ *   categories the players did not choose.
+ * - Returns an empty array if the categories have no prompts at all; the app then
+ *   shows a friendly message instead of starting the game.
  */
 export function getFilteredPrompts(
   categoryIds: CategoryIconId[],
   isFeelingLucky: boolean,
   language: 'en' | 'sw' | 'mixed',
 ): GamePrompt[] {
-  let pool = PROMPTS
+  const playable = PROMPTS.filter((p) => typeof p.text === 'string' && p.text.trim().length > 0)
 
-  if (!isFeelingLucky && categoryIds.length > 0) {
+  let categoryPool = playable
+  if (!isFeelingLucky) {
+    if (categoryIds.length === 0) return []
     const idSet = new Set(categoryIds)
-    pool = pool.filter((p) => idSet.has(p.categoryId))
+    categoryPool = playable.filter((p) => idSet.has(p.categoryId))
   }
 
+  let pool = categoryPool
   if (language === 'en') {
-    pool = pool.filter((p) => p.language === 'en' || p.language === 'mixed')
+    pool = categoryPool.filter((p) => p.language === 'en' || p.language === 'mixed')
   } else if (language === 'sw') {
-    pool = pool.filter((p) => p.language === 'sw' || p.language === 'mixed')
+    pool = categoryPool.filter((p) => p.language === 'sw' || p.language === 'mixed')
   }
 
-  // If filtered pool is somehow empty (e.g. edge case), fallback to entire matching category pool
-  if (pool.length === 0) {
-    pool = PROMPTS.filter((p) => !categoryIds.length || categoryIds.includes(p.categoryId))
-  }
-
-  return pool.length > 0 ? pool : PROMPTS
+  return pool.length > 0 ? pool : categoryPool
 }

@@ -1,3 +1,4 @@
+import { rankTeams } from '../game/gameSession'
 import { PrimaryButton } from '../components/ui/PrimaryButton'
 import { SecondaryButton } from '../components/ui/SecondaryButton'
 
@@ -13,6 +14,13 @@ interface ResultsPageProps {
   onPlayAgain: () => void
   onBackToCategories: () => void
   onReturnHome: () => void
+  /**
+   * 'final' (default) = end-of-game results.
+   * 'standings' = mid-game scoreboard opened from the round-transition screen;
+   * shows a single "Back to Game" button instead of Play Again / exit actions.
+   */
+  mode?: 'final' | 'standings'
+  onBackToGame?: () => void
 }
 
 /**
@@ -30,9 +38,13 @@ export function ResultsPage({
   onPlayAgain,
   onBackToCategories,
   onReturnHome,
+  mode = 'final',
+  onBackToGame,
 }: ResultsPageProps) {
-  // Sort teams by score descending
-  const sorted = [...teamScores].sort((a, b) => b.score - a.score)
+  const isStandings = mode === 'standings'
+  // Sort teams by score (highest first). Tied teams share the same rank (1, 1, 3…).
+  const ranked = rankTeams(teamScores.map((t) => ({ ...t, name: t.teamName })))
+  const sorted = ranked.map((t) => ({ ...t, teamName: t.name }))
   const topScore = sorted[0]?.score ?? 0
 
   // Detect ties for 1st place
@@ -43,10 +55,15 @@ export function ResultsPage({
   if (topScore === 0) {
     winnerText = 'Good effort all teams!'
   } else if (isTie) {
-    winnerText = `🤝 It's a Tie between ${winners.map((w) => w.teamName).join(' & ')}!`
+    winnerText = isStandings
+      ? `🤝 ${winners.map((w) => w.teamName).join(' & ')} are tied for the lead`
+      : `🤝 It's a Tie between ${winners.map((w) => w.teamName).join(' & ')}!`
   } else {
-    winnerText = `🏆 ${sorted[0].teamName} Wins!`
+    winnerText = isStandings
+      ? `🔥 ${sorted[0].teamName} is in the lead`
+      : `🏆 ${sorted[0].teamName} Wins!`
   }
+  if (isStandings && topScore === 0) winnerText = 'No points yet — all to play for!'
 
   // Calculate totals
   const totalCorrect = teamScores.reduce((sum, t) => sum + t.correctCount, 0)
@@ -142,7 +159,7 @@ export function ResultsPage({
 
       {/* Screen Title */}
       <h1 className="d" style={{ fontSize: 40, margin: '16px 0 0', textAlign: 'center' }}>
-        Time's up!
+        {isStandings ? 'Standings' : "Time's up!"}
       </h1>
 
       {/* 200x200 Golden Radial Score Circle (Artboard 5) */}
@@ -166,7 +183,7 @@ export function ResultsPage({
           {topScore}
         </span>
         <b style={{ fontSize: 14, textTransform: 'uppercase', letterSpacing: 0.5 }}>
-          Final score
+          {isStandings ? 'Top score' : 'Final score'}
         </b>
       </div>
 
@@ -251,10 +268,10 @@ export function ResultsPage({
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
           {sorted.map((team, idx) => {
             const isWinner = team.score === topScore && topScore > 0
-            const medals = ['🥇', '🥈', '🥉', '4th']
+            const medals = ['🥇', '🥈', '🥉']
             return (
               <div
-                key={team.teamName}
+                key={`${idx}-${team.teamName}`}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -270,7 +287,7 @@ export function ResultsPage({
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                  <span style={{ fontSize: 18 }}>{medals[idx] ?? `${idx + 1}.`}</span>
+                  <span style={{ fontSize: 18 }}>{medals[team.rank - 1] ?? `${team.rank}th`}</span>
                   <div style={{ textAlign: 'left' }}>
                     <div style={{ fontWeight: 800, fontSize: 15 }}>{team.teamName}</div>
                     <div style={{ fontSize: 12, opacity: 0.85, fontWeight: 700 }}>
@@ -303,6 +320,16 @@ export function ResultsPage({
           gap: 10,
         }}
       >
+        {isStandings ? (
+          <PrimaryButton
+            size="lg"
+            onClick={onBackToGame}
+            style={{ minHeight: 60, fontSize: 20 }}
+          >
+            Back to Game
+          </PrimaryButton>
+        ) : (
+          <>
         <PrimaryButton
           size="lg"
           onClick={onPlayAgain}
@@ -333,6 +360,8 @@ export function ResultsPage({
         >
           Return Home
         </button>
+          </>
+        )}
       </div>
     </div>
   )

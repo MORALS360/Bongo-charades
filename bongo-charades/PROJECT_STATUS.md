@@ -1,7 +1,9 @@
 # Bongo Charades — Project Status
 
-**Last Updated**: 2026-11-11  
-**Current Stage**: Phase 3 Completed (Game Setup Screen, Team Management & Forehead Positioning Bridge)
+**Last Updated**: 2026-11-11 (Phase 4 audit, branch `phase-4-audit`)  
+**Current Stage**: Phase 4 complete in the browser; real-device tilt testing pending. Phase 5 has not started and is waiting for owner approval.
+
+> See `PHASE_4_ACCEPTANCE_REPORT.md` for the full PASS / PARTIAL / FAIL / DEVICE TEST REQUIRED checklist.
 
 ---
 
@@ -39,21 +41,39 @@
 
 ---
 
-## 2. Current Codebase State
-- Working full-flow pre-game experience:
-  - `#home`: Home Screen
-  - `#categories`: Categories Screen (multi-select + floating Continue)
-  - `#setup`: Game Setup Screen (categories review, teams, duration, language, validation)
-  - `#forehead`: Forehead Positioning Landscape Bridge Screen
-  - `#settings`, `#create`, `#history`: Clean pending placeholder screens
-- All state persisted across page navigation and reloads.
-- Visuals verified with high-resolution mobile (`390×844`), desktop (`1024×900`), and landscape (`844×390`) screenshots.
+- [x] **Phase 4 — Gameplay Engine (audited & completed by Claude, 2026-11-11)**:
+  - *Audit finding:* Antigravity's Phase 4 commit added the screens and hooks but never connected them. The production build failed, and "I'm Ready" did nothing.
+  - Added `src/game/gameSession.ts` (game rules as a pure reducer) and `src/hooks/useGameSession.ts`.
+  - Connected Forehead → Countdown → Gameplay → Round Transition → Results → Play Again / Home in `App.tsx`.
+  - Rewrote the prompt deck as pure, tested functions (`src/game/promptDeck.ts`); removed `usePromptDeck.ts`.
+  - Fixed the tilt maths for the forehead position (`src/game/tilt.ts`), duplicate-answer guards, late-answer guard, tied rankings and the category-filter fallback.
+  - Added Vitest (33 unit tests, `npm test`) and an end-to-end browser script (`tests/e2e/full-game-flow.mjs`, 31 checks).
+  - Build ✅ · Lint ✅ · Unit tests ✅ · Browser simulation ✅ · **Physical device tilt test ❌ not yet done**.
 
 ---
 
-## 3. Next Planned Task
-- **Phase 4 — Landscape Gameplay Engine & Loop**:
-  - Forehead positioning to 3-2-1 countdown transition.
-  - Active Landscape Gameplay Screen with `TimerPill`, `ScorePill`, active Category title, responsive Baloo 2 prompt display, and `Pass ↑` / `Correct ↓` buttons.
-  - Multilingual prompt deck loader (`English`, `Kiswahili`, `Mixed`).
-  - Results Screen (Artboard 5 / PDF Page 5) with confetti, score breakdown, and "Play Again" / "Back to Categories" actions.
+## 2. Current Codebase State
+- Full playable game in the browser:
+  - `#home` → `#categories` → `#setup` → `#forehead` → `#countdown` → `#gameplay` → `#transition` (between teams) → `#results`
+  - Manual Correct/Pass buttons always work. Tilt works in simulation and still needs a real phone.
+  - `#settings`, `#create`, `#history`: still placeholder screens.
+- Game in progress is held in memory only (refreshing mid-game returns to Setup).
+- No PWA manifest or service worker yet (Phase 7).
+- The GitHub remote exists; the owner pushes `main` manually. Phase 4 work is on the local branch `phase-4-audit` (not pushed).
+
+---
+
+## 3. How to run
+```bash
+npm install        # needed once after pulling this branch (adds Vitest)
+npm run dev        # local dev server
+npm test           # unit tests
+npm run build      # production build
+npm run lint
+```
+
+---
+
+## 4. Next Planned Task
+1. **Owner:** review `PHASE_4_ACCEPTANCE_REPORT.md` and run the physical-device tilt checklist (needs an https URL).
+2. **After approval: Phase 5, Cultural Research & Prompt Bank** (see `DEVELOPMENT_ROADMAP.md`). Not started.

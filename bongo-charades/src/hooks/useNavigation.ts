@@ -8,6 +8,7 @@ const VALID_ROUTES: ReadonlySet<ScreenRoute> = new Set([
   'forehead',
   'countdown',
   'gameplay',
+  'transition',
   'results',
   'settings',
   'create',
@@ -39,7 +40,12 @@ export interface NavigationController {
   activeNavTab: BottomNavTab
   isLandscape: boolean
   showBottomNav: boolean
-  navigate: (route: ScreenRoute) => void
+  /**
+   * Go to a screen. `replace: true` swaps the current history entry instead of adding
+   * one — used between in-game screens so the browser Back button leaves the game
+   * rather than stepping backwards through countdown/gameplay screens.
+   */
+  navigate: (route: ScreenRoute, options?: { replace?: boolean }) => void
   selectNavTab: (tab: BottomNavTab) => void
 }
 
@@ -84,12 +90,16 @@ export function useNavigation(initialRoute: ScreenRoute = 'home'): NavigationCon
   }, [applyRoute, initialRoute])
 
   const navigate = useCallback(
-    (route: ScreenRoute) => {
+    (route: ScreenRoute, options?: { replace?: boolean }) => {
       applyRoute(route)
       if (typeof window !== 'undefined') {
         const nextHash = `#${route}`
         if (window.location.hash !== nextHash) {
-          window.history.pushState(null, '', nextHash)
+          if (options?.replace) {
+            window.history.replaceState(null, '', nextHash)
+          } else {
+            window.history.pushState(null, '', nextHash)
+          }
         }
         window.scrollTo({ top: 0, behavior: 'smooth' })
       }

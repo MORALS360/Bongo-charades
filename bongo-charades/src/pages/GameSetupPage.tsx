@@ -28,6 +28,8 @@ interface GameSetupPageProps {
   onBackToCategories: () => void
   onStartGame: () => void
   onResetDefaults?: () => void
+  /** If set, Start Game is disabled and this message is shown (e.g. no prompts available) */
+  startBlockedMessage?: string
 }
 
 const DURATION_OPTIONS: { value: RoundDuration; label: string }[] = [
@@ -78,9 +80,10 @@ export function GameSetupPage({
   onBackToCategories,
   onStartGame,
   onResetDefaults,
+  startBlockedMessage,
 }: GameSetupPageProps) {
   const hasCategories = isFeelingLucky || selectedCategories.length > 0
-  const canStartGame = hasCategories && isTeamNamesValid
+  const canStartGame = hasCategories && isTeamNamesValid && !startBlockedMessage
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -371,7 +374,9 @@ export function GameSetupPage({
           >
             {!hasCategories
               ? 'Select at least one category to start.'
-              : 'Please enter a name for all active teams.'}
+              : !isTeamNamesValid
+                ? 'Please enter a name for all active teams.'
+                : startBlockedMessage}
           </p>
         )}
         <PrimaryButton

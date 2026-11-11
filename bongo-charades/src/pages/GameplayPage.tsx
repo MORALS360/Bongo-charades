@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import type { Category, GamePrompt, GameplayAction } from '../types'
 import { TimerPill } from '../components/gameplay/TimerPill'
 import { ScorePill } from '../components/gameplay/ScorePill'
@@ -19,6 +19,9 @@ interface GameplayPageProps {
   showTiltHints?: boolean
   tiltSensitivity?: 'low' | 'medium' | 'high'
 }
+
+/** Minimum gap between two answers (ms) — matches the feedback flash */
+const ANSWER_LOCK_MS = 400
 
 function getPromptFontSize(text: string): { fontSize: number; lineHeight: string } {
   const len = text.length
@@ -57,20 +60,33 @@ export function GameplayPage({
   const [isPortraitWarning, setIsPortraitWarning] = useState<boolean>(false)
 
   // Countdown round timer
-  const { secondsRemaining, isTimeUp } = useGameTimer({
+  const { secondsRemaining, isTimeUp, hasExpired } = useGameTimer({
     durationSeconds: roundDurationSeconds,
     active: true,
     onTimeUp: onRoundTimeUp,
     soundEnabled,
   })
 
+  // Short input lock after each answer, so an accidental double-tap (or a tap at
+  // the same moment as a tilt) cannot answer two prompts at once.
+  const inputLockedUntilRef = useRef(0)
+  const feedbackTimerRef = useRef<number | null>(null)
+  useEffect(
+    () => () => {
+      if (feedbackTimerRef.current) window.clearTimeout(feedbackTimerRef.current)
+    },
+    [],
+  )
+
   // Handle player answer (triggered by tilt or manual button)
   const handleAction = useCallback(
     (action: GameplayAction) => {
-      // Guard: strictly ignore answers if time is up
-      if (isTimeUp || secondsRemaining <= 0) {
-        return
-      }
+      // Guard: never accept answers once the deadline has passed
+      if (hasExpired()) return
+
+      const now = performance.now()
+      if (now < inputLockedUntilRef.current) return
+      inputLockedUntilRef.current = now + ANSWER_LOCK_MS
 
       if (action === 'correct') {
         if (soundEnabled) playCorrectSound()
@@ -83,12 +99,10 @@ export function GameplayPage({
       onAnswer(action, currentPrompt)
 
       // Dismiss feedback overlay after 350ms
-      const timer = setTimeout(() => {
-        setFeedback(null)
-      }, 350)
-      return () => clearTimeout(timer)
+      if (feedbackTimerRef.current) window.clearTimeout(feedbackTimerRef.current)
+      feedbackTimerRef.current = window.setTimeout(() => setFeedback(null), 350)
     },
-    [isTimeUp, secondsRemaining, soundEnabled, onAnswer, currentPrompt],
+    [hasExpired, soundEnabled, onAnswer, currentPrompt],
   )
 
   // Physical motion / orientation controls hook

@@ -20,15 +20,14 @@ export function useCountdown({
 }: UseCountdownOptions) {
   const [step, setStep] = useState<CountdownStep>(3)
   const onCompleteRef = useRef(onComplete)
-  onCompleteRef.current = onComplete
+  useEffect(() => {
+    onCompleteRef.current = onComplete
+  }, [onComplete])
 
   useEffect(() => {
-    if (!active) {
-      setStep(3)
-      return
-    }
+    // The countdown screen is mounted fresh for every round, so `step` already starts at 3
+    if (!active) return
 
-    setStep(3)
     if (soundEnabled) playCountdownTick(false)
 
     const timer1 = setTimeout(() => {

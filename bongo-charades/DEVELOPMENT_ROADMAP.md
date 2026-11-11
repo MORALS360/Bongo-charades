@@ -44,42 +44,53 @@ This roadmap breaks the implementation of Bongo Charades into logical, testable,
 
 ---
 
-## Phase 4: Landscape Gameplay Loop & Results (Forehead Positioning, Countdown, Gameplay, Results) [UPCOMING]
-**Objective**: Complete the core end-to-end playable game loop from clicking `"Start Game"` through forehead positioning, `3-2-1-GO!` countdown, active landscape gameplay, and the `"Time's up!"` Results screen.
+## Phase 4: Gameplay Engine [COMPLETE IN BROWSER — DEVICE TILT TEST PENDING]
+**Objective**: A complete, reliable game loop: forehead positioning → 3-2-1-GO! → landscape gameplay with tilt and manual controls → team rotation → final results.
 
-- **Scope**:
-  - **Forehead Positioning Screen (`ForeheadReadyPage`)**: Connect `"I'm Ready"` to the countdown sequence.
-  - **Countdown Screen (`CountdownPage`)**: Landscape `270×270` badge + `3`, `2`, `1`, `GO!` step pills ticking every second into gameplay.
-  - **Multilingual Prompt Deck**: Real prompt words and phrases for all 26 categories in English, Kiswahili, and Mixed.
-  - **Active Gameplay Screen (`GameplayPage`)**: Landscape view with `TimerPill`, `ScorePill`, active Category title, responsive `Baloo 2` prompt display (`88px` down to `56px` for long words), and functional `Pass ↑` and `Correct ↓` buttons.
-  - **Results Screen (`ResultsPage`)**: Portrait summary with confetti dots, `"Time's up!"`, Final Score badge, team/encouragement message, `Correct` and `Passed` counts, `"Play Again"`, and `"Back to Categories"`.
-- **Dependencies**: Phase 3.
-- **How We Test**:
-  - Play complete rounds (`30s`, `60s`) from Home → Categories → Game Setup → Forehead Positioning → Countdown → Gameplay → Results → Play Again / Back to Categories.
-  - Compare every screen visually against Pages 5, 7, 8, and 9 of the PDF export.
-
----
-
-## Phase 5: Tilt Sensor Integration, Audio/Haptics & Secondary Tabs
-**Objective**: Layer in physical device tilt controls (`DeviceOrientationEvent`), synthesized sound effects, haptic vibration, and the remaining `BottomNav` views (`History` & `Create`).
-
-- **Scope**:
-  - Implement `useTiltControls` hook with explicit iOS 13+ permission request triggered on `"I'm Ready"`, neutral-zone calibration, debounced Tilt Down (`Correct`) and Tilt Up (`Pass`), and sensitivity settings (`Low`, `Medium`, `High`).
-  - Add Web Audio API sound effects (countdown beep, correct chime, pass swoosh, time's up fanfare) and `navigator.vibrate` haptics respecting Settings toggles.
-  - Implement local `History` screen (showing past rounds stored in `localStorage`) and `Create` screen (or clean custom deck builder) matching the design system.
-- **Dependencies**: Phase 4.
-- **How We Test**:
-  - Test tilt controls on actual mobile devices (iOS Safari & Android Chrome) plus desktop fallback when motion sensors are absent or denied.
-  - Verify `Show tilt hints` and `Tilt sensitivity` settings dynamically affect gameplay.
+- **Delivered** (Antigravity screens + Claude audit/integration, 2026-11-11):
+  - Forehead positioning screen with Ready button and iOS motion-permission request.
+  - 3-2-1-GO! countdown, and round timer for 30/60/90/120 s that stops exactly at 0.
+  - Landscape gameplay: large prompt, timer, team, score, Pass ↑ / Correct ↓ buttons, rotate-phone message.
+  - Tilt controls (down = Correct, up = Pass) using screen-facing maths, with a return-to-upright rule and cooldown.
+  - Prompt deck: selected categories only, respects language, shuffled, no repeats until exhausted.
+  - Scoring per team, duplicate and late answers ignored, team rotation with transition screen and mid-game standings.
+  - Final results with ranking, winner, ties, Play Again and Return Home.
+  - Game rules centralised in `src/game/gameSession.ts`. 33 unit tests and an end-to-end browser script.
+- **Remaining for full acceptance**: physical-device tilt test on iOS Safari and Android Chrome (needs https). See `PHASE_4_ACCEPTANCE_REPORT.md` §5.
 
 ---
 
-## Phase 6: Responsive Polish & Progressive Web App (PWA) Readiness
-**Objective**: Ensure Bongo Charades works offline, can be installed to a mobile home screen, and handles landscape/portrait transitions smoothly across devices.
+## Phase 5: Cultural Research & Prompt-Bank Development [NEXT — AWAITING APPROVAL]
+**Objective**: A research-backed, culturally relevant prompt library for the **existing 26 categories** (no new categories).
 
 - **Scope**:
-  - Add Web App Manifest (`manifest.webmanifest`), app icons, and service worker caching for offline play (including bundled fonts and prompt decks).
-  - Final accessibility, safe-area inset (`env(safe-area-inset-bottom)`), and cross-device layout audit.
-- **Dependencies**: Phase 5.
-- **How We Test**:
-  - Lighthouse PWA / accessibility check and offline airplane-mode gameplay test.
+  - A research ledger with sources, dates and uncertainty notes (music charts, entertainment, everyday life, slang, personalities, nostalgia).
+  - A prompt schema extended with difficulty (easy/medium/hard), content type, region, tags, verification status and review date, kept separate from UI and game logic.
+  - About 15–25 quality-controlled prompts per category, prioritising Bongo & Tanzanian Culture.
+  - Duplicate detection and validation script; a list of content that needs human review.
+  - Integration into the game, plus tests confirming category, language and difficulty selection.
+- **Known issues to fix there**: EN/SW word-for-word duplicates ("Simba"/"Lion"), "Kenge" mislabelled as crocodile, thin categories.
+
+---
+
+## Phase 6: Gameplay Polish & User Testing
+- Real group play-testing; fix confusing moments.
+- Pause/quit during a round; pause the timer while the rotate message shows or the app is in the background.
+- Settings screen (sound, haptics, tilt hints, tilt sensitivity), History and Create tabs.
+- Haptic feedback, animation and sound refinement, and accessibility.
+
+---
+
+## Phase 7: PWA Optimisation
+- Web App Manifest, icons, service worker, offline play, update handling.
+- Installability; landscape orientation lock for installed app; iOS and Android testing.
+
+---
+
+## Phase 8: Deployment & Launch
+- Production hosting (https), domain, privacy-respecting analytics, error monitoring, launch preparation.
+
+---
+
+## Future: Native app (evaluate Capacitor when justified)
+Keep the architecture portable. Game rules already live in plain TypeScript (`src/game/`), independent of the browser UI.

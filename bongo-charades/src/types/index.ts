@@ -143,6 +143,7 @@ export type ScreenRoute =
   | 'forehead'
   | 'countdown'
   | 'gameplay'
+  | 'transition'
   | 'results'
   | 'settings'
   | 'create'
