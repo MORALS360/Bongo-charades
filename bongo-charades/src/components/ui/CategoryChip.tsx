@@ -4,13 +4,35 @@ import { CategoryIcon } from '../illustrations/CategoryIcon'
 interface CategoryChipProps {
   category: Category
   onClick?: (category: Category) => void
+  onRemove?: (category: Category) => void
 }
 
 /**
- * Yellow pill chip displaying a 32x32 mini category illustration and
- * its untranslated category name, used on the Game Setup screen.
+ * Yellow pill chip displaying a 32x32 mini category illustration,
+ * its untranslated category name, and an optional remove action.
+ * Used on the Game Setup screen and summary views.
  */
-export function CategoryChip({ category, onClick }: CategoryChipProps) {
+export function CategoryChip({ category, onClick, onRemove }: CategoryChipProps) {
+  const content = (
+    <>
+      <CategoryIcon icon={category.icon} size={32} />
+      <span>{category.name}</span>
+      {onRemove && (
+        <button
+          type="button"
+          aria-label={`Remove ${category.name}`}
+          className="category-chip__remove"
+          onClick={(e) => {
+            e.stopPropagation()
+            onRemove(category)
+          }}
+        >
+          ×
+        </button>
+      )}
+    </>
+  )
+
   if (onClick) {
     return (
       <button
@@ -18,16 +40,10 @@ export function CategoryChip({ category, onClick }: CategoryChipProps) {
         className="category-chip"
         onClick={() => onClick(category)}
       >
-        <CategoryIcon icon={category.icon} size={32} />
-        <span>{category.name}</span>
+        {content}
       </button>
     )
   }
 
-  return (
-    <span className="category-chip">
-      <CategoryIcon icon={category.icon} size={32} />
-      <span>{category.name}</span>
-    </span>
-  )
+  return <span className="category-chip">{content}</span>
 }

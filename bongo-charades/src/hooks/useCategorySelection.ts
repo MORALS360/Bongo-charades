@@ -19,6 +19,9 @@ export interface CategorySelectionController {
   recentlyPlayedCategories: Category[]
   isFeelingLucky: boolean
   toggleCategory: (category: Category) => void
+  removeCategory: (category: Category) => void
+  clearCategories: () => void
+  selectAllCategories: () => void
   selectCategoryFromHome: (category: Category) => void
   activateFeelingLucky: () => void
   deactivateFeelingLucky: () => void
@@ -26,7 +29,7 @@ export interface CategorySelectionController {
 
 /**
  * Manages category selection, "Recently played" categories on Home,
- * and "Feeling lucky?" random-play state across Home and Categories screens.
+ * and "Feeling lucky?" random-play state across Home, Categories, and Game Setup.
  */
 export function useCategorySelection(): CategorySelectionController {
   const [selectedCategoryIds, setSelectedCategoryIds] =
@@ -49,6 +52,20 @@ export function useCategorySelection(): CategorySelectionController {
         ? prev.filter((id) => id !== category.id)
         : [...prev, category.id],
     )
+  }, [])
+
+  const removeCategory = useCallback((category: Category) => {
+    setSelectedCategoryIds((prev) => prev.filter((id) => id !== category.id))
+  }, [])
+
+  const clearCategories = useCallback(() => {
+    setIsFeelingLucky(false)
+    setSelectedCategoryIds([])
+  }, [])
+
+  const selectAllCategories = useCallback(() => {
+    setIsFeelingLucky(false)
+    setSelectedCategoryIds(CATEGORIES.map((c) => c.id))
   }, [])
 
   const selectCategoryFromHome = useCallback(
@@ -89,6 +106,9 @@ export function useCategorySelection(): CategorySelectionController {
     recentlyPlayedCategories,
     isFeelingLucky,
     toggleCategory,
+    removeCategory,
+    clearCategories,
+    selectAllCategories,
     selectCategoryFromHome,
     activateFeelingLucky,
     deactivateFeelingLucky,

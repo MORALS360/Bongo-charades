@@ -109,6 +109,7 @@ export interface GameSetupConfig {
   isFeelingLucky: boolean
   durationSeconds: RoundDuration
   teams: TeamCount
+  teamNames: string[]
   promptLanguage: PromptLanguage
 }
 

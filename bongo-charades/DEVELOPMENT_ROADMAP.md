@@ -4,7 +4,7 @@ This roadmap breaks the implementation of Bongo Charades into logical, testable,
 
 ---
 
-## Phase 1: Design System Foundation, Fonts & Shared UI Components
+## Phase 1: Design System Foundation, Fonts & Shared UI Components [COMPLETED]
 **Objective**: Replace the default Vite starter styling with the exact Bongo Charades design tokens, typography (`Baloo 2` and `Nunito Sans`), shared SVG radial gradients, all 26 category illustrations, and reusable UI primitives.
 
 - **Scope**:
@@ -12,49 +12,45 @@ This roadmap breaks the implementation of Bongo Charades into logical, testable,
   - Create `src/styles/design-tokens.css` with exact colours, gradients, shadows, radii, and responsive rules (`<600px` mobile, `600–1023px` tablet, `1024px+` desktop centred `440px` frame).
   - Extract the shared `<SvgGradients />` and all 26 `<CategoryIcon />` SVG illustrations + Dice SVG + Forehead Positioning SVG from the HTML export into reusable React components.
   - Build core reusable components: `PrimaryButton`, `SecondaryButton`, `IconButton`, `CategoryCard`, `FeaturedCard`, `Panel`, `SegmentedControl`, `ToggleRow`, `BottomNav`, `TimerPill`, `ScorePill`, `TiltButton`.
-- **Dependencies**: None (Foundational).
-- **How We Test**:
-  - Verify typography, colours, borders, shadows, and all 26 SVG illustrations against Page 1 (Design System) and Page 3 (Categories) of the PDF/HTML exports.
-  - Run `npm run build` and `npm run lint` to confirm zero TypeScript or lint errors.
+- **Status**: Completed. Verified with zero lint/build errors and local dev preview.
 
 ---
 
-## Phase 2: Game Content Data, Localization & State Management
-**Objective**: Establish the decoupled data layer for all 26 categories, initial multilingual prompt decks (`English`, `Kiswahili`, `Mixed`), UI translation dictionary (`English` default, `Kiswahili` toggle), and persistent app/game state.
+## Phase 2: Home & Categories Screens [COMPLETED]
+**Objective**: Implement the primary portrait discovery experience directly matching Artboards 2 & 3 of the approved Claude design.
 
 - **Scope**:
-  - Create `src/data/categories.ts` with all 26 categories across the 3 groups (*Classic Charades*, *Bongo & Tanzanian Culture*, *East Africa & Beyond*), preserving original untranslated category names.
-  - Create `src/data/prompts/` with initial playable prompt lists for every category, tagged by language (`en`, `sw`, `mixed`).
-  - Create `src/i18n/uiStrings.ts` separating App Interface Language from Game Prompt Language.
-  - Create `SettingsContext` and `GameContext` backed by `localStorage` (`recentlyPlayed`, `settings`, `gameSetup`, `history`).
-- **Dependencies**: Phase 1 types/icons.
-- **How We Test**:
-  - Unit/integration check that switching App Interface Language translates UI labels while keeping category names untouched.
-  - Verify prompt filtering by category, `"Feeling lucky?"` random mode, and prompt language (`English`, `Kiswahili`, `Mixed`).
+  - **Home Screen (`HomePage`)**: Brand header, Settings shortcut, `"Ready to play?"` hero card with `"Play Now"` CTA, `"Feeling lucky?"` featured card, `"Recently played"` 2-card grid, and `BottomNav`.
+  - **Categories Screen (`CategoriesPage`)**: Scrollable catalog containing all 26 approved categories across 3 groups (*Classic Charades*, *Bongo & Tanzanian Culture*, *East Africa & Beyond*), multi-selection state with `3px` yellow border, and `"Feeling lucky?"` random selection mode.
+  - **Category State**: `useCategorySelection.ts` managing selection toggle, lucky mode, clear, and persistence.
+- **Status**: Completed. Verified with mobile and desktop headless browser captures.
 
 ---
 
-## Phase 3: Portrait Discovery & Configuration Screens (Home, Categories, Game Setup, Settings)
-**Objective**: Implement the complete pre-game portrait user journey so a player can browse categories, configure a game round, and adjust settings.
+## Phase 3: Game Setup Experience [COMPLETED]
+**Objective**: Implement the complete Game Setup screen matching Artboard 4 / PDF Page 4, connecting category selection to pre-round configuration with full team customization, duration, and language controls.
 
 - **Scope**:
-  - **Home Screen (`HomePage`)**: Brand header, Settings button, `"Ready to play?"` hero, `"Play Now"` CTA, `"Feeling lucky?"` featured card, `"Recently played"` 2-card grid, and `BottomNav`.
-  - **Categories Screen (`CategoriesPage`)**: Scrollable view with `"Feeling lucky?"` card and all 3 category sections (26 cards), multi-category selection (`3px` yellow border), and sticky/clear way to proceed to Game Setup.
-  - **Game Setup Screen (`GameSetupPage`)**: Selected category chips with `32×32` icons, Duration (`30s/60s/90s/120s`), Teams (`2/3/4`), Prompt language (`English/Kiswahili/Mixed`), and `"Start Game"` button.
-  - **Settings Screen (`SettingsPage`)**: App language (`English/Kiswahili`), Sound, Haptic feedback, Show tilt hints, and Tilt sensitivity (`Low/Medium/High`).
-- **Dependencies**: Phases 1 & 2.
-- **How We Test**:
-  - Visual comparison of Home, Categories, Game Setup, and Settings against Pages 2, 3, 4, and 6 of the PDF export across mobile (`390×844`), tablet, and desktop viewports.
-  - Verify full navigation flow between Home ↔ Categories ↔ Game Setup ↔ Settings.
+  - **Selected Categories Review**: Displays category chips with icons and remove (`×`) actions, count indicator, and "+ Add more" / "Choose specific" returning to Categories while preserving state.
+  - **Floating Continue Bar**: On `CategoriesPage`, surfaces a persistent `"Continue to Setup ({count}) ▷"` button whenever categories are selected.
+  - **Team Setup & Validation**: Allows choosing 2, 3, or 4 teams with editable team names, culturally authentic defaults (`Wana Dar`, `Simba Damu`, `Team Chapchap`, `Wajanja`), and inline validation requiring non-empty names.
+  - **Round Duration**: Segmented control for 30s, 60s (default), 90s, and 120s.
+  - **Prompt Language**: Segmented control for English, Kiswahili, and Mixed (default) with clear guidance that category names retain their Tanzanian identity.
+  - **Configuration Summary**: Live summary panel detailing categories count, team match-up, turn duration, and prompt language.
+  - **Start Game Action**: Prominent CTA button, enabled only when valid, routing forward to the Forehead Positioning screen.
+  - **Forehead Positioning Screen (`ForeheadReadyPage`)**: Landscape orientation screen matching Artboard 7 / PDF Page 7 with player+friends SVG illustration and configuration badge.
+  - **Setup Hook & Persistence**: `useGameSetup.ts` manages setup state and saves configuration to `localStorage`.
+- **Status**: Completed. Verified with automated assertions and visual screenshots.
 
 ---
 
-## Phase 4: Landscape Gameplay Loop & Results (Forehead Positioning, Countdown, Gameplay, Results)
+## Phase 4: Landscape Gameplay Loop & Results (Forehead Positioning, Countdown, Gameplay, Results) [UPCOMING]
 **Objective**: Complete the core end-to-end playable game loop from clicking `"Start Game"` through forehead positioning, `3-2-1-GO!` countdown, active landscape gameplay, and the `"Time's up!"` Results screen.
 
 - **Scope**:
-  - **Forehead Positioning Screen (`ForeheadReadyPage`)**: Landscape layout (`844×390` proportion), custom player+friends SVG illustration, `"Get ready!"` instructions, and `"I'm Ready"` button.
+  - **Forehead Positioning Screen (`ForeheadReadyPage`)**: Connect `"I'm Ready"` to the countdown sequence.
   - **Countdown Screen (`CountdownPage`)**: Landscape `270×270` badge + `3`, `2`, `1`, `GO!` step pills ticking every second into gameplay.
+  - **Multilingual Prompt Deck**: Real prompt words and phrases for all 26 categories in English, Kiswahili, and Mixed.
   - **Active Gameplay Screen (`GameplayPage`)**: Landscape view with `TimerPill`, `ScorePill`, active Category title, responsive `Baloo 2` prompt display (`88px` down to `56px` for long words), and functional `Pass ↑` and `Correct ↓` buttons.
   - **Results Screen (`ResultsPage`)**: Portrait summary with confetti dots, `"Time's up!"`, Final Score badge, team/encouragement message, `Correct` and `Passed` counts, `"Play Again"`, and `"Back to Categories"`.
 - **Dependencies**: Phase 3.

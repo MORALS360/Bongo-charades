@@ -106,9 +106,7 @@ export function useNavigation(initialRoute: ScreenRoute = 'home'): NavigationCon
 
   const isLandscape = LANDSCAPE_ROUTES.has(currentRoute)
   const showBottomNav =
-    NAV_TAB_ROUTES.has(currentRoute) ||
-    currentRoute === 'settings' ||
-    currentRoute === 'setup'
+    NAV_TAB_ROUTES.has(currentRoute) || currentRoute === 'settings'
 
   return {
     currentRoute,
