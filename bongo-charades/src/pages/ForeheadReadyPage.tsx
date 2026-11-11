@@ -1,13 +1,15 @@
-import { useState } from 'react'
 import { ForeheadPositioningSvg } from '../components/illustrations/CategoryIcon'
 import { PrimaryButton } from '../components/ui/PrimaryButton'
 import { SecondaryButton } from '../components/ui/SecondaryButton'
 
 interface ForeheadReadyPageProps {
   currentTeamName: string
+  currentTeamIndex: number
+  totalTeams: number
   durationSeconds: number
   promptLanguageLabel: string
   categoriesSummary: string
+  onReady: () => void
   onBackToSetup: () => void
   onBackToHome: () => void
 }
@@ -17,18 +19,19 @@ interface ForeheadReadyPageProps {
  *
  * Landscape instruction screen showing players how to position the phone horizontally
  * against the forehead with the screen facing friends.
- * Acts as the verified upcoming gameplay entry point for Phase 3.
+ * Clicking "I'm Ready" triggers motion permission and starts the 3-2-1-GO! countdown.
  */
 export function ForeheadReadyPage({
   currentTeamName,
+  currentTeamIndex,
+  totalTeams,
   durationSeconds,
   promptLanguageLabel,
   categoriesSummary,
+  onReady,
   onBackToSetup,
   onBackToHome,
 }: ForeheadReadyPageProps) {
-  const [showPhase4Notice, setShowPhase4Notice] = useState(false)
-
   return (
     <div
       style={{
@@ -71,7 +74,9 @@ export function ForeheadReadyPage({
             width: 'fit-content',
           }}
         >
-          <span>🎯 {currentTeamName}</span>
+          <span>
+            🎯 Team {currentTeamIndex + 1}/{totalTeams}: {currentTeamName}
+          </span>
           <span>•</span>
           <span>{durationSeconds}s</span>
           <span>•</span>
@@ -90,28 +95,13 @@ export function ForeheadReadyPage({
           Categories: {categoriesSummary}
         </p>
 
-        {showPhase4Notice ? (
-          <div
-            style={{
-              background: 'rgba(20, 184, 166, 0.2)',
-              border: '2px solid #14B8A6',
-              borderRadius: 16,
-              padding: '10px 14px',
-              fontSize: 13,
-              fontWeight: 700,
-            }}
-          >
-            🎉 <b>Game setup verified!</b> The live gameplay engine (countdown, tilt detection, and scoring) begins in Phase 4.
-          </div>
-        ) : (
-          <PrimaryButton
-            size="lg"
-            onClick={() => setShowPhase4Notice(true)}
-            style={{ minHeight: 56, fontSize: 20 }}
-          >
-            I'm Ready
-          </PrimaryButton>
-        )}
+        <PrimaryButton
+          size="lg"
+          onClick={onReady}
+          style={{ minHeight: 56, fontSize: 20, marginTop: 4 }}
+        >
+          I'm Ready
+        </PrimaryButton>
 
         <div style={{ display: 'flex', gap: 8, marginTop: 4 }}>
           <SecondaryButton
