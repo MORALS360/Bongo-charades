@@ -91,7 +91,6 @@ body {
   min-height: 100%;
   font-family: var(--font-body);
   font-size: 16px;
-  line-height: 24px;
   color: var(--color-white);
   background: var(--color-purple-start);
   -webkit-font-smoothing: antialiased;
@@ -442,9 +441,6 @@ button:focus-visible {
 .app-shell-portrait__content {
   flex: 1;
   padding: 52px 16px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
 }
 
 .app-shell-portrait__content--with-nav {
@@ -492,12 +488,20 @@ button:focus-visible {
   .app-shell-portrait {
     width: 440px;
     max-width: 440px;
+    height: 844px;
     min-height: 844px;
     border-radius: 36px;
     box-shadow:
       0 24px 64px rgba(15, 8, 50, 0.55),
       0 0 0 6px rgba(255, 255, 255, 0.12);
     overflow: hidden;
+  }
+
+  .app-shell-portrait__content {
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
   }
 
   .bottom-nav {

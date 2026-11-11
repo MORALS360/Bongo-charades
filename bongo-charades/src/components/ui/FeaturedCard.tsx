@@ -28,7 +28,6 @@ export function FeaturedCard({
           style={{
             fontWeight: 700,
             fontSize: 14,
-            lineHeight: '18px',
             display: 'block',
             marginTop: 4,
           }}
