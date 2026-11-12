@@ -4,7 +4,7 @@
 **Bongo Charades** is a mobile-first party game inspired by classic forehead charades, built around a vibrant Tanzanian ("Bongo") and East African cultural identity.
 
 - **Core Experience**: One player holds a phone horizontally against their forehead with the screen facing their friends. Friends act out, describe, or sing clues while the player guesses as many prompts as possible before the countdown timer expires.
-- **Cultural Personality**: While accessible to players everywhere through Classic Charades categories, the heart of the game celebrates Tanzanian everyday life, music (*Bongo Flava*), cinema (*Movie za Bongo*), street culture (*Mtaani*, *Vijiweni*, *Daladala Diaries*), food (*Chakula Chetu*), and broader East African and pan-African culture.
+- **Cultural Personality**: While accessible to players everywhere through Classic Charades categories, the heart of the game celebrates Tanzanian everyday life, music (*Bongo Flava*), cinema (*Movie za Bongo*), street culture (*Mtaani*, *Daladala Diaries*), throwback music (*Zilipendwa*), food (*Chakula Chetu*), and broader East African and pan-African culture.
 - **Feel & Polish**: A lively, tactile, modern mobile game—bold typography, rich purple gradients, warm yellow/orange accents, playful custom SVG illustrations, sound effects, and haptic feedback.
 
 ---
@@ -25,6 +25,8 @@ The architecture strictly separates **App Interface Language** from **Game Promp
 
 ## 3. Category Taxonomy (26 Approved Categories in 3 Groups)
 
+> **Content identity per group (owner decision, 2026-11-12)** — Classic Charades = universal, English-led with Kiswahili translations of the same idea · Bongo & Tanzanian Culture = Tanzanian, Kiswahili-led · East Africa & Beyond = Africa-wide and international, English-led. Full rules: `docs/content/CONTENT_DIRECTION.md`.
+
 ### Group 1: Classic Charades (`c1` — `#7060E3`)
 1. **Animals**
 2. **Movies & TV**
@@ -40,7 +42,7 @@ The architecture strictly separates **App Interface Language** from **Game Promp
 10. **Daladala Diaries**
 11. **Bongo Flava**
 12. **Mtaani**
-13. **Vijiweni**
+13. **Zilipendwa** — Tanzanian throwback music (replaced *Vijiweni* on 2026-11-12; Vijiweni's content merged into *Mtaani*)
 14. **Chakula Chetu**
 15. **Watu Maarufu**
 16. **Movie za Bongo**
@@ -65,19 +67,25 @@ The architecture strictly separates **App Interface Language** from **Game Promp
 ## 4. Core User Journey & Gameplay Loop
 
 1. **Home / Discovery**: Launch straight into `"Play Now"`, `"Feeling lucky?"`, or `"Recently played"` categories, or browse all categories via the Bottom Navigation (`Home`, `Categories`, `Create`, `History`) and top-right `Settings`.
-2. **Category Selection**: Select one or more categories (indicated by a `3px` `#FFC83A` yellow border) and proceed to Game Setup.
-3. **Game Setup**:
+2. **Category Selection**: Select one or more categories (indicated by a `3px` `#FFC83A` yellow border) and tap **Continue**.
+3. **Play Mode** (new): choose round length and prompt language, then
+   - **Quick Play**: no teams, one shared score, straight into the game; or
+   - **Teams**: continue to Game Setup.
+4. **Game Setup (Teams only)**:
    - Review selected category chips (with mini category illustrations).
-   - Choose round **Duration**: `30s`, `60s` (default), `90s`, or `120s`.
-   - Choose **Teams**: `2` (default), `3`, or `4`.
-   - Choose **Prompt language**: `English`, `Kiswahili`, or `Mixed` (default).
-4. **Forehead Positioning (Landscape)**:
-   - Prompt the player (`"Get ready! Place your phone against your forehead, with the screen facing your friends."`) and wait for explicit `"I'm Ready"` tap (which also triggers device motion/orientation permission on iOS/mobile browsers).
-5. **Countdown (Landscape)**:
-   - Animated/stepped `3` → `2` → `1` → `GO!` countdown.
-6. **Active Gameplay (Landscape)**:
-   - High-contrast, distraction-free screen with `TimerPill` (top-left), `ScorePill` (top-right), active Category label (top-center), and large `Baloo 2` prompt text (`88px`, min `56px`).
-   - **Tilt Controls**: Tilt **DOWN** = Correct; Tilt **UP** = Pass.
-   - **Manual Fallback**: Always-accessible on-screen `Pass ↑ (Tilt up)` and `Correct ↓ (Tilt down)` buttons.
-7. **Results (Portrait)**:
+   - Teams: **2 by default**, players can **+ Add team** (up to 8) or remove teams, with editable names.
+   - Duration and prompt language (same settings as the Play Mode screen).
+5. **Forehead Positioning (Landscape)**:
+   - Starting a game asks the phone to switch to landscape (Android: fullscreen + orientation lock; iPhone can't be rotated by a website, so a "Turn your phone sideways" screen waits until the player rotates).
+   - Prompt the player (`"Get ready! Place your phone against your forehead…"`) and wait for `"I'm Ready"` (which also requests motion permission on iPhone).
+6. **Instructions + Countdown (Landscape)**: big colour-coded tiles — **TILT DOWN = CORRECT** (green), **TILT UP = PASS** (red) — while `3 → 2 → 1 → GO!` runs.
+7. **Active Gameplay (Landscape)**:
+   - Clean screen: timer, category label and the large prompt (plus a small hint line such as the artist for song titles). No permanent instruction buttons.
+   - Tilt DOWN = Correct; tilt UP = Pass → full-screen green/red feedback for ~0.8 s, then the next prompt.
+   - Fallback: small Pass / Correct buttons appear only if the phone sends no motion data; keyboard ↓/Enter and ↑ also work.
+   - Turning the phone upright pauses the round.
+8. **Results (Portrait)**:
    - Displays `"Time's up!"`, Final Score badge, encouraging message (e.g., `"Great round, Wana Dar!"`), `Correct` and `Passed` counts, plus `"Play Again"` and `"Back to Categories"` actions.
+   - Teams: a round-transition screen between teams, then final standings with ranks, winner and ties.
+   - Quick Play: single-score results (the original Artboard 5 layout).
+   - Leaving gameplay releases the landscape lock so portrait screens return to normal.

@@ -1,369 +1,611 @@
-import type { CategoryIconId, GamePrompt } from '../types'
+import type { CategoryIconId, GamePrompt, PromptLanguage } from '../types'
+import { nextRandom } from '../game/promptDeck'
 
 /**
- * Bongo Charades — Comprehensive Starter Prompt Library
+ * Bongo Charades — Prompt Library (pre-Phase 5 restructure, 2026-11-12)
  *
- * Covers all 26 categories across the 3 visual/cultural groups:
- * - c1: Classic Charades
- * - c2: Bongo & Tanzanian Culture
- * - c3: East Africa & Beyond
+ * GENERATED from a readable spec (see docs/content/CONTENT_DIRECTION.md for the rules).
+ * Each category group has its own content identity and language direction:
  *
- * Each prompt is tagged with:
- * - `categoryId`: matches CategoryIconId
- * - `language`: 'en' | 'sw' | 'mixed'
+ *  - Classic Charades ............ universal, English-led. Most prompts are translation
+ *                                  pairs sharing a `concept` (e.g. "Lion" / "Simba").
+ *  - Bongo & Tanzanian Culture ... Tanzanian, Kiswahili-led. English is not forced in.
+ *  - East Africa & Beyond ........ Africa-wide and international, English-led.
+ *
+ * `language: 'mixed'` = works in any language (names, song titles, brands).
+ * `hint` = small helper line shown under the prompt (e.g. the artist of a song).
+ * `needsReview: true` = flagged for human review (see the content report).
+ *
+ * Research notes and sources live in docs/content/, NOT in this file.
  */
 export const PROMPTS: GamePrompt[] = [
-  // =========================================================================
-  // GROUP 1: CLASSIC CHARADES (c1)
-  // =========================================================================
+  // ── animals ──
+  { id: 'anim-1', text: 'Lion', categoryId: 'animals', language: 'en', concept: 'anim-lion' },
+  { id: 'anim-2', text: 'Simba', categoryId: 'animals', language: 'sw', concept: 'anim-lion' },
+  { id: 'anim-3', text: 'Elephant', categoryId: 'animals', language: 'en', concept: 'anim-elephant' },
+  { id: 'anim-4', text: 'Tembo', categoryId: 'animals', language: 'sw', concept: 'anim-elephant' },
+  { id: 'anim-5', text: 'Giraffe', categoryId: 'animals', language: 'en', concept: 'anim-giraffe' },
+  { id: 'anim-6', text: 'Twiga', categoryId: 'animals', language: 'sw', concept: 'anim-giraffe' },
+  { id: 'anim-7', text: 'Leopard', categoryId: 'animals', language: 'en', concept: 'anim-leopard' },
+  { id: 'anim-8', text: 'Chui', categoryId: 'animals', language: 'sw', concept: 'anim-leopard' },
+  { id: 'anim-9', text: 'Hippo', categoryId: 'animals', language: 'en', concept: 'anim-hippo' },
+  { id: 'anim-10', text: 'Kiboko', categoryId: 'animals', language: 'sw', concept: 'anim-hippo' },
+  { id: 'anim-11', text: 'Crocodile', categoryId: 'animals', language: 'en', concept: 'anim-crocodile' },
+  { id: 'anim-12', text: 'Mamba', categoryId: 'animals', language: 'sw', concept: 'anim-crocodile' },
+  { id: 'anim-13', text: 'Monkey', categoryId: 'animals', language: 'en', concept: 'anim-monkey' },
+  { id: 'anim-14', text: 'Tumbili', categoryId: 'animals', language: 'sw', concept: 'anim-monkey' },
+  { id: 'anim-15', text: 'Zebra', categoryId: 'animals', language: 'en', concept: 'anim-zebra' },
+  { id: 'anim-16', text: 'Pundamilia', categoryId: 'animals', language: 'sw', concept: 'anim-zebra' },
+  { id: 'anim-17', text: 'Snake', categoryId: 'animals', language: 'en', concept: 'anim-snake' },
+  { id: 'anim-18', text: 'Nyoka', categoryId: 'animals', language: 'sw', concept: 'anim-snake' },
+  { id: 'anim-19', text: 'Dog', categoryId: 'animals', language: 'en', concept: 'anim-dog' },
+  { id: 'anim-20', text: 'Mbwa', categoryId: 'animals', language: 'sw', concept: 'anim-dog' },
+  { id: 'anim-21', text: 'Cat', categoryId: 'animals', language: 'en', concept: 'anim-cat' },
+  { id: 'anim-22', text: 'Paka', categoryId: 'animals', language: 'sw', concept: 'anim-cat' },
+  { id: 'anim-23', text: 'Chicken', categoryId: 'animals', language: 'en', concept: 'anim-chicken' },
+  { id: 'anim-24', text: 'Kuku', categoryId: 'animals', language: 'sw', concept: 'anim-chicken' },
+  { id: 'anim-25', text: 'Rhino', categoryId: 'animals', language: 'en', concept: 'anim-rhino' },
+  { id: 'anim-26', text: 'Kifaru', categoryId: 'animals', language: 'sw', concept: 'anim-rhino' },
+  { id: 'anim-27', text: 'Frog', categoryId: 'animals', language: 'en', concept: 'anim-frog' },
+  { id: 'anim-28', text: 'Chura', categoryId: 'animals', language: 'sw', concept: 'anim-frog' },
+  { id: 'anim-29', text: 'Cow', categoryId: 'animals', language: 'en', concept: 'anim-cow' },
+  { id: 'anim-30', text: "Ng'ombe", categoryId: 'animals', language: 'sw', concept: 'anim-cow' },
+  { id: 'anim-31', text: 'Fish', categoryId: 'animals', language: 'en', concept: 'anim-fish' },
+  { id: 'anim-32', text: 'Samaki', categoryId: 'animals', language: 'sw', concept: 'anim-fish' },
 
-  // 1. Animals
-  { id: 'anim-1', text: 'Simba', categoryId: 'animals', language: 'sw' },
-  { id: 'anim-2', text: 'Lion', categoryId: 'animals', language: 'en' },
-  { id: 'anim-3', text: 'Tembo', categoryId: 'animals', language: 'sw' },
-  { id: 'anim-4', text: 'Elephant', categoryId: 'animals', language: 'en' },
-  { id: 'anim-5', text: 'Twiga', categoryId: 'animals', language: 'sw' },
-  { id: 'anim-6', text: 'Giraffe', categoryId: 'animals', language: 'en' },
-  { id: 'anim-7', text: 'Chui', categoryId: 'animals', language: 'sw' },
-  { id: 'anim-8', text: 'Leopard', categoryId: 'animals', language: 'en' },
-  { id: 'anim-9', text: 'Kiboko', categoryId: 'animals', language: 'sw' },
-  { id: 'anim-10', text: 'Hippopotamus', categoryId: 'animals', language: 'en' },
-  { id: 'anim-11', text: 'Nyoka Mweusi', categoryId: 'animals', language: 'sw' },
-  { id: 'anim-12', text: 'Black Mamba', categoryId: 'animals', language: 'en' },
-  { id: 'anim-13', text: 'Kenge', categoryId: 'animals', language: 'sw' },
-  { id: 'anim-14', text: 'Crocodile', categoryId: 'animals', language: 'en' },
-  { id: 'anim-15', text: 'Mamba wa Mto Rufiji', categoryId: 'animals', language: 'mixed' },
-  { id: 'anim-16', text: 'Tumbili', categoryId: 'animals', language: 'sw' },
+  // ── movies-tv ──
+  { id: 'mov-1', text: 'The Lion King', categoryId: 'movies-tv', language: 'mixed' },
+  { id: 'mov-2', text: 'Black Panther', categoryId: 'movies-tv', language: 'mixed' },
+  { id: 'mov-3', text: 'Titanic', categoryId: 'movies-tv', language: 'mixed' },
+  { id: 'mov-4', text: 'Avatar', categoryId: 'movies-tv', language: 'mixed' },
+  { id: 'mov-5', text: 'Spider-Man', categoryId: 'movies-tv', language: 'mixed' },
+  { id: 'mov-6', text: 'Fast & Furious', categoryId: 'movies-tv', language: 'mixed' },
+  { id: 'mov-7', text: 'Money Heist', categoryId: 'movies-tv', language: 'mixed' },
+  { id: 'mov-8', text: 'Game of Thrones', categoryId: 'movies-tv', language: 'mixed' },
+  { id: 'mov-9', text: 'Harry Potter', categoryId: 'movies-tv', language: 'mixed' },
+  { id: 'mov-10', text: 'Squid Game', categoryId: 'movies-tv', language: 'mixed' },
+  { id: 'mov-11', text: 'Tom and Jerry', categoryId: 'movies-tv', language: 'mixed' },
+  { id: 'mov-12', text: 'Mr. Bean', categoryId: 'movies-tv', language: 'mixed' },
+  { id: 'mov-13', text: 'Shrek', categoryId: 'movies-tv', language: 'mixed' },
+  { id: 'mov-14', text: 'Frozen', categoryId: 'movies-tv', language: 'mixed' },
+  { id: 'mov-15', text: 'Superman', categoryId: 'movies-tv', language: 'mixed' },
 
-  // 2. Movies & TV
-  { id: 'mov-1', text: 'Lion King', categoryId: 'movies-tv', language: 'en' },
-  { id: 'mov-2', text: 'Black Panther', categoryId: 'movies-tv', language: 'en' },
-  { id: 'mov-3', text: 'Titanic', categoryId: 'movies-tv', language: 'en' },
-  { id: 'mov-4', text: 'Huba Series', categoryId: 'movies-tv', language: 'mixed' },
-  { id: 'mov-5', text: 'Jua Kali', categoryId: 'movies-tv', language: 'sw' },
-  { id: 'mov-6', text: 'Pete Series', categoryId: 'movies-tv', language: 'sw' },
-  { id: 'mov-7', text: 'Avatar', categoryId: 'movies-tv', language: 'en' },
-  { id: 'mov-8', text: 'Spider-Man', categoryId: 'movies-tv', language: 'en' },
-  { id: 'mov-9', text: 'Fast & Furious', categoryId: 'movies-tv', language: 'en' },
-  { id: 'mov-10', text: 'Money Heist', categoryId: 'movies-tv', language: 'en' },
-  { id: 'mov-11', text: 'Game of Thrones', categoryId: 'movies-tv', language: 'en' },
-  { id: 'mov-12', text: 'Uncle JJ Movie', categoryId: 'movies-tv', language: 'mixed' },
+  // ── music-artists ──
+  { id: 'mus-1', text: 'Michael Jackson', categoryId: 'music-artists', language: 'mixed' },
+  { id: 'mus-2', text: 'Beyoncé', categoryId: 'music-artists', language: 'mixed' },
+  { id: 'mus-3', text: 'Rihanna', categoryId: 'music-artists', language: 'mixed' },
+  { id: 'mus-4', text: 'Bob Marley', categoryId: 'music-artists', language: 'mixed' },
+  { id: 'mus-5', text: 'Drake', categoryId: 'music-artists', language: 'mixed' },
+  { id: 'mus-6', text: 'Chris Brown', categoryId: 'music-artists', language: 'mixed' },
+  { id: 'mus-7', text: 'Taylor Swift', categoryId: 'music-artists', language: 'mixed' },
+  { id: 'mus-8', text: 'Ed Sheeran', categoryId: 'music-artists', language: 'mixed' },
+  { id: 'mus-9', text: 'Shakira', categoryId: 'music-artists', language: 'mixed' },
+  { id: 'mus-10', text: 'Justin Bieber', categoryId: 'music-artists', language: 'mixed' },
+  { id: 'mus-11', text: 'Guitar', categoryId: 'music-artists', language: 'en', concept: 'mus-guitar' },
+  { id: 'mus-12', text: 'Gitaa', categoryId: 'music-artists', language: 'sw', concept: 'mus-guitar' },
+  { id: 'mus-13', text: 'Drums', categoryId: 'music-artists', language: 'en', concept: 'mus-drums' },
+  { id: 'mus-14', text: 'Ngoma', categoryId: 'music-artists', language: 'sw', concept: 'mus-drums' },
+  { id: 'mus-15', text: 'Piano', categoryId: 'music-artists', language: 'en', concept: 'mus-piano' },
+  { id: 'mus-16', text: 'Kinanda', categoryId: 'music-artists', language: 'sw', concept: 'mus-piano' },
+  { id: 'mus-17', text: 'Microphone', categoryId: 'music-artists', language: 'en', concept: 'mus-microphone' },
+  { id: 'mus-18', text: 'Kipaza Sauti', categoryId: 'music-artists', language: 'sw', concept: 'mus-microphone' },
+  { id: 'mus-19', text: 'DJ', categoryId: 'music-artists', language: 'mixed' },
+  { id: 'mus-20', text: 'Karaoke', categoryId: 'music-artists', language: 'mixed' },
 
-  // 3. Music & Artists
-  { id: 'mus-1', text: 'Beyoncé', categoryId: 'music-artists', language: 'en' },
-  { id: 'mus-2', text: 'Michael Jackson', categoryId: 'music-artists', language: 'en' },
-  { id: 'mus-3', text: 'Burna Boy', categoryId: 'music-artists', language: 'mixed' },
-  { id: 'mus-4', text: 'Wizkid', categoryId: 'music-artists', language: 'mixed' },
-  { id: 'mus-5', text: 'Rihanna', categoryId: 'music-artists', language: 'en' },
-  { id: 'mus-6', text: 'Bob Marley', categoryId: 'music-artists', language: 'en' },
-  { id: 'mus-7', text: 'Drake', categoryId: 'music-artists', language: 'en' },
-  { id: 'mus-8', text: 'Davido', categoryId: 'music-artists', language: 'mixed' },
-  { id: 'mus-9', text: 'Chris Brown', categoryId: 'music-artists', language: 'en' },
-  { id: 'mus-10', text: 'Sauti Sol', categoryId: 'music-artists', language: 'mixed' },
+  // ── sports ──
+  { id: 'spt-1', text: 'Football', categoryId: 'sports', language: 'en', concept: 'spt-football' },
+  { id: 'spt-2', text: 'Mpira wa Miguu', categoryId: 'sports', language: 'sw', concept: 'spt-football' },
+  { id: 'spt-3', text: 'Basketball', categoryId: 'sports', language: 'en', concept: 'spt-basketball' },
+  { id: 'spt-4', text: 'Mpira wa Kikapu', categoryId: 'sports', language: 'sw', concept: 'spt-basketball' },
+  { id: 'spt-5', text: 'Boxing', categoryId: 'sports', language: 'en', concept: 'spt-boxing' },
+  { id: 'spt-6', text: 'Ngumi', categoryId: 'sports', language: 'sw', concept: 'spt-boxing' },
+  { id: 'spt-7', text: 'Swimming', categoryId: 'sports', language: 'en', concept: 'spt-swimming' },
+  { id: 'spt-8', text: 'Kuogelea', categoryId: 'sports', language: 'sw', concept: 'spt-swimming' },
+  { id: 'spt-9', text: 'Running', categoryId: 'sports', language: 'en', concept: 'spt-running' },
+  { id: 'spt-10', text: 'Kukimbia', categoryId: 'sports', language: 'sw', concept: 'spt-running' },
+  { id: 'spt-11', text: 'Goalkeeper', categoryId: 'sports', language: 'en', concept: 'spt-goalkeeper' },
+  { id: 'spt-12', text: 'Kipa', categoryId: 'sports', language: 'sw', concept: 'spt-goalkeeper' },
+  { id: 'spt-13', text: 'Penalty', categoryId: 'sports', language: 'en', concept: 'spt-penalty' },
+  { id: 'spt-14', text: 'Penalti', categoryId: 'sports', language: 'sw', concept: 'spt-penalty' },
+  { id: 'spt-15', text: 'Cycling', categoryId: 'sports', language: 'en', concept: 'spt-cycling' },
+  { id: 'spt-16', text: 'Mbio za Baiskeli', categoryId: 'sports', language: 'sw', concept: 'spt-cycling' },
+  { id: 'spt-17', text: 'Volleyball', categoryId: 'sports', language: 'en', concept: 'spt-volleyball' },
+  { id: 'spt-18', text: 'Mpira wa Wavu', categoryId: 'sports', language: 'sw', concept: 'spt-volleyball' },
+  { id: 'spt-19', text: 'Tennis', categoryId: 'sports', language: 'mixed' },
+  { id: 'spt-20', text: 'Cristiano Ronaldo', categoryId: 'sports', language: 'mixed' },
+  { id: 'spt-21', text: 'Lionel Messi', categoryId: 'sports', language: 'mixed' },
+  { id: 'spt-22', text: 'Usain Bolt', categoryId: 'sports', language: 'mixed' },
+  { id: 'spt-23', text: 'Olympics', categoryId: 'sports', language: 'mixed' },
 
-  // 4. Sports
-  { id: 'spt-1', text: 'Mpira wa Miguu', categoryId: 'sports', language: 'sw' },
-  { id: 'spt-2', text: 'Football / Soccer', categoryId: 'sports', language: 'en' },
-  { id: 'spt-3', text: 'Ndondo Cup', categoryId: 'sports', language: 'mixed' },
-  { id: 'spt-4', text: 'Boxing / Masumbwi', categoryId: 'sports', language: 'mixed' },
-  { id: 'spt-5', text: 'Twaha Kiduku', categoryId: 'sports', language: 'mixed' },
-  { id: 'spt-6', text: 'Mandonga Mtu Kazi', categoryId: 'sports', language: 'sw' },
-  { id: 'spt-7', text: 'Basketball', categoryId: 'sports', language: 'en' },
-  { id: 'spt-8', text: 'Mbwana Samatta', categoryId: 'sports', language: 'mixed' },
-  { id: 'spt-9', text: 'Kukimbia Marathon', categoryId: 'sports', language: 'sw' },
-  { id: 'spt-10', text: 'Penalty Shootout', categoryId: 'sports', language: 'en' },
+  // ── countries-places ──
+  { id: 'plc-1', text: 'Egypt', categoryId: 'countries-places', language: 'en', concept: 'plc-egypt' },
+  { id: 'plc-2', text: 'Misri', categoryId: 'countries-places', language: 'sw', concept: 'plc-egypt' },
+  { id: 'plc-3', text: 'China', categoryId: 'countries-places', language: 'en', concept: 'plc-china' },
+  { id: 'plc-4', text: 'Uchina', categoryId: 'countries-places', language: 'sw', concept: 'plc-china' },
+  { id: 'plc-5', text: 'India', categoryId: 'countries-places', language: 'mixed' },
+  { id: 'plc-6', text: 'France', categoryId: 'countries-places', language: 'en', concept: 'plc-france' },
+  { id: 'plc-7', text: 'Ufaransa', categoryId: 'countries-places', language: 'sw', concept: 'plc-france' },
+  { id: 'plc-8', text: 'Brazil', categoryId: 'countries-places', language: 'en', concept: 'plc-brazil' },
+  { id: 'plc-9', text: 'Brazili', categoryId: 'countries-places', language: 'sw', concept: 'plc-brazil' },
+  { id: 'plc-10', text: 'America', categoryId: 'countries-places', language: 'en', concept: 'plc-america' },
+  { id: 'plc-11', text: 'Marekani', categoryId: 'countries-places', language: 'sw', concept: 'plc-america' },
+  { id: 'plc-12', text: 'Japan', categoryId: 'countries-places', language: 'en', concept: 'plc-japan' },
+  { id: 'plc-13', text: 'Japani', categoryId: 'countries-places', language: 'sw', concept: 'plc-japan' },
+  { id: 'plc-14', text: 'Mount Kilimanjaro', categoryId: 'countries-places', language: 'en', concept: 'plc-mount-kilimanjaro' },
+  { id: 'plc-15', text: 'Mlima Kilimanjaro', categoryId: 'countries-places', language: 'sw', concept: 'plc-mount-kilimanjaro' },
+  { id: 'plc-16', text: 'The Pyramids', categoryId: 'countries-places', language: 'en', concept: 'plc-the-pyramids' },
+  { id: 'plc-17', text: 'Mapiramidi', categoryId: 'countries-places', language: 'sw', concept: 'plc-the-pyramids' },
+  { id: 'plc-18', text: 'Eiffel Tower', categoryId: 'countries-places', language: 'mixed' },
+  { id: 'plc-19', text: 'Dubai', categoryId: 'countries-places', language: 'mixed' },
+  { id: 'plc-20', text: 'London', categoryId: 'countries-places', language: 'mixed' },
+  { id: 'plc-21', text: 'New York', categoryId: 'countries-places', language: 'mixed' },
+  { id: 'plc-22', text: 'Desert', categoryId: 'countries-places', language: 'en', concept: 'plc-desert' },
+  { id: 'plc-23', text: 'Jangwa', categoryId: 'countries-places', language: 'sw', concept: 'plc-desert' },
+  { id: 'plc-24', text: 'Beach', categoryId: 'countries-places', language: 'en', concept: 'plc-beach' },
+  { id: 'plc-25', text: 'Ufukwe', categoryId: 'countries-places', language: 'sw', concept: 'plc-beach' },
 
-  // 5. Countries & Places
-  { id: 'plc-1', text: 'Tanzania', categoryId: 'countries-places', language: 'mixed' },
-  { id: 'plc-2', text: 'Zanzibar Island', categoryId: 'countries-places', language: 'en' },
-  { id: 'plc-3', text: 'Serengeti Park', categoryId: 'countries-places', language: 'mixed' },
-  { id: 'plc-4', text: 'Mlima Kilimanjaro', categoryId: 'countries-places', language: 'sw' },
-  { id: 'plc-5', text: 'Mount Kilimanjaro', categoryId: 'countries-places', language: 'en' },
-  { id: 'plc-6', text: 'Kenya', categoryId: 'countries-places', language: 'mixed' },
-  { id: 'plc-7', text: 'South Africa', categoryId: 'countries-places', language: 'en' },
-  { id: 'plc-8', text: 'Dubai', categoryId: 'countries-places', language: 'en' },
-  { id: 'plc-9', text: 'Ngorongoro Crater', categoryId: 'countries-places', language: 'mixed' },
-  { id: 'plc-10', text: 'Uganda', categoryId: 'countries-places', language: 'mixed' },
+  // ── everyday-things ──
+  { id: 'evd-1', text: 'Umbrella', categoryId: 'everyday-things', language: 'en', concept: 'evd-umbrella' },
+  { id: 'evd-2', text: 'Mwavuli', categoryId: 'everyday-things', language: 'sw', concept: 'evd-umbrella' },
+  { id: 'evd-3', text: 'Flashlight', categoryId: 'everyday-things', language: 'en', concept: 'evd-flashlight' },
+  { id: 'evd-4', text: 'Tochi', categoryId: 'everyday-things', language: 'sw', concept: 'evd-flashlight' },
+  { id: 'evd-5', text: 'Watch', categoryId: 'everyday-things', language: 'en', concept: 'evd-watch' },
+  { id: 'evd-6', text: 'Saa', categoryId: 'everyday-things', language: 'sw', concept: 'evd-watch' },
+  { id: 'evd-7', text: 'Bucket', categoryId: 'everyday-things', language: 'en', concept: 'evd-bucket' },
+  { id: 'evd-8', text: 'Ndoo', categoryId: 'everyday-things', language: 'sw', concept: 'evd-bucket' },
+  { id: 'evd-9', text: 'Matches', categoryId: 'everyday-things', language: 'en', concept: 'evd-matches' },
+  { id: 'evd-10', text: 'Kiberiti', categoryId: 'everyday-things', language: 'sw', concept: 'evd-matches' },
+  { id: 'evd-11', text: 'Broom', categoryId: 'everyday-things', language: 'en', concept: 'evd-broom' },
+  { id: 'evd-12', text: 'Fagio', categoryId: 'everyday-things', language: 'sw', concept: 'evd-broom' },
+  { id: 'evd-13', text: 'Phone Charger', categoryId: 'everyday-things', language: 'en', concept: 'evd-phone-charger' },
+  { id: 'evd-14', text: 'Chaja', categoryId: 'everyday-things', language: 'sw', concept: 'evd-phone-charger' },
+  { id: 'evd-15', text: 'Mirror', categoryId: 'everyday-things', language: 'en', concept: 'evd-mirror' },
+  { id: 'evd-16', text: 'Kioo', categoryId: 'everyday-things', language: 'sw', concept: 'evd-mirror' },
+  { id: 'evd-17', text: 'Toothbrush', categoryId: 'everyday-things', language: 'en', concept: 'evd-toothbrush' },
+  { id: 'evd-18', text: 'Mswaki', categoryId: 'everyday-things', language: 'sw', concept: 'evd-toothbrush' },
+  { id: 'evd-19', text: 'Key', categoryId: 'everyday-things', language: 'en', concept: 'evd-key' },
+  { id: 'evd-20', text: 'Ufunguo', categoryId: 'everyday-things', language: 'sw', concept: 'evd-key' },
+  { id: 'evd-21', text: 'Chair', categoryId: 'everyday-things', language: 'en', concept: 'evd-chair' },
+  { id: 'evd-22', text: 'Kiti', categoryId: 'everyday-things', language: 'sw', concept: 'evd-chair' },
+  { id: 'evd-23', text: 'Iron', categoryId: 'everyday-things', language: 'en', concept: 'evd-iron' },
+  { id: 'evd-24', text: 'Pasi', categoryId: 'everyday-things', language: 'sw', concept: 'evd-iron' },
+  { id: 'evd-25', text: 'Glasses', categoryId: 'everyday-things', language: 'en', concept: 'evd-glasses' },
+  { id: 'evd-26', text: 'Miwani', categoryId: 'everyday-things', language: 'sw', concept: 'evd-glasses' },
+  { id: 'evd-27', text: 'Phone', categoryId: 'everyday-things', language: 'en', concept: 'evd-phone' },
+  { id: 'evd-28', text: 'Simu', categoryId: 'everyday-things', language: 'sw', concept: 'evd-phone' },
 
-  // 6. Everyday Things
-  { id: 'evt-1', text: 'Pasi ya Mkaa', categoryId: 'everyday-things', language: 'sw' },
-  { id: 'evt-2', text: 'Smartphone Charger', categoryId: 'everyday-things', language: 'en' },
-  { id: 'evt-3', text: 'Ndoo ya Maji', categoryId: 'everyday-things', language: 'sw' },
-  { id: 'evt-4', text: 'Tochi ya Simu', categoryId: 'everyday-things', language: 'sw' },
-  { id: 'evt-5', text: 'Kiberiti cha Mti', categoryId: 'everyday-things', language: 'sw' },
-  { id: 'evt-6', text: 'Flashlight', categoryId: 'everyday-things', language: 'en' },
-  { id: 'evt-7', text: 'Umbrella / Mwavuli', categoryId: 'everyday-things', language: 'mixed' },
-  { id: 'evt-8', text: 'Fagio la Chelewa', categoryId: 'everyday-things', language: 'sw' },
-  { id: 'evt-9', text: 'Saa ya Mkononi', categoryId: 'everyday-things', language: 'sw' },
-  { id: 'evt-10', text: 'Wristwatch', categoryId: 'everyday-things', language: 'en' },
+  // ── act-it-out ──
+  { id: 'act-1', text: 'Taking a Selfie', categoryId: 'act-it-out', language: 'en', concept: 'act-taking-a-selfie' },
+  { id: 'act-2', text: 'Kupiga Selfie', categoryId: 'act-it-out', language: 'sw', concept: 'act-taking-a-selfie' },
+  { id: 'act-3', text: 'Sleeping in Class', categoryId: 'act-it-out', language: 'en', concept: 'act-sleeping-in-class' },
+  { id: 'act-4', text: 'Kusinzia Darasani', categoryId: 'act-it-out', language: 'sw', concept: 'act-sleeping-in-class' },
+  { id: 'act-5', text: 'Sneezing', categoryId: 'act-it-out', language: 'en', concept: 'act-sneezing' },
+  { id: 'act-6', text: 'Kupiga Chafya', categoryId: 'act-it-out', language: 'sw', concept: 'act-sneezing' },
+  { id: 'act-7', text: 'Washing Clothes', categoryId: 'act-it-out', language: 'en', concept: 'act-washing-clothes' },
+  { id: 'act-8', text: 'Kufua Nguo', categoryId: 'act-it-out', language: 'sw', concept: 'act-washing-clothes' },
+  { id: 'act-9', text: 'Chased by a Dog', categoryId: 'act-it-out', language: 'en', concept: 'act-chased-by-a-dog' },
+  { id: 'act-10', text: 'Kukimbizwa na Mbwa', categoryId: 'act-it-out', language: 'sw', concept: 'act-chased-by-a-dog' },
+  { id: 'act-11', text: 'Brushing Teeth', categoryId: 'act-it-out', language: 'en', concept: 'act-brushing-teeth' },
+  { id: 'act-12', text: 'Kupiga Mswaki', categoryId: 'act-it-out', language: 'sw', concept: 'act-brushing-teeth' },
+  { id: 'act-13', text: 'Riding a Bicycle', categoryId: 'act-it-out', language: 'en', concept: 'act-riding-a-bicycle' },
+  { id: 'act-14', text: 'Kuendesha Baiskeli', categoryId: 'act-it-out', language: 'sw', concept: 'act-riding-a-bicycle' },
+  { id: 'act-15', text: 'Crying', categoryId: 'act-it-out', language: 'en', concept: 'act-crying' },
+  { id: 'act-16', text: 'Kulia', categoryId: 'act-it-out', language: 'sw', concept: 'act-crying' },
+  { id: 'act-17', text: 'Laughing', categoryId: 'act-it-out', language: 'en', concept: 'act-laughing' },
+  { id: 'act-18', text: 'Kucheka', categoryId: 'act-it-out', language: 'sw', concept: 'act-laughing' },
+  { id: 'act-19', text: 'Fishing', categoryId: 'act-it-out', language: 'en', concept: 'act-fishing' },
+  { id: 'act-20', text: 'Kuvua Samaki', categoryId: 'act-it-out', language: 'sw', concept: 'act-fishing' },
+  { id: 'act-21', text: 'Cooking', categoryId: 'act-it-out', language: 'en', concept: 'act-cooking' },
+  { id: 'act-22', text: 'Kupika', categoryId: 'act-it-out', language: 'sw', concept: 'act-cooking' },
+  { id: 'act-23', text: 'Dancing', categoryId: 'act-it-out', language: 'en', concept: 'act-dancing' },
+  { id: 'act-24', text: 'Kucheza Muziki', categoryId: 'act-it-out', language: 'sw', concept: 'act-dancing' },
+  { id: 'act-25', text: 'Driving', categoryId: 'act-it-out', language: 'en', concept: 'act-driving' },
+  { id: 'act-26', text: 'Kuendesha Gari', categoryId: 'act-it-out', language: 'sw', concept: 'act-driving' },
+  { id: 'act-27', text: 'Winning the Lottery', categoryId: 'act-it-out', language: 'en', concept: 'act-winning-the-lottery' },
+  { id: 'act-28', text: 'Kushinda Bahati Nasibu', categoryId: 'act-it-out', language: 'sw', concept: 'act-winning-the-lottery' },
 
-  // 7. Act It Out
-  { id: 'act-1', text: 'Kupika Ugali', categoryId: 'act-it-out', language: 'sw' },
-  { id: 'act-2', text: 'Kuendesha Bodaboda', categoryId: 'act-it-out', language: 'sw' },
-  { id: 'act-3', text: 'Taking a Selfie', categoryId: 'act-it-out', language: 'en' },
-  { id: 'act-4', text: 'Kufua Nguo kwa Mkono', categoryId: 'act-it-out', language: 'sw' },
-  { id: 'act-5', text: 'Kucheza Singeli', categoryId: 'act-it-out', language: 'sw' },
-  { id: 'act-6', text: 'Sleeping in Class', categoryId: 'act-it-out', language: 'en' },
-  { id: 'act-7', text: 'Kukimbizwa na Mbwa', categoryId: 'act-it-out', language: 'sw' },
-  { id: 'act-8', text: 'Sneezing loudly', categoryId: 'act-it-out', language: 'en' },
-  { id: 'act-9', text: 'Kusalimiana kwa Adabu', categoryId: 'act-it-out', language: 'sw' },
-  { id: 'act-10', text: 'Winning the Lottery', categoryId: 'act-it-out', language: 'en' },
+  // ── food-drinks ──
+  { id: 'food-1', text: 'Pizza', categoryId: 'food-drinks', language: 'mixed' },
+  { id: 'food-2', text: 'Ice Cream', categoryId: 'food-drinks', language: 'en', concept: 'food-ice-cream' },
+  { id: 'food-3', text: 'Aiskrimu', categoryId: 'food-drinks', language: 'sw', concept: 'food-ice-cream' },
+  { id: 'food-4', text: 'Burger', categoryId: 'food-drinks', language: 'mixed' },
+  { id: 'food-5', text: 'Rice', categoryId: 'food-drinks', language: 'en', concept: 'food-rice' },
+  { id: 'food-6', text: 'Wali', categoryId: 'food-drinks', language: 'sw', concept: 'food-rice' },
+  { id: 'food-7', text: 'Bread', categoryId: 'food-drinks', language: 'en', concept: 'food-bread' },
+  { id: 'food-8', text: 'Mkate', categoryId: 'food-drinks', language: 'sw', concept: 'food-bread' },
+  { id: 'food-9', text: 'Egg', categoryId: 'food-drinks', language: 'en', concept: 'food-egg' },
+  { id: 'food-10', text: 'Yai', categoryId: 'food-drinks', language: 'sw', concept: 'food-egg' },
+  { id: 'food-11', text: 'Banana', categoryId: 'food-drinks', language: 'en', concept: 'food-banana' },
+  { id: 'food-12', text: 'Ndizi', categoryId: 'food-drinks', language: 'sw', concept: 'food-banana' },
+  { id: 'food-13', text: 'Tea', categoryId: 'food-drinks', language: 'en', concept: 'food-tea' },
+  { id: 'food-14', text: 'Chai', categoryId: 'food-drinks', language: 'sw', concept: 'food-tea' },
+  { id: 'food-15', text: 'Coffee', categoryId: 'food-drinks', language: 'en', concept: 'food-coffee' },
+  { id: 'food-16', text: 'Kahawa', categoryId: 'food-drinks', language: 'sw', concept: 'food-coffee' },
+  { id: 'food-17', text: 'Orange Juice', categoryId: 'food-drinks', language: 'en', concept: 'food-orange-juice' },
+  { id: 'food-18', text: 'Juisi ya Machungwa', categoryId: 'food-drinks', language: 'sw', concept: 'food-orange-juice' },
+  { id: 'food-19', text: 'Watermelon', categoryId: 'food-drinks', language: 'en', concept: 'food-watermelon' },
+  { id: 'food-20', text: 'Tikiti Maji', categoryId: 'food-drinks', language: 'sw', concept: 'food-watermelon' },
+  { id: 'food-21', text: 'Chocolate', categoryId: 'food-drinks', language: 'en', concept: 'food-chocolate' },
+  { id: 'food-22', text: 'Chokoleti', categoryId: 'food-drinks', language: 'sw', concept: 'food-chocolate' },
+  { id: 'food-23', text: 'Popcorn', categoryId: 'food-drinks', language: 'mixed' },
+  { id: 'food-24', text: 'Water', categoryId: 'food-drinks', language: 'en', concept: 'food-water' },
+  { id: 'food-25', text: 'Maji', categoryId: 'food-drinks', language: 'sw', concept: 'food-water' },
+  { id: 'food-26', text: 'Soda', categoryId: 'food-drinks', language: 'mixed' },
 
-  // 8. Food & Drinks
-  { id: 'fd-1', text: 'Chipsi Mayai', categoryId: 'food-drinks', language: 'mixed' },
-  { id: 'fd-2', text: 'Wali Maharage', categoryId: 'food-drinks', language: 'sw' },
-  { id: 'fd-3', text: 'Pizza', categoryId: 'food-drinks', language: 'en' },
-  { id: 'fd-4', text: 'Mishkaki', categoryId: 'food-drinks', language: 'sw' },
-  { id: 'fd-5', text: 'Ice Cream', categoryId: 'food-drinks', language: 'en' },
-  { id: 'fd-6', text: 'Mandazi Moto', categoryId: 'food-drinks', language: 'sw' },
-  { id: 'fd-7', text: 'Burger and Fries', categoryId: 'food-drinks', language: 'en' },
-  { id: 'fd-8', text: 'Chai ya Rangi', categoryId: 'food-drinks', language: 'sw' },
-  { id: 'fd-9', text: 'Juisi ya Miwa', categoryId: 'food-drinks', language: 'sw' },
-  { id: 'fd-10', text: 'Fresh Orange Juice', categoryId: 'food-drinks', language: 'en' },
+  // ── hii-dar-yetu ──
+  { id: 'dar-1', text: 'Kariakoo', categoryId: 'hii-dar-yetu', language: 'sw' },
+  { id: 'dar-2', text: 'Coco Beach', categoryId: 'hii-dar-yetu', language: 'mixed' },
+  { id: 'dar-3', text: 'Mlimani City', categoryId: 'hii-dar-yetu', language: 'mixed' },
+  { id: 'dar-4', text: 'Daraja la Tanzanite', categoryId: 'hii-dar-yetu', language: 'sw' },
+  { id: 'dar-5', text: 'Kivuko cha Kigamboni', categoryId: 'hii-dar-yetu', language: 'sw' },
+  { id: 'dar-6', text: 'Daraja la Kigamboni', categoryId: 'hii-dar-yetu', language: 'sw' },
+  { id: 'dar-7', text: 'Mnazi Mmoja', categoryId: 'hii-dar-yetu', language: 'sw' },
+  { id: 'dar-8', text: 'Posta', categoryId: 'hii-dar-yetu', language: 'sw' },
+  { id: 'dar-9', text: 'Samaki Samaki', categoryId: 'hii-dar-yetu', language: 'mixed' },
+  { id: 'dar-10', text: 'Flyover ya Tazara', categoryId: 'hii-dar-yetu', language: 'sw' },
+  { id: 'dar-11', text: 'Mwendokasi', categoryId: 'hii-dar-yetu', language: 'sw' },
+  { id: 'dar-12', text: 'Foleni', categoryId: 'hii-dar-yetu', language: 'sw' },
+  { id: 'dar-13', text: 'Soko la Samaki Feri', categoryId: 'hii-dar-yetu', language: 'sw' },
 
-  // =========================================================================
-  // GROUP 2: BONGO & TANZANIAN CULTURE (c2)
-  // =========================================================================
+  // ── daladala-diaries ──
+  { id: 'dld-1', text: 'Konda', categoryId: 'daladala-diaries', language: 'sw' },
+  { id: 'dld-2', text: 'Dereva wa Daladala', categoryId: 'daladala-diaries', language: 'sw' },
+  { id: 'dld-3', text: 'Nauli', categoryId: 'daladala-diaries', language: 'sw' },
+  { id: 'dld-4', text: 'Chenji', categoryId: 'daladala-diaries', language: 'sw' },
+  { id: 'dld-5', text: 'Shusha Hapa!', categoryId: 'daladala-diaries', language: 'sw' },
+  { id: 'dld-6', text: 'Sogeeni Ndani', categoryId: 'daladala-diaries', language: 'sw' },
+  { id: 'dld-7', text: 'Siti ya Mbele', categoryId: 'daladala-diaries', language: 'sw' },
+  { id: 'dld-8', text: 'Stendi ya Mwenge', categoryId: 'daladala-diaries', language: 'sw' },
+  { id: 'dld-9', text: 'Stendi ya Gerezani', categoryId: 'daladala-diaries', language: 'sw' },
+  { id: 'dld-10', text: 'Mwisho wa Gari', categoryId: 'daladala-diaries', language: 'sw' },
+  { id: 'dld-11', text: 'Kubanana', categoryId: 'daladala-diaries', language: 'sw' },
+  { id: 'dld-12', text: 'Mzigo wa Abiria', categoryId: 'daladala-diaries', language: 'sw' },
 
-  // 9. Hii Dar Yetu
-  { id: 'dar-1', text: 'Kariakoo Sokoni', categoryId: 'hii-dar-yetu', language: 'sw' },
-  { id: 'dar-2', text: 'Daraja la Tanzanite', categoryId: 'hii-dar-yetu', language: 'sw' },
-  { id: 'dar-3', text: 'Ferry ya Kivukoni', categoryId: 'hii-dar-yetu', language: 'sw' },
-  { id: 'dar-4', text: 'Mnazi Mmoja', categoryId: 'hii-dar-yetu', language: 'sw' },
-  { id: 'dar-5', text: 'Posta Mpya', categoryId: 'hii-dar-yetu', language: 'sw' },
-  { id: 'dar-6', text: 'Mlimani City Mall', categoryId: 'hii-dar-yetu', language: 'mixed' },
-  { id: 'dar-7', text: 'Coco Beach Jumapili', categoryId: 'hii-dar-yetu', language: 'sw' },
-  { id: 'dar-8', text: 'Samaki Samaki', categoryId: 'hii-dar-yetu', language: 'sw' },
-  { id: 'dar-9', text: 'Tazara Flyover', categoryId: 'hii-dar-yetu', language: 'mixed' },
-  { id: 'dar-10', text: 'Kigamboni Bridge', categoryId: 'hii-dar-yetu', language: 'en' },
+  // ── bongo-flava ──
+  { id: 'bf-1', text: 'Diamond Platnumz', categoryId: 'bongo-flava', language: 'mixed' },
+  { id: 'bf-2', text: 'Ali Kiba', categoryId: 'bongo-flava', language: 'mixed' },
+  { id: 'bf-3', text: 'Harmonize', categoryId: 'bongo-flava', language: 'mixed' },
+  { id: 'bf-4', text: 'Zuchu', categoryId: 'bongo-flava', language: 'mixed' },
+  { id: 'bf-5', text: 'Marioo', categoryId: 'bongo-flava', language: 'mixed' },
+  { id: 'bf-6', text: 'Nandy', categoryId: 'bongo-flava', language: 'mixed' },
+  { id: 'bf-7', text: 'Rayvanny', categoryId: 'bongo-flava', language: 'mixed' },
+  { id: 'bf-8', text: 'Mbosso', categoryId: 'bongo-flava', language: 'mixed' },
+  { id: 'bf-9', text: 'WCB Wasafi', categoryId: 'bongo-flava', language: 'mixed' },
+  { id: 'bf-10', text: 'Singeli', categoryId: 'bongo-flava', language: 'sw' },
+  { id: 'bf-11', text: 'Kucheza Singeli', categoryId: 'bongo-flava', language: 'sw' },
+  { id: 'bf-12', text: 'Tetema', categoryId: 'bongo-flava', language: 'mixed', hint: 'Rayvanny ft. Diamond Platnumz' },
+  { id: 'bf-13', text: 'Kwangwaru', categoryId: 'bongo-flava', language: 'mixed', hint: 'Harmonize ft. Diamond Platnumz' },
+  { id: 'bf-14', text: 'Sukari', categoryId: 'bongo-flava', language: 'mixed', hint: 'Zuchu' },
+  { id: 'bf-15', text: 'Salome', categoryId: 'bongo-flava', language: 'mixed', hint: 'Diamond Platnumz ft. Rayvanny' },
+  { id: 'bf-16', text: 'Waah!', categoryId: 'bongo-flava', language: 'mixed', hint: 'Diamond Platnumz' },
+  { id: 'bf-17', text: 'Aje', categoryId: 'bongo-flava', language: 'mixed', hint: 'Ali Kiba' },
+  { id: 'bf-18', text: 'Mi Amor', categoryId: 'bongo-flava', language: 'mixed', hint: 'Marioo ft. Jovial' },
+  { id: 'bf-19', text: 'Mama Amina', categoryId: 'bongo-flava', language: 'mixed', hint: 'Marioo' },
+  { id: 'bf-20', text: 'Hainaga Ushemeji', categoryId: 'bongo-flava', language: 'mixed', hint: 'Man Fongo' },
+  { id: 'bf-21', text: 'Nyumba Ndogo', categoryId: 'bongo-flava', language: 'mixed', hint: 'Zuchu' },
+  { id: 'bf-22', text: 'Kwetu', categoryId: 'bongo-flava', language: 'mixed', hint: 'Rayvanny' },
 
-  // 10. Daladala Diaries
-  { id: 'dala-1', text: 'Konda wa Daladala', categoryId: 'daladala-diaries', language: 'sw' },
-  { id: 'dala-2', text: 'Fidia ya Nauli', categoryId: 'daladala-diaries', language: 'sw' },
-  { id: 'dala-3', text: 'Mwisho wa Gari!', categoryId: 'daladala-diaries', language: 'sw' },
-  { id: 'dala-4', text: 'Shusha Hapa Konda', categoryId: 'daladala-diaries', language: 'sw' },
-  { id: 'dala-5', text: 'Sogea Ndani Kiti Kipo', categoryId: 'daladala-diaries', language: 'sw' },
-  { id: 'dala-6', text: 'Siti ya Mbele', categoryId: 'daladala-diaries', language: 'sw' },
-  { id: 'dala-7', text: 'Mwenge Stand', categoryId: 'daladala-diaries', language: 'sw' },
-  { id: 'dala-8', text: 'Kupiga Dirisha la Gari', categoryId: 'daladala-diaries', language: 'sw' },
-  { id: 'dala-9', text: 'Abiria Chunga Mzigo Wako', categoryId: 'daladala-diaries', language: 'sw' },
-  { id: 'dala-10', text: 'Gerezani Stand', categoryId: 'daladala-diaries', language: 'sw' },
-
-  // 11. Bongo Flava
-  { id: 'bfl-1', text: 'Diamond Platnumz', categoryId: 'bongo-flava', language: 'mixed' },
-  { id: 'bfl-2', text: 'Ali Kiba', categoryId: 'bongo-flava', language: 'mixed' },
-  { id: 'bfl-3', text: 'Harmonize Jeshi', categoryId: 'bongo-flava', language: 'mixed' },
-  { id: 'bfl-4', text: 'Zuchu Sukari', categoryId: 'bongo-flava', language: 'mixed' },
-  { id: 'bfl-5', text: 'Marioo', categoryId: 'bongo-flava', language: 'mixed' },
-  { id: 'bfl-6', text: 'Nandy The African Princess', categoryId: 'bongo-flava', language: 'mixed' },
-  { id: 'bfl-7', text: 'Rayvanny Chui', categoryId: 'bongo-flava', language: 'mixed' },
-  { id: 'bfl-8', text: 'Mdundo wa Singeli', categoryId: 'bongo-flava', language: 'sw' },
-  { id: 'bfl-9', text: 'WCB Wasafi', categoryId: 'bongo-flava', language: 'mixed' },
-  { id: 'bfl-10', text: 'Konde Music Worldwide', categoryId: 'bongo-flava', language: 'mixed' },
-
-  // 12. Mtaani
+  // ── mtaani ──
   { id: 'mta-1', text: 'Machinga', categoryId: 'mtaani', language: 'sw' },
-  { id: 'mta-2', text: 'Duka la Mangi', categoryId: 'mtaani', language: 'sw' },
-  { id: 'mta-3', text: 'Bodaboda Kijiweni', categoryId: 'mtaani', language: 'sw' },
-  { id: 'mta-4', text: 'Mama Ntilie', categoryId: 'mtaani', language: 'sw' },
-  { id: 'mta-5', text: 'Genge la Nyanya', categoryId: 'mtaani', language: 'sw' },
-  { id: 'mta-6', text: 'Umeme Umekatika', categoryId: 'mtaani', language: 'sw' },
-  { id: 'mta-7', text: 'Saloon ya Kiume', categoryId: 'mtaani', language: 'sw' },
-  { id: 'mta-8', text: 'Kazi Iendelee', categoryId: 'mtaani', language: 'sw' },
-  { id: 'mta-9', text: 'Utajua Hujui', categoryId: 'mtaani', language: 'sw' },
-  { id: 'mta-10', text: 'Haina Kufeli', categoryId: 'mtaani', language: 'sw' },
+  { id: 'mta-2', text: 'Mama Ntilie', categoryId: 'mtaani', language: 'sw' },
+  { id: 'mta-3', text: 'Duka la Mangi', categoryId: 'mtaani', language: 'sw' },
+  { id: 'mta-4', text: 'Genge', categoryId: 'mtaani', language: 'sw' },
+  { id: 'mta-5', text: 'Kinyozi', categoryId: 'mtaani', language: 'sw' },
+  { id: 'mta-6', text: 'Bodaboda', categoryId: 'mtaani', language: 'sw' },
+  { id: 'mta-7', text: 'Bajaji', categoryId: 'mtaani', language: 'sw' },
+  { id: 'mta-8', text: 'Umeme Umekatika', categoryId: 'mtaani', language: 'sw' },
+  { id: 'mta-9', text: 'Kijiweni', categoryId: 'mtaani', language: 'sw' },
+  { id: 'mta-10', text: 'Kahawa na Kashata', categoryId: 'mtaani', language: 'sw' },
+  { id: 'mta-11', text: 'Bao', categoryId: 'mtaani', language: 'sw' },
+  { id: 'mta-12', text: 'Kucheza Drafti', categoryId: 'mtaani', language: 'sw' },
+  { id: 'mta-13', text: 'Kubishana Mpira', categoryId: 'mtaani', language: 'sw' },
+  { id: 'mta-14', text: 'Maskani', categoryId: 'mtaani', language: 'sw' },
+  { id: 'mta-15', text: 'Kukodi Baiskeli', categoryId: 'mtaani', language: 'sw' },
+  { id: 'mta-16', text: 'Kupiga Pamba', categoryId: 'mtaani', language: 'sw', needsReview: true },
+  { id: 'mta-17', text: 'Utajua Hujui', categoryId: 'mtaani', language: 'sw', needsReview: true },
+  { id: 'mta-18', text: 'Haina Kufeli', categoryId: 'mtaani', language: 'sw', needsReview: true },
 
-  // 13. Vijiweni
-  { id: 'vij-1', text: 'Kahawa na Kashata', categoryId: 'vijiweni', language: 'sw' },
-  { id: 'vij-2', text: 'Kucheza Dama', categoryId: 'vijiweni', language: 'sw' },
-  { id: 'vij-3', text: 'Bao la Kiswahili', categoryId: 'vijiweni', language: 'sw' },
-  { id: 'vij-4', text: 'Maskani ya Vijana', categoryId: 'vijiweni', language: 'sw' },
-  { id: 'vij-5', text: 'Kubishana Mpira wa Ulaya', categoryId: 'vijiweni', language: 'sw' },
-  { id: 'vij-6', text: 'Story za Kidimbwi', categoryId: 'vijiweni', language: 'sw' },
-  { id: 'vij-7', text: 'Kupiga Pamba Mpya', categoryId: 'vijiweni', language: 'sw' },
-  { id: 'vij-8', text: 'Chai na Vitumbua', categoryId: 'vijiweni', language: 'sw' },
-  { id: 'vij-9', text: 'Kukodi Baiskeli', categoryId: 'vijiweni', language: 'sw' },
-  { id: 'vij-10', text: 'Mzee wa Busara', categoryId: 'vijiweni', language: 'sw' },
+  // ── zilipendwa ──
+  { id: 'zil-1', text: 'Shida', categoryId: 'zilipendwa', language: 'mixed', hint: 'Mbaraka Mwinshehe' },
+  { id: 'zil-2', text: 'Pole Dada', categoryId: 'zilipendwa', language: 'mixed', hint: 'Mbaraka Mwinshehe' },
+  { id: 'zil-3', text: 'Neema', categoryId: 'zilipendwa', language: 'mixed', hint: 'DDC Mlimani Park Orchestra' },
+  { id: 'zil-4', text: 'Mambo kwa Soksi', categoryId: 'zilipendwa', language: 'mixed', hint: 'Remmy Ongala' },
+  { id: 'zil-5', text: 'Kifo', categoryId: 'zilipendwa', language: 'mixed', hint: 'Remmy Ongala' },
+  { id: 'zil-6', text: 'Kipenda Roho', categoryId: 'zilipendwa', language: 'mixed', hint: 'Remmy Ongala' },
+  { id: 'zil-7', text: 'Kidali Po', categoryId: 'zilipendwa', language: 'mixed', hint: 'Mr Nice' },
+  { id: 'zil-8', text: 'Siamini', categoryId: 'zilipendwa', language: 'mixed', hint: 'TID' },
+  { id: 'zil-9', text: 'Umenikataa', categoryId: 'zilipendwa', language: 'mixed', hint: 'Ray C' },
+  { id: 'zil-10', text: 'Kimya Kimya', categoryId: 'zilipendwa', language: 'mixed', hint: 'Jay Moe ft. Ngwair' },
+  { id: 'zil-11', text: 'Habari Ndiyo Hiyo', categoryId: 'zilipendwa', language: 'mixed', hint: 'Mwana FA ft. AY' },
+  { id: 'zil-12', text: 'Mapozi', categoryId: 'zilipendwa', language: 'mixed', hint: 'Mr Blue' },
+  { id: 'zil-13', text: 'Binti Kiziwi', categoryId: 'zilipendwa', language: 'mixed', hint: 'Z Anto' },
+  { id: 'zil-14', text: 'Nakshi Mrembo', categoryId: 'zilipendwa', language: 'mixed', hint: 'Ali Kiba' },
+  { id: 'zil-15', text: 'Bembeleza', categoryId: 'zilipendwa', language: 'mixed', hint: 'Marlaw' },
+  { id: 'zil-16', text: 'Siku Hazigandi', categoryId: 'zilipendwa', language: 'mixed', hint: 'Lady Jaydee' },
+  { id: 'zil-17', text: 'Dar Mpaka Moro', categoryId: 'zilipendwa', language: 'mixed', hint: 'TMK Wanaume' },
+  { id: 'zil-18', text: 'Nalia kwa Furaha', categoryId: 'zilipendwa', language: 'mixed', hint: 'Bushoke' },
+  { id: 'zil-19', text: 'Anita', categoryId: 'zilipendwa', language: 'mixed', hint: 'Matonya ft. Lady Jaydee' },
+  { id: 'zil-20', text: 'Maria Salome', categoryId: 'zilipendwa', language: 'mixed', hint: 'Saida Karoli', needsReview: true },
+  { id: 'zil-21', text: 'My Number One', categoryId: 'zilipendwa', language: 'mixed', hint: 'Diamond Platnumz' },
+  { id: 'zil-22', text: 'Mwana', categoryId: 'zilipendwa', language: 'mixed', hint: 'Ali Kiba' },
+  { id: 'zil-23', text: 'Hawajui', categoryId: 'zilipendwa', language: 'mixed', hint: 'Vanessa Mdee' },
+  { id: 'zil-24', text: 'Me & You', categoryId: 'zilipendwa', language: 'mixed', hint: 'Ommy Dimpoz ft. Vanessa Mdee' },
 
-  // 14. Chakula Chetu
-  { id: 'chk-1', text: 'Ugali wa Sembe na Samaki', categoryId: 'chakula-chetu', language: 'sw' },
-  { id: 'chk-2', text: 'Pilau ya Kuku', categoryId: 'chakula-chetu', language: 'sw' },
-  { id: 'chk-3', text: 'Ndizi Nyama za Bukoba', categoryId: 'chakula-chetu', language: 'sw' },
-  { id: 'chk-4', text: 'Makande ya Nazi', categoryId: 'chakula-chetu', language: 'sw' },
+  // ── chakula-chetu ──
+  { id: 'chk-1', text: 'Ugali na Samaki', categoryId: 'chakula-chetu', language: 'sw' },
+  { id: 'chk-2', text: 'Pilau', categoryId: 'chakula-chetu', language: 'sw' },
+  { id: 'chk-3', text: 'Ndizi Nyama', categoryId: 'chakula-chetu', language: 'sw' },
+  { id: 'chk-4', text: 'Makande', categoryId: 'chakula-chetu', language: 'sw' },
   { id: 'chk-5', text: 'Supu ya Kongoro', categoryId: 'chakula-chetu', language: 'sw' },
-  { id: 'chk-6', text: 'Mchemsho wa Mbuzi', categoryId: 'chakula-chetu', language: 'sw' },
-  { id: 'chk-7', text: 'Kitimoto Choma', categoryId: 'chakula-chetu', language: 'sw' },
-  { id: 'chk-8', text: 'Mihogo ya Kukaanga na Pili Pili', categoryId: 'chakula-chetu', language: 'sw' },
-  { id: 'chk-9', text: 'Chapati za Kusukuma', categoryId: 'chakula-chetu', language: 'sw' },
-  { id: 'chk-10', text: 'Biriani ya Ijumaa', categoryId: 'chakula-chetu', language: 'sw' },
+  { id: 'chk-6', text: 'Mchemsho', categoryId: 'chakula-chetu', language: 'sw' },
+  { id: 'chk-7', text: 'Kitimoto', categoryId: 'chakula-chetu', language: 'sw' },
+  { id: 'chk-8', text: 'Mihogo ya Kukaanga', categoryId: 'chakula-chetu', language: 'sw' },
+  { id: 'chk-9', text: 'Chapati', categoryId: 'chakula-chetu', language: 'sw' },
+  { id: 'chk-10', text: 'Biriani', categoryId: 'chakula-chetu', language: 'sw' },
+  { id: 'chk-11', text: 'Chipsi Mayai', categoryId: 'chakula-chetu', language: 'sw' },
+  { id: 'chk-12', text: 'Wali Maharage', categoryId: 'chakula-chetu', language: 'sw' },
+  { id: 'chk-13', text: 'Mishkaki', categoryId: 'chakula-chetu', language: 'sw' },
+  { id: 'chk-14', text: 'Maandazi', categoryId: 'chakula-chetu', language: 'sw' },
+  { id: 'chk-15', text: 'Chai ya Rangi', categoryId: 'chakula-chetu', language: 'sw' },
+  { id: 'chk-16', text: 'Juisi ya Miwa', categoryId: 'chakula-chetu', language: 'sw' },
+  { id: 'chk-17', text: 'Vitumbua', categoryId: 'chakula-chetu', language: 'sw' },
+  { id: 'chk-18', text: 'Urojo', categoryId: 'chakula-chetu', language: 'sw' },
 
-  // 15. Watu Maarufu
-  { id: 'wtu-1', text: 'Mwalimu Julius Nyerere', categoryId: 'watu-maarufu', language: 'sw' },
-  { id: 'wtu-2', text: 'Rais Samia Suluhu Hassan', categoryId: 'watu-maarufu', language: 'sw' },
-  { id: 'wtu-3', text: 'Haji Manara', categoryId: 'watu-maarufu', language: 'mixed' },
-  { id: 'wtu-4', text: 'Millard Ayo', categoryId: 'watu-maarufu', language: 'mixed' },
-  { id: 'wtu-5', text: 'Idris Sultan', categoryId: 'watu-maarufu', language: 'mixed' },
-  { id: 'wtu-6', text: 'Jokate Mwegelo', categoryId: 'watu-maarufu', language: 'mixed' },
-  { id: 'wtu-7', text: 'Ahmed Ally', categoryId: 'watu-maarufu', language: 'mixed' },
-  { id: 'wtu-8', text: 'Professor Jay', categoryId: 'watu-maarufu', language: 'mixed' },
-  { id: 'wtu-9', text: 'Lady Jaydee', categoryId: 'watu-maarufu', language: 'mixed' },
-  { id: 'wtu-10', text: 'Masoud Kipanya', categoryId: 'watu-maarufu', language: 'mixed' },
+  // ── watu-maarufu ──
+  { id: 'wtm-1', text: 'Mwalimu Nyerere', categoryId: 'watu-maarufu', language: 'sw' },
+  { id: 'wtm-2', text: 'Samia Suluhu Hassan', categoryId: 'watu-maarufu', language: 'mixed' },
+  { id: 'wtm-3', text: 'Haji Manara', categoryId: 'watu-maarufu', language: 'mixed' },
+  { id: 'wtm-4', text: 'Millard Ayo', categoryId: 'watu-maarufu', language: 'mixed' },
+  { id: 'wtm-5', text: 'Idris Sultan', categoryId: 'watu-maarufu', language: 'mixed' },
+  { id: 'wtm-6', text: 'Jokate Mwegelo', categoryId: 'watu-maarufu', language: 'mixed' },
+  { id: 'wtm-7', text: 'Ahmed Ally', categoryId: 'watu-maarufu', language: 'mixed' },
+  { id: 'wtm-8', text: 'Masoud Kipanya', categoryId: 'watu-maarufu', language: 'mixed' },
+  { id: 'wtm-9', text: 'Professor Jay', categoryId: 'watu-maarufu', language: 'mixed' },
+  { id: 'wtm-10', text: 'Lady Jaydee', categoryId: 'watu-maarufu', language: 'mixed' },
+  { id: 'wtm-11', text: 'Mandonga Mtu Kazi', categoryId: 'watu-maarufu', language: 'mixed' },
+  { id: 'wtm-12', text: 'Mbwana Samatta', categoryId: 'watu-maarufu', language: 'mixed' },
 
-  // 16. Movie za Bongo
-  { id: 'mvb-1', text: 'Steven Kanumba The Great', categoryId: 'movie-za-bongo', language: 'mixed' },
-  { id: 'mvb-2', text: 'Ray Kigosi', categoryId: 'movie-za-bongo', language: 'mixed' },
-  { id: 'mvb-3', text: 'Wema Sepetu', categoryId: 'movie-za-bongo', language: 'mixed' },
-  { id: 'mvb-4', text: 'JB Jerusalem Boys', categoryId: 'movie-za-bongo', language: 'mixed' },
-  { id: 'mvb-5', text: 'Irene Uwoya', categoryId: 'movie-za-bongo', language: 'mixed' },
-  { id: 'mvb-6', text: 'Monalisa', categoryId: 'movie-za-bongo', language: 'mixed' },
-  { id: 'mvb-7', text: 'Aunt Ezekiel', categoryId: 'movie-za-bongo', language: 'mixed' },
-  { id: 'mvb-8', text: 'Single Mtambalike Rich', categoryId: 'movie-za-bongo', language: 'mixed' },
-  { id: 'mvb-9', text: 'Oprah Movie', categoryId: 'movie-za-bongo', language: 'mixed' },
-  { id: 'mvb-10', text: 'Chopa Mchopanga', categoryId: 'movie-za-bongo', language: 'mixed' },
+  // ── movie-za-bongo ──
+  { id: 'mzb-1', text: 'Steven Kanumba', categoryId: 'movie-za-bongo', language: 'mixed' },
+  { id: 'mzb-2', text: 'Ray Kigosi', categoryId: 'movie-za-bongo', language: 'mixed' },
+  { id: 'mzb-3', text: 'Wema Sepetu', categoryId: 'movie-za-bongo', language: 'mixed' },
+  { id: 'mzb-4', text: 'JB', categoryId: 'movie-za-bongo', language: 'mixed' },
+  { id: 'mzb-5', text: 'Irene Uwoya', categoryId: 'movie-za-bongo', language: 'mixed' },
+  { id: 'mzb-6', text: 'Monalisa', categoryId: 'movie-za-bongo', language: 'mixed' },
+  { id: 'mzb-7', text: 'Aunt Ezekiel', categoryId: 'movie-za-bongo', language: 'mixed' },
+  { id: 'mzb-8', text: 'Single Mtambalike', categoryId: 'movie-za-bongo', language: 'mixed' },
+  { id: 'mzb-9', text: 'Huba', categoryId: 'movie-za-bongo', language: 'mixed', needsReview: true },
+  { id: 'mzb-10', text: 'Jua Kali', categoryId: 'movie-za-bongo', language: 'mixed', needsReview: true },
+  { id: 'mzb-11', text: 'Ze Comedy', categoryId: 'movie-za-bongo', language: 'mixed', needsReview: true },
+  { id: 'mzb-12', text: 'Filamu ya Kibongo', categoryId: 'movie-za-bongo', language: 'sw' },
+  { id: 'mzb-13', text: 'Kuigiza Kulia', categoryId: 'movie-za-bongo', language: 'sw' },
 
-  // 17. Mpira & Mashabiki
-  { id: 'mpm-1', text: 'Simba SC Mnyama', categoryId: 'mpira-mashabiki', language: 'sw' },
-  { id: 'mpm-2', text: 'Yanga SC Wananchi', categoryId: 'mpira-mashabiki', language: 'sw' },
-  { id: 'mpm-3', text: 'Kariakoo Derby', categoryId: 'mpira-mashabiki', language: 'mixed' },
-  { id: 'mpm-4', text: 'Uwanja wa Benjamin Mkapa', categoryId: 'mpira-mashabiki', language: 'sw' },
-  { id: 'mpm-5', text: 'Vuvuzela Uwanjani', categoryId: 'mpira-mashabiki', language: 'sw' },
-  { id: 'mpm-6', text: 'Kadi Nyekundu', categoryId: 'mpira-mashabiki', language: 'sw' },
-  { id: 'mpm-7', text: 'Golikipa Amedaka', categoryId: 'mpira-mashabiki', language: 'sw' },
-  { id: 'mpm-8', text: 'Kushangilia Goli la Dakika 90', categoryId: 'mpira-mashabiki', language: 'sw' },
-  { id: 'mpm-9', text: 'Azam FC Wanalambalamba', categoryId: 'mpira-mashabiki', language: 'sw' },
-  { id: 'mpm-10', text: 'Mashabiki wa Jangwani', categoryId: 'mpira-mashabiki', language: 'sw' },
+  // ── mpira-mashabiki ──
+  { id: 'mpr-1', text: 'Simba SC', categoryId: 'mpira-mashabiki', language: 'mixed' },
+  { id: 'mpr-2', text: 'Yanga SC', categoryId: 'mpira-mashabiki', language: 'mixed' },
+  { id: 'mpr-3', text: 'Kariakoo Derby', categoryId: 'mpira-mashabiki', language: 'sw' },
+  { id: 'mpr-4', text: 'Uwanja wa Mkapa', categoryId: 'mpira-mashabiki', language: 'sw' },
+  { id: 'mpr-5', text: 'Azam FC', categoryId: 'mpira-mashabiki', language: 'mixed' },
+  { id: 'mpr-6', text: 'Taifa Stars', categoryId: 'mpira-mashabiki', language: 'mixed' },
+  { id: 'mpr-7', text: 'Jangwani', categoryId: 'mpira-mashabiki', language: 'sw' },
+  { id: 'mpr-8', text: 'Vuvuzela', categoryId: 'mpira-mashabiki', language: 'sw' },
+  { id: 'mpr-9', text: 'Kadi Nyekundu', categoryId: 'mpira-mashabiki', language: 'sw' },
+  { id: 'mpr-10', text: 'Kipa Amedaka', categoryId: 'mpira-mashabiki', language: 'sw' },
+  { id: 'mpr-11', text: 'Goli Dakika ya 90', categoryId: 'mpira-mashabiki', language: 'sw' },
+  { id: 'mpr-12', text: 'Ndondo Cup', categoryId: 'mpira-mashabiki', language: 'sw' },
+  { id: 'mpr-13', text: 'Shabiki Analia', categoryId: 'mpira-mashabiki', language: 'sw' },
+  { id: 'mpr-14', text: 'Kubeti', categoryId: 'mpira-mashabiki', language: 'sw' },
 
-  // 18. Chuo Life
-  { id: 'chuo-1', text: 'Boom la HESLB', categoryId: 'chuo-life', language: 'sw' },
-  { id: 'chuo-2', text: 'Hostel za Magufuli', categoryId: 'chuo-life', language: 'sw' },
+  // ── chuo-life ──
+  { id: 'chuo-1', text: 'Boom', categoryId: 'chuo-life', language: 'sw' },
+  { id: 'chuo-2', text: 'Hosteli', categoryId: 'chuo-life', language: 'sw' },
   { id: 'chuo-3', text: 'Mtihani wa UE', categoryId: 'chuo-life', language: 'sw' },
-  { id: 'chuo-4', text: 'Kupiga Msuli Usiku', categoryId: 'chuo-life', language: 'sw' },
-  { id: 'chuo-5', text: 'Kugombea Siti ya Mbele Lecture', categoryId: 'chuo-life', language: 'sw' },
-  { id: 'chuo-6', text: 'Cafeteria ya Chuo', categoryId: 'chuo-life', language: 'mixed' },
-  { id: 'chuo-7', text: 'Graduation Day', categoryId: 'chuo-life', language: 'en' },
-  { id: 'chuo-8', text: 'Kupata Carry Over', categoryId: 'chuo-life', language: 'sw' },
-  { id: 'chuo-9', text: 'Kugawa Notes za Mtihani', categoryId: 'chuo-life', language: 'sw' },
-  { id: 'chuo-10', text: 'Mhadhiri Mkali', categoryId: 'chuo-life', language: 'sw' },
+  { id: 'chuo-4', text: 'Kupiga Msuli', categoryId: 'chuo-life', language: 'sw' },
+  { id: 'chuo-5', text: 'Lecture', categoryId: 'chuo-life', language: 'sw' },
+  { id: 'chuo-6', text: 'Kanteeni', categoryId: 'chuo-life', language: 'sw' },
+  { id: 'chuo-7', text: 'Mahafali', categoryId: 'chuo-life', language: 'sw' },
+  { id: 'chuo-8', text: 'Carry Over', categoryId: 'chuo-life', language: 'sw' },
+  { id: 'chuo-9', text: 'Sapu', categoryId: 'chuo-life', language: 'sw', needsReview: true },
+  { id: 'chuo-10', text: 'Notes za Mtihani', categoryId: 'chuo-life', language: 'sw' },
+  { id: 'chuo-11', text: 'Mhadhiri Mkali', categoryId: 'chuo-life', language: 'sw' },
+  { id: 'chuo-12', text: 'Kugombea Siti', categoryId: 'chuo-life', language: 'sw' },
+  { id: 'chuo-13', text: 'Group Discussion', categoryId: 'chuo-life', language: 'sw' },
 
-  // 19. Mapenzi & Mahusiano
-  { id: 'map-1', text: 'Kutoa Mahari', categoryId: 'mapenzi-mahusiano', language: 'sw' },
-  { id: 'map-2', text: 'Send-off Party', categoryId: 'mapenzi-mahusiano', language: 'mixed' },
-  { id: 'map-3', text: 'Harusi ya Kifahari', categoryId: 'mapenzi-mahusiano', language: 'sw' },
-  { id: 'map-4', text: 'Baby wa Moyo', categoryId: 'mapenzi-mahusiano', language: 'sw' },
-  { id: 'map-5', text: 'Kuchunwa Buzi', categoryId: 'mapenzi-mahusiano', language: 'sw' },
-  { id: 'map-6', text: 'Kupata Shemeji Mpya', categoryId: 'mapenzi-mahusiano', language: 'sw' },
-  { id: 'map-7', text: 'Kuposa kwa Wazazi', categoryId: 'mapenzi-mahusiano', language: 'sw' },
-  { id: 'map-8', text: 'Valentine Day Dinner', categoryId: 'mapenzi-mahusiano', language: 'en' },
-  { id: 'map-9', text: 'Penzi la Dhati', categoryId: 'mapenzi-mahusiano', language: 'sw' },
-  { id: 'map-10', text: 'Kuvunja Uchumba', categoryId: 'mapenzi-mahusiano', language: 'sw' },
+  // ── mapenzi-mahusiano ──
+  { id: 'mpz-1', text: 'Mahari', categoryId: 'mapenzi-mahusiano', language: 'sw' },
+  { id: 'mpz-2', text: 'Send-off', categoryId: 'mapenzi-mahusiano', language: 'mixed' },
+  { id: 'mpz-3', text: 'Harusi', categoryId: 'mapenzi-mahusiano', language: 'sw' },
+  { id: 'mpz-4', text: 'Posa', categoryId: 'mapenzi-mahusiano', language: 'sw' },
+  { id: 'mpz-5', text: 'Shemeji', categoryId: 'mapenzi-mahusiano', language: 'sw' },
+  { id: 'mpz-6', text: 'Kuchunwa Buzi', categoryId: 'mapenzi-mahusiano', language: 'sw' },
+  { id: 'mpz-7', text: 'Kuvunja Uchumba', categoryId: 'mapenzi-mahusiano', language: 'sw' },
+  { id: 'mpz-8', text: 'Kutongoza', categoryId: 'mapenzi-mahusiano', language: 'sw' },
+  { id: 'mpz-9', text: 'Wivu', categoryId: 'mapenzi-mahusiano', language: 'sw' },
+  { id: 'mpz-10', text: 'Kuomba Namba', categoryId: 'mapenzi-mahusiano', language: 'sw' },
+  { id: 'mpz-11', text: 'Siku ya Wapendanao', categoryId: 'mapenzi-mahusiano', language: 'sw' },
+  { id: 'mpz-12', text: 'Baby', categoryId: 'mapenzi-mahusiano', language: 'sw' },
 
-  // 20. Shughuli za Familia
-  { id: 'shg-1', text: 'Kitchen Party', categoryId: 'shughuli-za-familia', language: 'mixed' },
-  { id: 'shg-2', text: 'Kikao cha Harusi', categoryId: 'shughuli-za-familia', language: 'sw' },
-  { id: 'shg-3', text: 'Mkesha wa Mwaka Mpya', categoryId: 'shughuli-za-familia', language: 'sw' },
-  { id: 'shg-4', text: 'Kipaimara cha Mtoto', categoryId: 'shughuli-za-familia', language: 'sw' },
-  { id: 'shg-5', text: 'Dua ya Wazazi', categoryId: 'shughuli-za-familia', language: 'sw' },
-  { id: 'shg-6', text: 'Kadi ya Mchango', categoryId: 'shughuli-za-familia', language: 'sw' },
-  { id: 'shg-7', text: 'Maua ya Bibi Harusi', categoryId: 'shughuli-za-familia', language: 'sw' },
-  { id: 'shg-8', text: 'Kupika kwenye Masufuria Makubwa', categoryId: 'shughuli-za-familia', language: 'sw' },
-  { id: 'shg-9', text: 'Kuimba Pambio za Sherehe', categoryId: 'shughuli-za-familia', language: 'sw' },
-  { id: 'shg-10', text: 'Sherehe ya Kuzaliwa', categoryId: 'shughuli-za-familia', language: 'sw' },
+  // ── shughuli-za-familia ──
+  { id: 'fam-1', text: 'Kitchen Party', categoryId: 'shughuli-za-familia', language: 'mixed' },
+  { id: 'fam-2', text: 'Kikao cha Harusi', categoryId: 'shughuli-za-familia', language: 'sw' },
+  { id: 'fam-3', text: 'Mkesha wa Mwaka Mpya', categoryId: 'shughuli-za-familia', language: 'sw' },
+  { id: 'fam-4', text: 'Kipaimara', categoryId: 'shughuli-za-familia', language: 'sw' },
+  { id: 'fam-5', text: 'Kadi ya Mchango', categoryId: 'shughuli-za-familia', language: 'sw' },
+  { id: 'fam-6', text: 'Bibi Harusi', categoryId: 'shughuli-za-familia', language: 'sw' },
+  { id: 'fam-7', text: 'MC wa Sherehe', categoryId: 'shughuli-za-familia', language: 'sw' },
+  { id: 'fam-8', text: 'Sherehe ya Kuzaliwa', categoryId: 'shughuli-za-familia', language: 'sw' },
+  { id: 'fam-9', text: 'Shikamoo', categoryId: 'shughuli-za-familia', language: 'sw' },
+  { id: 'fam-10', text: 'Shangazi', categoryId: 'shughuli-za-familia', language: 'sw' },
+  { id: 'fam-11', text: 'Mjomba', categoryId: 'shughuli-za-familia', language: 'sw' },
+  { id: 'fam-12', text: 'Bibi na Babu', categoryId: 'shughuli-za-familia', language: 'sw' },
+  { id: 'fam-13', text: 'Masufuria ya Sherehe', categoryId: 'shughuli-za-familia', language: 'sw' },
 
-  // =========================================================================
-  // GROUP 3: EAST AFRICA & BEYOND (c3)
-  // =========================================================================
+  // ── east-african-vibes ──
+  { id: 'eav-1', text: 'Matatu', categoryId: 'east-african-vibes', language: 'mixed' },
+  { id: 'eav-2', text: 'Rolex', categoryId: 'east-african-vibes', language: 'mixed', hint: 'Ugandan street snack' },
+  { id: 'eav-3', text: 'Kitenge', categoryId: 'east-african-vibes', language: 'mixed' },
+  { id: 'eav-4', text: 'Lake Victoria', categoryId: 'east-african-vibes', language: 'en', concept: 'eav-lake-victoria' },
+  { id: 'eav-5', text: 'Ziwa Victoria', categoryId: 'east-african-vibes', language: 'sw', concept: 'eav-lake-victoria' },
+  { id: 'eav-6', text: 'Gorilla Trekking', categoryId: 'east-african-vibes', language: 'en', concept: 'eav-gorilla-trekking' },
+  { id: 'eav-7', text: 'Kutembelea Sokwe', categoryId: 'east-african-vibes', language: 'sw', concept: 'eav-gorilla-trekking' },
+  { id: 'eav-8', text: 'Safari', categoryId: 'east-african-vibes', language: 'mixed' },
+  { id: 'eav-9', text: 'Great Migration', categoryId: 'east-african-vibes', language: 'mixed' },
+  { id: 'eav-10', text: 'Maasai Jumping Dance', categoryId: 'east-african-vibes', language: 'en', concept: 'eav-maasai-jumping-dance' },
+  { id: 'eav-11', text: 'Ngoma ya Kimaasai', categoryId: 'east-african-vibes', language: 'sw', concept: 'eav-maasai-jumping-dance' },
+  { id: 'eav-12', text: 'Kanga', categoryId: 'east-african-vibes', language: 'mixed' },
+  { id: 'eav-13', text: 'Nyama Choma', categoryId: 'east-african-vibes', language: 'mixed' },
+  { id: 'eav-14', text: 'Mombasa', categoryId: 'east-african-vibes', language: 'mixed' },
+  { id: 'eav-15', text: 'Zanzibar', categoryId: 'east-african-vibes', language: 'mixed' },
+  { id: 'eav-16', text: 'Source of the Nile', categoryId: 'east-african-vibes', language: 'mixed' },
 
-  // 21. East African Vibes
-  { id: 'eav-1', text: 'Matatu ya Nairobi', categoryId: 'east-african-vibes', language: 'mixed' },
-  { id: 'eav-2', text: 'Rolex ya Uganda', categoryId: 'east-african-vibes', language: 'mixed' },
-  { id: 'eav-3', text: 'Boda Boda wa Kampala', categoryId: 'east-african-vibes', language: 'sw' },
-  { id: 'eav-4', text: 'Lake Victoria', categoryId: 'east-african-vibes', language: 'en' },
-  { id: 'eav-5', text: 'Zanzibar Spice Tour', categoryId: 'east-african-vibes', language: 'en' },
-  { id: 'eav-6', text: 'Gorilla Trekking Rwanda', categoryId: 'east-african-vibes', language: 'en' },
-  { id: 'eav-7', text: 'Kigali Clean Streets', categoryId: 'east-african-vibes', language: 'en' },
-  { id: 'eav-8', text: 'Mombasa Raha', categoryId: 'east-african-vibes', language: 'sw' },
-  { id: 'eav-9', text: 'Nyangumi wa Mafia Island', categoryId: 'east-african-vibes', language: 'sw' },
-  { id: 'eav-10', text: 'Wanyama wa Serengeti', categoryId: 'east-african-vibes', language: 'sw' },
+  // ── african-icons ──
+  { id: 'aic-1', text: 'Nelson Mandela', categoryId: 'african-icons', language: 'mixed' },
+  { id: 'aic-2', text: 'Kwame Nkrumah', categoryId: 'african-icons', language: 'mixed' },
+  { id: 'aic-3', text: 'Wangari Maathai', categoryId: 'african-icons', language: 'mixed' },
+  { id: 'aic-4', text: 'Kofi Annan', categoryId: 'african-icons', language: 'mixed' },
+  { id: 'aic-5', text: 'Miriam Makeba', categoryId: 'african-icons', language: 'mixed' },
+  { id: 'aic-6', text: 'Chinua Achebe', categoryId: 'african-icons', language: 'mixed' },
+  { id: 'aic-7', text: 'Thomas Sankara', categoryId: 'african-icons', language: 'mixed' },
+  { id: 'aic-8', text: 'Haile Selassie', categoryId: 'african-icons', language: 'mixed' },
+  { id: 'aic-9', text: 'Fela Kuti', categoryId: 'african-icons', language: 'mixed' },
+  { id: 'aic-10', text: 'Patrice Lumumba', categoryId: 'african-icons', language: 'mixed' },
+  { id: 'aic-11', text: 'Mohamed Salah', categoryId: 'african-icons', language: 'mixed' },
+  { id: 'aic-12', text: 'Didier Drogba', categoryId: 'african-icons', language: 'mixed' },
+  { id: 'aic-13', text: "Lupita Nyong'o", categoryId: 'african-icons', language: 'mixed' },
+  { id: 'aic-14', text: 'Trevor Noah', categoryId: 'african-icons', language: 'mixed' },
 
-  // 22. African Icons
-  { id: 'ico-1', text: 'Nelson Mandela', categoryId: 'african-icons', language: 'mixed' },
-  { id: 'ico-2', text: 'Kwame Nkrumah', categoryId: 'african-icons', language: 'mixed' },
-  { id: 'ico-3', text: 'Wangari Maathai', categoryId: 'african-icons', language: 'mixed' },
-  { id: 'ico-4', text: 'Kofi Annan', categoryId: 'african-icons', language: 'mixed' },
-  { id: 'ico-5', text: 'Miriam Makeba Mama Africa', categoryId: 'african-icons', language: 'mixed' },
-  { id: 'ico-6', text: 'Chinua Achebe', categoryId: 'african-icons', language: 'mixed' },
-  { id: 'ico-7', text: 'Thomas Sankara', categoryId: 'african-icons', language: 'mixed' },
-  { id: 'ico-8', text: 'Haile Selassie', categoryId: 'african-icons', language: 'mixed' },
-  { id: 'ico-9', text: 'Fela Kuti', categoryId: 'african-icons', language: 'mixed' },
-  { id: 'ico-10', text: 'Patrice Lumumba', categoryId: 'african-icons', language: 'mixed' },
+  // ── african-music ──
+  { id: 'amu-1', text: 'Afrobeats', categoryId: 'african-music', language: 'mixed' },
+  { id: 'amu-2', text: 'Amapiano', categoryId: 'african-music', language: 'mixed' },
+  { id: 'amu-3', text: 'Rhumba', categoryId: 'african-music', language: 'mixed' },
+  { id: 'amu-4', text: 'Highlife', categoryId: 'african-music', language: 'mixed' },
+  { id: 'amu-5', text: 'Gengetone', categoryId: 'african-music', language: 'mixed' },
+  { id: 'amu-6', text: 'Kwaito', categoryId: 'african-music', language: 'mixed' },
+  { id: 'amu-7', text: 'Burna Boy', categoryId: 'african-music', language: 'mixed' },
+  { id: 'amu-8', text: 'Wizkid', categoryId: 'african-music', language: 'mixed' },
+  { id: 'amu-9', text: 'Davido', categoryId: 'african-music', language: 'mixed' },
+  { id: 'amu-10', text: 'Tems', categoryId: 'african-music', language: 'mixed' },
+  { id: 'amu-11', text: 'Tyla', categoryId: 'african-music', language: 'mixed' },
+  { id: 'amu-12', text: 'Sauti Sol', categoryId: 'african-music', language: 'mixed' },
+  { id: 'amu-13', text: 'Fally Ipupa', categoryId: 'african-music', language: 'mixed' },
+  { id: 'amu-14', text: 'Koffi Olomide', categoryId: 'african-music', language: 'mixed' },
+  { id: 'amu-15', text: 'Yemi Alade', categoryId: 'african-music', language: 'mixed' },
+  { id: 'amu-16', text: 'Angélique Kidjo', categoryId: 'african-music', language: 'mixed' },
+  { id: 'amu-17', text: 'Jerusalema', categoryId: 'african-music', language: 'mixed', hint: 'Master KG' },
+  { id: 'amu-18', text: 'Sitya Loss', categoryId: 'african-music', language: 'mixed', hint: 'Eddy Kenzo' },
 
-  // 23. African Music
-  { id: 'afm-1', text: 'Afrobeats', categoryId: 'african-music', language: 'en' },
-  { id: 'afm-2', text: 'Amapiano Dance', categoryId: 'african-music', language: 'en' },
-  { id: 'afm-3', text: 'Rhumba la Congo', categoryId: 'african-music', language: 'sw' },
-  { id: 'afm-4', text: 'Taarab ya Zanzibar', categoryId: 'african-music', language: 'sw' },
-  { id: 'afm-5', text: 'Highlife Rhythm', categoryId: 'african-music', language: 'en' },
-  { id: 'afm-6', text: 'Gengetone Kenya', categoryId: 'african-music', language: 'mixed' },
-  { id: 'afm-7', text: 'Kwaito Beats', categoryId: 'african-music', language: 'en' },
-  { id: 'afm-8', text: 'Soukous Dance', categoryId: 'african-music', language: 'en' },
-  { id: 'afm-9', text: 'Benga Music', categoryId: 'african-music', language: 'mixed' },
-  { id: 'afm-10', text: 'Gqom Durban', categoryId: 'african-music', language: 'en' },
+  // ── african-cities ──
+  { id: 'acy-1', text: 'Dar es Salaam', categoryId: 'african-cities', language: 'mixed' },
+  { id: 'acy-2', text: 'Nairobi', categoryId: 'african-cities', language: 'mixed' },
+  { id: 'acy-3', text: 'Kampala', categoryId: 'african-cities', language: 'mixed' },
+  { id: 'acy-4', text: 'Kigali', categoryId: 'african-cities', language: 'mixed' },
+  { id: 'acy-5', text: 'Johannesburg', categoryId: 'african-cities', language: 'mixed' },
+  { id: 'acy-6', text: 'Cape Town', categoryId: 'african-cities', language: 'mixed' },
+  { id: 'acy-7', text: 'Lagos', categoryId: 'african-cities', language: 'mixed' },
+  { id: 'acy-8', text: 'Cairo', categoryId: 'african-cities', language: 'mixed' },
+  { id: 'acy-9', text: 'Accra', categoryId: 'african-cities', language: 'mixed' },
+  { id: 'acy-10', text: 'Addis Ababa', categoryId: 'african-cities', language: 'mixed' },
+  { id: 'acy-11', text: 'Kinshasa', categoryId: 'african-cities', language: 'mixed' },
+  { id: 'acy-12', text: 'Marrakech', categoryId: 'african-cities', language: 'mixed' },
+  { id: 'acy-13', text: 'Dakar', categoryId: 'african-cities', language: 'mixed' },
 
-  // 24. African Cities
-  { id: 'cty-1', text: 'Dar es Salaam', categoryId: 'african-cities', language: 'mixed' },
-  { id: 'cty-2', text: 'Nairobi', categoryId: 'african-cities', language: 'mixed' },
-  { id: 'cty-3', text: 'Kampala', categoryId: 'african-cities', language: 'mixed' },
-  { id: 'cty-4', text: 'Kigali', categoryId: 'african-cities', language: 'mixed' },
-  { id: 'cty-5', text: 'Johannesburg', categoryId: 'african-cities', language: 'en' },
-  { id: 'cty-6', text: 'Lagos', categoryId: 'african-cities', language: 'en' },
-  { id: 'cty-7', text: 'Cairo', categoryId: 'african-cities', language: 'en' },
-  { id: 'cty-8', text: 'Accra', categoryId: 'african-cities', language: 'en' },
-  { id: 'cty-9', text: 'Addis Ababa', categoryId: 'african-cities', language: 'mixed' },
-  { id: 'cty-10', text: 'Zanzibar Stone Town', categoryId: 'african-cities', language: 'en' },
-
-  // 25. Pop Culture
-  { id: 'pop-1', text: 'TikTok Dance Challenge', categoryId: 'pop-culture', language: 'en' },
-  { id: 'pop-2', text: 'Viral Instagram Meme', categoryId: 'pop-culture', language: 'en' },
-  { id: 'pop-3', text: 'Red Carpet Bongo Movie', categoryId: 'pop-culture', language: 'mixed' },
-  { id: 'pop-4', text: 'Trending on Twitter / X', categoryId: 'pop-culture', language: 'en' },
-  { id: 'pop-5', text: 'YouTube Vloggers', categoryId: 'pop-culture', language: 'en' },
-  { id: 'pop-6', text: 'Podcast za Mjini', categoryId: 'pop-culture', language: 'sw' },
+  // ── pop-culture ──
+  { id: 'pop-1', text: 'TikTok Dance Challenge', categoryId: 'pop-culture', language: 'mixed' },
+  { id: 'pop-2', text: 'Viral Meme', categoryId: 'pop-culture', language: 'en' },
+  { id: 'pop-3', text: 'Red Carpet', categoryId: 'pop-culture', language: 'en' },
+  { id: 'pop-4', text: 'Trending on X', categoryId: 'pop-culture', language: 'mixed' },
+  { id: 'pop-5', text: 'YouTuber', categoryId: 'pop-culture', language: 'mixed' },
+  { id: 'pop-6', text: 'Podcast', categoryId: 'pop-culture', language: 'mixed' },
   { id: 'pop-7', text: 'Celebrity Breakup', categoryId: 'pop-culture', language: 'en' },
-  { id: 'pop-8', text: 'Mastaa wa Bongo', categoryId: 'pop-culture', language: 'sw' },
-  { id: 'pop-9', text: 'Paparazzi wa Dar', categoryId: 'pop-culture', language: 'sw' },
-  { id: 'pop-10', text: 'Live Stream Concert', categoryId: 'pop-culture', language: 'en' },
+  { id: 'pop-8', text: 'Paparazzi', categoryId: 'pop-culture', language: 'mixed' },
+  { id: 'pop-9', text: 'Live Stream', categoryId: 'pop-culture', language: 'en' },
+  { id: 'pop-10', text: 'Jerusalema Dance Challenge', categoryId: 'pop-culture', language: 'mixed' },
+  { id: 'pop-11', text: 'Wakanda Forever Salute', categoryId: 'pop-culture', language: 'mixed' },
+  { id: 'pop-12', text: 'Big Brother Naija', categoryId: 'pop-culture', language: 'mixed' },
+  { id: 'pop-13', text: 'Influencer', categoryId: 'pop-culture', language: 'mixed' },
+  { id: 'pop-14', text: 'Binge-watching', categoryId: 'pop-culture', language: 'en' },
 
-  // 26. Throwback Hits
-  { id: 'tbk-1', text: 'Ze Comedy Original', categoryId: 'throwback-hits', language: 'sw' },
-  { id: 'tbk-2', text: 'Mr Nice Fagilia', categoryId: 'throwback-hits', language: 'sw' },
-  { id: 'tbk-3', text: 'TMK Wanaume Family', categoryId: 'throwback-hits', language: 'sw' },
-  { id: 'tbk-4', text: 'TID Zeze', categoryId: 'throwback-hits', language: 'sw' },
-  { id: 'tbk-5', text: 'Dully Sykes Salome', categoryId: 'throwback-hits', language: 'sw' },
-  { id: 'tbk-6', text: 'Ray C Mapenzi Yangu', categoryId: 'throwback-hits', language: 'sw' },
-  { id: 'tbk-7', text: 'Lady Jaydee Machozi', categoryId: 'throwback-hits', language: 'sw' },
-  { id: 'tbk-8', text: '20 Percent Money Money', categoryId: 'throwback-hits', language: 'sw' },
-  { id: 'tbk-9', text: 'Juma Nature Ugali', categoryId: 'throwback-hits', language: 'sw' },
-  { id: 'tbk-10', text: 'East Coast Team', categoryId: 'throwback-hits', language: 'mixed' },
+  // ── throwback-hits ──
+  { id: 'tbk-1', text: 'Malaika', categoryId: 'throwback-hits', language: 'mixed', hint: 'Fadhili William' },
+  { id: 'tbk-2', text: 'Jambo Bwana', categoryId: 'throwback-hits', language: 'mixed', hint: 'Them Mushrooms' },
+  { id: 'tbk-3', text: 'Pata Pata', categoryId: 'throwback-hits', language: 'mixed', hint: 'Miriam Makeba' },
+  { id: 'tbk-4', text: 'Sweet Mother', categoryId: 'throwback-hits', language: 'mixed', hint: 'Prince Nico Mbarga' },
+  { id: 'tbk-5', text: 'Yéké Yéké', categoryId: 'throwback-hits', language: 'mixed', hint: 'Mory Kanté' },
+  { id: 'tbk-6', text: 'Wale Watu', categoryId: 'throwback-hits', language: 'mixed', hint: 'Khadja Nin' },
+  { id: 'tbk-7', text: 'Shauri Yako', categoryId: 'throwback-hits', language: 'mixed', hint: 'Super Mazembe' },
+  { id: 'tbk-8', text: 'African Queen', categoryId: 'throwback-hits', language: 'mixed', hint: '2Face Idibia' },
+  { id: 'tbk-9', text: 'Waka Waka', categoryId: 'throwback-hits', language: 'mixed', hint: 'Shakira' },
+  { id: 'tbk-10', text: 'Thriller', categoryId: 'throwback-hits', language: 'mixed', hint: 'Michael Jackson' },
+  { id: 'tbk-11', text: 'Billie Jean', categoryId: 'throwback-hits', language: 'mixed', hint: 'Michael Jackson' },
+  { id: 'tbk-12', text: 'Macarena', categoryId: 'throwback-hits', language: 'mixed' },
+  { id: 'tbk-13', text: 'Gangnam Style', categoryId: 'throwback-hits', language: 'mixed', hint: 'PSY' },
+  { id: 'tbk-14', text: 'One Love', categoryId: 'throwback-hits', language: 'mixed', hint: 'Bob Marley' },
 ]
 
+/** Language preference order used when a concept has more than one version */
+const PREFERENCE: Record<'en' | 'sw', PromptLanguage[]> = {
+  en: ['en', 'mixed', 'sw'],
+  sw: ['sw', 'mixed', 'en'],
+}
+
 /**
- * Filter prompts by the categories and prompt language chosen on Game Setup.
+ * Choose ONE version of each concept for the selected prompt language.
  *
- * Rules:
+ *  - English:   English version if it exists, otherwise the any-language or Kiswahili one.
+ *  - Kiswahili: Kiswahili version if it exists, otherwise any-language or English.
+ *  - Mixed:     where both translations exist, pick one at random (seeded), so a game
+ *               mixes both languages without ever showing "Lion" AND "Simba".
+ *
+ * Prompts without a translation are always kept — e.g. Tanzanian categories stay in
+ * Kiswahili even in English mode, because that is their identity.
+ */
+export function selectPromptVariants(
+  prompts: readonly GamePrompt[],
+  language: PromptLanguage,
+  seed = 1,
+): GamePrompt[] {
+  const groups = new Map<string, GamePrompt[]>()
+  for (const p of prompts) {
+    const key = p.concept ?? `id:${p.id}`
+    const list = groups.get(key)
+    if (list) list.push(p)
+    else groups.set(key, [p])
+  }
+
+  const result: GamePrompt[] = []
+  let s = seed
+  for (const variants of groups.values()) {
+    if (variants.length === 1) {
+      result.push(variants[0])
+      continue
+    }
+    if (language === 'mixed') {
+      const [r, next] = nextRandom(s)
+      s = next
+      result.push(variants[Math.floor(r * variants.length)])
+      continue
+    }
+    const order = PREFERENCE[language]
+    const best = [...variants].sort(
+      (a, b) => order.indexOf(a.language) - order.indexOf(b.language),
+    )[0]
+    result.push(best)
+  }
+  return result
+}
+
+/**
+ * Prompts for the categories chosen on Game Setup, one version per concept.
+ *
  * - Only prompts from the selected categories are used (all categories in "Feeling lucky").
- * - English  → English prompts + Mixed prompts
- * - Kiswahili → Kiswahili prompts + Mixed prompts
- * - Mixed    → every prompt
- * - If the chosen language has no prompts in the selected categories, we fall back to
- *   ALL languages *within those same categories* — we never borrow prompts from
- *   categories the players did not choose.
- * - Returns an empty array if the categories have no prompts at all; the app then
- *   shows a friendly message instead of starting the game.
+ * - We never borrow prompts from categories the players did not choose.
+ * - Returns an empty array if nothing matches; the app then shows a friendly message.
  */
 export function getFilteredPrompts(
   categoryIds: CategoryIconId[],
   isFeelingLucky: boolean,
-  language: 'en' | 'sw' | 'mixed',
+  language: PromptLanguage,
+  seed = 1,
 ): GamePrompt[] {
   const playable = PROMPTS.filter((p) => typeof p.text === 'string' && p.text.trim().length > 0)
 
@@ -374,12 +616,5 @@ export function getFilteredPrompts(
     categoryPool = playable.filter((p) => idSet.has(p.categoryId))
   }
 
-  let pool = categoryPool
-  if (language === 'en') {
-    pool = categoryPool.filter((p) => p.language === 'en' || p.language === 'mixed')
-  } else if (language === 'sw') {
-    pool = categoryPool.filter((p) => p.language === 'sw' || p.language === 'mixed')
-  }
-
-  return pool.length > 0 ? pool : categoryPool
+  return selectPromptVariants(categoryPool, language, seed)
 }

@@ -21,6 +21,8 @@ interface ResultsPageProps {
    */
   mode?: 'final' | 'standings'
   onBackToGame?: () => void
+  /** Quick Play: one shared score — matches the original single-round results design */
+  isQuickPlay?: boolean
 }
 
 /**
@@ -40,6 +42,7 @@ export function ResultsPage({
   onReturnHome,
   mode = 'final',
   onBackToGame,
+  isQuickPlay = false,
 }: ResultsPageProps) {
   const isStandings = mode === 'standings'
   // Sort teams by score (highest first). Tied teams share the same rank (1, 1, 3…).
@@ -64,6 +67,14 @@ export function ResultsPage({
       : `🏆 ${sorted[0].teamName} Wins!`
   }
   if (isStandings && topScore === 0) winnerText = 'No points yet — all to play for!'
+  if (isQuickPlay) {
+    winnerText =
+      topScore === 0
+        ? 'Tough round! Try again?'
+        : topScore === 1
+          ? 'Great round! 1 correct answer.'
+          : `Great round! ${topScore} correct answers.`
+  }
 
   // Calculate totals
   const totalCorrect = teamScores.reduce((sum, t) => sum + t.correctCount, 0)
@@ -221,7 +232,7 @@ export function ResultsPage({
           <div className="d" style={{ fontSize: 36, color: '#9CF5EA' }}>
             {totalCorrect}
           </div>
-          <b style={{ fontSize: 13 }}>Total Correct</b>
+          <b style={{ fontSize: 13 }}>{isQuickPlay ? 'Correct' : 'Total Correct'}</b>
         </div>
         <div
           style={{
@@ -234,11 +245,12 @@ export function ResultsPage({
           <div className="d" style={{ fontSize: 36, color: '#FFB36B' }}>
             {totalPassed}
           </div>
-          <b style={{ fontSize: 13 }}>Total Passed</b>
+          <b style={{ fontSize: 13 }}>{isQuickPlay ? 'Passed' : 'Total Passed'}</b>
         </div>
       </div>
 
-      {/* Team Leaderboard */}
+      {/* Team Leaderboard (Teams mode only) */}
+      {!isQuickPlay && (
       <div
         style={{
           width: '100%',
@@ -310,6 +322,8 @@ export function ResultsPage({
           })}
         </div>
       </div>
+
+      )}
 
       {/* Action Buttons */}
       <div

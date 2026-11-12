@@ -1,8 +1,12 @@
 import { ForeheadPositioningSvg } from '../components/illustrations/CategoryIcon'
+import { RotateDevicePrompt } from '../components/gameplay/RotateDevicePrompt'
+import { useIsPortraitPhone } from '../hooks/useIsPortraitPhone'
 import { PrimaryButton } from '../components/ui/PrimaryButton'
 import { SecondaryButton } from '../components/ui/SecondaryButton'
 
 interface ForeheadReadyPageProps {
+  isQuickPlay?: boolean
+  backLabel?: string
   currentTeamName: string
   currentTeamIndex: number
   totalTeams: number
@@ -31,7 +35,17 @@ export function ForeheadReadyPage({
   onReady,
   onBackToSetup,
   onBackToHome,
+  isQuickPlay = false,
+  backLabel = 'Setup',
 }: ForeheadReadyPageProps) {
+  // Gameplay is landscape-only: on a phone held upright, wait here until it's turned.
+  const isPortraitPhone = useIsPortraitPhone()
+  if (isPortraitPhone) {
+    return (
+      <RotateDevicePrompt message="Turn your phone sideways to start. You'll hold it on your forehead, screen facing your friends." />
+    )
+  }
+
   return (
     <div
       style={{
@@ -75,7 +89,9 @@ export function ForeheadReadyPage({
           }}
         >
           <span>
-            🎯 Team {currentTeamIndex + 1}/{totalTeams}: {currentTeamName}
+            {isQuickPlay
+              ? '⚡ Quick Play'
+              : `🎯 Team ${currentTeamIndex + 1}/${totalTeams}: ${currentTeamName}`}
           </span>
           <span>•</span>
           <span>{durationSeconds}s</span>
@@ -108,7 +124,7 @@ export function ForeheadReadyPage({
             onClick={onBackToSetup}
             style={{ minHeight: 44, fontSize: 14 }}
           >
-            ← Back to Setup
+            ← Back to {backLabel}
           </SecondaryButton>
           <SecondaryButton
             onClick={onBackToHome}

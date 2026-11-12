@@ -4,6 +4,7 @@ import type { BottomNavTab, ScreenRoute } from '../types'
 const VALID_ROUTES: ReadonlySet<ScreenRoute> = new Set([
   'home',
   'categories',
+  'play-mode',
   'setup',
   'forehead',
   'countdown',

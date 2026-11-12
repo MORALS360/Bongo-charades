@@ -3,6 +3,7 @@ import type {
   GamePrompt,
   GameplayAction,
   PlayedPromptRecord,
+  PlayMode,
   PromptLanguage,
   RoundDuration,
 } from '../types'
@@ -31,6 +32,14 @@ import { createDeck, currentPrompt, drawNext, type DeckState } from './promptDec
 export type GamePhase = 'idle' | 'ready' | 'countdown' | 'playing' | 'roundOver' | 'finished'
 
 export interface GameConfig {
+  /**
+   * 'quick' = Quick Play: one shared score, one round, no teams.
+   * 'teams' = each team plays one round in turn.
+   * Both modes use exactly the same rules below — Quick Play is simply a game
+   * with a single participant, so there is no duplicated gameplay logic.
+   */
+  mode: PlayMode
+  /** Teams mode: the team names. Quick Play: ignored (one participant is created). */
   teamNames: string[]
   categoryIds: CategoryIconId[]
   isFeelingLucky: boolean
@@ -69,6 +78,9 @@ export type GameSessionAction =
   | { type: 'RESTART'; seed: number }
   | { type: 'EXIT' }
 
+/** Name used for the single participant in Quick Play */
+export const QUICK_PLAY_NAME = 'Quick Play'
+
 export const initialGameSessionState: GameSessionState = {
   phase: 'idle',
   config: null,
@@ -90,8 +102,12 @@ export function gameSessionReducer(
 ): GameSessionState {
   switch (event.type) {
     case 'START': {
-      const names = event.config.teamNames.map((n) => n.trim()).filter((n) => n.length > 0)
+      const names =
+        event.config.mode === 'quick'
+          ? [QUICK_PLAY_NAME]
+          : event.config.teamNames.map((n) => n.trim()).filter((n) => n.length > 0)
       if (names.length < 1) return state
+      if (event.config.mode === 'teams' && names.length < 2) return state
       const deck = createDeck(event.prompts, event.seed)
       if (deck.order.length === 0) return state // nothing playable — stay idle
       return {

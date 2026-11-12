@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useReducer } from 'react'
+import { useCallback, useEffect, useMemo, useReducer } from 'react'
 import {
   gameSessionReducer,
   getCurrentPrompt,
@@ -22,15 +22,24 @@ function newSeed(): number {
 export function useGameSession() {
   const [state, dispatch] = useReducer(gameSessionReducer, initialGameSessionState)
 
+  // Development only: expose the game state so automated browser tests can read scores
+  useEffect(() => {
+    if (import.meta.env.DEV) {
+      ;(window as unknown as { __bongoGame?: unknown }).__bongoGame = state
+    }
+  }, [state])
+
   /** Returns false (and does not start) if no playable prompts match the setup. */
   const startGame = useCallback((config: GameConfig): boolean => {
+    const seed = newSeed()
     const prompts = getFilteredPrompts(
       config.categoryIds,
       config.isFeelingLucky,
       config.promptLanguage,
+      seed,
     )
     if (prompts.length === 0) return false
-    dispatch({ type: 'START', config, prompts, seed: newSeed() })
+    dispatch({ type: 'START', config, prompts, seed })
     return true
   }, [])
 

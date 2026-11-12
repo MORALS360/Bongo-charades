@@ -13,6 +13,7 @@ import { ForeheadReadyPage } from './pages/ForeheadReadyPage'
 import { GameSetupPage } from './pages/GameSetupPage'
 import { GameplayPage } from './pages/GameplayPage'
 import { HomePage } from './pages/HomePage'
+import { PlayModePage } from './pages/PlayModePage'
 import {
   type PendingDestination,
   PendingScreenPage,
@@ -20,7 +21,11 @@ import {
 import { ResultsPage } from './pages/ResultsPage'
 import { RoundTransitionPage } from './pages/RoundTransitionPage'
 import { requestMotionPermission } from './services/motionPermission'
-import type { Category, GamePrompt, GameplayAction, ScreenRoute } from './types'
+import { releaseLandscape, requestLandscape } from './services/orientation'
+import type { Category, GamePrompt, GameplayAction, PlayMode, ScreenRoute } from './types'
+
+/** Gameplay stages that are played sideways (landscape) */
+const LANDSCAPE_GAME_ROUTES: ReadonlySet<ScreenRoute> = new Set(['forehead', 'countdown', 'gameplay'])
 
 /** Screens that only make sense while a game is in progress */
 const GAME_ROUTES: ReadonlySet<ScreenRoute> = new Set([
@@ -62,8 +67,14 @@ export function App() {
     [selection.selectedCategoryIds, selection.isFeelingLucky, setup.promptLanguage],
   )
 
-  const handleStartGame = () => {
+  /**
+   * Start a game in either mode. Called directly from a tap, so we can also ask the
+   * phone to switch to landscape (Android: fullscreen + lock; iPhone: not allowed,
+   * the "turn your phone" screen handles it).
+   */
+  const startGame = (mode: PlayMode) => {
     const started = game.startGame({
+      mode,
       teamNames: setup.activeTeamNames,
       categoryIds: selection.selectedCategoryIds,
       isFeelingLucky: selection.isFeelingLucky,
@@ -71,6 +82,7 @@ export function App() {
       durationSeconds: setup.durationSeconds,
     })
     if (started) {
+      void requestLandscape()
       setShowStandings(false)
       navigate('forehead')
     }
@@ -99,6 +111,12 @@ export function App() {
   // then shows either the transition screen or the final results.
   const handleRoundTimeUp = timeUp
 
+  // Leaving the sideways stages (round over, results, exit) → give portrait back
+  const isLandscapeStage = LANDSCAPE_GAME_ROUTES.has(nav.currentRoute)
+  useEffect(() => {
+    if (!isLandscapeStage) void releaseLandscape()
+  }, [isLandscapeStage])
+
   // Keep the screen in step with the game phase after a round ends
   useEffect(() => {
     if (nav.currentRoute !== 'gameplay') return
@@ -117,16 +135,20 @@ export function App() {
   }, [nav.currentRoute, isActive, navigate, exitGame])
 
   const handleNextTeam = () => {
+    void requestLandscape()
     setShowStandings(false)
     game.nextTeam()
     goInGame('forehead')
   }
 
   const handlePlayAgain = () => {
+    void requestLandscape()
     setShowStandings(false)
     game.restart()
     goInGame('forehead')
   }
+
+  const isQuickPlay = game.state.config?.mode === 'quick'
 
   const handleLeaveGame = (route: ScreenRoute) => {
     setShowStandings(false)
@@ -134,14 +156,15 @@ export function App() {
     navigate(route)
   }
 
+  // New flow: Home → Categories → Play Mode → (Quick Play | Teams setup)
   const handlePlayNow = () => {
     selection.deactivateFeelingLucky()
-    nav.navigate('setup')
+    nav.navigate('categories')
   }
 
   const handleFeelingLucky = () => {
     selection.activateFeelingLucky()
-    nav.navigate('setup')
+    nav.navigate('play-mode')
   }
 
   const handleSelectRecentCategory = (category: Category) => {
@@ -185,9 +208,31 @@ export function App() {
             selectedCategoryIds={selection.selectedCategoryIds}
             onToggleCategory={selection.toggleCategory}
             onFeelingLucky={handleFeelingLucky}
-            onProceedToSetup={() => nav.navigate('setup')}
+            onProceedToSetup={() => nav.navigate('play-mode')}
             onOpenRewards={handleOpenRewards}
             onOpenSettings={handleOpenSettings}
+          />
+        )
+
+      case 'play-mode':
+        return (
+          <PlayModePage
+            selectedCategories={selection.selectedCategories}
+            isFeelingLucky={selection.isFeelingLucky}
+            durationSeconds={setup.durationSeconds}
+            promptLanguage={setup.promptLanguage}
+            onDurationChange={setup.setDurationSeconds}
+            onPromptLanguageChange={setup.setPromptLanguage}
+            onQuickPlay={() => startGame('quick')}
+            onTeams={() => nav.navigate('setup')}
+            onBack={() => nav.navigate('categories')}
+            blockedMessage={
+              !selection.isFeelingLucky && selection.selectedCategories.length === 0
+                ? 'Select at least one category first.'
+                : hasPlayablePrompts
+                  ? undefined
+                  : 'No prompts are available for these categories yet. Please choose different categories.'
+            }
           />
         )
 
@@ -205,12 +250,17 @@ export function App() {
             isTeamNamesValid={setup.isTeamNamesValid}
             emptyTeamIndices={setup.emptyTeamIndices}
             onDurationChange={setup.setDurationSeconds}
-            onTeamsChange={setup.setTeams}
+            canAddTeam={setup.canAddTeam}
+            canRemoveTeam={setup.canRemoveTeam}
+            onAddTeam={setup.addTeam}
+            onRemoveTeam={setup.removeTeam}
             onTeamNameChange={setup.updateTeamName}
             onPromptLanguageChange={setup.setPromptLanguage}
             onRemoveCategory={selection.removeCategory}
             onBackToCategories={() => nav.navigate('categories')}
-            onStartGame={handleStartGame}
+            onBack={() => nav.navigate('play-mode')}
+            backLabel="Play mode"
+            onStartGame={() => startGame('teams')}
             onResetDefaults={setup.resetToDefaults}
             startBlockedMessage={
               hasPlayablePrompts
@@ -224,6 +274,7 @@ export function App() {
         if (!game.currentTeam || game.state.phase !== 'ready') return null
         return (
           <ForeheadReadyPage
+            isQuickPlay={isQuickPlay}
             currentTeamName={game.currentTeam.name}
             currentTeamIndex={game.state.currentTeamIndex}
             totalTeams={game.state.teams.length}
@@ -231,7 +282,8 @@ export function App() {
             promptLanguageLabel={setup.promptLanguageLabel}
             categoriesSummary={categoriesSummaryText}
             onReady={handleReady}
-            onBackToSetup={() => handleLeaveGame('setup')}
+            onBackToSetup={() => handleLeaveGame(isQuickPlay ? 'play-mode' : 'setup')}
+            backLabel={isQuickPlay ? 'Play mode' : 'Setup'}
             onBackToHome={() => handleLeaveGame('home')}
           />
         )
@@ -248,8 +300,6 @@ export function App() {
             key={game.state.roundNumber}
             currentPrompt={prompt}
             currentCategory={getCategoryById(prompt.categoryId)}
-            currentTeamName={game.currentTeam.name}
-            currentScore={game.currentTeam.score}
             roundDurationSeconds={game.state.config.durationSeconds}
             onAnswer={handleAnswer}
             onRoundTimeUp={handleRoundTimeUp}
@@ -290,6 +340,7 @@ export function App() {
         if (game.state.phase !== 'finished') return null
         return (
           <ResultsPage
+            isQuickPlay={isQuickPlay}
             teamScores={game.state.teams.map((t) => ({ ...t, teamName: t.name }))}
             onPlayAgain={handlePlayAgain}
             onBackToCategories={() => handleLeaveGame('categories')}

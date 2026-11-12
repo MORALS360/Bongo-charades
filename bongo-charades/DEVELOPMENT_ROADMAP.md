@@ -60,6 +60,11 @@ This roadmap breaks the implementation of Bongo Charades into logical, testable,
 
 ---
 
+## Pre-Phase 5: Gameplay, UX & Content-Direction Refinement [COMPLETE IN BROWSER — DEVICE CHECKS PENDING]
+Owner-requested polish after real-device testing (2026-11-12): auto-landscape with iPhone fallback, Quick Play + Teams (flexible team count), instruction stage, clean prompt screen, full-screen Correct/Pass feedback, Vijiweni → Mtaani merge, new Zilipendwa category, content identity per group, visual consistency. Details: `PRE_PHASE5_REFINEMENT_REPORT.md`.
+
+---
+
 ## Phase 5: Cultural Research & Prompt-Bank Development [NEXT — AWAITING APPROVAL]
 **Objective**: A research-backed, culturally relevant prompt library for the **existing 26 categories** (no new categories).
 
@@ -69,13 +74,13 @@ This roadmap breaks the implementation of Bongo Charades into logical, testable,
   - About 15–25 quality-controlled prompts per category, prioritising Bongo & Tanzanian Culture.
   - Duplicate detection and validation script; a list of content that needs human review.
   - Integration into the game, plus tests confirming category, language and difficulty selection.
-- **Known issues to fix there**: EN/SW word-for-word duplicates ("Simba"/"Lion"), "Kenge" mislabelled as crocodile, thin categories.
+- **Starting point**: the restructured bank (389 ideas) and rules in `docs/content/CONTENT_DIRECTION.md` (group identities, language direction, `concept`/`hint`/`needsReview` fields, automated validation). Still to do: difficulty levels, current 2025–26 Bongo Flava hits from chart data, deeper Mtaani/slang research, the review list.
 
 ---
 
 ## Phase 6: Gameplay Polish & User Testing
 - Real group play-testing; fix confusing moments.
-- Pause/quit during a round; pause the timer while the rotate message shows or the app is in the background.
+- Pause/quit button during a round; pause when the app goes to the background (rotate-pause is already done).
 - Settings screen (sound, haptics, tilt hints, tilt sensitivity), History and Create tabs.
 - Haptic feedback, animation and sound refinement, and accessibility.
 
@@ -83,7 +88,7 @@ This roadmap breaks the implementation of Bongo Charades into logical, testable,
 
 ## Phase 7: PWA Optimisation
 - Web App Manifest, icons, service worker, offline play, update handling.
-- Installability; landscape orientation lock for installed app; iOS and Android testing.
+- Installability; manifest orientation settings so installed Android apps can lock landscape without fullscreen; iOS and Android testing.
 
 ---
 

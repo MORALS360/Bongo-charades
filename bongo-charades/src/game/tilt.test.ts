@@ -82,3 +82,13 @@ describe('processTiltReading', () => {
     expect(feed([[0, 0], [25, 100], [-30, 200], [28, 300]])).toEqual([])
   })
 })
+
+describe('tilt maths after an orientation change', () => {
+  it('gives the same answer whichever way the phone was rotated into landscape', () => {
+    // Landscape-left and landscape-right report gamma with opposite signs
+    for (const gamma of [40, -40]) {
+      expect(screenElevationDegrees(0, gamma)).toBeGreaterThan(35) // pass
+      expect(screenElevationDegrees(180, gamma)).toBeLessThan(-35) // correct
+    }
+  })
+})

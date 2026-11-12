@@ -1,4 +1,7 @@
+import { RotateDevicePrompt } from '../components/gameplay/RotateDevicePrompt'
+import { FeedbackIcon } from '../components/gameplay/FeedbackIcon'
 import { useCountdown, type CountdownStep } from '../hooks/useCountdown'
+import { useIsPortraitPhone } from '../hooks/useIsPortraitPhone'
 
 interface CountdownPageProps {
   onCountdownComplete: () => void
@@ -8,17 +11,23 @@ interface CountdownPageProps {
 const STEPS: CountdownStep[] = [3, 2, 1, 'GO!']
 
 /**
- * Bongo Charades — Countdown Screen (Artboard 8 / PDF Page 8).
+ * Bongo Charades — Instructions + Countdown stage (Artboard 8 / PDF Page 8, extended).
  *
- * Landscape countdown stage with:
- * - 270x270 radial golden circle with pulsing numbers
- * - 4 progression step pills (3, 2, 1, GO!)
- * - Web Audio API synthesized sound cues
+ * Shown right before every round. While the 3-2-1-GO! countdown runs, the screen
+ * explains the controls in big, colour-coded tiles that match the feedback colours
+ * used during play (green = Correct, red = Pass). Once the round starts the
+ * instructions are gone, so the gameplay screen can stay clean.
+ *
+ * If a phone is held in portrait, the countdown waits behind a "turn your phone"
+ * screen and restarts from 3 once the phone is sideways.
  */
-export function CountdownPage({
-  onCountdownComplete,
-  soundEnabled = true,
-}: CountdownPageProps) {
+export function CountdownPage({ onCountdownComplete, soundEnabled = true }: CountdownPageProps) {
+  const isPortraitPhone = useIsPortraitPhone()
+  if (isPortraitPhone) return <RotateDevicePrompt />
+  return <CountdownStage onCountdownComplete={onCountdownComplete} soundEnabled={soundEnabled} />
+}
+
+function CountdownStage({ onCountdownComplete, soundEnabled }: Required<CountdownPageProps>) {
   const { step } = useCountdown({
     active: true,
     onComplete: onCountdownComplete,
@@ -26,75 +35,43 @@ export function CountdownPage({
   })
 
   return (
-    <div
-      style={{
-        width: '100%',
-        maxWidth: 844,
-        height: '100%',
-        minHeight: 350,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: 36,
-        padding: '20px 16px',
-        flexWrap: 'wrap',
-      }}
-    >
-      {/* 270x270 Golden Radial Countdown Circle */}
-      <div
-        style={{
-          width: 270,
-          height: 270,
-          borderRadius: '50%',
-          background: 'radial-gradient(circle at 35% 30%, #FFE98A, #F5A623)',
-          boxShadow: '0 0 0 16px rgba(255, 255, 255, 0.18)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          transition: 'transform 0.15s ease',
-          animation: 'countdown-pulse 0.9s ease-out infinite',
-        }}
-      >
-        <span
-          className="d"
-          style={{
-            fontSize: step === 'GO!' ? 104 : 180,
-            lineHeight: 1,
-            color: '#2A1B6B',
-            userSelect: 'none',
-          }}
-        >
+    <div className="countdown-stage">
+      {/* Golden radial countdown circle */}
+      <div className="countdown-circle" aria-live="assertive">
+        <span className="d" style={{ fontSize: step === 'GO!' ? 92 : 150, lineHeight: 1 }}>
           {step}
         </span>
       </div>
 
-      {/* Step Pills: 3, 2, 1, GO! */}
-      <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
-        {STEPS.map((s) => {
-          const isActive = s === step
-          return (
+      <div className="countdown-instructions">
+        <b className="countdown-instructions__label">How to answer</b>
+
+        <div className="instruction-tile instruction-tile--correct">
+          <FeedbackIcon kind="correct" size={44} />
+          <div>
+            <span className="instruction-tile__gesture">↓ Tilt down</span>
+            <span className="d instruction-tile__word">Correct</span>
+          </div>
+        </div>
+
+        <div className="instruction-tile instruction-tile--pass">
+          <FeedbackIcon kind="pass" size={44} />
+          <div>
+            <span className="instruction-tile__gesture">↑ Tilt up</span>
+            <span className="d instruction-tile__word">Pass</span>
+          </div>
+        </div>
+
+        <div className="countdown-steps" aria-hidden="true">
+          {STEPS.map((s) => (
             <span
               key={String(s)}
-              className="d"
-              style={{
-                minWidth: 64,
-                height: 64,
-                padding: '0 12px',
-                borderRadius: 32,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: 28,
-                background: isActive ? '#FFC83A' : 'rgba(255, 255, 255, 0.2)',
-                color: isActive ? '#2A1B6B' : '#fff',
-                boxShadow: isActive ? '0 4px 12px rgba(255, 200, 58, 0.45)' : 'none',
-                transition: 'all 0.15s ease',
-              }}
+              className={`d countdown-step ${s === step ? 'countdown-step--active' : ''}`.trim()}
             >
               {s}
             </span>
-          )
-        })}
+          ))}
+        </div>
       </div>
     </div>
   )

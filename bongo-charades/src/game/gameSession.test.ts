@@ -17,6 +17,7 @@ const prompts: GamePrompt[] = Array.from({ length: 10 }, (_, i) => ({
 }))
 
 const config = (teamNames = ['Wana Dar', 'Simba Damu']): GameConfig => ({
+  mode: 'teams',
   teamNames,
   categoryIds: ['bongo-flava'],
   isFeelingLucky: false,
@@ -172,5 +173,56 @@ describe('rankTeams', () => {
 
   it('tied teams share a rank (1, 1, 3)', () => {
     expect(rankTeams([t('A', 4), t('B', 4), t('C', 1)]).map((x) => x.rank)).toEqual([1, 1, 3])
+  })
+})
+
+describe('game session — Quick Play mode', () => {
+  const quick = (): GameSessionState =>
+    reduce(initialGameSessionState, {
+      type: 'START',
+      config: { ...config([]), mode: 'quick' },
+      prompts,
+      seed: 5,
+    })
+
+  it('starts without any team names', () => {
+    const s = quick()
+    expect(s.phase).toBe('ready')
+    expect(s.teams).toHaveLength(1)
+    expect(s.config?.mode).toBe('quick')
+  })
+
+  it('uses the same scoring rules and ends after one round', () => {
+    let s = toPlaying(quick())
+    s = answer(answer(answer(s, 'correct'), 'pass'), 'correct')
+    expect(s.teams[0]).toMatchObject({ score: 2, correctCount: 2, passedCount: 1 })
+    s = reduce(s, { type: 'TIME_UP' })
+    expect(s.phase).toBe('finished')
+  })
+
+  it('Play Again keeps Quick Play mode', () => {
+    let s = reduce(toPlaying(quick()), { type: 'TIME_UP' })
+    s = reduce(s, { type: 'RESTART', seed: 9 })
+    expect(s.config?.mode).toBe('quick')
+    expect(s.phase).toBe('ready')
+  })
+})
+
+describe('game session — Teams mode sizes', () => {
+  it('supports any number of teams from 2 to 8, one round each', () => {
+    for (const n of [2, 4, 6, 8]) {
+      const names = Array.from({ length: n }, (_, i) => `T${i + 1}`)
+      let s = started(names)
+      expect(s.teams).toHaveLength(n)
+      for (let i = 0; i < n; i++) {
+        s = reduce(toPlaying(s), { type: 'TIME_UP' })
+        if (i < n - 1) s = reduce(s, { type: 'NEXT_TEAM' })
+      }
+      expect(s.phase).toBe('finished')
+    }
+  })
+
+  it('Teams mode refuses to start with fewer than 2 teams', () => {
+    expect(started(['Solo']).phase).toBe('idle')
   })
 })

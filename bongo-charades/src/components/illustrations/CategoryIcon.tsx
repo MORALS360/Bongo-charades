@@ -205,14 +205,20 @@ function renderCategoryArtwork(icon: CategoryIconId): ReactNode {
         </>
       )
 
-    case 'vijiweni':
+    case 'zilipendwa':
+      // Vintage radio — Tanzanian throwback music (Radio Tanzania era to the 2000s)
       return (
         <>
-          <rect x="5" y="10" width="36" height="26" rx="12" fill="url(#T)" />
-          <rect x="23" y="28" width="36" height="26" rx="12" fill="url(#Y)" />
-          <circle cx="15" cy="23" r="3" fill="url(#W)" />
-          <circle cx="23" cy="23" r="3" fill="url(#W)" />
-          <circle cx="31" cy="23" r="3" fill="url(#W)" />
+          <path d="M40 17L52 5" stroke="#FFC83A" strokeWidth="3" strokeLinecap="round" />
+          <circle cx="52" cy="5" r="3" fill="url(#Y)" />
+          <rect x="5" y="16" width="54" height="38" rx="9" fill="url(#O)" />
+          <circle cx="23" cy="35" r="12" fill="url(#K)" />
+          <circle cx="19" cy="31" r="2" fill="url(#W)" />
+          <circle cx="27" cy="31" r="2" fill="url(#W)" />
+          <circle cx="19" cy="39" r="2" fill="url(#W)" />
+          <circle cx="27" cy="39" r="2" fill="url(#W)" />
+          <rect x="40" y="24" width="13" height="7" rx="3.5" fill="url(#W)" />
+          <circle cx="46.5" cy="43" r="5.5" fill="url(#Y)" />
         </>
       )
 

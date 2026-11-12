@@ -20,7 +20,7 @@ export const CATEGORIES: Category[] = [
   { id: 'daladala-diaries', name: 'Daladala Diaries', group: 'c2', icon: 'daladala-diaries' },
   { id: 'bongo-flava', name: 'Bongo Flava', group: 'c2', icon: 'bongo-flava' },
   { id: 'mtaani', name: 'Mtaani', group: 'c2', icon: 'mtaani' },
-  { id: 'vijiweni', name: 'Vijiweni', group: 'c2', icon: 'vijiweni' },
+  { id: 'zilipendwa', name: 'Zilipendwa', group: 'c2', icon: 'zilipendwa' },
   { id: 'chakula-chetu', name: 'Chakula Chetu', group: 'c2', icon: 'chakula-chetu' },
   { id: 'watu-maarufu', name: 'Watu Maarufu', group: 'c2', icon: 'watu-maarufu' },
   { id: 'movie-za-bongo', name: 'Movie za Bongo', group: 'c2', icon: 'movie-za-bongo' },

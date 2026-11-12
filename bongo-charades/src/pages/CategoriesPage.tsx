@@ -94,7 +94,7 @@ export function CategoriesPage({
               minHeight: 52,
             }}
           >
-            Continue to Setup ({selectedCount}) ▷
+            Continue ({selectedCount}) ▷
           </PrimaryButton>
         </div>
       )}
