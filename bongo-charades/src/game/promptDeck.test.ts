@@ -108,9 +108,9 @@ describe('getFilteredPrompts', () => {
     expect(getFilteredPrompts([], false, 'mixed')).toEqual([])
   })
 
-  it('every one of the 26 categories currently has at least one prompt', () => {
+  it('every one of the 29 categories currently has at least one prompt', () => {
     const ids = new Set(PROMPTS.map((p) => p.categoryId))
-    expect(ids.size).toBe(26)
+    expect(ids.size).toBe(29)
   })
 
   it('no prompt in the bundled data is empty', () => {

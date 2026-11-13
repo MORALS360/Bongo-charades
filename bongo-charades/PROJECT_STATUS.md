@@ -1,6 +1,6 @@
 # Bongo Charades — Project Status
 
-**Last Updated**: 2026-11-12 (pre-Phase 5 refinement, branch `phase-4-polish`)  
+**Last Updated**: 2026-11-13 (pre-Phase 5 refinement, second pass, branch `phase-4-polish`)  
 **Current Stage**: Phase 4 + pre-Phase 5 refinement complete in the browser. The owner tested the Phase 4 build on a real device via a Cloudflare tunnel. Device checks for the refinement (auto-landscape, iPhone fallback, new feedback) are pending. **Phase 5 has not started.**
 
 > See `PRE_PHASE5_REFINEMENT_REPORT.md` (latest) and `PHASE_4_ACCEPTANCE_REPORT.md`.
@@ -52,6 +52,12 @@
   - Added Vitest (33 unit tests, `npm test`) and an end-to-end browser script (`tests/e2e/full-game-flow.mjs`, 31 checks).
   - Build ✅ · Lint ✅ · Unit tests ✅ · Browser simulation ✅ · **Physical device tilt test ❌ not yet done**.
 
+- [x] **Pre-Phase 5 refinement, second pass (2026-11-13)**:
+  - Landscape lock retried on "I'm Ready"; installable app (manifest `display: fullscreen`, icons); `?debug=1` diagnostics; platform matrix in `docs/ORIENTATION.md`.
+  - Tilt calibration stage ("Hold still…") → personal neutral; gestures measured relative to it, with smoothing, hold time, hysteresis, cooldown and drift correction. All tuning in `src/config/gameplay.ts`.
+  - Feedback 450 ms. Instructions moved to Get Ready; countdown shows numbers only; Quick Play bubble removed.
+  - Classic: Countries (countries only), new Famous Landmarks, Car Brands, Famous Brands. "African Music" → "African Music & Artists" (Africa-wide). 29 categories, ~480 prompt ideas.
+  - 66 unit tests + 41-check browser simulation pass; build and lint clean.
 - [x] **Pre-Phase 5 refinement (2026-11-12)**:
   - Auto-landscape on game start (Android fullscreen + lock); "Turn your phone sideways" fallback (iPhone); orientation released after gameplay; round pauses if the phone is turned upright.
   - New Play Mode screen: **Quick Play** (no teams) and **Teams** (2 by default, add up to 8).
@@ -64,11 +70,11 @@
 ---
 
 ## 2. Current Codebase State
-- Flow: `#home` → `#categories` → `#play-mode` → (Quick Play → `#forehead`) | (Teams → `#setup` → `#forehead`) → `#countdown` (instructions) → `#gameplay` → `#transition` (Teams, between teams) → `#results`.
-- 26 categories (Zilipendwa replaced Vijiweni); 389 prompt ideas / 470 entries; source in `scripts/content/build_prompts.py`.
+- Flow: `#home` → `#categories` → `#play-mode` → (Quick Play → `#forehead`) | (Teams → `#setup` → `#forehead`) → `#calibrate` → `#countdown` → `#gameplay` → `#transition` (Teams, between teams) → `#results`.
+- 29 categories (Classic 11 · Bongo 12 · East Africa & Beyond 6); ~480 prompt ideas / 588 entries; source in `scripts/content/build_prompts.py`.
 - Game in progress is held in memory only (refreshing mid-game returns to Setup).
 - `#settings`, `#create`, `#history`: still placeholder screens.
-- No PWA manifest/service worker yet (Phase 7).
+- Installable (web app manifest + icons); no service worker / offline yet (Phase 7).
 - Git: `main` (pushed by owner) ← `phase-4-audit` (200d9ed) ← `phase-4-polish` (this work). Neither branch has been pushed by Claude.
 
 ---
@@ -85,5 +91,5 @@ npm run lint
 ---
 
 ## 4. Next Planned Task
-1. **Owner:** run the device checklist in `PRE_PHASE5_REFINEMENT_REPORT.md` §5 and skim the content review list (`docs/content/CONTENT_DIRECTION.md` §6).
+1. **Owner:** run the second-pass device checklist at the end of `PRE_PHASE5_REFINEMENT_REPORT.md` (§5 of the second pass) and skim the content review list (`docs/content/CONTENT_DIRECTION.md` §6).
 2. **After approval: Phase 5, Cultural Research & Prompt Bank** (see `DEVELOPMENT_ROADMAP.md`). Not started.

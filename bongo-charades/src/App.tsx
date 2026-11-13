@@ -8,7 +8,10 @@ import { useGameSession } from './hooks/useGameSession'
 import { useGameSetup } from './hooks/useGameSetup'
 import { useNavigation } from './hooks/useNavigation'
 import { CategoriesPage } from './pages/CategoriesPage'
+import { CalibrationPage } from './pages/CalibrationPage'
 import { CountdownPage } from './pages/CountdownPage'
+import { DebugPanel } from './components/layout/DebugPanel'
+import type { CalibrationResult } from './hooks/useCalibration'
 import { ForeheadReadyPage } from './pages/ForeheadReadyPage'
 import { GameSetupPage } from './pages/GameSetupPage'
 import { GameplayPage } from './pages/GameplayPage'
@@ -25,11 +28,17 @@ import { releaseLandscape, requestLandscape } from './services/orientation'
 import type { Category, GamePrompt, GameplayAction, PlayMode, ScreenRoute } from './types'
 
 /** Gameplay stages that are played sideways (landscape) */
-const LANDSCAPE_GAME_ROUTES: ReadonlySet<ScreenRoute> = new Set(['forehead', 'countdown', 'gameplay'])
+const LANDSCAPE_GAME_ROUTES: ReadonlySet<ScreenRoute> = new Set([
+  'forehead',
+  'calibrate',
+  'countdown',
+  'gameplay',
+])
 
 /** Screens that only make sense while a game is in progress */
 const GAME_ROUTES: ReadonlySet<ScreenRoute> = new Set([
   'forehead',
+  'calibrate',
   'countdown',
   'gameplay',
   'transition',
@@ -88,13 +97,31 @@ export function App() {
     }
   }
 
+  /*
+   * Get Ready → calibration → countdown.
+   * "I'm Ready" is a tap, so we use it to (a) ask iPhones for motion permission and
+   * (b) retry the landscape lock in case the first attempt was refused. Calibration
+   * starts only once the permission question has been answered.
+   */
+  const [motionAnswered, setMotionAnswered] = useState(false)
+  const [tiltBaseline, setTiltBaseline] = useState(0)
+
   const handleReady = () => {
-    // Must be called directly inside the tap so iPhones show the motion permission prompt.
-    // We don't wait for the answer: manual Correct/Pass buttons always work as a fallback.
-    void requestMotionPermission()
-    game.beginCountdown()
-    goInGame('countdown')
+    setMotionAnswered(false)
+    void requestMotionPermission().finally(() => setMotionAnswered(true))
+    void requestLandscape()
+    goInGame('calibrate')
   }
+
+  const { beginCountdown } = game
+  const handleCalibrated = useCallback(
+    (result: CalibrationResult) => {
+      setTiltBaseline(result.baseline ?? 0)
+      beginCountdown()
+      goInGame('countdown')
+    },
+    [beginCountdown, goInGame],
+  )
 
   const { beginRound, answer, timeUp } = game
   const handleCountdownComplete = useCallback(() => {
@@ -182,11 +209,6 @@ export function App() {
     nav.navigate('settings')
   }
 
-  const categoriesSummaryText = selection.isFeelingLucky
-    ? 'Feeling lucky? (All 26 categories)'
-    : selection.selectedCategories.length > 0
-      ? selection.selectedCategories.map((c) => c.name).join(', ')
-      : 'None selected'
 
   const renderScreen = () => {
     switch (nav.currentRoute) {
@@ -278,15 +300,16 @@ export function App() {
             currentTeamName={game.currentTeam.name}
             currentTeamIndex={game.state.currentTeamIndex}
             totalTeams={game.state.teams.length}
-            durationSeconds={setup.durationSeconds}
-            promptLanguageLabel={setup.promptLanguageLabel}
-            categoriesSummary={categoriesSummaryText}
             onReady={handleReady}
             onBackToSetup={() => handleLeaveGame(isQuickPlay ? 'play-mode' : 'setup')}
             backLabel={isQuickPlay ? 'Play mode' : 'Setup'}
             onBackToHome={() => handleLeaveGame('home')}
           />
         )
+
+      case 'calibrate':
+        if (game.state.phase !== 'ready') return null
+        return motionAnswered ? <CalibrationPage onCalibrated={handleCalibrated} /> : null
 
       case 'countdown':
         if (game.state.phase !== 'countdown') return null
@@ -297,6 +320,7 @@ export function App() {
         if (!prompt || !game.currentTeam || !game.state.config) return null
         return (
           <GameplayPage
+            tiltBaseline={tiltBaseline}
             key={game.state.roundNumber}
             currentPrompt={prompt}
             currentCategory={getCategoryById(prompt.categoryId)}
@@ -393,6 +417,7 @@ export function App() {
       >
         {renderScreen()}
       </AppShell>
+      <DebugPanel />
     </ErrorBoundary>
   )
 }

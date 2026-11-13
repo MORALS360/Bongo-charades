@@ -1,19 +1,24 @@
 /**
  * Landscape orientation helpers for gameplay.
  *
- * WHAT THE PLATFORMS ALLOW (researched 2026-11)
- * - Android Chrome / Samsung Internet: `screen.orientation.lock('landscape')` works,
- *   but only while the page is FULLSCREEN (or running as an installed PWA). So we
- *   first ask for fullscreen, then lock. Both must start inside a tap.
- * - iPhone Safari (and every iPhone browser, they all use Safari's engine): there is
- *   NO way for a web page to rotate the phone or lock orientation, and iPhones don't
- *   allow fullscreen for normal pages. The player must rotate the phone; we show a
- *   friendly "turn your phone" screen until they do.
- * - Desktop browsers: no lock needed, and we don't want to force fullscreen there,
- *   so we only try on touch devices.
+ * WHAT THE PLATFORMS ALLOW (researched 2026-11, see docs/ORIENTATION.md)
+ * - The Screen Orientation spec requires the page to be FULLSCREEN before
+ *   `screen.orientation.lock()` may succeed. So we request fullscreen first, then lock.
+ *   Both must start inside a tap.
+ * - Android phones (Chrome, Samsung Internet, Firefox 144+): supported this way.
+ *   Since Chrome 136, Android TABLETS are refused ("NotSupportedError") on purpose.
+ * - Installed app (Add to Home screen): our manifest uses `display: "fullscreen"`,
+ *   so the installed app is already fullscreen and the lock works without the
+ *   fullscreen step — the most reliable option on Android.
+ * - iPhone / iPad (every browser — they all use Safari's engine): `lock()` is not
+ *   supported and iPhones don't allow fullscreen for web pages. The player must
+ *   rotate the phone; we show a "Turn your phone sideways" screen until they do.
+ * - Desktop: no lock needed, and we never force fullscreen there.
  *
  * Every call is wrapped so an unsupported browser simply does nothing.
  */
+
+import { setDebug } from './debug'
 
 type LockableOrientation = ScreenOrientation & {
   lock?: (orientation: 'landscape' | 'portrait') => Promise<void>
@@ -21,6 +26,7 @@ type LockableOrientation = ScreenOrientation & {
 }
 
 export type OrientationLockResult = 'locked' | 'unsupported' | 'failed' | 'skipped'
+
 
 let weEnteredFullscreen = false
 let weLocked = false
@@ -36,6 +42,12 @@ export function isTouchDevice(): boolean {
  * Never throws; resolves with what actually happened.
  */
 export async function requestLandscape(): Promise<OrientationLockResult> {
+  const result = await tryLandscape()
+  setDebug({ orientationLock: result })
+  return result
+}
+
+async function tryLandscape(): Promise<OrientationLockResult> {
   if (typeof window === 'undefined' || typeof document === 'undefined') return 'unsupported'
   if (!isTouchDevice()) return 'skipped'
 
@@ -45,7 +57,12 @@ export async function requestLandscape(): Promise<OrientationLockResult> {
   try {
     // Android needs fullscreen before it allows a lock.
     const root = document.documentElement
-    if (!document.fullscreenElement && typeof root.requestFullscreen === 'function') {
+    const installedFullscreen = window.matchMedia?.('(display-mode: fullscreen)').matches ?? false
+    if (
+      !installedFullscreen &&
+      !document.fullscreenElement &&
+      typeof root.requestFullscreen === 'function'
+    ) {
       await root.requestFullscreen({ navigationUI: 'hide' })
       weEnteredFullscreen = true
     }

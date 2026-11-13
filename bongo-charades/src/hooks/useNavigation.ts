@@ -7,6 +7,7 @@ const VALID_ROUTES: ReadonlySet<ScreenRoute> = new Set([
   'play-mode',
   'setup',
   'forehead',
+  'calibrate',
   'countdown',
   'gameplay',
   'transition',
@@ -19,6 +20,7 @@ const VALID_ROUTES: ReadonlySet<ScreenRoute> = new Set([
 
 const LANDSCAPE_ROUTES: ReadonlySet<ScreenRoute> = new Set([
   'forehead',
+  'calibrate',
   'countdown',
   'gameplay',
 ])

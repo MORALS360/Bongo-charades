@@ -36,10 +36,26 @@ C['sports'] = [P('Football','Mpira wa Miguu'),P('Basketball','Mpira wa Kikapu'),
   P('Swimming','Kuogelea'),P('Running','Kukimbia'),P('Goalkeeper','Kipa'),P('Penalty','Penalti'),
   P('Cycling','Mbio za Baiskeli'),P('Volleyball','Mpira wa Wavu'),M('Tennis'),M('Cristiano Ronaldo'),
   M('Lionel Messi'),M('Usain Bolt'),M('Olympics')]
-C['countries-places'] = [P('Egypt','Misri'),P('China','Uchina'),P('India','India'),P('France','Ufaransa'),
-  P('Brazil','Brazili'),P('America','Marekani'),P('Japan','Japani'),P('Mount Kilimanjaro','Mlima Kilimanjaro'),
-  P('The Pyramids','Mapiramidi'),M('Eiffel Tower'),M('Dubai'),M('London'),M('New York'),P('Desert','Jangwa'),
-  P('Beach','Ufukwe')]
+C['countries'] = [M('Tanzania'),M('Kenya'),M('Nigeria'),M('Ghana'),M('Australia'),M('Argentina'),
+  M('Jamaica'),M('India'),P('Japan','Japani'),P('Brazil','Brazili'),P('France','Ufaransa'),
+  P('Canada','Kanada'),P('China','Uchina'),P('Egypt','Misri'),P('America','Marekani'),
+  P('Germany','Ujerumani'),P('Italy','Italia'),P('Spain','Hispania'),P('Mexico','Meksiko'),
+  P('Russia','Urusi'),P('England','Uingereza'),P('South Africa','Afrika Kusini'),P('Portugal','Ureno'),
+  P('Greece','Ugiriki')]
+C['famous-landmarks'] = [P('Mount Kilimanjaro','Mlima Kilimanjaro'),P('Pyramids of Giza','Mapiramidi ya Giza'),
+  M('Eiffel Tower'),M('Statue of Liberty'),M('Great Wall of China'),M('Taj Mahal'),M('Colosseum'),
+  M('Burj Khalifa'),M('Sydney Opera House'),M('Big Ben'),M('Christ the Redeemer'),
+  M('Leaning Tower of Pisa'),M('Machu Picchu'),M('Victoria Falls'),M('Table Mountain'),
+  M('Golden Gate Bridge'),M('Mount Everest'),M('Niagara Falls'),M('Stonehenge'),M('Hollywood Sign'),
+  M('Times Square')]
+C['car-brands'] = [M('Toyota'),M('Mercedes-Benz'),M('BMW'),M('Audi'),M('Volkswagen'),M('Nissan'),
+  M('Honda'),M('Mazda'),M('Subaru'),M('Suzuki'),M('Mitsubishi'),M('Isuzu'),M('Hyundai'),M('Kia'),
+  M('Ford'),M('Chevrolet'),M('Jeep'),M('Tesla'),M('Land Rover'),M('Volvo'),M('Peugeot'),M('Mini'),
+  M('Ferrari'),M('Lamborghini'),M('Porsche'),M('Rolls-Royce'),M('Bentley'),M('Bugatti')]
+C['famous-brands'] = [M('Apple'),M('Samsung'),M('Google'),M('Microsoft'),M('Amazon'),M('Netflix'),
+  M('WhatsApp'),M('Instagram'),M('Disney'),M('PlayStation'),M('Nike'),M('Adidas'),M('Puma'),
+  M('Gucci'),M('Louis Vuitton'),M('Chanel'),M('Tiffany & Co.'),M('Zara'),M('Coca-Cola'),M('Pepsi'),
+  M("McDonald's"),M('KFC'),M('Starbucks'),M('Red Bull'),M('IKEA'),M('Lego'),M('Visa')]
 C['everyday-things'] = [P('Umbrella','Mwavuli'),P('Flashlight','Tochi'),P('Watch','Saa'),P('Bucket','Ndoo'),
   P('Matches','Kiberiti'),P('Broom','Fagio'),P('Phone Charger','Chaja'),P('Mirror','Kioo'),
   P('Toothbrush','Mswaki'),P('Key','Ufunguo'),P('Chair','Kiti'),P('Iron','Pasi'),P('Glasses','Miwani'),
@@ -51,7 +67,7 @@ C['act-it-out'] = [P('Taking a Selfie','Kupiga Selfie'),P('Sleeping in Class','K
   P('Driving','Kuendesha Gari'),P('Winning the Lottery','Kushinda Bahati Nasibu')]
 C['food-drinks'] = [M('Pizza'),P('Ice Cream','Aiskrimu'),M('Burger'),P('Rice','Wali'),P('Bread','Mkate'),
   P('Egg','Yai'),P('Banana','Ndizi'),P('Tea','Chai'),P('Coffee','Kahawa'),P('Orange Juice','Juisi ya Machungwa'),
-  P('Watermelon','Tikiti Maji'),P('Chocolate','Chokoleti'),M('Popcorn'),P('Water','Maji'),M('Soda')]
+  P('Watermelon','Tikiti Maji'),P('Chocolate','Chokoleti'),M('Popcorn'),P('Milk','Maziwa'),M('Soda')]
 
 # ───────────── GROUP 2: BONGO & TANZANIAN CULTURE (Kiswahili-led) ─────────────
 C['hii-dar-yetu'] = [S('Kariakoo'),M('Coco Beach'),M('Mlimani City'),S('Daraja la Tanzanite'),
@@ -117,10 +133,19 @@ C['east-african-vibes'] = [M('Matatu'),M('Rolex',hint='Ugandan street snack'),M(
 C['african-icons'] = [M('Nelson Mandela'),M('Kwame Nkrumah'),M('Wangari Maathai'),M('Kofi Annan'),
   M('Miriam Makeba'),M('Chinua Achebe'),M('Thomas Sankara'),M('Haile Selassie'),M('Fela Kuti'),
   M('Patrice Lumumba'),M('Mohamed Salah'),M('Didier Drogba'),M("Lupita Nyong'o"),M('Trevor Noah')]
-C['african-music'] = [M('Afrobeats'),M('Amapiano'),M('Rhumba'),M('Highlife'),M('Gengetone'),M('Kwaito'),
-  M('Burna Boy'),M('Wizkid'),M('Davido'),M('Tems'),M('Tyla'),M('Sauti Sol'),M('Fally Ipupa'),
-  M('Koffi Olomide'),M('Yemi Alade'),M('Angélique Kidjo'),M('Jerusalema',hint='Master KG'),
-  M('Sitya Loss',hint='Eddy Kenzo')]
+C['african-music'] = [  # shown as "African Music & Artists" — Africa-wide, not Tanzanian
+  # Genres & music culture (West, Southern, East, Central, North)
+  M('Afrobeats'),M('Amapiano'),M('Rhumba'),M('Highlife'),M('Raï'),
+  # Artists
+  M('Burna Boy'),M('Wizkid'),M('Davido'),M('Tems'),M('Rema'),M('Ayra Starr'),M('Tyla'),M('Yemi Alade'),
+  M('Angélique Kidjo'),M("Youssou N'Dour"),M('Sauti Sol'),
+  M('Eddy Kenzo'),M('Fally Ipupa'),M('Koffi Olomide'),M('Amr Diab'),M('Cheb Khaled'),
+  # Songs that travelled across Africa and beyond
+  M('Calm Down',hint='Rema'),M('Water',hint='Tyla'),M('Last Last',hint='Burna Boy'),
+  M('Essence',hint='Wizkid ft. Tems'),M('Fall',hint='Davido'),
+  M('Johnny',hint='Yemi Alade'),M('Jerusalema',hint='Master KG'),
+  M('Sitya Loss',hint='Eddy Kenzo'),M('Sura Yako',hint='Sauti Sol'),M('Vulindlela',hint='Brenda Fassie'),
+  M('Aïcha',hint='Cheb Khaled'),M('Tamally Maak',hint='Amr Diab')]
 C['african-cities'] = [M('Dar es Salaam'),M('Nairobi'),M('Kampala'),M('Kigali'),M('Johannesburg'),
   M('Cape Town'),M('Lagos'),M('Cairo'),M('Accra'),M('Addis Ababa'),M('Kinshasa'),M('Marrakech'),M('Dakar')]
 C['pop-culture'] = [M('TikTok Dance Challenge'),E('Viral Meme'),E('Red Carpet'),M('Trending on X'),
@@ -134,7 +159,7 @@ C['throwback-hits'] = [M('Malaika',hint='Fadhili William'),M('Jambo Bwana',hint=
   M('Billie Jean',hint='Michael Jackson'),M('Macarena'),M('Gangnam Style',hint='PSY'),
   M('One Love',hint='Bob Marley')]
 
-ABBR = {'animals':'anim','movies-tv':'mov','music-artists':'mus','sports':'spt','countries-places':'plc',
+ABBR = {'animals':'anim','movies-tv':'mov','music-artists':'mus','sports':'spt','countries':'cty','famous-landmarks':'lmk','car-brands':'car','famous-brands':'brd',
  'everyday-things':'evd','act-it-out':'act','food-drinks':'food','hii-dar-yetu':'dar','daladala-diaries':'dld',
  'bongo-flava':'bf','mtaani':'mta','zilipendwa':'zil','chakula-chetu':'chk','watu-maarufu':'wtm',
  'movie-za-bongo':'mzb','mpira-mashabiki':'mpr','chuo-life':'chuo','mapenzi-mahusiano':'mpz',

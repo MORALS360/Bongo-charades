@@ -54,3 +54,55 @@ Use your Cloudflare tunnel (https). `vite.config.ts` now accepts **any** `*.tryc
 
 ## 6. Recommendation
 The refinement stage is **implemented and verified in the browser**. I recommend starting Phase 5 **after** device tests 1–5 pass, mainly to confirm Android auto-rotation and the iPhone fallback, and after you've skimmed the review list in the content doc. Nothing in Phase 5 depends on new app code, so device testing and Phase 5 research could also run side by side if you prefer.
+
+---
+
+# Second refinement pass (2026-11-13)
+
+Branch: `phase-4-polish` (continues from `b773f95`). Phase 5 still not started.
+
+## 1. What was implemented
+| # | Request | Implementation |
+|---|---|---|
+| 1 | Better automatic landscape | Lock is now attempted **twice**: on the start tap and again on **I'm Ready** (both taps), so a refused or lost lock is retried. The app is now **installable**: `manifest.webmanifest` uses `display: "fullscreen"`, with real app icons and an iOS home-screen icon. On Android the installed app locks landscape without the extra fullscreen step; this is the most reliable route. Fallback "Turn your phone sideways" screen unchanged; it now also covers calibration. New `?debug=1` diagnostics strip shows the lock result on a real phone. Full platform matrix in `docs/ORIENTATION.md`. |
+| 2 | Tilt calibration and sensitivity | New flow: **Get Ready → I'm Ready → "Hold still…" calibration → 3-2-1-GO → play.** Calibration waits about 0.7 s for the phone to be lifted, then records the angle once it's held **still** (spread ≤ 6° for 0.6 s) and **roughly upright** (a phone lying flat in a hand is rejected). That angle becomes the player's **neutral**. It falls back to upright after 5 s, or skips straight to the countdown if there's no sensor (manual buttons take over). Gestures are measured **relative to neutral**. Readings are **smoothed**, and a tilt must be **held ~70 ms** (ignores single spikes). **Hysteresis**: fire at ±30°, re-arm only back inside ±12°. A **500 ms cooldown** applies, and **slow drift correction** follows posture while resting. Every number is in **`src/config/gameplay.ts`**. Calibration runs before the timer starts and never touches the score. |
+| 3 | Faster feedback | `FEEDBACK_MS = 450` (in `src/config/gameplay.ts`). Same full-screen green/red design; the next prompt stays hidden until it ends; input is ignored during it. |
+| 4 | Instructions on Get Ready | Get Ready now explains: hold sideways on your forehead, screen facing friends · green **Tilt down = Correct** · red **Tilt up = Pass** · "Tap Ready, then hold still for a moment." **Countdown shows only the big 3 / 2 / 1 / GO! circle.** Step pills and instruction tiles were removed. Gameplay shows no instructions. |
+| 5 | Quick Play bubble removed | Gone from Get Ready. The space now holds the instructions, so nothing looks empty. Teams mode keeps a plain yellow text line "Team 1 of 3 · Wana Dar" (not a bubble), because whose turn it is matters. Duration, language and categories lines were removed from Get Ready (they're on the Play Mode/Setup screens). |
+| 6 | Classic expansion | **Countries & Places → Countries** (countries only, 24 countries, many with Kiswahili names: Japani, Ufaransa, Marekani…). New **Famous Landmarks** (21, all continents; Kilimanjaro and the Pyramids moved here). New **Car Brands** (28 brands only, from everyday Toyota, Nissan and Isuzu to Ferrari and Bugatti. First requested as "Cars & Vehicles", then narrowed by the owner to brands only, so models like Land Cruiser and vehicle types like buses were dropped). New **Famous Brands** (27 across tech, fashion, luxury, food and drink, entertainment, retail; no overlap with car brands). New icons in the house SVG style. Classic now has 11 categories; 29 in total. |
+| 7 | African Music & Artists | Renamed. 33 prompts across West, Southern, East (non-Tanzanian), Central and North Africa: genres (Afrobeats, Amapiano, Rhumba, Highlife, Raï), artists (Burna Boy, Wizkid, Davido, Tems, Rema, Ayra Starr, Tyla, Yemi Alade, Angélique Kidjo, Youssou N'Dour, Sauti Sol, Eddy Kenzo, Fally Ipupa, Koffi Olomide, Amr Diab, Cheb Khaled) and songs that travelled (Calm Down, Water, Last Last, Essence, Fall, Johnny, Jerusalema, Sitya Loss, Sura Yako, Vulindlela, Aïcha, Tamally Maak). An automated test blocks Tanzanian artists here. |
+| 8–10 | Previous direction preserved | Mtaani/Vijiweni merge and Zilipendwa unchanged (tests check this). Group identities and language rules unchanged. The new screens use the existing tokens. |
+
+## 2. Files changed (second pass)
+**New:** `src/config/gameplay.ts`, `src/hooks/useCalibration.ts`, `src/pages/CalibrationPage.tsx`, `src/services/debug.ts`, `src/components/layout/DebugPanel.tsx`, `public/manifest.webmanifest`, `public/icon.svg`, `public/icons/*.png` (192, 512, maskable 512, apple-touch 180), `docs/ORIENTATION.md`.
+**Changed:** `src/game/tilt.ts` (calibration + relative gestures), `src/hooks/useTiltControls.ts`, `src/pages/ForeheadReadyPage.tsx`, `src/pages/CountdownPage.tsx`, `src/pages/GameplayPage.tsx`, `src/App.tsx`, `src/services/orientation.ts`, `src/hooks/useNavigation.ts`, `src/types/index.ts`, `src/data/categories.ts`, `src/data/prompts.ts`, `scripts/content/build_prompts.py`, `src/components/illustrations/CategoryIcon.tsx`, `src/styles/design-tokens.css`, `index.html`, small text fixes in `GameSetupPage`, `CategoriesPage`, `PendingScreenPage`, tests (`tilt.test.ts`, `prompts.test.ts`, `promptDeck.test.ts`, `tests/e2e/full-game-flow.mjs`) and docs.
+**Not touched:** your local `vite.config.ts` edit (left uncommitted, as you made it).
+
+## 3. Tests
+| Kind | Result |
+|---|---|
+| Unit tests (Vitest) | **66 / 66 pass**. New tests cover calibration (still hold accepted; lifting movement ignored; flat phone rejected; timeout fallback), the baseline-relative trigger, thresholds just below and above, hysteresis wobble, re-arm plus cooldown, noise spike ignored, sustained nod fires once, both landscape directions, the category restructure (countries only, landmarks moved, new categories ≥15, no brand duplicates, no Tanzanian artists in African Music & Artists, Mtaani/Zilipendwa intact). |
+| Browser simulation (Playwright) | **41 / 41 pass, three runs in a row.** Adds: Get Ready instructions, Teams turn line, **Quick Play Get Ready has no bubble**, "Hold still…" calibration stage, **countdown contains only the number and no buttons** (checked at two steps), calibration captured from a still hold, small wobble ignored, deliberate tilt down/up after calibration, held tilt fires once, **feedback hidden at 350 ms, next prompt shown after 450 ms**, a second "I'm Ready" lock attempt on a phone. |
+| Build / lint | ✅ / ✅ 0 warnings |
+
+## 4. Remaining device-specific limitations
+- **iPhone/iPad:** cannot be rotated by a website. The rotate screen is the only option, and Control Centre rotation lock must be off.
+- **Android tablets (Chrome 136+):** lock refused by Chrome on purpose → rotate screen.
+- **Android browser tab:** landscape requires fullscreen, so the browser bar hides during play. If the player swipes out of fullscreen, the next "I'm Ready" re-locks.
+- **Tilt thresholds** are sensible starting values, not yet tuned on real phones. Use `?debug=1` and adjust `src/config/gameplay.ts`.
+- **iPhone motion permission:** asked on "I'm Ready". Calibration waits for the answer. If denied, the manual buttons appear.
+- **Offline play:** the app is installable, but there's no service worker yet (Phase 7).
+
+## 5. Real-phone testing instructions
+Start the dev server and your Cloudflare tunnel as before, then open `https://<tunnel>/?debug=1#home` (the debug strip shows lock and tilt numbers).
+1. **Android Chrome:** Quick Play. The phone should go fullscreen and rotate automatically (debug: `lock: locked`). Finish the round; it should return to portrait.
+2. **Android installed app:** Chrome menu → *Add to Home screen* / *Install app*, open it from the home screen, repeat test 1.
+3. **iPhone:** Quick Play with the phone upright → "Turn your phone sideways" → rotate → Get Ready.
+4. **Calibration:** tap I'm Ready, put the phone on your forehead and hold still. "Hold still…" should give way to 3-2-1 within about 1–2 s (debug: `calib still …°`). Try holding it slightly tilted back; small head movements should not answer.
+5. **Gestures:** a clear nod down = green CORRECT, a clear tilt back = red PASS, each once. Holding the tilt must not repeat. Return to neutral, then the next gesture works.
+6. **Speed:** feedback should feel quick (~0.45 s) and never overlap the next prompt.
+7. **Tuning:** if gestures feel too stiff or too twitchy, note the `rel` values in the debug strip and adjust `correctTriggerDeg` / `passTriggerDeg` / `rearmDeg` in `src/config/gameplay.ts`.
+8. **New categories:** play a round each of Countries, Famous Landmarks, Car Brands, Famous Brands and African Music & Artists.
+
+## 6. Recommendation
+Every acceptance criterion in the second brief is met in the browser. Criteria 1 and 2 (real landscape locking and calibrated tilt feel) can only be **confirmed on real phones**. Run tests 1–5 above, tune the config if needed, and then I recommend starting Phase 5.

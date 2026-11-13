@@ -7,6 +7,7 @@ import { useGameTimer } from '../hooks/useGameTimer'
 import { useTiltControls } from '../hooks/useTiltControls'
 import { useIsPortraitPhone } from '../hooks/useIsPortraitPhone'
 import { playCorrectSound, playPassSound } from '../services/soundEffects'
+import { FEEDBACK_MS, SENSOR_GRACE_MS } from '../config/gameplay'
 
 interface GameplayPageProps {
   currentPrompt: GamePrompt
@@ -14,15 +15,11 @@ interface GameplayPageProps {
   roundDurationSeconds: number
   onAnswer: (action: GameplayAction, prompt: GamePrompt) => void
   onRoundTimeUp: () => void
+  /** Player's calibrated neutral tilt angle (degrees); 0 = upright */
+  tiltBaseline?: number
   soundEnabled?: boolean
   tiltSensitivity?: TiltSensitivity
 }
-
-/** How long the full-screen Correct / Pass feedback stays up (ms) */
-export const FEEDBACK_MS = 800
-
-/** If no motion data arrives within this time, show the small manual buttons */
-const SENSOR_GRACE_MS = 1500
 
 function getPromptFontSize(text: string): { fontSize: number; lineHeight: string } {
   const len = text.length
@@ -39,7 +36,8 @@ function getPromptFontSize(text: string): { fontSize: number; lineHeight: string
  * The tilt instructions are shown on the countdown stage instead.
  *
  * Answer flow (same for Quick Play and Teams):
- *   tilt / tap → score once → FULL-SCREEN green (Correct) or red (Pass) for 800 ms,
+ *   tilt / tap → score once → FULL-SCREEN green (Correct) or red (Pass) for FEEDBACK_MS
+ *   (src/config/gameplay.ts, currently 450 ms),
  *   with the next prompt hidden → next prompt appears.
  *
  * Fallback controls: if the phone sends no motion data (desktop, motion permission
@@ -54,6 +52,7 @@ export function GameplayPage({
   roundDurationSeconds,
   onAnswer,
   onRoundTimeUp,
+  tiltBaseline = 0,
   soundEnabled = true,
   tiltSensitivity = 'medium',
 }: GameplayPageProps) {
@@ -103,6 +102,7 @@ export function GameplayPage({
   const { sensorActive } = useTiltControls({
     enabled: !isTimeUp && !isPortraitPhone,
     onAction: handleAction,
+    baseline: tiltBaseline,
     sensitivity: tiltSensitivity,
   })
 

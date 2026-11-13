@@ -29,6 +29,8 @@ bongo-charades/
 │   │   ├── ui/                  # PrimaryButton, SecondaryButton, CategoryCard, FeaturedCard, Panel, …
 │   │   ├── layout/              # AppShell (portrait/landscape), BottomNav, ErrorBoundary
 │   │   └── gameplay/            # TimerPill, FeedbackIcon, RotateDevicePrompt (+ ScorePill, TiltButton: unused since pre-Phase 5)
+│   ├── config/
+│   │   └── gameplay.ts          # ★ ALL tuning numbers: feedback time, tilt thresholds, calibration
 │   ├── data/
 │   │   ├── categories.ts        # 26 categories, names never translated
 │   │   ├── prompts.ts           # Prompt bank (GENERATED from scripts/content/build_prompts.py)
@@ -37,7 +39,7 @@ bongo-charades/
 │   ├── game/                    # ★ Pure game logic — no React, fully unit-tested
 │   │   ├── gameSession.ts       # Game rules reducer: phases, scoring, team rotation, ranking
 │   │   ├── promptDeck.ts        # Seeded shuffle, no-repeat deck
-│   │   ├── tilt.ts              # Screen-facing angle maths + tilt state machine
+│   │   ├── tilt.ts              # Screen-facing angle maths, calibration, relative gesture tracker
 │   │   └── *.test.ts            # Vitest unit tests
 │   ├── hooks/
 │   │   ├── useGameSession.ts    # React wrapper around gameSession reducer
@@ -47,12 +49,14 @@ bongo-charades/
 │   │   ├── useNavigation.ts     # Hash routing (#home, #gameplay …), push vs replace
 │   │   ├── useCountdown.ts      # 3-2-1-GO!
 │   │   ├── useGameTimer.ts      # Drift-free round timer, pause support, hasExpired()
-│   │   └── useTiltControls.ts   # deviceorientation listener → game/tilt.ts
+│   │   ├── useCalibration.ts    # "Hold still…" stage → player's neutral angle
+│   │   └── useTiltControls.ts   # deviceorientation listener → game/tilt.ts (relative to baseline)
 │   ├── services/
 │   │   ├── motionPermission.ts  # iOS motion permission + support check
-│   │   ├── orientation.ts       # Fullscreen + landscape lock / release (where the platform allows)
+│   │   ├── orientation.ts       # Fullscreen + landscape lock / release (see docs/ORIENTATION.md)
+│   │   ├── debug.ts             # ?debug=1 diagnostics data (DebugPanel shows it)
 │   │   └── soundEffects.ts      # Web Audio synthesized sounds
-│   ├── pages/                   # Home, Categories, PlayMode, GameSetup, ForeheadReady, Countdown,
+│   ├── pages/                   # Home, Categories, PlayMode, GameSetup, ForeheadReady, Calibration, Countdown,
 │   │                            # Gameplay, RoundTransition, Results, PendingScreen
 │   ├── styles/design-tokens.css
 │   └── types/index.ts
@@ -72,7 +76,8 @@ Two modes, one engine: `config.mode` is `'quick'` or `'teams'`. Quick Play is si
 ```
 Play Mode ──Quick Play──┐
 Game Setup ─Start Game──┴─startGame(config)──▶ phase "ready"   (#forehead)  + requestLandscape()
-"I'm Ready" ──beginCountdown()──▶ phase "countdown"      (#countdown)
+"I'm Ready" ── (#calibrate: "Hold still…", phase stays "ready") ── calibrated ──
+             ──beginCountdown()──▶ phase "countdown"      (#countdown)
 countdown done ──beginRound()───▶ phase "playing"        (#gameplay)
 tap/tilt ──answer(action, promptId)──▶ score + next prompt   (ignored if not playing or wrong prompt)
 timer 0 ──timeUp()──▶ "roundOver" (#transition)  or  "finished" (#results) if last team
@@ -94,16 +99,17 @@ Rules worth knowing:
 
 ## 3. Core Technical Subsystems
 
-### A. Device Orientation & Tilt Detection (`game/tilt.ts` + `useTiltControls`)
-1. **Permission**: `requestMotionPermission()` (`services/motionPermission.ts`) is called directly inside the **"I'm Ready"** tap, which iOS 13+ requires. Android and desktop don't ask. Tilt events are only delivered on **https** pages.
-2. **Angle**: we compute how far the *screen* faces up or down: `elevation = asin(cos β · cos γ)`. +90° = screen to ceiling, 0° = upright (forehead position), −90° = screen to floor. It's the same in either landscape direction, with no ±90° jump.
-3. **State machine** (`processTiltReading`):
-   - Starts in *waiting for upright*, so a phone that is already tilted when the round starts never fires.
-   - |elevation| < dead-zone (20°) → armed.
-   - elevation ≤ −35° → **Correct**; ≥ +35° → **Pass** (medium sensitivity), then waits for upright again plus a 700 ms cooldown.
-4. **Single listener**: attached while a round is active, removed on cleanup. The latest callback is kept in a ref, so prompt changes don't re-attach it.
-5. **Fallback**: Pass ↑ / Correct ↓ buttons are always on screen.
-6. **Status**: unit-tested and browser-simulated; **real-device verification pending**.
+### A. Device Orientation, Calibration & Tilt Detection (`game/tilt.ts`, `config/gameplay.ts`)
+1. **Permission**: `requestMotionPermission()` is called inside the **"I'm Ready"** tap (required on iPhone). Calibration starts once that question is answered. Sensors only work on **https** pages.
+2. **Angle**: `elevation = asin(cos β · cos γ)`: +90° screen to ceiling, 0° upright, −90° screen to floor. It's the same in either landscape direction, with no ±90° jump.
+3. **Calibration** (`#calibrate`, before the countdown): after a 0.7 s settle delay, wait until readings stay within 6° for 0.6 s **and** are within 35° of upright. Their average becomes the player's **baseline**. Timeout after 5 s → baseline 0. No sensor data within 1.5 s → skip (manual fallback). Calibration never touches the timer or the score; it runs again for each team's turn.
+4. **Gesture tracker** (`processTiltReading`): smoothed elevation (EMA) − baseline = relative angle.
+   - relative ≤ −30° held 70 ms → **Correct**; ≥ +30° held 70 ms → **Pass** (medium preset).
+   - Then waits until |relative| < 12° (**hysteresis**) plus a 500 ms cooldown before re-arming.
+   - While resting at neutral, the baseline follows slow posture drift (1% per reading).
+5. **Single listener** per round, with the callback held in a ref.
+6. **Fallback**: small Pass/Correct buttons appear only if no motion data arrives; keyboard ↓/Enter, ↑.
+7. **Tuning**: all values live in `src/config/gameplay.ts`; `?debug=1` shows live angles on the phone.
 
 ### B. Orientation & Viewport Handling (`AppShell`)
 - Portrait screens (`Home`, `Categories`, `Game Setup`, `Results`, `Settings`) render in a mobile-first vertical layout (`max-width: 440px` centred on desktop, 3-column category grid on tablet `600–1023px`).

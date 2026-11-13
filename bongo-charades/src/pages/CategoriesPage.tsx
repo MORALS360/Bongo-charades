@@ -20,7 +20,7 @@ interface CategoriesPageProps {
  * Bongo Charades — Categories Screen (Artboard 3 / PDF Page 3).
  *
  * Renders the page heading, Rewards & Settings header icons, Featured "Feeling lucky?"
- * random-play card, all 26 categories across the 3 approved cultural & classic sections,
+ * random-play card, all categories across the 3 approved cultural & classic sections,
  * and a floating "Continue to Setup" action when categories are selected.
  */
 export function CategoriesPage({

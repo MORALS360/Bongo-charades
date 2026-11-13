@@ -191,7 +191,7 @@ export function GameSetupPage({
                   opacity: 0.9,
                 }}
               >
-                Playing random words across all 26 categories.
+                Playing random words across all categories.
               </p>
             </div>
           </div>
@@ -351,7 +351,7 @@ export function GameSetupPage({
             <span style={{ opacity: 0.8 }}>Categories:</span>
             <span style={{ color: '#FFC83A', textAlign: 'right' }}>
               {isFeelingLucky
-                ? '🎲 Feeling lucky? (All 26)'
+                ? '🎲 Feeling lucky? (All)'
                 : `${selectedCategories.length} selected`}
             </span>
           </div>

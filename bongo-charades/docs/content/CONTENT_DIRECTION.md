@@ -108,3 +108,27 @@ International and pan-African throwbacks (Pata Pata, Sweet Mother, Yéké Yéké
 
 ## 8. Validation (automated, `npm test` → `src/data/prompts.test.ts`)
 Unique ids · valid categories · ≥12 prompts per category · ≤4 words · no duplicate or near-duplicate text across the whole bank · translation pairs have exactly one EN + one SW · Bongo group <5% English-only · Classic English prompts >90% paired · every Zilipendwa prompt has an artist hint.
+
+---
+
+## 9. Second refinement pass (2026-11-13)
+
+### Classic Charades now has 11 categories
+| Category | Rule | Content |
+|---|---|---|
+| **Countries** (was Countries & Places) | Countries only, enforced by a test against an explicit country list | 24 countries from every continent, including Tanzania, Kenya, Nigeria and Ghana. Natural Kiswahili names where they exist (Japani, Ufaransa, Kanada, Uchina, Misri, Marekani, Ujerumani, Italia, Hispania, Meksiko, Urusi, Uingereza, Afrika Kusini, Ureno, Ugiriki). Same-name countries are single prompts. |
+| **Famous Landmarks** (new) | Recognisable, actable, geographically diverse | Africa: Mount Kilimanjaro / Mlima Kilimanjaro, Pyramids of Giza / Mapiramidi ya Giza, Victoria Falls, Table Mountain · Europe: Eiffel Tower, Colosseum, Big Ben, Leaning Tower of Pisa, Stonehenge · Asia: Great Wall of China, Taj Mahal, Burj Khalifa, Mount Everest · Americas: Statue of Liberty, Christ the Redeemer, Machu Picchu, Golden Gate Bridge, Niagara Falls, Hollywood Sign, Times Square · Oceania: Sydney Opera House |
+| **Car Brands** (new; first requested as "Cars & Vehicles", narrowed by the owner to brands only) | Car brands only, no models or vehicle types | Toyota, Mercedes-Benz, BMW, Audi, Volkswagen, Nissan, Honda, Mazda, Subaru, Suzuki, Mitsubishi, Isuzu, Hyundai, Kia, Ford, Chevrolet, Jeep, Tesla, Land Rover, Volvo, Peugeot, Mini, Ferrari, Lamborghini, Porsche, Rolls-Royce, Bentley, Bugatti |
+| **Famous Brands** (new) | Many industries; no car brands, which live in Car Brands (test-enforced) | Tech/media: Apple, Samsung, Google, Microsoft, Amazon, Netflix, WhatsApp, Instagram, Disney, PlayStation · Sportswear: Nike, Adidas, Puma · Fashion/luxury: Gucci, Louis Vuitton, Chanel, Tiffany & Co., Zara · Food/drink: Coca-Cola, Pepsi, McDonald's, KFC, Starbucks, Red Bull · Other: IKEA, Lego, Visa |
+
+Removed from the old Countries & Places: Dubai, London and New York (cities, not countries; their landmarks Burj Khalifa, Big Ben and Times Square are in Landmarks) and Desert/Beach (generic). Food & Drinks "Water" became **Milk / Maziwa**, because "Water" is now Tyla's song in African Music & Artists and the duplicate check treats them as the same.
+
+### African Music & Artists (renamed from African Music)
+Africa-wide; Tanzanian artists stay in Bongo Flava (test-enforced).
+- **Genres:** Afrobeats, Amapiano, Rhumba, Highlife, Raï
+- **Artists:** Burna Boy, Wizkid, Davido, Tems, Rema, Ayra Starr, Yemi Alade (Nigeria) · Angélique Kidjo (Benin) · Youssou N'Dour (Senegal) · Tyla (South Africa) · Sauti Sol (Kenya) · Eddy Kenzo (Uganda) · Fally Ipupa, Koffi Olomide (DR Congo) · Amr Diab (Egypt) · Cheb Khaled (Algeria)
+- **Songs with artist hints:** Calm Down (Rema), Water (Tyla), Last Last (Burna Boy), Essence (Wizkid ft. Tems), Fall (Davido), Johnny (Yemi Alade), Jerusalema (Master KG), Sitya Loss (Eddy Kenzo), Sura Yako (Sauti Sol), Vulindlela (Brenda Fassie), Aïcha (Cheb Khaled), Tamally Maak (Amr Diab)
+- Gengetone and Kwaito, plus a few extra names, were trimmed to keep quality over quantity.
+
+### Sources and review
+These additions are globally documented brands, landmarks, countries and internationally charting African artists and songs. They were chosen from general knowledge and **not individually sourced in this pass**. **"Artists currently achieving significant popularity"** needs 2025–26 chart data, which is part of the Phase 5 research ledger (Spotify/Apple/YouTube Africa charts). Treat the African Music & Artists list as a well-known baseline, not a current-charts list.

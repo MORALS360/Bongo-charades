@@ -1,94 +1,80 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
-import {
-  initialTiltTrackerState,
-  processTiltReading,
-  screenElevationDegrees,
-  TILT_THRESHOLDS,
-} from '../game/tilt'
-import {
-  requestMotionPermission,
-  type MotionPermissionState,
-} from '../services/motionPermission'
+import { useEffect, useRef, useState } from 'react'
+import { TILT_PRESETS } from '../config/gameplay'
+import { createTiltTracker, processTiltReading, screenElevationDegrees } from '../game/tilt'
+import { setDebug } from '../services/debug'
 import type { GameplayAction, TiltSensitivity } from '../types'
 
 interface UseTiltControlsOptions {
   enabled: boolean
   onAction: (action: GameplayAction) => void
+  /** Player's calibrated neutral elevation in degrees (0 = upright) */
+  baseline?: number
   sensitivity?: TiltSensitivity
 }
 
 /**
- * Hook managing physical tilt controls (DeviceOrientationEvent).
+ * Physical tilt controls (DeviceOrientationEvent) for one round.
  *
- * Product rules:
- * - TILT DOWN (screen turns to face the floor)   = 'correct'
- * - TILT UP   (screen turns to face the ceiling) = 'pass'
+ * - TILT DOWN (screen turns towards the floor)   = 'correct'
+ * - TILT UP   (screen turns towards the ceiling) = 'pass'
+ * Measured relative to the calibrated `baseline`; all rules and numbers live in
+ * `game/tilt.ts` and `config/gameplay.ts`.
  *
- * Reliability:
- * 1. The angle maths lives in `game/tilt.ts` (tested without a phone).
- * 2. Exactly one 'deviceorientation' listener while enabled; removed on cleanup.
- * 3. The latest `onAction` is kept in a ref, so the listener is NOT re-attached
- *    every time the prompt changes (re-attaching used to reset the "return to
- *    upright first" rule and could award a second answer for one tilt).
- * 4. Player must return to upright + 700 ms cooldown between answers.
+ * Exactly one listener while enabled; the latest `onAction` is kept in a ref so the
+ * listener (and its "return to neutral" memory) survives prompt changes.
  */
 export function useTiltControls({
   enabled,
   onAction,
+  baseline = 0,
   sensitivity = 'medium',
 }: UseTiltControlsOptions) {
-  const [permissionState, setPermissionState] = useState<'prompt' | MotionPermissionState>(
-    'prompt',
-  )
   const [sensorActive, setSensorActive] = useState(false)
-  const [currentPitch, setCurrentPitch] = useState<number | null>(null)
 
   const onActionRef = useRef(onAction)
   useEffect(() => {
     onActionRef.current = onAction
   }, [onAction])
 
-  const requestPermission = useCallback(async (): Promise<boolean> => {
-    const result = await requestMotionPermission()
-    setPermissionState(result)
-    return result === 'granted'
-  }, [])
-
   useEffect(() => {
     if (!enabled || typeof window === 'undefined') return
 
-    const thresholds = TILT_THRESHOLDS[sensitivity] ?? TILT_THRESHOLDS.medium
-    let tracker = initialTiltTrackerState
-    let lastUiUpdate = 0
+    const config = TILT_PRESETS[sensitivity] ?? TILT_PRESETS.medium
+    let tracker = createTiltTracker(baseline)
+    let reportedActive = false
+    let lastDebug = 0
 
     const handleOrientation = (e: DeviceOrientationEvent) => {
       if (e.beta === null || e.gamma === null) return
-
-      const elevation = screenElevationDegrees(e.beta, e.gamma)
-      const now = performance.now()
-
-      // Only refresh the debug readout ~10× per second to avoid needless re-renders
-      if (now - lastUiUpdate > 100) {
-        lastUiUpdate = now
+      if (!reportedActive) {
+        reportedActive = true
         setSensorActive(true)
-        setCurrentPitch(Math.round(elevation))
       }
 
-      const result = processTiltReading(tracker, elevation, now, thresholds)
+      const now = performance.now()
+      const elevation = screenElevationDegrees(e.beta, e.gamma)
+      const result = processTiltReading(tracker, elevation, now, config)
       tracker = result.state
-      if (result.action) onActionRef.current(result.action)
+
+      if (now - lastDebug > 100) {
+        lastDebug = now
+        setDebug({
+          elevation,
+          relative: result.relative,
+          baseline: tracker.baseline,
+          trackerMode: tracker.mode,
+        })
+      }
+
+      if (result.action) {
+        setDebug({ lastAction: result.action })
+        onActionRef.current(result.action)
+      }
     }
 
     window.addEventListener('deviceorientation', handleOrientation)
-    return () => {
-      window.removeEventListener('deviceorientation', handleOrientation)
-    }
-  }, [enabled, sensitivity])
+    return () => window.removeEventListener('deviceorientation', handleOrientation)
+  }, [enabled, sensitivity, baseline])
 
-  return {
-    permissionState,
-    sensorActive,
-    currentPitch,
-    requestPermission,
-  }
+  return { sensorActive }
 }

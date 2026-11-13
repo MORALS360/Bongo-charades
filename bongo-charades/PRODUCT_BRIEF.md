@@ -32,7 +32,10 @@ The architecture strictly separates **App Interface Language** from **Game Promp
 2. **Movies & TV**
 3. **Music & Artists**
 4. **Sports**
-5. **Countries & Places**
+5. **Countries** (countries only)
+5a. **Famous Landmarks** (new 2026-11-13)
+5b. **Car Brands** (new 2026-11-13)
+5c. **Famous Brands** (new 2026-11-13)
 6. **Everyday Things**
 7. **Act It Out**
 8. **Food & Drinks**
@@ -54,7 +57,7 @@ The architecture strictly separates **App Interface Language** from **Game Promp
 ### Group 3: East Africa & Beyond (`c3` — `#4F6BE0`)
 21. **East African Vibes**
 22. **African Icons**
-23. **African Music**
+23. **African Music & Artists** (renamed 2026-11-13; Africa-wide, not Tanzanian)
 24. **African Cities**
 25. **Pop Culture**
 26. **Throwback Hits**
@@ -75,13 +78,15 @@ The architecture strictly separates **App Interface Language** from **Game Promp
    - Review selected category chips (with mini category illustrations).
    - Teams: **2 by default**, players can **+ Add team** (up to 8) or remove teams, with editable names.
    - Duration and prompt language (same settings as the Play Mode screen).
-5. **Forehead Positioning (Landscape)**:
+5. **Get Ready (Landscape)** — all instructions live here: hold sideways on the forehead · Tilt DOWN = Correct · Tilt UP = Pass · hold still. Teams mode shows "Team X of Y · name"; Quick Play shows no badge.
+   Then **"Hold still…" calibration** (≈1 s) records the player's neutral angle.
+   Forehead Positioning details:
    - Starting a game asks the phone to switch to landscape (Android: fullscreen + orientation lock; iPhone can't be rotated by a website, so a "Turn your phone sideways" screen waits until the player rotates).
    - Prompt the player (`"Get ready! Place your phone against your forehead…"`) and wait for `"I'm Ready"` (which also requests motion permission on iPhone).
-6. **Instructions + Countdown (Landscape)**: big colour-coded tiles — **TILT DOWN = CORRECT** (green), **TILT UP = PASS** (red) — while `3 → 2 → 1 → GO!` runs.
+6. **Countdown (Landscape)**: only the big `3 → 2 → 1 → GO!` circle.
 7. **Active Gameplay (Landscape)**:
    - Clean screen: timer, category label and the large prompt (plus a small hint line such as the artist for song titles). No permanent instruction buttons.
-   - Tilt DOWN = Correct; tilt UP = Pass → full-screen green/red feedback for ~0.8 s, then the next prompt.
+   - Tilt DOWN = Correct; tilt UP = Pass → full-screen green/red feedback for ~0.45 s, then the next prompt.
    - Fallback: small Pass / Correct buttons appear only if the phone sends no motion data; keyboard ↓/Enter and ↑ also work.
    - Turning the phone upright pauses the round.
 8. **Results (Portrait)**:

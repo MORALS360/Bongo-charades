@@ -22,7 +22,7 @@ import assert from 'node:assert/strict'
 
 const BASE = process.env.BASE_URL ?? 'http://localhost:5173'
 const SHOTS = process.env.SHOT_DIR ?? null
-const FEEDBACK_MS = 800
+const FEEDBACK_MS = 450 // keep in sync with src/config/gameplay.ts
 const results = []
 const check = async (name, fn) => {
   try {
@@ -80,8 +80,17 @@ const key = async (k) => {
   await page.keyboard.press(k)
   await page.clock.runFor(FEEDBACK_MS + 50)
 }
+/** Stream the same sensor reading every 20 ms for `ms` (real sensors fire ~60×/s) */
+const tiltFor = async (beta, gamma, ms) => {
+  for (let t = 0; t < ms; t += 20) {
+    await tilt(beta, gamma)
+    await page.clock.runFor(20)
+  }
+}
+// Without sensor data: Ready → calibration skipped after 1.5 s → 3-2-1-GO (3.9 s)
 const startRound = async () => {
   await page.getByRole('button', { name: "I'm Ready" }).click()
+  await page.clock.runFor(1700)
   await page.clock.runFor(4000)
   // React renders asynchronously — wait until the gameplay screen is really there
   await page.locator('.gameplay-stage').waitFor()
@@ -130,28 +139,52 @@ await check('Start Game requests fullscreen + landscape lock (simulated API)', a
 })
 
 await page.setViewportSize(LANDSCAPE)
-await check('Forehead screen shows Team 1/3', async () => assert.match(await text(), /Team 1\/3: Wana Dar/))
-await page.getByRole('button', { name: "I'm Ready" }).click()
-await page.clock.runFor(1100)
-await check('Instruction stage: TILT DOWN = CORRECT, TILT UP = PASS + countdown', async () => {
+await check('Get Ready (Teams) shows whose turn it is, as plain text', async () =>
+  assert.match(await text(), /Team 1 of 3 · Wana Dar/),
+)
+await check('Get Ready explains positioning, tilt down/up and holding still', async () => {
   const t = await text()
-  assert.match(t, /Tilt down/i)
-  assert.match(t, /Correct/i)
-  assert.match(t, /Tilt up/i)
-  assert.match(t, /Pass/i)
-  assert.match(t, /How to answer/i)
+  assert.match(t, /sideways on your forehead/i)
+  assert.match(t, /Tilt down = Correct/i)
+  assert.match(t, /Tilt up = Pass/i)
+  assert.match(t, /hold still/i)
 })
-await shot('03-instructions')
-await page.clock.runFor(2900)
+await shot('03-get-ready')
+await page.getByRole('button', { name: "I'm Ready" }).click()
+await page.clock.runFor(100)
+await page.getByText('Hold still').waitFor({ timeout: 3000 }).catch(() => {})
+await check('Calibration stage: "Hold still…" before the countdown', async () =>
+  assert.match(await text(), /Hold still/),
+)
+await shot('03b-calibration')
+// Player holds the phone upright-ish on the forehead (≈2°) → baseline captured
+await tiltFor(3, 88, 1500)
+await page.clock.runFor(100)
+await check('Countdown shows ONLY the number (no instructions, buttons or messages)', async () => {
+  const t = (await page.locator('main').innerText()).trim()
+  assert.match(t, /^(3|2|1|GO!)$/)
+  assert.equal(await page.locator('main button').count(), 0)
+})
+await shot('03c-countdown')
+await page.clock.runFor(1000)
+await check('Countdown still minimal at the next number', async () =>
+  assert.match((await page.locator('main').innerText()).trim(), /^(3|2|1|GO!)$/),
+)
+await page.clock.runFor(3000)
+await page.locator('.gameplay-stage').waitFor()
+await check('Calibration captured the player\'s neutral from a still hold (not timeout)', async () => {
+  const cal = await page.evaluate(() => window.__bongoDebug?.calibration)
+  assert.match(cal ?? '', /^still /)
+})
 await check('Gameplay is clean: prompt + timer, no tilt instructions', async () => {
   const t = await text()
   assert.match(t, /0:30/)
-  assert.doesNotMatch(t, /Tilt down|Tilt up|How to answer/i)
+  assert.doesNotMatch(t, /Tilt down|Tilt up|How to answer|Hold still/i)
   assert.ok((await prompt()).length > 0)
 })
 await shot('04-gameplay')
 
-// --- Full-screen feedback ---
+// --- Full-screen feedback (450 ms) ---
 const p1 = await prompt()
 await page.keyboard.press('ArrowDown')
 await page.clock.runFor(100)
@@ -161,12 +194,12 @@ await check('Correct → full-screen green feedback, prompt hidden', async () =>
 })
 await shot('05-feedback-correct')
 await page.keyboard.press('ArrowDown') // pressed again DURING feedback → ignored
-await page.clock.runFor(500)
-await check('Next prompt still hidden at ~600 ms', async () =>
+await page.clock.runFor(250)
+await check('Next prompt still hidden at ~350 ms', async () =>
   assert.equal(await page.locator('.gameplay-stage h1').count(), 0),
 )
-await page.clock.runFor(300)
-await check('Next prompt appears after the feedback (~800 ms) and is different', async () => {
+await page.clock.runFor(150)
+await check('Next prompt appears right after the feedback (~450 ms) and is different', async () => {
   assert.equal(await page.locator('.answer-feedback').count(), 0)
   assert.notEqual(await prompt(), p1)
 })
@@ -176,29 +209,27 @@ await check('Pass → full-screen red feedback', async () =>
   assert.equal(await page.locator('.answer-feedback--pass').count(), 1),
 )
 await shot('06-feedback-pass')
-await page.clock.runFor(800)
+await page.clock.runFor(450)
 await key('ArrowDown') // correct #2
 
-// --- Simulated tilt ---
-await tilt(0, 90) // upright on forehead
-await page.clock.runFor(100)
-await tilt(180, 40) // screen to floor → correct #3
-await page.clock.runFor(100)
-await check('Simulated tilt DOWN shows Correct feedback', async () =>
+// --- Simulated tilt (relative to the calibrated neutral) ---
+await tiltFor(3, 88, 300) // neutral → armed
+await tiltFor(4, 85, 300) // tiny wobble → nothing
+await check('Small accidental movement does not answer', async () =>
+  assert.equal(await page.locator('.answer-feedback').count(), 0),
+)
+await tiltFor(180, 45, 200) // deliberate nod down (≈ −45°) → correct #3
+await check('Deliberate tilt DOWN → Correct feedback', async () =>
   assert.equal(await page.locator('.answer-feedback--correct').count(), 1),
 )
-await tilt(180, 30) // still tilted, during and after feedback → nothing
-await page.clock.runFor(1500)
-await tilt(180, 20)
-await page.clock.runFor(500)
-await tilt(0, 90)
-await page.clock.runFor(100)
-await tilt(0, 40) // screen to ceiling → pass #2
-await page.clock.runFor(900)
-await tilt(0, 90)
-await page.clock.runFor(900)
-await tilt(0, -90)
-await page.clock.runFor(900)
+await tiltFor(180, 45, 1500) // keep holding it down → must NOT fire again
+await tiltFor(3, 88, 400) // back to neutral → re-armed
+await tiltFor(0, 40, 200) // deliberate tilt back (≈ +50°) → pass #2
+await check('Deliberate tilt UP → Pass feedback', async () =>
+  assert.equal(await page.locator('.answer-feedback--pass').count(), 1),
+)
+await tiltFor(3, 88, 600)
+await tiltFor(0, -88, 600) // other landscape direction, still neutral
 await check('Manual buttons hidden once motion data arrives', async () =>
   assert.equal(await page.locator('.manual-answer').count(), 0),
 )
@@ -249,7 +280,7 @@ await check('Late answer after time-up not counted (Team Chapchap = 0)', async (
 )
 await shot('08-results-teams')
 await page.getByRole('button', { name: 'Play Again' }).click()
-await check('Play Again → Team 1 again', async () => assert.match(await text(), /Team 1\/3: Wana Dar/))
+await check('Play Again → Team 1 again', async () => assert.match(await text(), /Team 1 of 3 · Wana Dar/))
 await page.getByRole('button', { name: /Home/ }).last().click()
 
 /* ================= QUICK PLAY ================= */
@@ -259,11 +290,15 @@ await page.getByRole('button', { name: /Feeling lucky/ }).first().click()
 await check('Feeling lucky → Play Mode', async () => assert.match(await text(), /Feeling lucky — all categories/))
 await page.getByRole('button', { name: /^Quick Play/ }).click()
 await page.setViewportSize(LANDSCAPE)
-await check('Quick Play skips team setup → Forehead', async () => {
+await check('Quick Play skips team setup → Get Ready', async () =>
+  assert.match(await text(), /Get ready!/),
+)
+await check('Quick Play Get Ready has no info bubble (no "Quick Play · 60s" badge, no team line)', async () => {
   const t = await text()
-  assert.match(t, /Quick Play/)
-  assert.doesNotMatch(t, /Team 1/)
+  assert.doesNotMatch(t, /Quick Play|⚡|\d+s ·|Mixed \(English/)
+  assert.doesNotMatch(t, /Team \d of/)
 })
+await shot('09a-get-ready-quick')
 await startRound()
 await key('ArrowDown')
 await key('ArrowDown')
@@ -308,6 +343,10 @@ await shot('10-rotate-prompt')
 await page.setViewportSize(LANDSCAPE)
 await page.clock.runFor(200)
 await startRound()
+await check('Phone: "I\'m Ready" retries the landscape lock (second tap-driven attempt)', async () => {
+  const log = await page.evaluate(() => window.__orientationLog)
+  assert.equal(log.filter((x) => x === 'lock:landscape').length, 2)
+})
 const secs = (t) => {
   const [m, ss] = t.split(':').map(Number)
   return m * 60 + ss
@@ -327,6 +366,8 @@ await check('Timer did not run during the 10 s pause', async () => {
   assert.ok(startTimer - now <= 1, `before ${startTimer}s, after ${now}s`)
 })
 await page.clock.runFor(61_000)
+await page.getByText("Time's up!").waitFor({ timeout: 3000 }).catch(() => {})
+await page.clock.runFor(100)
 await check('Phone: orientation released when the game reaches results', async () => {
   const log = await page.evaluate(() => window.__orientationLog)
   assert.ok(log.includes('unlock'), JSON.stringify(log))

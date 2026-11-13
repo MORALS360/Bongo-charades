@@ -154,3 +154,14 @@ New and changed screens. They reuse existing tokens; no new colour system.
 | **Rotate prompt** | Full-screen app gradient, animated phone (rotates −90°), yellow arrow, "Turn your phone sideways". |
 | **Zilipendwa icon** | Vintage radio in the 64×64 style: `#O` body, `#K` speaker, `#W` grille/dial, `#Y` knob and antenna. |
 | **Consistency fixes** | On phones/tablets the app gradient is pinned to the viewport, so long screens don't fade to lavender. Panels (`.pl`) use a deep-purple tint `rgba(62,47,168,0.32)` (from the nav-bar colour) + card border + card shadow instead of plain 16% white, matching Home's cards. |
+
+
+## Addendum 2 — Second refinement pass (2026-11-13)
+| Element | Spec |
+|---|---|
+| **Get Ready** | Two columns: forehead illustration (290×196) and content. Teams only: yellow 14px line "Team 1 of 3 · Wana Dar" (no bubble). "Get ready!" 36px. Lead text 16px. Two control chips side by side: green "✓ **Tilt down** = Correct", red "⏩ **Tilt up** = Pass" (feedback gradients, 30px icons, card shadow). Hint 13px "Tap Ready, then hold still for a moment." I'm Ready (54px), Back / Home outlined. |
+| **Calibration** | Centred breathing ring (150px, 6px white 35% border) with a golden dot, "Hold still…" Baloo 2 44px. |
+| **Countdown** | Only the golden circle (up to 270px, 16px white ring), number 170px / "GO!" 104px. No pills, no text. |
+| **Feedback** | Unchanged visuals; duration 450 ms. |
+| **New category icons** | Famous Landmarks: pyramids + sun (`#O`/`#R`/`#Y`, `#W` ground). Car Brands: red car (`#R` body, `#W` roof, `#B` windows, `#K` wheels, `#Y` light). Famous Brands: magenta bag (`#M`) with yellow star tag and handle. Countries keeps the globe. |
+| **App icon** | `public/icon.svg` → PNG 192/512/maskable/apple-touch: app gradient, golden phone with "?" on a night-purple frame, three friend dots (`#O`, `#T`, `#M`). Replaces the Vite starter favicon. |

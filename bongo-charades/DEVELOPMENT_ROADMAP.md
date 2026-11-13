@@ -61,7 +61,8 @@ This roadmap breaks the implementation of Bongo Charades into logical, testable,
 ---
 
 ## Pre-Phase 5: Gameplay, UX & Content-Direction Refinement [COMPLETE IN BROWSER — DEVICE CHECKS PENDING]
-Owner-requested polish after real-device testing (2026-11-12): auto-landscape with iPhone fallback, Quick Play + Teams (flexible team count), instruction stage, clean prompt screen, full-screen Correct/Pass feedback, Vijiweni → Mtaani merge, new Zilipendwa category, content identity per group, visual consistency. Details: `PRE_PHASE5_REFINEMENT_REPORT.md`.
+Second pass (2026-11-13): landscape retry + installable app, tilt calibration with centralised tuning, 450 ms feedback, instructions on Get Ready, numbers-only countdown, Quick Play bubble removed, Classic expanded (Countries, Famous Landmarks, Car Brands, Famous Brands), African Music & Artists.
+First pass — owner-requested polish after real-device testing (2026-11-12): auto-landscape with iPhone fallback, Quick Play + Teams (flexible team count), instruction stage, clean prompt screen, full-screen Correct/Pass feedback, Vijiweni → Mtaani merge, new Zilipendwa category, content identity per group, visual consistency. Details: `PRE_PHASE5_REFINEMENT_REPORT.md`.
 
 ---
 
@@ -81,14 +82,14 @@ Owner-requested polish after real-device testing (2026-11-12): auto-landscape wi
 ## Phase 6: Gameplay Polish & User Testing
 - Real group play-testing; fix confusing moments.
 - Pause/quit button during a round; pause when the app goes to the background (rotate-pause is already done).
-- Settings screen (sound, haptics, tilt hints, tilt sensitivity), History and Create tabs.
+- Settings screen (sound, haptics, tilt sensitivity — presets already exist in `src/config/gameplay.ts`), History and Create tabs.
 - Haptic feedback, animation and sound refinement, and accessibility.
 
 ---
 
 ## Phase 7: PWA Optimisation
 - Web App Manifest, icons, service worker, offline play, update handling.
-- Installability; manifest orientation settings so installed Android apps can lock landscape without fullscreen; iOS and Android testing.
+- Service worker + offline play, update handling (manifest and icons already added in pre-Phase 5); iOS and Android testing.
 
 ---
 
