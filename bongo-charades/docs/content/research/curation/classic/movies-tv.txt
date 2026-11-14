@@ -1,0 +1,143 @@
+# Movies & TV — global films, series and characters. African titles live in Pop Culture; actors and celebrities in Pop Culture.
+@ lang=mixed kind=title diff=easy shelf=evergreen conf=H src=bank,S52
+The Lion King
+Black Panther
+Titanic
+Avatar
+Spider-Man
+Fast & Furious
+Money Heist ; ; conf=M src=bank
+Game of Thrones ; ; conf=M src=bank
+Harry Potter
+Squid Game
+Tom and Jerry ; ; conf=M src=bank
+Mr. Bean ; ; conf=M src=bank
+Shrek
+Frozen
+Superman ; ; conf=M src=bank
+# ── Box office (S52) ──
+@ lang=mixed kind=title diff=easy shelf=evergreen conf=H src=S52
+Avengers
+Star Wars
+Jurassic Park
+Toy Story
+Finding Nemo
+Minions
+Despicable Me
+Inside Out
+Zootopia ; ; diff=medium
+Moana
+Ice Age
+Incredibles ; ; diff=medium
+Barbie
+Beauty and the Beast ; ; diff=medium
+Iron Man
+Captain America
+Deadpool ; ; diff=medium
+Aquaman ; ; diff=medium
+Top Gun
+Lord of the Rings ; ; diff=medium
+Super Mario ; ; diff=medium
+# ── Netflix's most watched (S52) ──
+@ lang=mixed kind=title diff=medium shelf=trending conf=H src=S52
+Wednesday
+Stranger Things
+Red Notice ; ; diff=hard
+Bird Box ; ; diff=hard
+# ── Classics and favourites ──
+@ lang=mixed kind=title diff=easy shelf=evergreen conf=M src=GK
+Home Alone
+Mission: Impossible
+James Bond
+Rambo
+Rocky
+Terminator
+The Matrix ; ; diff=medium
+Pirates of the Caribbean
+Transformers
+King Kong
+Godzilla
+Jaws ; ; diff=medium
+E.T. ; ; diff=medium
+Ghostbusters ; ; diff=medium
+Kung Fu Panda
+Cars
+Coco ; ; diff=medium
+Encanto ; ; diff=medium
+Aladdin
+Cinderella
+Snow White
+The Little Mermaid
+Mulan
+Tarzan
+John Wick
+Gladiator
+Twilight ; ; diff=medium
+The Hunger Games ; ; diff=medium
+Prison Break ; ; diff=medium
+The Walking Dead ; ; diff=medium
+Breaking Bad ; ; diff=hard
+Friends
+The Simpsons
+# ── Cartoons ──
+@ lang=mixed kind=title diff=easy shelf=evergreen conf=M src=GK
+SpongeBob SquarePants
+Peppa Pig
+Teletubbies ; ; shelf=nostalgia
+Ben 10
+Dragon Ball Z
+Naruto ; ; diff=medium
+Pokémon
+Scooby-Doo
+Mickey Mouse
+Bugs Bunny
+Pink Panther ; ; diff=medium
+Popeye ; ; shelf=nostalgia
+Paw Patrol
+Cocomelon
+Barney ; ; shelf=nostalgia
+Power Rangers
+# ── Characters ──
+@ lang=mixed kind=person diff=easy shelf=evergreen conf=M src=GK
+Batman
+Joker
+Hulk
+Thor
+Wonder Woman
+Thanos ; ; diff=medium
+Wolverine ; ; diff=medium
+Darth Vader ; ; diff=medium
+Yoda ; ; diff=medium
+Jack Sparrow ; ; diff=medium
+Pikachu
+Elsa
+Sherlock Holmes ; ; diff=medium
+Dracula
+Zombie
+Vampire
+# ── Kinds of shows ──
+@ lang=mixed kind=thing diff=easy shelf=evergreen conf=M src=GK
+Horror Movie | Filamu ya Kutisha
+Cartoon | Katuni
+Soap Opera
+Action Movie
+Romantic Comedy ; ; diff=medium
+Documentary ; ; diff=medium
+Reality Show
+Cooking Show
+News Bulletin | Taarifa ya Habari
+Weather Forecast | Hali ya Hewa ; ; diff=medium
+# ── Popular on Tanzanian screens (owner rule: up to about 10, for your check) ──
+@ lang=mixed kind=title diff=medium shelf=nostalgia conf=V src=GK note=Was this popular on Tanzanian TV?
+Kuch Kuch Hota Hai ; Bollywood ; src=S1,GK conf=M note=On Tanzania's YouTube chart in November 2026 (S1)
+Bollywood ; ; kind=thing conf=M diff=easy
+K-Drama ; ; kind=thing conf=M shelf=evergreen
+Telenovela ; ; kind=thing conf=M diff=easy
+Marimar
+Rosalinda
+La Usurpadora
+Maria la del Barrio
+Kassandra
+Esperanza
+Kurulus Osman ; Tamthilia ya Kituruki ; shelf=trending
+Kabhi Khushi Kabhie Gham ; Bollywood ; diff=hard

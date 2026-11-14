@@ -1,0 +1,132 @@
+# Food & Drinks — international food and drink. Tanzanian dishes and local fruit live in Chakula Chetu.
+# English | Kiswahili pairs where the Kiswahili word is not already a Chakula Chetu prompt.
+@ lang=mixed kind=food diff=easy shelf=evergreen conf=M src=bank
+Pizza
+Ice Cream | Aiskrimu
+Burger
+Rice | Wali
+Bread | Mkate
+Egg | Yai
+Banana | Ndizi
+Tea | Chai
+Coffee | Kahawa
+Orange Juice | Juisi ya Machungwa
+Watermelon | Tikiti Maji
+Chocolate | Chokoleti
+Popcorn
+Milk | Maziwa
+Soda
+# ── Dishes from around the world ──
+@ lang=mixed kind=food diff=easy shelf=evergreen conf=M src=GK,S57
+Spaghetti
+Hot Dog
+Sandwich
+Fried Chicken
+French Fries
+Sushi ; ; diff=medium
+Tacos ; ; diff=medium
+Burrito ; ; diff=hard
+Noodles
+Fried Rice
+Curry
+Shawarma
+Kebab
+Steak
+Omelette
+Toast
+Pancakes
+Waffles ; ; diff=medium
+Cereal ; ; diff=medium
+Oats ; ; diff=medium
+Salad | Saladi
+Soup | Supu
+Lasagne ; ; diff=hard
+Dumplings ; ; diff=hard
+Fish and Chips
+Mashed Potatoes ; ; diff=medium
+Nachos ; ; diff=hard
+Croissant ; ; diff=hard
+# ── Sweets and snacks ──
+@ lang=mixed kind=food diff=easy shelf=evergreen conf=M src=GK
+Cake | Keki
+Doughnut
+Cupcake
+Biscuits | Biskuti
+Sweets | Pipi
+Lollipop
+Chewing Gum | Bigijii ; ; conf=V note=Je, 'bigijii' ndilo neno la kawaida?
+Crisps
+Cotton Candy ; ; diff=medium
+Jelly ; ; diff=medium
+Pudding ; ; diff=medium
+# ── In the kitchen ──
+@ lang=mixed kind=food diff=easy shelf=evergreen conf=M src=GK
+Cheese | Jibini
+Butter | Siagi
+Honey | Asali
+Jam
+Peanut Butter
+Yoghurt
+Ketchup | Sosi ya Nyanya
+Mayonnaise
+Salt | Chumvi
+Sugar | Sukari
+Black Pepper
+Vinegar | Siki ; ; diff=medium
+Cooking Oil | Mafuta ya Kupikia
+Flour | Unga
+# ── Vegetables ──
+@ lang=mixed kind=food diff=easy shelf=evergreen conf=M src=GK
+Tomato | Nyanya
+Onion | Kitunguu
+Garlic | Kitunguu Saumu
+Carrot | Karoti
+Cabbage | Kabichi
+Cucumber | Tango
+Potato | Viazi
+Lettuce ; ; diff=medium
+Broccoli ; ; diff=medium
+Mushroom | Uyoga
+Green Peas | Njegere
+Pumpkin | Boga
+Sweetcorn ; ; diff=medium
+# ── Fruit (Tanzanian favourites are in Chakula Chetu) ──
+@ lang=mixed kind=food diff=easy shelf=evergreen conf=M src=GK
+Apple | Tufaha ; Tunda
+Orange | Chungwa
+Lemon | Limau
+Grapes | Zabibu
+Strawberry
+Coconut | Nazi
+Cherry ; ; diff=medium
+Peach ; ; diff=medium
+Kiwi Fruit ; ; diff=medium
+Pear ; ; diff=medium
+# ── Drinks ──
+@ lang=mixed kind=food diff=easy shelf=evergreen conf=M src=GK,S57
+Water | Maji
+Lemonade
+Milkshake
+Smoothie ; ; diff=medium
+Hot Chocolate
+Energy Drink
+Cappuccino ; ; diff=medium
+Iced Coffee ; ; diff=medium
+Cocktail
+Mocktail ; ; diff=medium
+Wine | Divai
+Beer | Bia
+Champagne
+# ── Eating out ──
+@ lang=mixed kind=thing diff=easy shelf=evergreen conf=M src=GK
+Breakfast | Kifungua Kinywa
+Lunch | Chakula cha Mchana
+Dinner | Chakula cha Jioni
+Buffet
+Picnic
+Barbecue
+Restaurant Menu
+Waiter | Mhudumu ; ; kind=person
+Chef | Mpishi ; ; kind=person
+Takeaway ; ; diff=medium
+Fast Food

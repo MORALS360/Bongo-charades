@@ -23,7 +23,7 @@ The architecture strictly separates **App Interface Language** from **Game Promp
 
 ---
 
-## 3. Category Taxonomy (26 Approved Categories in 3 Groups)
+## 3. Category Taxonomy (29 Approved Categories in 3 Groups)
 
 > **Content identity per group (owner decision, 2026-11-12)** — Classic Charades = universal, English-led with Kiswahili translations of the same idea · Bongo & Tanzanian Culture = Tanzanian, Kiswahili-led · East Africa & Beyond = Africa-wide and international, English-led. Full rules: `docs/content/CONTENT_DIRECTION.md`.
 
@@ -61,6 +61,17 @@ The architecture strictly separates **App Interface Language** from **Game Promp
 24. **African Cities**
 25. **Pop Culture**
 26. **Throwback Hits**
+
+### Prompt bank (Phase 5, 2026-11-14)
+- **3,738 researched prompt ideas** (4,179 prompts counting English and Kiswahili versions). Every category has 100+ ideas, except **Car Brands** (61, approved exception: brands only) and **Watu Maarufu** (81, approved "under 100 with reason").
+- Songs from **2013 or earlier** are nostalgia (Zilipendwa for Tanzanian, Throwback Hits for African and international); 2014 onward goes to Bongo Flava, African Music & Artists or Music & Artists. Gospel is not in Bongo Flava.
+- A prompt may share its text with another one only when the small hint line tells them apart (for example "Nairobi" the city and "Nairobi" by Marioo ft. Bien). Really famous titles may have up to 6 words.
+- Each prompt is marked **evergreen**, **trending** or **nostalgia**, so content can be kept current without a live chart service. Details: `docs/content/PHASE_5_CONTENT_AUDIT.md`.
+
+### Dealing (Phase 5)
+- A fresh shuffle every game; teams share one pile; nothing repeats until the pile is used up.
+- The phone remembers recently played ideas, and the next game deals fresh ones first. A small "Forget" link on the Play Mode screen clears this memory.
+- Clumps are broken up: the same artist doesn't come back within six prompts, and there are never three people, three hard prompts or three songs from one decade in a row.
 
 ### Special Mode: Feeling Lucky
 - **"Feeling lucky?"** featured card on both Home and Categories screens selects random words across all categories.

@@ -1,0 +1,125 @@
+# Everyday Things — household objects, clothing, tools. English | Kiswahili pairs. Common knowledge.
+@ lang=mixed kind=thing diff=easy shelf=evergreen conf=M src=bank
+Umbrella | Mwavuli
+Flashlight | Tochi
+Watch | Saa
+Bucket | Ndoo
+Matches | Kiberiti
+Broom | Fagio
+Phone Charger | Chaja
+Mirror | Kioo
+Toothbrush | Mswaki
+Key | Ufunguo
+Chair | Kiti
+Iron | Pasi
+Glasses | Miwani
+Phone | Simu
+# ── Home ──
+@ lang=mixed kind=thing diff=easy shelf=evergreen conf=M src=GK
+Table | Meza
+Bed | Kitanda
+Pillow | Mto
+Blanket | Blanketi
+Door | Mlango
+Window | Dirisha
+Television | Televisheni
+Remote Control | Rimoti
+Radio | Redio
+Fan | Feni
+Fridge | Friji
+Stove | Jiko
+Kettle | Birika
+Cup | Kikombe
+Plate | Sahani
+Spoon | Kijiko
+Fork | Uma
+Knife | Kisu
+Bottle | Chupa
+Sofa | Kochi
+Carpet | Zulia
+Curtains | Mapazia
+Wardrobe | Kabati
+Clothes Hanger ; ; diff=medium
+Clothes Peg | Kibanio ; ; diff=medium
+Dustbin | Pipa la Taka
+Candle | Mshumaa
+Light Bulb | Balbu
+Mosquito Net
+Gas Cylinder | Mtungi wa Gesi
+Generator | Jenereta
+Solar Panel ; ; diff=medium
+Washing Machine
+Microwave
+Blender
+Vacuum Cleaner ; ; diff=medium
+Doorbell ; ; diff=medium
+Alarm Clock
+Wall Clock | Saa ya Ukutani
+Calendar | Kalenda
+# ── Bathroom and grooming ──
+@ lang=mixed kind=thing diff=easy shelf=evergreen conf=M src=GK
+Comb | Kitana
+Soap | Sabuni
+Towel | Taulo
+Toothpaste | Dawa ya Meno
+Sponge | Sponji
+Razor | Wembe
+Toilet Paper
+Perfume | Manukato
+Lipstick
+Nail Polish | Rangi ya Kucha
+Hair Dryer ; ; diff=medium
+Wig | Wigi
+# ── Clothes and accessories ──
+@ lang=mixed kind=thing diff=easy shelf=evergreen conf=M src=GK
+Shoes | Viatu
+Sandals | Ndala
+Socks | Soksi
+Hat | Kofia
+Belt | Mkanda
+Shirt | Shati
+Trousers | Suruali
+Dress | Gauni
+Skirt | Sketi
+Jacket | Koti
+Tie | Tai ya Shingoni
+Bag | Begi
+Wallet | Pochi
+Sunglasses
+Earrings | Hereni
+Necklace | Mkufu
+Ring | Pete
+Backpack
+# ── School and office ──
+@ lang=mixed kind=thing diff=easy shelf=evergreen conf=M src=GK
+Pen | Kalamu
+Pencil | Penseli
+Book | Kitabu
+Exercise Book | Daftari
+Ruler | Rula
+Eraser | Kifutio
+Calculator | Kikokotoo
+Laptop | Kompyuta Mpakato
+Scissors | Mkasi
+Envelope | Bahasha
+Newspaper | Gazeti
+Camera | Kamera
+Stapler ; ; diff=medium
+Sellotape ; ; diff=medium
+# ── Tools and outside ──
+@ lang=mixed kind=thing diff=easy shelf=evergreen conf=M src=GK
+Ladder | Ngazi
+Hammer | Nyundo
+Nail | Msumari
+Screwdriver | Bisibisi ; ; diff=medium
+Padlock | Kufuli
+Rope | Kamba
+Basket | Kikapu
+Needle | Sindano
+Wheelbarrow | Toroli
+Bicycle | Baiskeli
+Hoe | Jembe
+Machete | Panga
+Axe | Shoka
+Watering Can ; ; diff=medium
+Spade | Sepetu ; ; diff=medium conf=V note=Je, 'sepetu' au 'koleo'?

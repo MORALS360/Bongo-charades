@@ -1,0 +1,171 @@
+# Mtaani — street life: jobs, places, habits and street language. Transport moments live in Daladala Diaries; Dar places in Hii Dar Yetu.
+# Every slang word needs the owner's "still used?" check: the only written source (S19) is from 2006.
+@ lang=sw kind=person diff=easy shelf=evergreen conf=M src=bank
+Machinga
+Mama Ntilie
+Kinyozi
+@ lang=sw kind=place diff=easy shelf=evergreen conf=M src=bank
+Duka la Mangi
+Genge
+Kijiweni
+Maskani ; ; diff=medium
+@ lang=sw kind=thing diff=easy shelf=evergreen conf=M src=bank
+Bodaboda
+Bajaji
+Bao
+Kahawa na Kashata
+@ lang=sw kind=action diff=easy shelf=evergreen conf=M src=bank
+Umeme Umekatika
+Kucheza Drafti
+Kubishana Mpira
+Kukodi Baiskeli
+@ lang=sw kind=phrase diff=hard shelf=trending conf=V src=bank note=Ilikuwa tayari kwenye orodha ya kukagua
+Kupiga Pamba
+Utajua Hujui
+Haina Kufeli
+# ── Street jobs and people ──
+@ lang=sw kind=person diff=easy shelf=evergreen conf=M src=GK
+Fundi Viatu
+Fundi Cherehani
+Fundi Baiskeli
+Fundi Simu
+Fundi Gereji
+Muuza Mitumba
+Muuza Karanga
+Muuza Maji
+Muuza Magazeti
+Muuza Mahindi ya Kuchoma
+Msukuma Mkokoteni
+Msusi
+Dobi
+Wakala wa M-Pesa
+Mwenyekiti wa Mtaa ; ; diff=medium
+Balozi wa Nyumba Kumi ; ; diff=hard
+Mwenye Nyumba
+Mpangaji
+Mgambo wa Jiji ; ; conf=V note=Je, wanaitwa hivyo mtaani?
+# ── Street places and things ──
+@ lang=sw kind=place diff=easy shelf=evergreen conf=M src=GK
+Saluni ya Kike
+Kibanda cha Chipsi
+Kibanda cha Video ; ; conf=V note=Au 'kibanda umiza'? Lipi linatumika?
+Baa ya Mtaani
+Gereji ya Mtaani
+Soko la Mtaani
+Bomba la Maji
+@ lang=sw kind=thing diff=easy shelf=evergreen conf=M src=GK
+Mkokoteni
+Mitumba
+Jiko la Mkaa
+Gunia la Mkaa
+Vocha ya Simu
+Kibatari ; ; diff=medium shelf=nostalgia
+Chandarua
+Karata
+Pool Table ; ; lang=mixed
+# ── Street habits and moments ──
+@ lang=sw kind=action diff=easy shelf=evergreen conf=M src=GK
+Kukwangua Vocha
+Kununua Luku
+Kuteka Maji
+Foleni ya Maji
+Kubeba Ndoo Kichwani
+Kusuka Nywele
+Kunyoa Nywele
+Kushona Nguo
+Kupiga Kiwi Viatu
+Kuchoma Mahindi
+Kuosha Magari
+Kucheza Karata
+Kucheza Pool
+Kuangalia Mpira Kibandani
+Kupiga Stori ; ; src=S19 conf=V
+Kukopa Dukani
+Kulipa Kodi ya Nyumba
+Kufukuzwa na Mgambo
+Kuchagua Mitumba
+Kupatana Bei
+Kuomba Punguzo
+Kupiga Umbea
+Majirani Wanagombana
+Kelele za Muziki Usiku
+Kuua Mbu
+Kufagia Uwanja
+Kuanika Nguo
+Mvua na Matope
+Kuruka Dimbwi
+Watoto Wanacheza Barabarani
+Kucheza Kombolela ; ; diff=medium shelf=nostalgia conf=V note=Mchezo wa utotoni; jina linajulikana kwenu?
+Kuruka Kamba
+Kucheza Rede ; ; diff=medium shelf=nostalgia conf=V note=Mchezo wa utotoni; jina linajulikana kwenu?
+Kucheza Vikoba ; ; kind=action diff=hard conf=V note=Vikoba au 'mchezo'? Lipi ni la kawaida?
+# ── Street language: documented in the 2006 dictionary (S19). All need "still used?" ──
+@ lang=sw kind=phrase diff=medium shelf=evergreen conf=V src=S19 note=Bado linatumika?
+Mambo Vipi? ; ; diff=easy
+Poa ; ; diff=easy
+Shwari
+Freshi
+Kama Kawa
+Fiti
+Bongo ; Jina la utani la Tanzania
+Mshikaji ; Rafiki
+Msela ; Kijana wa mtaani
+Mchizi ; Rafiki
+Braza
+Sista Du ; Msichana wa kisasa
+Dingi ; Baba
+Maza ; Mama
+Bi Mkubwa ; Mama
+Mshua ; Baba / mzee
+Mdosi ; Tajiri / bosi
+Pedeshee ; Mtu mwenye pesa
+Bishoo ; Kijana wa maringo
+Demu ; Msichana
+Mkwanja ; Pesa
+Mshiko ; Pesa
+Mapene ; Pesa
+Chapaa ; Pesa
+Buku ; Shilingi elfu moja
+Jero ; Shilingi mia tano
+Dili ; Mpango wa pesa
+Mchongo ; Mpango wa pesa
+Misheni Town ; Kutafuta riziki mjini ; diff=hard
+Deiwaka ; Kibarua cha siku
+Kupiga Debe ; Kuita abiria
+Kubangaiza ; Kuhangaika kutafuta riziki ; diff=hard
+Kitaani ; Mtaani
+Geto ; Chumba cha kijana
+Majuu ; Ulaya / nje ya nchi
+Uswahilini ; Mtaa wa watu wa kawaida
+Kishua ; Maisha ya kitajiri
+Ndinga ; Gari
+Mchuma ; Gari
+Msosi ; Chakula
+Fegi ; Sigara ; diff=hard
+Noma ; Balaa / kali sana
+Soo ; Aibu / balaa ; diff=hard
+Bomba ; Nzuri sana
+Mzuka ; Hamasa
+Kinoma ; Sana / kwa nguvu ; diff=hard
+Kasheshe ; Vurugu
+Kizaazaa ; Vurugu ; diff=hard
+Kimeo ; Kitu kibovu ; diff=hard
+Mnoko ; Mtu mwenye kiherehere ; diff=hard
+Kujirusha ; Kula raha ; kind=action
+Kupiga Mzinga ; Kuomba pesa ; kind=action
+Kula Kona ; Kuondoka ; kind=action
+Kutoka Nduki ; Kukimbia ; kind=action
+Kitu Kidogo ; Rushwa ndogo ; diff=hard
+Kulewa Chakari ; Kulewa sana ; kind=action
+# ── Street language from my own knowledge (no written source) ──
+@ lang=sw kind=phrase diff=medium shelf=trending conf=V src=GK note=Sina chanzo; bado linatumika?
+Niaje ; Salamu
+Oya! ; Kumwita mtu
+Mwanangu ; Rafiki wa karibu
+Sharobaro ; Kijana wa mitindo
+Kula Bata ; Kula raha ; kind=action
+Kufulia ; Kuishiwa pesa ; kind=action
+Kusepa ; Kuondoka ; kind=action
+Kuzuga ; Kujifanya ; kind=action
+Kuuza Sura ; Kujionyesha ; kind=action
+Mchuchumio ; Viatu vya visigino virefu ; kind=thing

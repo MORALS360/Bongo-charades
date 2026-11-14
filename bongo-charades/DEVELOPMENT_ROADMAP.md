@@ -66,7 +66,19 @@ First pass — owner-requested polish after real-device testing (2026-11-12): au
 
 ---
 
-## Phase 5: Cultural Research & Prompt-Bank Development [NEXT — AWAITING APPROVAL]
+## Phase 5: Cultural Research & Prompt-Bank Development [COMPLETE IN BROWSER — OWNER REVIEW + DEVICE GAME PENDING]
+**Delivered (2026-11-14)**, in 7 approved stages:
+- Research strategy, 57-source registry and evidence files per group.
+- 3,738 curated prompt ideas (4,179 prompts). 27 of 29 categories have 100+; the two exceptions are approved.
+- New metadata: stable ids, difficulty, kind, era, shelf.
+- Balanced dealing with cross-session history, plus a "Forget" link.
+- 91 automated tests.
+
+Reports: `PHASE_5_ACCEPTANCE_REPORT.md`, `docs/content/PHASE_5_RESEARCH_REPORT.md`, `docs/content/PHASE_5_CONTENT_AUDIT.md`.
+**Still open**: owner tick-lists (492 ideas), one real-phone game, git commit/merge.
+
+<details><summary>Original Phase 5 plan (kept for reference)</summary>
+
 **Objective**: A research-backed, culturally relevant prompt library for the **existing 26 categories** (no new categories).
 
 - **Scope**:
@@ -77,10 +89,12 @@ First pass — owner-requested polish after real-device testing (2026-11-12): au
   - Integration into the game, plus tests confirming category, language and difficulty selection.
 - **Starting point**: the restructured bank (389 ideas) and rules in `docs/content/CONTENT_DIRECTION.md` (group identities, language direction, `concept`/`hint`/`needsReview` fields, automated validation). Still to do: difficulty levels, current 2025–26 Bongo Flava hits from chart data, deeper Mtaani/slang research, the review list.
 
+</details>
+
 ---
 
-## Phase 6: Gameplay Polish & User Testing
-- Real group play-testing; fix confusing moments.
+## Phase 6: Gameplay Polish & User Testing [NEXT]
+- Real group play-testing; fix confusing moments. Use these games to finish the Phase 5 content tick-lists and tune `src/config/dealing.ts`.
 - Pause/quit button during a round; pause when the app goes to the background (rotate-pause is already done).
 - Settings screen (sound, haptics, tilt sensitivity — presets already exist in `src/config/gameplay.ts`), History and Create tabs.
 - Haptic feedback, animation and sound refinement, and accessibility.
@@ -90,6 +104,13 @@ First pass — owner-requested polish after real-device testing (2026-11-12): au
 ## Phase 7: PWA Optimisation
 - Web App Manifest, icons, service worker, offline play, update handling.
 - Service worker + offline play, update handling (manifest and icons already added in pre-Phase 5); iOS and Android testing.
+- Shrink the prompt bank in the bundle (about 900 KB raw / 159 KB compressed after Phase 5), e.g. by leaving out default field values.
+
+---
+
+## Ongoing: Content upkeep (from Phase 5)
+- Trending prompts re-checked every 3 months (next 2027-02-14); evergreen and nostalgia yearly (next 2027-11-14).
+- Changes are proposed as a list, approved by the owner, then released as a rebuilt bank. Process: `docs/content/PHASE_5_CONTENT_AUDIT.md` §7.
 
 ---
 

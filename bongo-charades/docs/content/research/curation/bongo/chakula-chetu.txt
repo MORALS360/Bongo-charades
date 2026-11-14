@@ -1,0 +1,151 @@
+# Chakula Chetu — Tanzanian food and drink only (international food stays in Food & Drinks).
+@ lang=sw kind=food diff=easy shelf=evergreen conf=H src=bank,S34
+Ugali na Samaki
+Pilau
+Chapati
+Chipsi Mayai
+Mishkaki
+Vitumbua
+Wali Maharage
+Maandazi
+Chai ya Rangi
+@ lang=sw kind=food diff=easy shelf=evergreen conf=M src=bank
+Ndizi Nyama
+Makande
+Supu ya Kongoro
+Mchemsho
+Kitimoto
+Mihogo ya Kukaanga
+Biriani
+Juisi ya Miwa
+Urojo ; ; diff=medium
+# ── Dishes named in the reference page ──
+@ lang=sw kind=food diff=easy shelf=evergreen conf=H src=S34
+Ugali
+Wali wa Nazi
+Maharage
+Mchicha
+Kisamvu
+Mlenda ; ; diff=medium
+Sambusa
+Bagia
+Kashata
+# ── Everyday dishes (general knowledge) ──
+@ lang=sw kind=food diff=easy shelf=evergreen conf=M src=GK
+Wali Nyama
+Wali Kuku
+Ugali Nyama
+Ugali Dagaa
+Chipsi Kuku
+Chipsi Kavu
+Kuku Choma
+Mbuzi Choma
+Kuku wa Kienyeji
+Samaki wa Kukaanga
+Samaki wa Kupaka ; ; diff=medium
+Dagaa
+Sato ; Samaki wa Ziwa Victoria ; diff=medium
+Sangara ; Samaki wa Ziwa Victoria ; diff=medium
+Pweza ; ; diff=medium
+Supu ya Pweza ; ; diff=medium
+Supu ya Ndizi
+Supu ya Utumbo
+Maharage ya Nazi
+Matembele
+Kachumbari
+Pilipili
+Chapati Maharage
+Mayai ya Kuchemsha
+Tambi
+Rosti ya Nyama ; ; diff=medium
+# ── Regional foods ──
+@ lang=sw kind=food diff=hard shelf=evergreen conf=V src=GK note=Sina chanzo nilichosoma; inajulikana nje ya mkoa wake?
+Mtori ; Chakula cha Kichaga
+Machalari ; Chakula cha Kichaga
+Kiburu ; Chakula cha Kichaga
+Mbege ; Pombe ya ndizi ya Kichaga
+Senene ; Bukoba
+Matoke ; Bukoba
+Kumbikumbi
+Ugali wa Muhogo
+Ugali wa Mtama
+Zanzibar Pizza ; ; lang=mixed
+Mkate wa Kumimina ; Zanzibar
+Halua ; Zanzibar
+# ── Snacks and street food ──
+@ lang=sw kind=food diff=easy shelf=evergreen conf=M src=GK
+Mahindi ya Kuchoma
+Mahindi ya Kuchemsha
+Muhogo wa Kuchoma
+Viazi Vitamu
+Magimbi ; ; diff=medium
+Ndizi za Kuchoma
+Karanga
+Korosho
+Ubuyu
+Kababu
+Katlesi
+Kachori ; ; diff=medium
+Kalimati ; ; diff=medium
+Visheti ; ; diff=medium
+Vibibi ; ; diff=medium
+Half Keki ; ; lang=mixed conf=V note=Tahajia: 'hafkeki' au 'half cake'?
+Bisi
+Barafu za Rangi ; ; conf=V note=Barafu za kunyonya: zinaitwaje kwenu?
+Mabungo ; ; diff=hard
+# ── Fruit ──
+@ lang=sw kind=food diff=easy shelf=evergreen conf=M src=GK
+Embe
+Papai
+Nanasi
+Fenesi
+Parachichi
+Pera
+Zambarau ; ; diff=medium
+Ukwaju ; ; diff=medium
+Shokishoki ; ; diff=hard
+Miwa
+Madafu
+Tende
+# ── Drinks ──
+@ lang=sw kind=food diff=easy shelf=evergreen conf=M src=GK
+Chai ya Maziwa
+Chai ya Tangawizi
+Uji
+Uji wa Ulezi
+Togwa ; ; diff=medium
+Maziwa Mgando
+Juisi ya Ukwaju
+Juisi ya Embe
+Juisi ya Parachichi
+Maji ya Kandoro ; ; diff=hard conf=V note=Maji ya mfuko: bado yanaitwa hivyo?
+# ── Cooking and eating ──
+@ lang=sw kind=action diff=easy shelf=evergreen conf=M src=GK
+Kusonga Ugali
+Kukuna Nazi
+Kutwanga Kisamvu
+Kupepeta Mchele
+Kuchambua Mchele
+Kukaanga Chipsi
+Kuchoma Mishkaki
+Kusukuma Chapati
+Kukanda Unga
+Kumenya Viazi
+Kukatakata Vitunguu
+Kupuliza Moto
+Kula kwa Mkono
+Kunawa Mikono
+Kula Sinia Moja
+Kuungua Ulimi
+Kula Pilipili Kali
+Kunywa Chai ya Moto
+Kumeza Mfupa wa Samaki ; ; diff=medium
+@ lang=sw kind=thing diff=easy shelf=evergreen conf=M src=GK
+Mwiko
+Sufuria
+Mbuzi ya Nazi
+Kinu na Mchi
+Chungu
+Ungo
+Kibao cha Chapati ; ; diff=medium
+Chupa ya Chai

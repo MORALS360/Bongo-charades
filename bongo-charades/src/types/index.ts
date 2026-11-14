@@ -96,7 +96,22 @@ export interface GamePrompt {
   hint?: string
   /** true = content flagged for human review before Phase 5 sign-off */
   needsReview?: boolean
+  /** How hard it is to act out or describe (not how obscure it is). Used for balanced dealing. */
+  difficulty?: PromptDifficulty
+  /** What sort of thing it is. Used to avoid, for example, five artists in a row. */
+  kind?: PromptKind
+  /** Decade, for music and nostalgia prompts only (e.g. '1980s'). */
+  era?: string
+  /** evergreen = re-check yearly · trending = re-check every 3 months · nostalgia = re-check yearly */
+  shelf?: PromptShelf
+  /** true = a really famous title allowed to exceed the usual 4-word limit (max 6) */
+  longTitle?: boolean
 }
+
+export type PromptDifficulty = 'easy' | 'medium' | 'hard'
+export type PromptKind =
+  | 'person' | 'song' | 'place' | 'thing' | 'action' | 'phrase' | 'title' | 'brand' | 'food'
+export type PromptShelf = 'evergreen' | 'trending' | 'nostalgia'
 
 /** Supported round durations in seconds */
 export type RoundDuration = 30 | 60 | 90 | 120

@@ -1,5 +1,12 @@
 # Bongo Charades — Content Direction & Pre-Phase 5 Content Record
 
+> **Phase 5 update (2026-11-14):** the group identities and writing rules below still apply, with these changes:
+> - Prompts are now edited in `docs/content/research/curation/<group>/<category>.txt` and built with `scripts/content/build_prompts.py` into `src/data/promptBank.ts`.
+> - Shared text is allowed when the hint lines differ.
+> - Really famous titles may have up to 6 words.
+>
+> For current rules, numbers and the update process, see [`PHASE_5_CONTENT_AUDIT.md`](PHASE_5_CONTENT_AUDIT.md) and [`PHASE_5_RESEARCH_REPORT.md`](PHASE_5_RESEARCH_REPORT.md).
+
 **Date:** 2026-11-12 · **Branch:** `phase-4-polish`
 **Status:** this is a *restructure and clean-up* of the existing prompt bank. It is not the Phase 5 research expansion. Production data is in `src/data/prompts.ts`, generated from `scripts/content/build_prompts.py`. Research notes stay in this folder and are never stored in the app data.
 

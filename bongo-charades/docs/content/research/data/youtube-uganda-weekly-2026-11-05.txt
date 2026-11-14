@@ -1,0 +1,102 @@
+# YouTube weekly chart, Uganda. Week ending 2026-11-05. Source: https://kworb.net/youtube/insights/ug.html (accessed 2026-11-14)
+# position|artist - track|weeks on chart|peak
+1|King Saha - WEWE|wks 23|pk 1
+2|Spice Diana - Finally|wks 13|pk 2
+3|Joshua Baraka - YoYo|wks 11|pk 3
+4|Lutty Neika - Anaconda (feat. Bravion Emcee )|wks 23|pk 1
+5|Karole Kasita - BUKUTU|wks 3|pk 2
+6|Kalifah Aganaga - Nassanga (Remix) (feat. Eddy Kenzo, Winnie Nwagi, LIL PAZO LUNABE MUSIC & Weasel)|wks 15|pk 1
+7|Shakira - Dai Dai|wks 24|pk 3
+8|Ayra Starr - Heaven Baby (feat. ZAYN)|wks 12|pk 5
+9|Vyroota - Kunsi|wks 45|pk 1
+10|Sheebah - Nsi Namba|wks 27|pk 1
+11|Sqoop Larma - Temutuloga|wks 15|pk 9
+12|Da Agent Official - DADDY|wks 15|pk 5
+13|Joshua Baraka - Commando|wks 1|pk 13
+14|Jose Chameleone - Yeffe (feat. JeffKiwa)|wks 14|pk 8
+15|Victony - SLICK|wks 17|pk 12
+16|Lutty Neika - Chap Chap|wks 13|pk 16
+17|Crysto Panda - Wansigalamu|wks 5|pk 11
+18|D Star Music - Hoozambe|wks 6|pk 18
+19|Fik Fameica - Sikiwa|wks 10|pk 6
+20|John Blaq - Angela|wks 36|pk 1
+21|Pretty Banks - Bwentyo|wks 7|pk 18
+22|Mimi kampala - Malidadi|wks 18|pk 7
+23|Pawaboy AB - Nalokinga|wks 35|pk 7
+24|Lutty Neika - Oyaya|wks 34|pk 8
+25|Gael Will - Stay|wks 31|pk 3
+26|Deobi - All Over You|wks 30|pk 17
+27|Rema - Oh No|wks 8|pk 27
+28|Dokta Brain - Bikyaganye|wks 12|pk 9
+29|Nessim - Toma|wks 30|pk 2
+30|Sheebah - Stress Killer|wks 14|pk 6
+31|Victor Ivyic - ALL I HAVE|wks 27|pk 4
+32|Warden Kartel - BULIPI RIDDIM|wks 1|pk 32
+33|Sunvera Scott - PRAY FOR ME|wks 6|pk 28
+34|Geosteady - Wanyonona|wks 3|pk 22
+35|DAX VIBEZ - Sissa|wks 8|pk 31
+36|King Saha - P2|wks 23|pk 3
+37|Ruger - Bae Bae (Live)|wks 58|pk 7
+38|Kapeke - A.K|wks 14|pk 8
+39|TomDee Ug - Mundeke Nenywere|wks 13|pk 20
+40|Cyko - Acha (feat. Ndugu Avenue)|wks 2|pk 40
+41|Winnie Wa Mummy - My Man|wks 5|pk 41
+42|Shenseea - Hit & Run (feat. Masicka & Di Genius)|wks 58|pk 2
+43|UG TUSINZE YESU worship ministries - KYALI KISA|wks 18|pk 19
+44|Damasco Ssesanga - Gumponya|wks 18|pk 38
+45|Feffe Buusi - Nzalina (feat. Winnie Nwagi, Spice Diana, DAX VIBEZ & Kapeke)|wks 3|pk 39
+46|DJ Goja - Mi Chico|wks 6|pk 46
+47|John Blaq - Ngezaako|wks 31|pk 11
+48|King Saha - Wekka|wks 27|pk 18
+49|Joshua Baraka - This Time|wks 41|pk 6
+50|Carol Nantongo - Yeye|wks 41|pk 28
+51|P-Square - Beautiful Onyinye (feat. Rick Ross)|wks 45|pk 49
+52|Eddy Kenzo - 5g|wks 13|pk 33
+53|King Saha - Mpulira|wks 3|pk 53
+54|Iyanya - One Side|wks 73|pk 12
+55|Ayra Starr - Rush|wks 61|pk 1
+56|Ava Peace - Mukomboti|wks 3|pk 33
+57|Major Lazer - Particula (feat. Nasty C, Ice Prince, Patoranking & Jidenna)|wks 31|pk 20
+58|Gloria Bugie - Mon Ami|wks 12|pk 28
+59|Wiz Khalifa - See You Again (feat. Charlie Puth)|wks 30|pk 56
+60|UG TUSINZE YESU worship ministries - OMWOYO WE YESU|wks 15|pk 30
+61|Fireboy DML - Bandana|wks 71|pk 3
+62|Gyakie - Forever (Remix)|wks 60|pk 5
+63|Aziz Azion - Nkumira Omukwano|wks 38|pk 44
+64|Mowzey Radio - Nyumbani (feat. Viboyo Oweyo)|wks 16|pk 63
+65|Ruger - Jay Jay|wks 35|pk 30
+66|Empire - Cough|wks 63|pk 2
+67|Bobi Wine - Butyampa Matyansi (feat. Nubian Li)|wks 45|pk 54
+68|Lutty Neika - Dera|wks 1|pk 68
+69|Maroon 5 - Girls Like You (feat. Cardi B)|wks 62|pk 4
+70|Dokta Brain - Buntu Butono II|wks 6|pk 13
+71|Shirtless - Kikubye akawuzi kiwunya enjaga (warden kartel)|wks 12|pk 53
+72|Bien - I'll Be Okay|wks 4|pk 30
+73|A Pass - Shillingi|wks 1|pk 73
+74|Ruger - Girlfriend|wks 69|pk 1
+75|UG TUSINZE YESU worship ministries - KAMBIWEYO ELI YESU|wks 2|pk 61
+76|Bobi Wine - Wendi|wks 45|pk 56
+77|MESACH SEMAKULA - Mummy Nzinze|wks 4|pk 54
+78|Chosen Becky - Byabangi|wks 50|pk 28
+79|Maro - ANJAGALA|wks 5|pk 70
+80|Fik Fameica - Champion Gal|wks 17|pk 25
+81|Jose Chameleone - Sinsolo|wks 3|pk 63
+82|Jux - Enjoy (feat. Diamond Platnumz)|wks 64|pk 8
+83|Chris Brown - Residuals|wks 22|pk 15
+84|Shania Twain - Forever And For Always|wks 43|pk 59
+85|Nelly - Just A Dream|wks 26|pk 69
+86|Siji. - Komsa|wks 6|pk 81
+87|Zuchu - Inama (feat. Diamond Platnumz)|wks 22|pk 59
+88|Maddox Ssemanda Sematimba - Omukwano|wks 7|pk 61
+89|G-Eazy - Good Life|wks 20|pk 73
+90|Shirtless - Nabba embwa freestyle by wizbu Ranks|wks 6|pk 17
+91|T Paul 256 - Tusingwiire|wks 4|pk 42
+92|Charly Black - Gyal You a Party Animal|wks 7|pk 66
+93|Burna Boy - Common Person|wks 57|pk 8
+94|Gyptian - Hold You (Hold Yuh)|wks 9|pk 72
+95|Beyoncé - Halo|wks 21|pk 68
+96|Diamond Platnumz - Waah! (feat. Koffi Olomide)|wks 56|pk 1
+97|Joeboy - Sip (Alcohol)|wks 41|pk 1
+98|Chike - Running (To You)|wks 64|pk 1
+99|UG TUSINZE YESU worship ministries - OMULWANYI WENTALO|wks 4|pk 68
+100|Rayvanny - Number One (feat. Zuchu)|wks 45|pk 12

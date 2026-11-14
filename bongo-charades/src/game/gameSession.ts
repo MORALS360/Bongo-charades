@@ -69,13 +69,20 @@ export interface GameSessionState {
 }
 
 export type GameSessionAction =
-  | { type: 'START'; config: GameConfig; prompts: GamePrompt[]; seed: number }
+  | {
+      type: 'START'
+      config: GameConfig
+      prompts: GamePrompt[]
+      seed: number
+      /** Prompt ideas shown in earlier games on this phone (oldest first). Dealt last. */
+      recentKeys?: string[]
+    }
   | { type: 'BEGIN_COUNTDOWN' }
   | { type: 'BEGIN_ROUND' }
   | { type: 'ANSWER'; action: GameplayAction; promptId: string }
   | { type: 'TIME_UP' }
   | { type: 'NEXT_TEAM' }
-  | { type: 'RESTART'; seed: number }
+  | { type: 'RESTART'; seed: number; recentKeys?: string[] }
   | { type: 'EXIT' }
 
 /** Name used for the single participant in Quick Play */
@@ -108,7 +115,7 @@ export function gameSessionReducer(
           : event.config.teamNames.map((n) => n.trim()).filter((n) => n.length > 0)
       if (names.length < 1) return state
       if (event.config.mode === 'teams' && names.length < 2) return state
-      const deck = createDeck(event.prompts, event.seed)
+      const deck = createDeck(event.prompts, event.seed, event.recentKeys ?? [])
       if (deck.order.length === 0) return state // nothing playable — stay idle
       return {
         phase: 'ready',
@@ -181,6 +188,7 @@ export function gameSessionReducer(
         config: state.config,
         prompts: state.promptPool,
         seed: event.seed,
+        recentKeys: event.recentKeys,
       })
     }
 

@@ -1,0 +1,120 @@
+# Mapenzi & Mahusiano — the couple's story: meeting, dating, quarrels, engagement. Kept light and respectful.
+# The ceremonies themselves (wedding day, kitchen party) live in Shughuli za Familia.
+@ lang=sw kind=thing diff=easy shelf=evergreen conf=M src=bank
+Mahari ; ; src=bank,S35
+Send-off ; ; lang=mixed src=bank,S35
+Harusi
+Posa
+Shemeji ; ; kind=person
+Kuchunwa Buzi ; ; kind=action diff=medium src=bank,S19
+Kuvunja Uchumba ; ; kind=action
+Kutongoza ; ; kind=action
+Wivu
+Kuomba Namba ; ; kind=action
+Siku ya Wapendanao
+Baby ; ; lang=mixed kind=phrase
+# ── People ──
+@ lang=sw kind=person diff=easy shelf=evergreen conf=M src=GK
+Mpenzi
+Mchumba
+Mke na Mume
+Ex Wangu ; ; lang=mixed
+Crush ; ; lang=mixed
+Baba Mkwe
+Mama Mkwe
+Wifi
+Mshenga ; ; diff=medium
+Rafiki wa Mpenzi
+Bachela ; ; diff=medium
+# ── Meeting and dating ──
+@ lang=sw kind=action diff=easy shelf=evergreen conf=M src=GK
+Kupenda kwa Siri
+Kumuona Crush ; ; lang=mixed
+Kutongozwa
+Kukataliwa
+Mistari ya Kutongoza ; ; kind=thing diff=medium
+Kumtuma Rafiki
+Deti ya Kwanza ; ; kind=thing
+Kuchelewa Deti
+Kuchagua Nguo ya Deti
+Kumsubiri Akijiandaa
+Kulipa Bili
+Kugawana Bili
+Kushikana Mikono
+Kumbatio ; ; kind=thing
+Busu la Shavu ; ; kind=thing
+Kumsindikiza Nyumbani
+Selfie ya Wapenzi ; ; lang=mixed kind=thing
+Nguo za Kufanana ; ; kind=thing
+Friend Zone ; ; lang=mixed kind=thing diff=medium
+# ── Gifts ──
+@ lang=sw kind=thing diff=easy shelf=evergreen conf=M src=GK
+Zawadi ya Valentine ; ; lang=mixed
+Maua Mekundu
+Kadi ya Mapenzi
+Barua ya Mapenzi
+Surprise ya Birthday ; ; lang=mixed
+Kusahau Birthday ya Mpenzi ; ; lang=mixed kind=action
+Kumpikia Mpenzi ; ; kind=action
+# ── Phones ──
+@ lang=sw kind=action diff=easy shelf=evergreen conf=M src=GK
+Meseji ya Asubuhi ; ; kind=thing
+Kupigiana Simu Usiku Kucha
+Video Call ; ; lang=mixed kind=thing
+Mapenzi ya Mbali ; ; kind=thing
+Mapenzi ya Mtandaoni ; ; kind=thing
+Blue Ticks ; ; lang=mixed kind=thing
+Kusoma Meseji Bila Kujibu
+Kublokiwa
+Kupekua Simu ya Mpenzi
+Kuficha Simu
+Kubadilisha Password ; ; lang=mixed
+Kumposti Mpenzi ; ; diff=medium
+Kutuma Vocha
+Kutuma Nauli
+Kula Nauli ; Kupokea nauli bila kuja ; diff=medium conf=V note=Utani huu unajulikana?
+# ── Ups and downs ──
+@ lang=sw kind=action diff=easy shelf=evergreen conf=M src=GK
+Kununa
+Kubembeleza
+Kugombana
+Kuomba Msamaha
+Kupatana
+Kuachana
+Kuachwa
+Moyo Umevunjika
+Kulia kwa Mapenzi
+Kurudiana na Ex ; ; lang=mixed
+Kumkumbuka Ex ; ; lang=mixed
+Kudanganywa
+Kufumania ; ; diff=medium
+Mchepuko ; ; kind=person diff=medium conf=V note=Inafaa kwa mchezo wa familia?
+Kuhonga ; Kutumia pesa kwa mpenzi ; diff=medium conf=V note=Inafaa na inaeleweka?
+Sponsa ; ; kind=person diff=medium conf=V note=Inafaa kwa mchezo wa familia?
+Limbwata ; Dawa ya mapenzi ; kind=thing diff=hard conf=V note=Neno linajulikana? Linafaa?
+Mapenzi ya Kweli ; ; kind=thing
+Mapenzi ya Shule ; ; kind=thing shelf=nostalgia
+Majina ya Mapenzi ; ; kind=thing
+Kuwa Singo ; ; conf=V note=Tahajia: 'singo' au 'single'?
+Utaolewa Lini? ; ; kind=phrase
+Presha ya Kuoa ; ; kind=thing
+Kutafuta Mchumba
+# ── Towards marriage ──
+@ lang=sw kind=action diff=easy shelf=evergreen conf=M src=GK
+Uchumba ; ; kind=thing
+Pete ya Uchumba ; ; kind=thing
+Kuvalishwa Pete
+Kupiga Goti
+Kusema Ndiyo
+Kumtambulisha Mchumba
+Kutambulishwa Nyumbani
+Kukutana na Wakwe
+Barua ya Posa ; ; kind=thing
+Kupeleka Posa
+Kutoa Mahari
+Kupanga Bei ya Mahari ; ; diff=medium
+Ndoa ; ; kind=thing
+Fungate ; ; kind=thing diff=medium
+Kuoa
+Kuolewa
+Anniversary ; ; lang=mixed kind=thing

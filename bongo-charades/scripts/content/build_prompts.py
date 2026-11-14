@@ -1,205 +1,154 @@
 #!/usr/bin/env python3
-# Bongo Charades — prompt bank source (pre-Phase 5).
+# Bongo Charades — prompt bank builder (Phase 5).
 #
-# This file is the human-friendly SOURCE of the prompt bank. Edit the lists below,
-# then run from the project folder:
-#     python3 scripts/content/build_prompts.py
-# It rewrites ONLY the PROMPTS array inside src/data/prompts.ts, then run `npm test`
-# to validate (duplicates, language rules, minimum counts).
+# The SOURCE of the prompt bank is now the curated lists:
+#     docs/content/research/curation/<group>/<category>.txt   (29 files)
+# Edit those, then run from the project folder:
+#     python3 scripts/content/check_candidates.py <group>   # optional: checks + reports
+#     python3 scripts/content/build_prompts.py              # rewrites the PROMPTS array
+#     npm test                                              # validates the bank
 #
-# Generates src/data/prompts.ts from a readable spec.
-# P(en, sw)        -> translation pair (same concept, two languages)
-# E(text) / S(text) / M(text) -> single English / Kiswahili / any-language prompt
-# kwargs: hint="...", review=True
-import json, re, sys
-def P(en, sw, **k): return ('mixed', en, k) if en == sw else ('pair', en, sw, k)
-def E(t, **k): return ('en', t, k)
-def S(t, **k): return ('sw', t, k)
-def M(t, **k): return ('mixed', t, k)
+# It rewrites src/data/promptBank.ts (generated, one array per category; do not edit by hand).
+#
+# Line format in the lists:   text ; hint ; key=value key=value ... note=free text
+#   "English | Kiswahili" in the text column makes a translation pair (two prompts, one concept).
+#   A line starting with @ sets defaults for the lines below it. # starts a comment.
+# Shipped fields: id, text, categoryId, language, concept, hint, difficulty, kind, shelf, era,
+#   longTitle, needsReview. Sources, confidence and notes stay in the research files (not shipped).
+# needsReview is true for every prompt marked conf=V ("Needs local verification").
+import glob, json, os, re, unicodedata
 
-R = dict(review=True)
+ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..')
+CURATION = os.path.join(ROOT, 'docs', 'content', 'research', 'curation')
+TARGET = os.path.join(ROOT, 'src', 'data', 'promptBank.ts')
 
-C = {}
-# ───────────── GROUP 1: CLASSIC CHARADES (universal, English-led, Swahili pairs) ─────────────
-C['animals'] = [P('Lion','Simba'),P('Elephant','Tembo'),P('Giraffe','Twiga'),P('Leopard','Chui'),
-  P('Hippo','Kiboko'),P('Crocodile','Mamba'),P('Monkey','Tumbili'),P('Zebra','Pundamilia'),
-  P('Snake','Nyoka'),P('Dog','Mbwa'),P('Cat','Paka'),P('Chicken','Kuku'),P('Rhino','Kifaru'),
-  P('Frog','Chura'),P('Cow','Ng\'ombe'),P('Fish','Samaki')]
-C['movies-tv'] = [M('The Lion King'),M('Black Panther'),M('Titanic'),M('Avatar'),M('Spider-Man'),
-  M('Fast & Furious'),M('Money Heist'),M('Game of Thrones'),M('Harry Potter'),M('Squid Game'),
-  M('Tom and Jerry'),M('Mr. Bean'),M('Shrek'),M('Frozen'),M('Superman')]
-C['music-artists'] = [M('Michael Jackson'),M('Beyoncé'),M('Rihanna'),M('Bob Marley'),M('Drake'),
-  M('Chris Brown'),M('Taylor Swift'),M('Ed Sheeran'),M('Shakira'),M('Justin Bieber'),
-  P('Guitar','Gitaa'),P('Drums','Ngoma'),P('Piano','Kinanda'),P('Microphone','Kipaza Sauti'),
-  M('DJ'),M('Karaoke')]
-C['sports'] = [P('Football','Mpira wa Miguu'),P('Basketball','Mpira wa Kikapu'),P('Boxing','Ngumi'),
-  P('Swimming','Kuogelea'),P('Running','Kukimbia'),P('Goalkeeper','Kipa'),P('Penalty','Penalti'),
-  P('Cycling','Mbio za Baiskeli'),P('Volleyball','Mpira wa Wavu'),M('Tennis'),M('Cristiano Ronaldo'),
-  M('Lionel Messi'),M('Usain Bolt'),M('Olympics')]
-C['countries'] = [M('Tanzania'),M('Kenya'),M('Nigeria'),M('Ghana'),M('Australia'),M('Argentina'),
-  M('Jamaica'),M('India'),P('Japan','Japani'),P('Brazil','Brazili'),P('France','Ufaransa'),
-  P('Canada','Kanada'),P('China','Uchina'),P('Egypt','Misri'),P('America','Marekani'),
-  P('Germany','Ujerumani'),P('Italy','Italia'),P('Spain','Hispania'),P('Mexico','Meksiko'),
-  P('Russia','Urusi'),P('England','Uingereza'),P('South Africa','Afrika Kusini'),P('Portugal','Ureno'),
-  P('Greece','Ugiriki')]
-C['famous-landmarks'] = [P('Mount Kilimanjaro','Mlima Kilimanjaro'),P('Pyramids of Giza','Mapiramidi ya Giza'),
-  M('Eiffel Tower'),M('Statue of Liberty'),M('Great Wall of China'),M('Taj Mahal'),M('Colosseum'),
-  M('Burj Khalifa'),M('Sydney Opera House'),M('Big Ben'),M('Christ the Redeemer'),
-  M('Leaning Tower of Pisa'),M('Machu Picchu'),M('Victoria Falls'),M('Table Mountain'),
-  M('Golden Gate Bridge'),M('Mount Everest'),M('Niagara Falls'),M('Stonehenge'),M('Hollywood Sign'),
-  M('Times Square')]
-C['car-brands'] = [M('Toyota'),M('Mercedes-Benz'),M('BMW'),M('Audi'),M('Volkswagen'),M('Nissan'),
-  M('Honda'),M('Mazda'),M('Subaru'),M('Suzuki'),M('Mitsubishi'),M('Isuzu'),M('Hyundai'),M('Kia'),
-  M('Ford'),M('Chevrolet'),M('Jeep'),M('Tesla'),M('Land Rover'),M('Volvo'),M('Peugeot'),M('Mini'),
-  M('Ferrari'),M('Lamborghini'),M('Porsche'),M('Rolls-Royce'),M('Bentley'),M('Bugatti')]
-C['famous-brands'] = [M('Apple'),M('Samsung'),M('Google'),M('Microsoft'),M('Amazon'),M('Netflix'),
-  M('WhatsApp'),M('Instagram'),M('Disney'),M('PlayStation'),M('Nike'),M('Adidas'),M('Puma'),
-  M('Gucci'),M('Louis Vuitton'),M('Chanel'),M('Tiffany & Co.'),M('Zara'),M('Coca-Cola'),M('Pepsi'),
-  M("McDonald's"),M('KFC'),M('Starbucks'),M('Red Bull'),M('IKEA'),M('Lego'),M('Visa')]
-C['everyday-things'] = [P('Umbrella','Mwavuli'),P('Flashlight','Tochi'),P('Watch','Saa'),P('Bucket','Ndoo'),
-  P('Matches','Kiberiti'),P('Broom','Fagio'),P('Phone Charger','Chaja'),P('Mirror','Kioo'),
-  P('Toothbrush','Mswaki'),P('Key','Ufunguo'),P('Chair','Kiti'),P('Iron','Pasi'),P('Glasses','Miwani'),
-  P('Phone','Simu')]
-C['act-it-out'] = [P('Taking a Selfie','Kupiga Selfie'),P('Sleeping in Class','Kusinzia Darasani'),
-  P('Sneezing','Kupiga Chafya'),P('Washing Clothes','Kufua Nguo'),P('Chased by a Dog','Kukimbizwa na Mbwa'),
-  P('Brushing Teeth','Kupiga Mswaki'),P('Riding a Bicycle','Kuendesha Baiskeli'),P('Crying','Kulia'),
-  P('Laughing','Kucheka'),P('Fishing','Kuvua Samaki'),P('Cooking','Kupika'),P('Dancing','Kucheza Muziki'),
-  P('Driving','Kuendesha Gari'),P('Winning the Lottery','Kushinda Bahati Nasibu')]
-C['food-drinks'] = [M('Pizza'),P('Ice Cream','Aiskrimu'),M('Burger'),P('Rice','Wali'),P('Bread','Mkate'),
-  P('Egg','Yai'),P('Banana','Ndizi'),P('Tea','Chai'),P('Coffee','Kahawa'),P('Orange Juice','Juisi ya Machungwa'),
-  P('Watermelon','Tikiti Maji'),P('Chocolate','Chokoleti'),M('Popcorn'),P('Milk','Maziwa'),M('Soda')]
+# Category order in the generated file (same as the game's category list).
+ORDER = ['animals', 'movies-tv', 'music-artists', 'sports', 'countries', 'famous-landmarks',
+         'car-brands', 'famous-brands', 'everyday-things', 'act-it-out', 'food-drinks',
+         'hii-dar-yetu', 'daladala-diaries', 'bongo-flava', 'mtaani', 'zilipendwa',
+         'chakula-chetu', 'watu-maarufu', 'movie-za-bongo', 'mpira-mashabiki', 'chuo-life',
+         'mapenzi-mahusiano', 'shughuli-za-familia',
+         'east-african-vibes', 'african-icons', 'african-music', 'african-cities',
+         'pop-culture', 'throwback-hits']
+ABBR = {'animals': 'anim', 'movies-tv': 'mov', 'music-artists': 'mus', 'sports': 'spt',
+        'countries': 'cty', 'famous-landmarks': 'lmk', 'car-brands': 'car', 'famous-brands': 'brd',
+        'everyday-things': 'evd', 'act-it-out': 'act', 'food-drinks': 'food',
+        'hii-dar-yetu': 'dar', 'daladala-diaries': 'dld', 'bongo-flava': 'bf', 'mtaani': 'mta',
+        'zilipendwa': 'zil', 'chakula-chetu': 'chk', 'watu-maarufu': 'wtm',
+        'movie-za-bongo': 'mzb', 'mpira-mashabiki': 'mpr', 'chuo-life': 'chuo',
+        'mapenzi-mahusiano': 'mpz', 'shughuli-za-familia': 'fam',
+        'east-african-vibes': 'eav', 'african-icons': 'aic', 'african-music': 'amu',
+        'african-cities': 'acy', 'pop-culture': 'pop', 'throwback-hits': 'tbk'}
 
-# ───────────── GROUP 2: BONGO & TANZANIAN CULTURE (Kiswahili-led) ─────────────
-C['hii-dar-yetu'] = [S('Kariakoo'),M('Coco Beach'),M('Mlimani City'),S('Daraja la Tanzanite'),
-  S('Kivuko cha Kigamboni'),S('Daraja la Kigamboni'),S('Mnazi Mmoja'),S('Posta'),M('Samaki Samaki'),
-  S('Flyover ya Tazara'),S('Mwendokasi'),S('Foleni'),S('Soko la Samaki Feri')]
-C['daladala-diaries'] = [S('Konda'),S('Dereva wa Daladala'),S('Nauli'),S('Chenji'),S('Shusha Hapa!'),
-  S('Sogeeni Ndani'),S('Siti ya Mbele'),S('Stendi ya Mwenge'),S('Stendi ya Gerezani'),S('Mwisho wa Gari'),
-  S('Kubanana'),S('Mzigo wa Abiria')]
-C['bongo-flava'] = [
-  M('Diamond Platnumz'),M('Ali Kiba'),M('Harmonize'),M('Zuchu'),M('Marioo'),M('Nandy'),M('Rayvanny'),M('Mbosso'),
-  M('WCB Wasafi'),S('Singeli'),S('Kucheza Singeli'),
-  M('Tetema',hint='Rayvanny ft. Diamond Platnumz'),M('Kwangwaru',hint='Harmonize ft. Diamond Platnumz'),
-  M('Sukari',hint='Zuchu'),M('Salome',hint='Diamond Platnumz ft. Rayvanny'),M('Waah!',hint='Diamond Platnumz'),
-  M('Aje',hint='Ali Kiba'),M('Mi Amor',hint='Marioo ft. Jovial'),M('Mama Amina',hint='Marioo'),
-  M('Hainaga Ushemeji',hint='Man Fongo'),M('Nyumba Ndogo',hint='Zuchu'),M('Kwetu',hint='Rayvanny')]
-C['mtaani'] = [S('Machinga'),S('Mama Ntilie'),S('Duka la Mangi'),S('Genge'),S('Kinyozi'),S('Bodaboda'),
-  S('Bajaji'),S('Umeme Umekatika'),
-  # merged from the former Vijiweni category
-  S('Kijiweni'),S('Kahawa na Kashata'),S('Bao'),S('Kucheza Drafti'),S('Kubishana Mpira'),S('Maskani'),
-  S('Kukodi Baiskeli'),S('Kupiga Pamba',**R),S('Utajua Hujui',**R),S('Haina Kufeli',**R)]
-C['zilipendwa'] = [
-  # 1970s–80s dansi & classics
-  M('Shida',hint='Mbaraka Mwinshehe'),M('Pole Dada',hint='Mbaraka Mwinshehe'),
-  M('Neema',hint='DDC Mlimani Park Orchestra'),
-  # 1990s
-  M('Mambo kwa Soksi',hint='Remmy Ongala'),M('Kifo',hint='Remmy Ongala'),M('Kipenda Roho',hint='Remmy Ongala'),
-  # 2000s Bongo Flava golden era
-  M('Kidali Po',hint='Mr Nice'),M('Siamini',hint='TID'),M('Umenikataa',hint='Ray C'),
-  M('Kimya Kimya',hint='Jay Moe ft. Ngwair'),M('Habari Ndiyo Hiyo',hint='Mwana FA ft. AY'),
-  M('Mapozi',hint='Mr Blue'),M('Binti Kiziwi',hint='Z Anto'),M('Nakshi Mrembo',hint='Ali Kiba'),
-  M('Bembeleza',hint='Marlaw'),M('Siku Hazigandi',hint='Lady Jaydee'),M('Dar Mpaka Moro',hint='TMK Wanaume'),
-  M('Nalia kwa Furaha',hint='Bushoke'),M('Anita',hint='Matonya ft. Lady Jaydee'),
-  M('Maria Salome',hint='Saida Karoli',**R),
-  # ~10 years ago
-  M('My Number One',hint='Diamond Platnumz'),M('Mwana',hint='Ali Kiba'),M('Hawajui',hint='Vanessa Mdee'),
-  M('Me & You',hint='Ommy Dimpoz ft. Vanessa Mdee')]
-C['chakula-chetu'] = [S('Ugali na Samaki'),S('Pilau'),S('Ndizi Nyama'),S('Makande'),S('Supu ya Kongoro'),
-  S('Mchemsho'),S('Kitimoto'),S('Mihogo ya Kukaanga'),S('Chapati'),S('Biriani'),S('Chipsi Mayai'),
-  S('Wali Maharage'),S('Mishkaki'),S('Maandazi'),S('Chai ya Rangi'),S('Juisi ya Miwa'),S('Vitumbua'),S('Urojo')]
-C['watu-maarufu'] = [S('Mwalimu Nyerere'),M('Samia Suluhu Hassan'),M('Haji Manara'),M('Millard Ayo'),
-  M('Idris Sultan'),M('Jokate Mwegelo'),M('Ahmed Ally'),M('Masoud Kipanya'),M('Professor Jay'),
-  M('Lady Jaydee'),M('Mandonga Mtu Kazi'),M('Mbwana Samatta')]
-C['movie-za-bongo'] = [M('Steven Kanumba'),M('Ray Kigosi'),M('Wema Sepetu'),M('JB'),M('Irene Uwoya'),
-  M('Monalisa'),M('Aunt Ezekiel'),M('Single Mtambalike'),M('Huba',**R),M('Jua Kali',**R),M('Ze Comedy',**R),
-  S('Filamu ya Kibongo'),S('Kuigiza Kulia')]
-C['mpira-mashabiki'] = [M('Simba SC'),M('Yanga SC'),S('Kariakoo Derby'),S('Uwanja wa Mkapa'),M('Azam FC'),
-  M('Taifa Stars'),S('Jangwani'),S('Vuvuzela'),S('Kadi Nyekundu'),S('Kipa Amedaka'),S('Goli Dakika ya 90'),
-  S('Ndondo Cup'),S('Shabiki Analia'),S('Kubeti')]
-C['chuo-life'] = [S('Boom'),S('Hosteli'),S('Mtihani wa UE'),S('Kupiga Msuli'),S('Lecture'),S('Kanteeni'),
-  S('Mahafali'),S('Carry Over'),S('Sapu',**R),S('Notes za Mtihani'),S('Mhadhiri Mkali'),S('Kugombea Siti'),
-  S('Group Discussion')]
-C['mapenzi-mahusiano'] = [S('Mahari'),M('Send-off'),S('Harusi'),S('Posa'),S('Shemeji'),S('Kuchunwa Buzi'),
-  S('Kuvunja Uchumba'),S('Kutongoza'),S('Wivu'),S('Kuomba Namba'),S('Siku ya Wapendanao'),S('Baby')]
-C['shughuli-za-familia'] = [M('Kitchen Party'),S('Kikao cha Harusi'),S('Mkesha wa Mwaka Mpya'),
-  S('Kipaimara'),S('Kadi ya Mchango'),S('Bibi Harusi'),S('MC wa Sherehe'),S('Sherehe ya Kuzaliwa'),
-  S('Shikamoo'),S('Shangazi'),S('Mjomba'),S('Bibi na Babu'),S('Masufuria ya Sherehe')]
 
-# ───────────── GROUP 3: EAST AFRICA & BEYOND (Africa-wide, English-led) ─────────────
-C['east-african-vibes'] = [M('Matatu'),M('Rolex',hint='Ugandan street snack'),M('Kitenge'),
-  P('Lake Victoria','Ziwa Victoria'),P('Gorilla Trekking','Kutembelea Sokwe'),M('Safari'),
-  M('Great Migration'),P('Maasai Jumping Dance','Ngoma ya Kimaasai'),P('Kanga','Kanga'),
-  P('Nyama Choma','Nyama Choma'),M('Mombasa'),M('Zanzibar'),M('Source of the Nile')]
-C['african-icons'] = [M('Nelson Mandela'),M('Kwame Nkrumah'),M('Wangari Maathai'),M('Kofi Annan'),
-  M('Miriam Makeba'),M('Chinua Achebe'),M('Thomas Sankara'),M('Haile Selassie'),M('Fela Kuti'),
-  M('Patrice Lumumba'),M('Mohamed Salah'),M('Didier Drogba'),M("Lupita Nyong'o"),M('Trevor Noah')]
-C['african-music'] = [  # shown as "African Music & Artists" — Africa-wide, not Tanzanian
-  # Genres & music culture (West, Southern, East, Central, North)
-  M('Afrobeats'),M('Amapiano'),M('Rhumba'),M('Highlife'),M('Raï'),
-  # Artists
-  M('Burna Boy'),M('Wizkid'),M('Davido'),M('Tems'),M('Rema'),M('Ayra Starr'),M('Tyla'),M('Yemi Alade'),
-  M('Angélique Kidjo'),M("Youssou N'Dour"),M('Sauti Sol'),
-  M('Eddy Kenzo'),M('Fally Ipupa'),M('Koffi Olomide'),M('Amr Diab'),M('Cheb Khaled'),
-  # Songs that travelled across Africa and beyond
-  M('Calm Down',hint='Rema'),M('Water',hint='Tyla'),M('Last Last',hint='Burna Boy'),
-  M('Essence',hint='Wizkid ft. Tems'),M('Fall',hint='Davido'),
-  M('Johnny',hint='Yemi Alade'),M('Jerusalema',hint='Master KG'),
-  M('Sitya Loss',hint='Eddy Kenzo'),M('Sura Yako',hint='Sauti Sol'),M('Vulindlela',hint='Brenda Fassie'),
-  M('Aïcha',hint='Cheb Khaled'),M('Tamally Maak',hint='Amr Diab')]
-C['african-cities'] = [M('Dar es Salaam'),M('Nairobi'),M('Kampala'),M('Kigali'),M('Johannesburg'),
-  M('Cape Town'),M('Lagos'),M('Cairo'),M('Accra'),M('Addis Ababa'),M('Kinshasa'),M('Marrakech'),M('Dakar')]
-C['pop-culture'] = [M('TikTok Dance Challenge'),E('Viral Meme'),E('Red Carpet'),M('Trending on X'),
-  M('YouTuber'),M('Podcast'),E('Celebrity Breakup'),M('Paparazzi'),E('Live Stream'),
-  M('Jerusalema Dance Challenge'),M('Wakanda Forever Salute'),M('Big Brother Naija'),M('Influencer'),
-  E('Binge-watching')]
-C['throwback-hits'] = [M('Malaika',hint='Fadhili William'),M('Jambo Bwana',hint='Them Mushrooms'),
-  M('Pata Pata',hint='Miriam Makeba'),M('Sweet Mother',hint='Prince Nico Mbarga'),
-  M('Yéké Yéké',hint="Mory Kanté"),M('Wale Watu',hint='Khadja Nin'),M('Shauri Yako',hint='Super Mazembe'),
-  M('African Queen',hint='2Face Idibia'),M('Waka Waka',hint='Shakira'),M('Thriller',hint='Michael Jackson'),
-  M('Billie Jean',hint='Michael Jackson'),M('Macarena'),M('Gangnam Style',hint='PSY'),
-  M('One Love',hint='Bob Marley')]
+def slug(t):
+    t = unicodedata.normalize('NFKD', t).encode('ascii', 'ignore').decode().lower()
+    return re.sub(r'[^a-z0-9]+', '-', t).strip('-')
 
-ABBR = {'animals':'anim','movies-tv':'mov','music-artists':'mus','sports':'spt','countries':'cty','famous-landmarks':'lmk','car-brands':'car','famous-brands':'brd',
- 'everyday-things':'evd','act-it-out':'act','food-drinks':'food','hii-dar-yetu':'dar','daladala-diaries':'dld',
- 'bongo-flava':'bf','mtaani':'mta','zilipendwa':'zil','chakula-chetu':'chk','watu-maarufu':'wtm',
- 'movie-za-bongo':'mzb','mpira-mashabiki':'mpr','chuo-life':'chuo','mapenzi-mahusiano':'mpz',
- 'shughuli-za-familia':'fam','east-african-vibes':'eav','african-icons':'aic','african-music':'amu',
- 'african-cities':'acy','pop-culture':'pop','throwback-hits':'tbk'}
 
-def slug(t): return re.sub(r'[^a-z0-9]+','-',t.lower()).strip('-')
-def lit(v): return json.dumps(v, ensure_ascii=False).replace('"',"'") if "'" not in v else json.dumps(v, ensure_ascii=False)
+def kv(s):
+    out = {}
+    s = s.strip()
+    if 'note=' in s:
+        s, note = s.split('note=', 1)
+        out['note'] = note.strip()
+    for tok in s.split():
+        k, _, v = tok.partition('=')
+        out[k] = v
+    return out
 
-rows=[]
-for cat, items in C.items():
-  a=ABBR[cat]; n=0
-  for it in items:
-    if it[0]=='pair':
-      _,en,sw,k=it; concept=f'{a}-{slug(en)}'
-      for lang,t in (('en',en),('sw',sw)):
-        n+=1; rows.append(dict(id=f'{a}-{n}',text=t,categoryId=cat,language=lang,concept=concept,**k))
-    else:
-      lang,t,k=it; n+=1; rows.append(dict(id=f'{a}-{n}',text=t,categoryId=cat,language=lang,**k))
 
-def ts(r):
-  parts=[f"id: {lit(r['id'])}",f"text: {lit(r['text'])}",f"categoryId: {lit(r['categoryId'])}",f"language: {lit(r['language'])}"]
-  if 'concept' in r: parts.append(f"concept: {lit(r['concept'])}")
-  if 'hint' in r: parts.append(f"hint: {lit(r['hint'])}")
-  if r.get('review'): parts.append("needsReview: true")
-  return '  { '+', '.join(parts)+' },'
+def load(path):
+    items, defaults = [], {}
+    for line in open(path, encoding='utf-8'):
+        line = line.rstrip('\n')
+        if not line.strip() or line.startswith('#'):
+            continue
+        if line.startswith('@'):
+            defaults = kv(line[1:])
+            continue
+        parts = [p.strip() for p in re.split(r'\s*;\s*', line, maxsplit=2)]
+        it = dict(defaults)
+        it.pop('note', None)
+        it['text'] = parts[0]
+        if ' | ' in parts[0]:
+            it['text'], it['sw'] = [x.strip() for x in parts[0].split(' | ', 1)]
+        it['hint'] = parts[1] if len(parts) > 1 else ''
+        if len(parts) > 2:
+            it.update(kv(parts[2]))
+        items.append(it)
+    return items
 
-out=[]
-cur=None
-for r in rows:
-  if r['categoryId']!=cur:
-    cur=r['categoryId']; out.append(f'\n  // ── {cur} ──')
-  out.append(ts(r))
-body='\n'.join(out)
 
-import os
-target=os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','..','src','data','prompts.ts')
-src=open(target,encoding='utf-8').read()
-marker='export const PROMPTS: GamePrompt[] = ['
-start=src.index(marker)+len(marker)
-end=src.index('\n]\n\n/** Language preference')
-open(target,'w',encoding='utf-8').write(src[:start]+body+src[end:])
-print(f'Wrote {len(rows)} prompts across {len(C)} categories to src/data/prompts.ts')
+files = {os.path.basename(p)[:-4]: p for p in glob.glob(os.path.join(CURATION, '*', '*.txt'))}
+missing = [c for c in ORDER if c not in files]
+if missing:
+    raise SystemExit(f'Missing curated lists: {missing}')
+
+rows = []
+for cat in ORDER:
+    a = ABBR[cat]
+    used = set()
+
+    def make_id(base, hint):
+        i = base
+        if i in used and hint:
+            i = f'{base}-{slug(hint)}'
+        n = 2
+        while i in used:
+            i = f'{base}-{n}'
+            n += 1
+        used.add(i)
+        return i
+
+    for it in load(files[cat]):
+        common = {}
+        if it['hint']:
+            common['hint'] = it['hint']
+        for k_in, k_out in (('diff', 'difficulty'), ('kind', 'kind'), ('shelf', 'shelf'), ('era', 'era')):
+            if it.get(k_in):
+                common[k_out] = it[k_in]
+        if it.get('famous') == 'yes':
+            common['longTitle'] = True
+        if it.get('conf') == 'V':
+            common['needsReview'] = True
+        if it.get('sw'):
+            concept = f'{a}-{slug(it["text"])}'
+            for lang, text in (('en', it['text']), ('sw', it['sw'])):
+                rows.append(dict(id=make_id(f'{concept}-{lang}', it['hint']), text=text,
+                                 categoryId=cat, language=lang, concept=concept, **common))
+        else:
+            rows.append(dict(id=make_id(f'{a}-{slug(it["text"])}', it['hint']), text=it['text'],
+                             categoryId=cat, language=it.get('lang', 'mixed'), **common))
+
+
+def lit(v):
+    if isinstance(v, bool):
+        return 'true' if v else 'false'
+    s = json.dumps(v, ensure_ascii=False)
+    return "'" + s[1:-1].replace('\\"', '"').replace("'", "\\'") + "'"
+
+
+FIELDS = ['id', 'text', 'categoryId', 'language', 'concept', 'hint', 'difficulty', 'kind',
+          'shelf', 'era', 'longTitle', 'needsReview']
+def const_name(cat):
+    return 'C_' + cat.upper().replace('-', '_')
+
+
+out = ['// GENERATED by scripts/content/build_prompts.py from docs/content/research/curation/*/*.txt',
+       '// Do not edit by hand: edit the curated lists and re-run the script.',
+       '// One array per category keeps the TypeScript checker fast on a bank of this size.',
+       "import type { GamePrompt } from '../types'", '']
+for cat in ORDER:
+    out.append(f'const {const_name(cat)}: GamePrompt[] = [')
+    for r in rows:
+        if r['categoryId'] == cat:
+            out.append('  { ' + ', '.join(f'{k}: {lit(r[k])}' for k in FIELDS if k in r) + ' },')
+    out.append(']')
+    out.append('')
+out.append('export const PROMPT_BANK: GamePrompt[] = [')
+out += [f'  ...{const_name(c)},' for c in ORDER]
+out.append(']')
+open(TARGET, 'w', encoding='utf-8').write('\n'.join(out) + '\n')
+ideas = len({r.get('concept') or r['id'] for r in rows})
+print(f'Wrote {len(rows)} prompts ({ideas} ideas) across {len(ORDER)} categories to src/data/promptBank.ts')

@@ -1,0 +1,189 @@
+# Throwback Hits — songs from 2013 or earlier (owner rule): African (not Tanzanian) and international.
+# Tanzanian oldies live in Zilipendwa. Songs only; artists live in African Music & Artists or Music & Artists.
+# Most of this list is from general knowledge: no dated list of classics was read (see evidence file).
+@ lang=mixed kind=song diff=medium shelf=nostalgia conf=M src=bank
+Malaika ; Fadhili William
+Jambo Bwana ; Them Mushrooms
+Pata Pata ; Miriam Makeba
+Sweet Mother ; Prince Nico Mbarga
+Yéké Yéké ; Mory Kanté
+Wale Watu ; Khadja Nin
+Shauri Yako ; Super Mazembe
+African Queen ; 2Face Idibia
+Waka Waka ; Shakira
+Thriller ; Michael Jackson
+Billie Jean ; Michael Jackson
+Macarena ; Los del Río
+Gangnam Style ; PSY
+One Love ; Bob Marley
+Vulindlela ; Brenda Fassie ; moved=african-music
+Aïcha ; Cheb Khaled ; moved=african-music
+Tamally Maak ; Amr Diab ; moved=african-music
+Johnny ; Yemi Alade ; moved=african-music src=bank,S40 note=Released late 2013
+# ── Nigeria and Ghana, award records ──
+@ lang=mixed kind=song diff=medium shelf=nostalgia conf=H src=S40
+Oliver Twist ; D'banj
+Chop My Money ; P-Square ft. Akon
+Dami Duro ; Davido
+Limpopo ; Kcee
+Alingo ; P-Square
+Ur Waist ; Iyanya
+Durosoke ; Olamide
+Surulere ; Dr SID ft. Don Jazzy ; diff=hard
+Eminado ; Tiwa Savage ft. Don Jazzy ; src=S41
+Beautiful Onyinye ; P-Square ; src=S1,S36 conf=M note=Still on Tanzania's and Uganda's charts
+@ lang=mixed kind=song diff=medium shelf=nostalgia conf=V src=GK note=Sina chanzo; thibitisha wimbo na msanii
+Kukere ; Iyanya
+Skelewu ; Davido
+Personally ; P-Square
+Do Me ; P-Square
+No One Like You ; P-Square
+Yori Yori ; Bracket
+Gongo Aso ; 9ice ; diff=hard
+Fall in Love ; D'banj
+Nwa Baby ; Flavour
+Ada Ada ; Flavour
+Pakurumo ; Wizkid
+Holla at Your Boy ; Wizkid
+Kedike ; Chidinma
+Pull Over ; Kcee ft. Wizkid
+Azonto ; Fuse ODG
+Antenna ; Fuse ODG
+Zombie ; Fela Kuti ; diff=hard
+Water No Get Enemy ; Fela Kuti ; diff=hard
+# ── Rest of West Africa ──
+@ lang=mixed kind=song diff=medium shelf=nostalgia conf=V src=GK note=Sina chanzo; unajulikana Tanzania?
+Premier Gaou ; Magic System
+7 Seconds ; Youssou N'Dour & Neneh Cherry
+Agolo ; Angélique Kidjo ; diff=hard
+Brigadier Sabari ; Alpha Blondy ; diff=hard
+Jerusalem ; Alpha Blondy ; diff=hard
+Sodade ; Cesária Évora ; diff=hard
+Zangalewa ; Golden Sounds ; note=Wimbo uliotumika kwenye Waka Waka
+Soul Makossa ; Manu Dibango ; diff=hard
+# ── Congo ──
+@ lang=mixed kind=song diff=medium shelf=nostalgia conf=V src=GK note=Sina chanzo; unajulikana Tanzania?
+Loi ; Koffi Olomide
+Coupé Bibamba ; Awilo Longomba
+Karolina ; Awilo Longomba
+Mario ; Franco
+Kwassa Kwassa ; Kanda Bongo Man
+Nakei Nairobi ; Mbilia Bel
+Roger Milla ; Pepe Kalle
+Yolele ; Papa Wemba ; diff=hard
+Mokolo Nakokufa ; Tabu Ley Rochereau ; diff=hard
+Karibu Yangu ; Tshala Muana ; diff=hard
+# ── Southern Africa ──
+@ lang=mixed kind=song diff=medium shelf=nostalgia conf=V src=GK note=Sina chanzo; unajulikana Tanzania?
+Weekend Special ; Brenda Fassie
+Too Late for Mama ; Brenda Fassie
+Remember Me ; Lucky Dube
+Different Colours ; Lucky Dube
+Prisoner ; Lucky Dube
+It's Not Easy ; Lucky Dube
+Umqombothi ; Yvonne Chaka Chaka
+Nkalakatha ; Mandoza
+Homeless ; Ladysmith Black Mambazo ; diff=hard
+The Lion Sleeps Tonight ; Mbube
+Stimela ; Hugh Masekela ; diff=hard
+Khona ; Mafikizolo
+Ndihamba Nawe ; Mafikizolo
+Loliwe ; Zahara
+Doo Bee Doo ; Freshlyground ; diff=hard
+Todii ; Oliver Mtukudzi
+Neria ; Oliver Mtukudzi
+Shosholoza ; Wimbo wa jadi wa Afrika Kusini
+# ── Kenya and Uganda ──
+@ lang=mixed kind=song diff=medium shelf=nostalgia conf=V src=GK note=Sina chanzo; unajulikana Tanzania?
+Unbwogable ; Gidi Gidi Maji Maji
+Boomba Train ; E-Sir ft. Nameless
+Ninanoki ; Nameless ft. Amani
+Sinzia ; Nameless
+Kigeugeu ; Jaguar
+Sweet Love ; Wahu
+Furahiday ; Nonini ft. Nameless
+Sina Makosa ; Les Wanyika
+Amka Kumekucha ; Maroon Commandos
+Stella Wangu ; Freshley Mwamburi
+Mama Mia ; Jose Chameleone
+Jamila ; Jose Chameleone
+Bei Kali ; Jose Chameleone
+Valu Valu ; Jose Chameleone
+Wale Wale ; Jose Chameleone
+Kiwani ; Bobi Wine
+Bread and Butter ; Radio & Weasel
+Nakudata ; Radio & Weasel
+Kasepiki ; Bebe Cool
+Kookoo ; Elani ; src=S41 conf=M diff=hard
+Sambolera ; Khadja Nin
+# ── North Africa ──
+@ lang=mixed kind=song diff=hard shelf=nostalgia conf=V src=GK note=Sina chanzo; unajulikana Tanzania?
+Didi ; Cheb Khaled
+C'est la Vie ; Cheb Khaled
+Nour El Ain ; Amr Diab
+Desert Rose ; Sting ft. Cheb Mami
+Enta Omri ; Umm Kulthum
+# ── International ──
+@ lang=mixed kind=song diff=easy shelf=nostalgia conf=M src=GK
+I Will Always Love You ; Whitney Houston ; famous=yes
+My Heart Will Go On ; Céline Dion ; famous=yes
+I Want It That Way ; Backstreet Boys ; famous=yes
+Who Let the Dogs Out ; Baha Men ; famous=yes
+No Woman No Cry ; Bob Marley
+Three Little Birds ; Bob Marley
+Buffalo Soldier ; Bob Marley
+Redemption Song ; Bob Marley
+Lambada ; Kaoma
+Coco Jamboo ; Mr. President
+Barbie Girl ; Aqua
+Wannabe ; Spice Girls
+Baby One More Time ; Britney Spears
+Livin' la Vida Loca ; Ricky Martin
+Mambo No. 5 ; Lou Bega
+Hips Don't Lie ; Shakira
+Whenever, Wherever ; Shakira
+Crazy in Love ; Beyoncé
+Single Ladies ; Beyoncé
+Umbrella ; Rihanna
+Yeah! ; Usher
+In da Club ; 50 Cent
+Candy Shop ; 50 Cent
+Lose Yourself ; Eminem
+Dilemma ; Nelly ft. Kelly Rowland
+No Scrubs ; TLC
+It Wasn't Me ; Shaggy
+Boombastic ; Shaggy
+Murder She Wrote ; Chaka Demus & Pliers
+Bad Boys ; Inner Circle
+Wavin' Flag ; K'naan
+Lonely ; Akon
+Smack That ; Akon ft. Eminem
+Beautiful Girls ; Sean Kingston
+Temperature ; Sean Paul
+Get Busy ; Sean Paul
+Gasolina ; Daddy Yankee
+Ice Ice Baby ; Vanilla Ice
+U Can't Touch This ; MC Hammer
+Careless Whisper ; George Michael
+Hello ; Lionel Richie
+All Night Long ; Lionel Richie
+We Are the World ; USA for Africa
+Heal the World ; Michael Jackson
+Smooth Criminal ; Michael Jackson
+Beat It ; Michael Jackson
+Dancing Queen ; ABBA
+Stayin' Alive ; Bee Gees
+I Will Survive ; Gloria Gaynor
+Rivers of Babylon ; Boney M.
+Daddy Cool ; Boney M.
+Eye of the Tiger ; Survivor
+The Final Countdown ; Europe
+Baby ; Justin Bieber
+Call Me Maybe ; Carly Rae Jepsen
+Party Rock Anthem ; LMFAO
+Rolling in the Deep ; Adele
+Someone Like You ; Adele
+Diamonds ; Rihanna
+We Found Love ; Rihanna
+Happy ; Pharrell Williams
+Harlem Shake ; Baauer

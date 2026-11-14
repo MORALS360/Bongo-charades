@@ -1,0 +1,102 @@
+# YouTube weekly chart, Nigeria. Week ending 2026-11-05. Source: https://kworb.net/youtube/insights/ng.html (accessed 2026-11-14)
+# position|artist - track|weeks on chart|peak
+1|Peruzzi - INFERNO|wks 2|pk 1
+2|Davido - B4 B4|wks 14|pk 1
+3|Hotkeed - Baba (feat. Zlatan)|wks 17|pk 3
+4|Phyno - Ndewo|wks 1|pk 4
+5|Blaqbonez - IKEBE 3000 (feat. Asake)|wks 5|pk 1
+6|Victony - SLICK|wks 18|pk 1
+7|Seyi Vibez - Back 2 U|wks 10|pk 3
+8|Davido - Already Falling|wks 14|pk 8
+9|Rema - Oh No|wks 8|pk 2
+10|Greatman Takit - YOU ARE GOOD|wks 13|pk 3
+11|Asake - Gratitude (Live in London)|wks 27|pk 1
+12|Asake - Forgiveness|wks 27|pk 1
+13|Seyi Vibez - GTA|wks 14|pk 2
+14|Young Jonn - Elumelu|wks 23|pk 4
+15|FOLA - miss u ii (nriri)|wks 5|pk 10
+16|Asake - MCBH|wks 27|pk 1
+17|Ayra Starr - Heaven Baby (feat. ZAYN)|wks 12|pk 2
+18|TxC - Nakupenda (feat. Al Xapo & Zlatan)|wks 47|pk 2
+19|Seyi Vibez - Ilome|wks 7|pk 2
+20|Minister Dunsin - Wake Up|wks 1|pk 20
+21|FOLA - it's over|wks 8|pk 3
+22|Minister GUC - Good God (feat. Sunmisola Agbebi)|wks 6|pk 22
+23|BNXN fka Buju - If You Like|wks 5|pk 13
+24|David Jones David - Eze yoyo|wks 27|pk 3
+25|BisiManuel - Aanu Ni|wks 26|pk 5
+26|Taylor Jasmine - Met You|wks 2|pk 4
+27|Shakira - Dai Dai|wks 25|pk 1
+28|Kizz Daniel - Owo Oluwa (feat. Young Jonn, Kriz beatz & Wave Choir)|wks 8|pk 7
+29|Double Gee2x - Ore Agbako|wks 2|pk 29
+30|Rema - TEA|wks 13|pk 2
+31|Kidd Carder - Big Bum Bum|wks 36|pk 4
+32|BNXN fka Buju - Eja Meja (feat. Asake)|wks 15|pk 3
+33|BNXN fka Buju - Back Outside|wks 28|pk 1
+34|FOLA - treat u right|wks 18|pk 6
+35|Omah Lay - TAKE (feat. Tiakola)|wks 1|pk 35
+36|BNXN fka Buju - Online|wks 8|pk 10
+37|Omah Lay - BACK TO LAGOS (feat. Gunna)|wks 1|pk 37
+38|Blaqbonez - BIG PERFORMER|wks 10|pk 6
+39|Blaqbonez - Chanel (feat. Asake)|wks 24|pk 1
+40|Premium Emf - Chairman|wks 18|pk 29
+41|Shoday - Paparazzi|wks 43|pk 3
+42|Davido - I Know Who I Be|wks 19|pk 1
+43|FOLA - attention!|wks 12|pk 17
+44|Deobi - All Over You|wks 28|pk 6
+45|FOLA - waf|wks 4|pk 20
+46|Sis. Chinyere Udoma - EBUBE DIKE|wks 22|pk 23
+47|Famous Pluto - Tap Am|wks 12|pk 15
+48|Mayorkun - Home Training|wks 1|pk 48
+49|Faouzia - UNETHICAL|wks 10|pk 39
+50|Wizkid - Fever|wks 39|pk 1
+51|Phyno - Beautiful|wks 4|pk 51
+52|Tion Wayne - NO1 SONG IN THE UK 🇬🇧 #Likethis #NSG #tionwayne|wks 1|pk 52
+53|FOLA - 2am in toronto|wks 3|pk 25
+54|Phyno - Ije Enu (feat. Jeriq)|wks 1|pk 54
+55|TUFF KING - Waka Waka|wks 5|pk 34
+56|Greatman Takit - ADML|wks 13|pk 31
+57|Seyi Vibez - Volume|wks 7|pk 4
+58|Seyi Vibez - Pansa|wks 7|pk 13
+59|Phyno - Ndu ka Aku|wks 1|pk 59
+60|Ayra Starr - Ms. Paper (feat. Theodora)|wks 7|pk 55
+61|Nazir M Ahmad - Dare Daya|wks 3|pk 55
+62|Tml Vibez - Diamond or Gold|wks 10|pk 26
+63|Mohbad - Peace|wks 49|pk 1
+64|Naira Marley - Jaiye|wks 1|pk 64
+65|Asake - Oba|wks 17|pk 7
+66|Mavo - Ice Cream|wks 13|pk 34
+67|Mavo - Find My Babe|wks 9|pk 11
+68|Kirk Franklin - Hope In You|wks 1|pk 68
+69|Olamide - Burukutu|wks 2|pk 39
+70|Chief Priest - Go Hard or Go Home|wks 5|pk 39
+71|6uff - Salt|wks 2|pk 56
+72|Wizkid - Ojuelegba|wks 38|pk 1
+73|Garzali Miko - Mai Sona (Remix) (feat. Khadijah Mai Numfashi)|wks 1|pk 73
+74|OBA DDJ45 - Water Water Yansh|wks 23|pk 48
+75|Mr P - I Can't Look Away|wks 19|pk 5
+76|Mohbad - Feel Good|wks 53|pk 3
+77|Tekno - Duro|wks 2|pk 62
+78|AURORA - Runaway|wks 12|pk 64
+79|MOEC - Brother|wks 9|pk 66
+80|Seyi Vibez - GOD|wks 7|pk 8
+81|Omah Lay - KEEP GOING|wks 1|pk 81
+82|Adazion Ij - Ihe Nyiri Mmadu Omume|wks 12|pk 74
+83|Sunvera Scott - PRAY FOR ME|wks 6|pk 58
+84|Darkoo - THAT GIRL!|wks 12|pk 15
+85|DJ Goja - Mi Chico|wks 4|pk 85
+86|Phyno - 20 Years To Come|wks 1|pk 86
+87|Berri-Tiga - Clock It|wks 6|pk 45
+88|SxyCip - Closer To You|wks 11|pk 53
+89|Dj Chidez - Ifunanya Jesus|wks 1|pk 89
+90|Kolaboy - Believer|wks 5|pk 67
+91|Gabzy - Coachella|wks 4|pk 76
+92|Phyno - Ask Of Me Now|wks 21|pk 23
+93|FOLA - my type|wks 4|pk 55
+94|Nathaniel Bassey - Onye Kam Ga Si Na Oyiri Gi (feat. Mirabel Ekezie)|wks 10|pk 29
+95|Mr Eazi - Comfort|wks 5|pk 64
+96|Tega boi dc - Alhamdulillah (feat. Zerrydl & Rord kelly)|wks 2|pk 69
+97|Pop Smoke - Mood Swings (feat. Lil Tjay)|wks 22|pk 51
+98|Greatman Takit - C&B (CAST & BIND)|wks 1|pk 98
+99|Young Jonn - Glass in the Air|wks 5|pk 75
+100|Burna Boy - Tested, Approved & Trusted|wks 25|pk 6

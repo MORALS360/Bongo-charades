@@ -1,0 +1,166 @@
+# Music & Artists — global artists of any era, instruments, genres, music moves, and global songs from 2014 onward.
+# Global songs from 2013 or earlier live in Throwback Hits; African artists in African Music & Artists.
+@ lang=mixed kind=person diff=easy shelf=evergreen conf=H src=bank,S53
+Michael Jackson
+Beyoncé
+Rihanna
+Bob Marley ; ; conf=M src=bank
+Drake
+Chris Brown
+Taylor Swift
+Ed Sheeran
+Shakira
+Justin Bieber
+@ lang=mixed kind=thing diff=easy shelf=evergreen conf=M src=bank
+Guitar | Gitaa
+Drums | Ngoma
+Piano | Kinanda
+Microphone | Kipaza Sauti
+DJ
+Karaoke
+# ── Most-streamed and best-selling artists (S53) ──
+@ lang=mixed kind=person diff=easy shelf=evergreen conf=H src=S53
+Bruno Mars
+The Weeknd
+Lady Gaga
+Ariana Grande
+Coldplay ; ; diff=medium
+Billie Eilish
+Eminem
+Katy Perry
+Dua Lipa ; ; diff=medium
+Kanye West
+Post Malone ; ; diff=medium
+Adele
+Pitbull
+Sean Paul
+Maroon 5 ; ; diff=medium
+Imagine Dragons ; ; diff=medium
+Kendrick Lamar ; ; diff=medium
+Travis Scott ; ; diff=medium
+Doja Cat ; ; diff=medium
+Sabrina Carpenter ; ; diff=medium shelf=trending
+Bad Bunny ; ; diff=medium
+Daddy Yankee ; ; diff=medium
+Black Eyed Peas ; ; diff=medium
+Britney Spears
+Elvis Presley
+The Beatles
+Madonna
+@ lang=mixed kind=person diff=easy shelf=evergreen conf=M src=GK
+Whitney Houston
+Céline Dion
+Mariah Carey
+Usher
+Akon
+50 Cent
+Snoop Dogg
+Jay-Z
+Nicki Minaj
+Cardi B
+Ne-Yo ; ; diff=medium
+Alicia Keys ; ; diff=medium
+Lionel Richie ; ; diff=medium
+Tupac
+Notorious B.I.G. ; ; diff=medium
+BTS
+Blackpink
+Enrique Iglesias ; ; diff=medium
+Backstreet Boys ; ; diff=medium
+Westlife ; ; diff=medium
+Boyz II Men ; ; diff=medium
+Kenny Rogers ; ; diff=medium shelf=nostalgia
+Dolly Parton ; ; diff=medium
+Jim Reeves ; ; diff=medium shelf=nostalgia conf=V note=Popular with older East Africans: still known?
+Don Williams ; ; diff=medium shelf=nostalgia conf=V note=Popular with older East Africans: still known?
+# ── Global songs from 2014 onward (S53) ──
+@ lang=mixed kind=song diff=medium shelf=evergreen conf=H src=S53
+Blinding Lights ; The Weeknd
+Shape of You ; Ed Sheeran
+Starboy ; The Weeknd
+As It Was ; Harry Styles
+One Dance ; Drake ft. Wizkid & Kyla
+Someone You Loved ; Lewis Capaldi
+Perfect ; Ed Sheeran
+Die With a Smile ; Lady Gaga & Bruno Mars ; shelf=trending
+Believer ; Imagine Dragons
+Dance Monkey ; Tones and I
+Birds of a Feather ; Billie Eilish ; shelf=trending
+APT. ; Rosé & Bruno Mars ; shelf=trending
+Espresso ; Sabrina Carpenter ; shelf=trending
+Golden ; HUNTR/X (KPop Demon Hunters) ; shelf=trending
+Not Like Us ; Kendrick Lamar ; shelf=trending diff=hard
+Closer ; The Chainsmokers & Halsey
+@ lang=mixed kind=song diff=medium shelf=evergreen conf=M src=GK
+Despacito ; Luis Fonsi ft. Daddy Yankee ; diff=easy
+Uptown Funk ; Mark Ronson ft. Bruno Mars
+See You Again ; Wiz Khalifa ft. Charlie Puth
+Hello ; Adele
+Faded ; Alan Walker
+Sorry ; Justin Bieber
+Love Yourself ; Justin Bieber
+Baby Shark ; Pinkfong ; diff=easy
+Old Town Road ; Lil Nas X
+Señorita ; Shawn Mendes & Camila Cabello
+Bad Guy ; Billie Eilish
+Levitating ; Dua Lipa
+Flowers ; Miley Cyrus
+Cheap Thrills ; Sia
+Shallow ; Lady Gaga & Bradley Cooper
+Stay ; The Kid Laroi & Justin Bieber
+Dai Dai ; Shakira ; shelf=trending src=S1,S36 conf=H note=On all six African charts read in Stage 3B
+# ── Instruments ──
+@ lang=mixed kind=thing diff=easy shelf=evergreen conf=M src=S53
+Violin | Fidla
+Trumpet | Tarumbeta
+Flute
+Saxophone ; ; diff=medium
+Harp | Kinubi ; ; diff=medium
+Accordion ; ; diff=medium
+Xylophone | Marimba
+Tambourine | Matari ; ; diff=medium
+Electric Guitar
+Bass Guitar ; ; diff=medium
+Harmonica ; ; diff=medium
+Trombone ; ; diff=hard
+Cello ; ; diff=hard
+Bagpipes ; ; diff=hard
+Ukulele ; ; diff=medium
+Djembe ; ; diff=medium
+Kalimba ; ; diff=medium
+Kayamba ; ; lang=sw diff=medium conf=V note=Ala ya muziki ya pwani: inajulikana kwa jina hili?
+Talking Drum ; ; diff=hard
+# ── Genres ──
+@ lang=mixed kind=thing diff=medium shelf=evergreen conf=M src=GK,S53
+Hip Hop
+Reggae
+R&B
+Rock and Roll
+Jazz
+Gospel Music | Muziki wa Injili ; ; diff=easy
+Rap
+Country Music
+Opera
+K-Pop
+Reggaeton ; ; diff=hard
+Heavy Metal ; ; diff=hard
+Disco
+# ── Music moments ──
+@ lang=mixed kind=action diff=easy shelf=evergreen conf=M src=GK
+Choir | Kwaya ; ; kind=thing
+Orchestra ; ; kind=thing diff=medium
+Concert | Tamasha ; ; kind=thing
+Music Video ; ; kind=thing
+Headphones ; ; kind=thing
+Speaker | Spika ; ; kind=thing
+Album ; ; kind=thing diff=medium
+Playlist ; ; kind=thing diff=medium
+Singing in the Shower | Kuimba Bafuni
+Air Guitar ; ; diff=medium
+Beatboxing ; ; diff=medium
+Breakdancing ; ; diff=medium
+Crowd Surfing ; ; diff=medium
+Conductor ; ; kind=person diff=medium
+Encore ; ; kind=phrase diff=hard
+Mic Drop ; ; diff=medium
+Autograph ; ; kind=thing diff=medium

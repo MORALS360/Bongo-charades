@@ -1,0 +1,171 @@
+# African Icons — famous Africans who are NOT Tanzanian (those live in the Bongo group) and NOT musicians (music categories).
+# Owner rules: no sitting heads of state; historical figures and non-political people only.
+@ lang=mixed kind=person diff=easy shelf=evergreen conf=H src=bank,S43
+Nelson Mandela
+Kofi Annan
+Wangari Maathai
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=M src=bank
+Kwame Nkrumah
+Chinua Achebe
+Thomas Sankara
+Haile Selassie
+Patrice Lumumba
+Mohamed Salah ; ; conf=H src=bank,S42 diff=easy
+Didier Drogba ; ; conf=H src=bank,S42 diff=easy
+Lupita Nyong'o
+Trevor Noah
+# ── Footballers of the Year ──
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=H src=S42
+George Weah
+Roger Milla
+Abedi Pele
+Nwankwo Kanu
+Jay-Jay Okocha
+Samuel Eto'o ; ; diff=easy
+Yaya Touré
+Michael Essien
+Emmanuel Adebayor
+Pierre-Emerick Aubameyang
+Riyad Mahrez
+Sadio Mané ; ; diff=easy
+Victor Osimhen
+Ademola Lookman ; ; diff=hard
+Achraf Hakimi
+Kalusha Bwalya ; ; diff=hard shelf=nostalgia
+Rashidi Yekini ; ; diff=hard shelf=nostalgia
+El Hadji Diouf ; ; diff=hard shelf=nostalgia
+Thomas N'Kono ; ; diff=hard shelf=nostalgia
+Asamoah Gyan
+Mikel John Obi
+Mohamed Aboutrika ; ; diff=hard
+André Ayew ; ; diff=hard
+Édouard Mendy ; ; diff=hard
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=M src=GK
+Victor Wanyama ; Kenya
+McDonald Mariga ; Kenya ; diff=hard
+Michael Olunga ; Kenya ; diff=hard
+Benni McCarthy ; ; diff=hard
+Lucas Radebe ; ; diff=hard
+Kolo Touré
+Thomas Partey
+Mohammed Kudus
+Kalidou Koulibaly
+André Onana
+Essam El Hadary ; ; diff=hard
+# ── Nobel laureates ──
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=H src=S43
+Desmond Tutu
+Wole Soyinka
+Ellen Johnson Sirleaf
+Naguib Mahfouz ; ; diff=hard
+Albert Luthuli ; ; diff=hard
+Anwar Sadat ; ; diff=hard
+F. W. de Klerk ; ; diff=hard
+Nadine Gordimer ; ; diff=hard
+Leymah Gbowee ; ; diff=hard
+Denis Mukwege ; ; diff=hard
+# ── Athletics ──
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=H src=S47
+Eliud Kipchoge ; ; diff=easy
+Kipchoge Keino
+David Rudisha
+Faith Kipyegon
+Julius Yego ; ; diff=hard
+Haile Gebrselassie
+Kenenisa Bekele
+Tirunesh Dibaba ; ; diff=hard
+Abebe Bikila ; ; diff=hard
+Joshua Cheptegei
+Caster Semenya
+Wayde van Niekerk ; ; diff=hard
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=M src=GK
+Paul Tergat
+Tegla Loroupe ; ; diff=hard
+Catherine Ndereba ; ; diff=hard
+Kelvin Kiptum
+Ferdinand Omanyala
+Letsile Tebogo
+Derartu Tulu ; ; diff=hard
+Hicham El Guerrouj ; ; diff=hard
+Maria Mutola ; ; diff=hard
+Frankie Fredericks ; ; diff=hard
+John Akii-Bua ; ; diff=hard
+Stephen Kiprotich ; ; diff=hard
+Jacob Kiplimo ; ; diff=hard
+# ── Other sports ──
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=M src=GK
+Hakeem Olajuwon
+Dikembe Mutombo
+Joel Embiid
+Francis Ngannou
+Israel Adesanya
+Kamaru Usman ; ; diff=hard
+Siya Kolisi
+Ons Jabeur ; ; diff=hard
+Kirsty Coventry ; ; diff=hard
+Azumah Nelson ; ; diff=hard
+# ── Leaders and history (no sitting heads of state) ──
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=M src=GK
+Jomo Kenyatta
+Kenneth Kaunda
+Samora Machel
+Gamal Abdel Nasser ; ; diff=hard
+Léopold Senghor ; ; diff=hard
+Amílcar Cabral ; ; diff=hard
+Steve Biko
+Winnie Mandela
+Oliver Tambo ; ; diff=hard
+Walter Sisulu ; ; diff=hard
+Daniel arap Moi
+Mwai Kibaki
+Tom Mboya ; ; diff=hard
+Dedan Kimathi
+Milton Obote ; ; diff=hard
+Seretse Khama ; ; diff=hard
+Graça Machel ; ; diff=hard
+Ngozi Okonjo-Iweala ; ; diff=hard
+Tedros Adhanom ; ; diff=hard
+Shaka Zulu
+Mansa Musa
+Cleopatra ; ; diff=easy
+Tutankhamun
+Nefertiti ; ; diff=hard
+Queen Nzinga ; ; diff=hard
+Yaa Asantewaa ; ; diff=hard
+Menelik II ; ; diff=hard
+# ── Writers ──
+@ lang=mixed kind=person diff=hard shelf=evergreen conf=M src=GK
+Ngũgĩ wa Thiong'o ; ; src=S45
+Chimamanda Ngozi Adichie
+Mariama Bâ
+# ── Screen and stage ──
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=M src=GK
+Charlize Theron
+Djimon Hounsou ; ; diff=hard
+Genevieve Nnaji
+Omotola Jalade
+Funke Akindele ; ; src=S48
+Pete Edochie
+Ramsey Nouah
+Jim Iyke
+Mercy Johnson
+Thuso Mbedu ; ; diff=hard
+John Kani ; ; diff=hard
+Leleti Khumalo ; Sarafina! ; diff=hard
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=V src=GK note=Sina chanzo; anajulikana kwa jina hili Tanzania?
+Aki na Pawpaw
+Osuofia ; Nkem Owoh
+Mama G ; Patience Ozokwor
+Mr Ibu
+Basketmouth
+Eric Omondi ; Mchekeshaji wa Kenya
+Anne Kansiime ; Mchekeshaji wa Uganda
+Churchill ; Mchekeshaji wa Kenya
+# ── Business and fashion ──
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=M src=GK
+Aliko Dangote
+Patrice Motsepe ; ; diff=hard
+Strive Masiyiwa ; ; diff=hard
+Mo Ibrahim ; ; diff=hard
+Alek Wek ; ; diff=hard
+Iman ; ; diff=hard

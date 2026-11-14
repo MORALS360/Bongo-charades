@@ -9,6 +9,7 @@ import {
   type GameConfig,
 } from '../game/gameSession'
 import { getFilteredPrompts } from '../data/prompts'
+import { loadHistory, recordShown } from '../game/playHistory'
 import type { GameplayAction } from '../types'
 
 function newSeed(): number {
@@ -29,6 +30,13 @@ export function useGameSession() {
     }
   }, [state])
 
+  // Remember every prompt that appears on screen, so the next game deals fresh ones first.
+  // Saved to this phone only (localStorage); failures are ignored.
+  const shownPrompt = getCurrentPrompt(state)
+  useEffect(() => {
+    if (shownPrompt) recordShown([shownPrompt])
+  }, [shownPrompt])
+
   /** Returns false (and does not start) if no playable prompts match the setup. */
   const startGame = useCallback((config: GameConfig): boolean => {
     const seed = newSeed()
@@ -39,7 +47,7 @@ export function useGameSession() {
       seed,
     )
     if (prompts.length === 0) return false
-    dispatch({ type: 'START', config, prompts, seed })
+    dispatch({ type: 'START', config, prompts, seed, recentKeys: loadHistory() })
     return true
   }, [])
 
@@ -51,7 +59,10 @@ export function useGameSession() {
   )
   const timeUp = useCallback(() => dispatch({ type: 'TIME_UP' }), [])
   const nextTeam = useCallback(() => dispatch({ type: 'NEXT_TEAM' }), [])
-  const restart = useCallback(() => dispatch({ type: 'RESTART', seed: newSeed() }), [])
+  const restart = useCallback(
+    () => dispatch({ type: 'RESTART', seed: newSeed(), recentKeys: loadHistory() }),
+    [],
+  )
   const exitGame = useCallback(() => dispatch({ type: 'EXIT' }), [])
 
   const derived = useMemo(

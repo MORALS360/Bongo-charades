@@ -1,0 +1,136 @@
+# Countries — countries only (UN members, S49). Every African country, then the best known elsewhere.
+# English | Kiswahili pairs only where the Kiswahili name is clearly different and well established.
+@ lang=mixed kind=place diff=easy shelf=evergreen conf=H src=bank,S49
+Tanzania
+Kenya
+Nigeria
+Ghana
+Australia
+Argentina
+Jamaica
+India
+Japan | Japani
+Brazil | Brazili
+France | Ufaransa
+Canada | Kanada
+China | Uchina
+Egypt | Misri
+America | Marekani
+Germany | Ujerumani
+Italy | Italia
+Spain | Hispania
+Mexico | Meksiko
+Russia | Urusi
+England | Uingereza
+South Africa | Afrika Kusini
+Portugal | Ureno
+Greece | Ugiriki
+# ── East and Central Africa ──
+@ lang=mixed kind=place diff=easy shelf=evergreen conf=H src=S49
+Uganda
+Rwanda
+Burundi
+DR Congo
+Ethiopia
+Somalia
+South Sudan | Sudan Kusini
+Sudan
+Eritrea ; ; diff=medium
+Zambia
+Malawi
+Mozambique | Msumbiji
+Madagascar | Bukini ; ; diff=medium
+Comoros | Komoro ; ; diff=medium
+Seychelles | Shelisheli ; ; diff=medium
+Mauritius ; ; diff=medium
+Cameroon
+Gabon ; ; diff=medium
+Chad ; ; diff=medium
+Central African Republic ; ; diff=hard famous=yes note=Four words; official name
+Equatorial Guinea ; ; diff=hard
+Republic of the Congo ; ; diff=hard famous=yes
+# ── Southern Africa ──
+@ lang=mixed kind=place diff=easy shelf=evergreen conf=H src=S49
+Zimbabwe
+Botswana
+Namibia
+Angola
+Lesotho ; ; diff=medium
+Eswatini ; ; diff=medium
+# ── West and North Africa ──
+@ lang=mixed kind=place diff=medium shelf=evergreen conf=H src=S49
+Senegal
+Ivory Coast
+Mali
+Niger
+Burkina Faso
+Guinea
+Sierra Leone
+Liberia
+Togo
+Benin
+Gambia
+Mauritania ; ; diff=hard
+Cape Verde ; ; diff=hard
+Guinea-Bissau ; ; diff=hard
+Morocco | Moroko ; ; diff=easy
+Algeria ; ; diff=easy
+Tunisia ; ; diff=easy
+Libya ; ; diff=easy
+# ── Europe ──
+@ lang=mixed kind=place diff=easy shelf=evergreen conf=H src=S49
+Netherlands | Uholanzi
+Belgium | Ubelgiji ; ; diff=medium
+Switzerland | Uswisi
+Sweden | Uswidi ; ; diff=medium
+Norway ; ; diff=medium
+Denmark ; ; diff=medium
+Finland ; ; diff=medium
+Ireland ; ; diff=medium
+Scotland ; ; conf=M note=Part of the United Kingdom, not a UN member; famous as a football nation
+Poland
+Ukraine
+Austria ; ; diff=medium
+Croatia ; ; diff=medium
+Serbia ; ; diff=medium
+Iceland ; ; diff=medium
+Turkey | Uturuki
+# ── Asia and the Middle East ──
+@ lang=mixed kind=place diff=easy shelf=evergreen conf=H src=S49
+Saudi Arabia | Saudia
+United Arab Emirates | Falme za Kiarabu ; ; famous=yes
+Qatar
+Oman
+Yemen
+Iran
+Iraq
+Israel
+Palestine ; ; conf=M note=UN observer state, not a member
+Lebanon ; ; diff=medium
+Syria
+Jordan ; ; diff=medium
+Afghanistan
+Pakistan
+Bangladesh ; ; diff=medium
+Sri Lanka ; ; diff=medium
+Nepal ; ; diff=medium
+Thailand
+Vietnam
+Malaysia
+Singapore
+Indonesia
+Philippines ; ; diff=medium
+South Korea | Korea Kusini
+North Korea | Korea Kaskazini
+# ── The Americas and Oceania ──
+@ lang=mixed kind=place diff=easy shelf=evergreen conf=H src=S49
+Cuba
+Haiti ; ; diff=medium
+Colombia
+Venezuela
+Peru
+Chile
+Uruguay ; ; diff=medium
+Ecuador ; ; diff=medium
+Trinidad and Tobago ; ; diff=hard
+New Zealand

@@ -1,4 +1,5 @@
 import type { GamePrompt } from '../types'
+import { balanceOrder, dealOrder } from './dealing'
 
 /**
  * Prompt deck — pure helper functions (no React).
@@ -8,6 +9,10 @@ import type { GamePrompt } from '../types'
  * 2. Each time a prompt is needed we turn over the next card (`index + 1`).
  * 3. Only when the whole pile has been used do we reshuffle and start again,
  *    so no prompt repeats until every other prompt has been seen.
+ *
+ * Phase 5: the ORDER of the pile is decided in `dealing.ts` — fresh prompts before ones
+ * this phone showed recently, and clusters (three songs in a row, the same artist twice
+ * close together …) broken up. Teams share ONE pile for the whole game.
  *
  * Randomness comes from a *seeded* random-number generator. Given the same seed,
  * the shuffle is always the same. This keeps the game reducer "pure"
@@ -61,8 +66,17 @@ export function sanitizePrompts(prompts: readonly GamePrompt[]): GamePrompt[] {
   })
 }
 
-export function createDeck(prompts: readonly GamePrompt[], seed: number): DeckState {
-  const [order, nextSeed] = shuffleWithSeed(sanitizePrompts(prompts), seed)
+/**
+ * Build a new pile for a game.
+ * `recentKeys` = prompt ideas this phone showed in earlier games (oldest first);
+ * they are dealt after every fresh prompt. Leave empty to ignore history.
+ */
+export function createDeck(
+  prompts: readonly GamePrompt[],
+  seed: number,
+  recentKeys: readonly string[] = [],
+): DeckState {
+  const [order, nextSeed] = dealOrder(sanitizePrompts(prompts), seed, recentKeys)
   return { order, index: -1, seed: nextSeed, cycles: 0 }
 }
 
@@ -84,7 +98,9 @@ export function drawNext(deck: DeckState): DeckState {
   }
 
   const last = currentPrompt(deck)
-  const [reshuffled, nextSeed] = shuffleWithSeed(deck.order, deck.seed)
+  const [shuffled, nextSeed] = shuffleWithSeed(deck.order, deck.seed)
+  // Balance the new pile, continuing smoothly from the last few cards shown
+  const reshuffled = balanceOrder(shuffled, undefined, deck.order.slice(-6))
   if (last && reshuffled.length > 1 && reshuffled[0].id === last.id) {
     // Swap the first card away so the same prompt never appears twice in a row
     const tmp = reshuffled[0]

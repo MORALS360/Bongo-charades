@@ -1,0 +1,224 @@
+# African Music & Artists — Africa-wide, NOT Tanzanian. Artists of any era, genres, and songs from 2014 onward
+# (owner rule: 2013 or earlier is Throwback Hits). region: W West · S Southern · E East · C Central · N North.
+# Shares to hold: West at most 40% · Southern, East at least 15% · Central at least 10% · North at least 5% (owner rule).
+# ── Already in the game ──
+@ lang=mixed kind=thing diff=medium shelf=evergreen conf=H src=bank,S45
+Afrobeats ; ; region=W
+Amapiano ; ; region=S
+Rhumba ; ; region=C
+Highlife ; ; region=W
+Raï ; ; region=N diff=hard
+@ lang=mixed kind=person diff=easy shelf=evergreen conf=H src=bank,S38
+Burna Boy ; ; region=W
+Wizkid ; ; region=W
+Davido ; ; region=W
+Tems ; ; region=W
+Rema ; ; region=W
+Ayra Starr ; ; region=W
+Tyla ; ; region=S
+Yemi Alade ; ; region=W
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=H src=bank,S45
+Angélique Kidjo ; ; region=W
+Youssou N'Dour ; ; region=W
+Sauti Sol ; ; region=E
+Eddy Kenzo ; ; region=E src=bank,S38
+Fally Ipupa ; ; region=C
+Koffi Olomide ; ; region=C
+Amr Diab ; ; region=N diff=hard
+Cheb Khaled ; ; region=N diff=hard
+@ lang=mixed kind=song diff=medium shelf=evergreen conf=H src=bank,S39
+Calm Down ; Rema ; region=W
+Water ; Tyla ; region=S src=bank,S38
+Last Last ; Burna Boy ; region=W
+Essence ; Wizkid ft. Tems ; region=W
+Fall ; Davido ; region=W src=bank conf=M
+Jerusalema ; Master KG ; region=S src=bank conf=M
+Sitya Loss ; Eddy Kenzo ; region=E src=bank conf=M
+Sura Yako ; Sauti Sol ; region=E src=bank conf=M
+# ── West Africa ──
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=H src=S38,S40 region=W
+Asake
+Olamide
+Kizz Daniel ; ; src=S40
+Fireboy DML ; ; src=S39,S40
+Omah Lay ; ; src=S38
+CKay ; ; src=S39
+Victony ; ; src=S36 conf=M shelf=trending
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=M src=S45 region=W
+Tiwa Savage
+P-Square
+2Baba
+D'banj
+Flavour
+Sarkodie
+Stonebwoy
+Shatta Wale
+Magic System
+Alpha Blondy
+Salif Keita ; ; diff=hard
+Fela Kuti ; ; moved=african-icons diff=easy conf=H note=Moved from African Icons (owner rule: musicians live in the music categories)
+@ lang=mixed kind=song diff=medium shelf=evergreen conf=H src=S39 region=W
+Love Nwantiti ; CKay
+Peru ; Fireboy DML
+Free Mind ; Tems
+Active ; Asake & Travis Scott ; diff=hard
+@ lang=mixed kind=song diff=medium shelf=evergreen conf=H src=S40 region=W
+Ye ; Burna Boy
+If ; Davido ; diff=hard
+Joro ; Wizkid
+Buga ; Kizz Daniel ft. Tekno
+Ku Lo Sa ; Oxlade
+Finesse ; Pheelz ft. Bnxn
+Dumebi ; Rema
+Zanku ; Zlatan
+Duduke ; Simi
+Mad Over You ; Runtown
+Ojuelegba ; Wizkid
+Aye ; Davido ; src=S40,S41
+Dorobucci ; The Mavins
+Godwin ; Korede Bello
+Woju ; Kizz Daniel
+Lonely at the Top ; Asake
+@ lang=mixed kind=song diff=medium shelf=trending conf=H src=S1,S38 region=W
+Rush ; Ayra Starr
+Unavailable ; Davido ft. Musa Keys ; src=S2,S38
+With You ; Davido ft. Omah Lay ; src=S2,S38
+Love Me JeJe ; Tems ; src=S38
+City Boys ; Burna Boy ; src=S38
+Commas ; Ayra Starr ; src=S2,S40
+Heaven Baby ; Ayra Starr ft. Zayn ; src=S1,S36 note=On all six country charts this week
+Slick ; Victony ; src=S1,S36 conf=M
+Bandana ; Fireboy DML ft. Asake ; src=S1,S36 conf=M
+Kante ; Davido ft. Fave ; src=S2,S36 conf=M
+# ── Southern Africa ──
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=M src=S45 region=S
+Master KG
+Black Coffee
+Kabza De Small
+DJ Maphorisa
+Focalistic ; ; src=S1,S36
+Makhadzi
+Nasty C
+Cassper Nyovest
+AKA ; ; diff=hard
+Mafikizolo
+Zahara ; ; diff=hard
+Brenda Fassie
+Lucky Dube
+Yvonne Chaka Chaka
+Hugh Masekela ; ; diff=hard
+Ladysmith Black Mambazo ; ; diff=hard
+Mandoza ; ; diff=hard
+Oliver Mtukudzi
+Jah Prayzah ; ; diff=hard
+Winky D ; ; diff=hard src=S36
+DJ Zinhle ; ; src=S36,S37 shelf=trending
+Musa Keys ; ; src=S38 diff=hard
+Miriam Makeba ; ; moved=african-icons diff=easy conf=H note=Moved from African Icons (owner rule: musicians live in the music categories)
+@ lang=mixed kind=thing diff=medium shelf=evergreen conf=H src=S45 region=S
+Kwaito
+Gqom ; ; diff=hard
+Kizomba ; ; diff=hard
+@ lang=mixed kind=song diff=medium shelf=trending conf=M src=S2 region=S
+Push 2 Start ; Tyla ; src=S38 conf=H
+Biri Marung ; Mr Thela & Tyler ICU ; conf=V note=Kwenye orodha ya Apple TZ; wasanii sijawathibitisha
+Isaka (6am) ; Ciza ; src=S1,S2
+Ngishutheni ; Wimbo wa Amapiano ; conf=V note=Kwenye orodha ya Apple TZ; msanii sijamthibitisha
+Wishi Wishi ; Wimbo wa Amapiano ; conf=V note=Kwenye orodha ya Apple TZ; msanii sijamthibitisha
+Bengicela ; MaWhoo ; src=S2,S36
+@ lang=mixed kind=song diff=medium shelf=evergreen conf=V src=GK region=S note=Sina chanzo; unajulikana Tanzania?
+Tshwala Bam ; TitoM & Yuppe
+Mnike ; Tyler ICU
+Skeleton Move ; Master KG
+Osama ; Zakes Bantwini
+John Vuli Gate ; Mapara A Jazz
+Ke Star ; Focalistic
+Wololo ; Babes Wodumo
+# ── East Africa (not Tanzania) ──
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=M src=S36 region=E
+Bien ; ; src=S1,S36 conf=H shelf=trending
+Otile Brown
+Khaligraph Jones
+Wakadinali ; ; diff=hard
+Willy Paul ; ; src=S1
+Joshua Baraka ; ; src=S2,S36 shelf=trending
+Jose Chameleone ; ; src=S36,S45
+Sheebah ; ; diff=hard
+Spice Diana ; ; diff=hard
+King Saha ; ; diff=hard
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=M src=S45 region=E
+Nameless
+Wahu ; ; diff=hard
+Jua Cali
+Nonini ; ; diff=hard
+Akothee ; ; diff=hard
+Bobi Wine
+Bebe Cool
+Radio & Weasel
+Juliana Kanyomozi ; ; diff=hard
+Meddy
+The Ben
+Teddy Afro ; ; diff=hard
+Aster Aweke ; ; diff=hard
+Mulatu Astatke ; ; diff=hard
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=V src=GK region=E note=Sina chanzo; anajulikana Tanzania?
+Nyashinski
+Bahati
+Nadia Mukami
+Bruce Melodie
+@ lang=mixed kind=thing diff=hard shelf=evergreen conf=H src=S45 region=E
+Gengetone
+Benga
+@ lang=mixed kind=song diff=medium shelf=trending conf=H src=S1,S36 region=E
+Finale ; Bien ; note=33 weeks on Tanzania's chart
+I'll Be Okay ; Bien ; conf=M
+Wrong Places ; Joshua Baraka ; src=S2,S36 conf=M
+@ lang=mixed kind=song diff=medium shelf=evergreen conf=V src=GK region=E note=Sina chanzo; unajulikana Tanzania?
+Suzanna ; Sauti Sol
+Melanin ; Sauti Sol ft. Patoranking
+Kuliko Jana ; Sauti Sol
+Extravaganza ; Sauti Sol
+Unconditionally Bae ; Sauti Sol ft. Ali Kiba
+Dusuma ; Otile Brown ft. Meddy
+Chaguo la Moyo ; Otile Brown & Sanaipei Tande
+Mungu Pekee ; Nyashinski
+Wamlambez ; Sailors
+Kuna Kuna ; Vic West
+Slowly ; Meddy
+Kyarenga ; Bobi Wine
+Tubonge ; Jose Chameleone
+# ── Central Africa ──
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=M src=S45 region=C
+Franco ; Luambo Makiadi ; diff=hard
+Tabu Ley Rochereau ; ; diff=hard
+Papa Wemba
+Kanda Bongo Man
+Werrason
+JB Mpiana
+Innoss'B
+Lokua Kanza ; ; diff=hard src=S41
+Manu Dibango ; ; diff=hard
+Awilo Longomba ; ; src=S41
+Ferre Gola ; ; src=GK conf=V note=Sina chanzo; anajulikana Tanzania?
+@ lang=mixed kind=thing diff=medium shelf=evergreen conf=H src=S45 region=C
+Soukous
+Ndombolo
+Makossa ; ; diff=hard
+@ lang=mixed kind=song diff=medium shelf=evergreen conf=V src=GK region=C note=Sina chanzo; unajulikana Tanzania?
+Yope ; Innoss'B ft. Diamond Platnumz ; src=S8,S16 conf=M
+Eloko Oyo ; Fally Ipupa
+Canne à Sucre ; Fally Ipupa
+Selfie ; Koffi Olomide
+Coller la Petite ; Franko
+# ── North Africa ──
+@ lang=mixed kind=person diff=hard shelf=evergreen conf=M src=S45 region=N
+Umm Kulthum
+Cheb Mami ; ; src=S41,S45
+Mohamed Mounir
+ElGrandeToto ; ; src=S37
+Wegz ; ; src=S37 shelf=trending
+@ lang=mixed kind=thing diff=hard shelf=evergreen conf=H src=S45 region=N
+Gnawa
+Mahraganat
+@ lang=mixed kind=song diff=hard shelf=evergreen conf=V src=GK region=N note=Sina chanzo; unajulikana Tanzania?
+Lm3allem ; Saad Lamjarred

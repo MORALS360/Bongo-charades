@@ -1,4 +1,5 @@
 import { Panel } from '../components/ui/Panel'
+import { RecentPromptsControl } from '../components/ui/RecentPromptsControl'
 import { SegmentedControl } from '../components/ui/SegmentedControl'
 import type { Category, PromptLanguage, RoundDuration } from '../types'
 
@@ -136,6 +137,7 @@ export function PlayModePage({
         <p style={{ fontSize: 13, fontWeight: 700, opacity: 0.9, margin: '10px 0 0' }}>
           Tanzanian categories stay mostly in Kiswahili — that's their flavour.
         </p>
+        <RecentPromptsControl />
       </Panel>
     </div>
   )

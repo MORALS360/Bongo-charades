@@ -1,0 +1,134 @@
+# Act It Out — actions and situations, universal. English | Kiswahili pairs. Common knowledge.
+# Street, transport, campus, family and football situations live in the Bongo group and are not repeated here.
+@ lang=mixed kind=action diff=easy shelf=evergreen conf=M src=bank
+Taking a Selfie | Kupiga Selfie
+Sleeping in Class | Kusinzia Darasani
+Sneezing | Kupiga Chafya
+Washing Clothes | Kufua Nguo
+Chased by a Dog | Kukimbizwa na Mbwa
+Brushing Teeth | Kupiga Mswaki
+Riding a Bicycle | Kuendesha Baiskeli
+Crying | Kulia
+Laughing | Kucheka
+Fishing | Kuvua Samaki
+Cooking | Kupika
+Dancing | Kucheza Muziki
+Driving | Kuendesha Gari
+Winning the Lottery | Kushinda Bahati Nasibu
+# ── Home routines ──
+@ lang=mixed kind=action diff=easy shelf=evergreen conf=M src=GK
+Waking Up | Kuamka
+Yawning | Kupiga Miayo
+Snoring | Kukoroma
+Taking a Shower | Kuoga
+Getting Dressed | Kuvaa Nguo
+Tying Shoelaces | Kufunga Kamba za Viatu
+Ironing Clothes | Kupiga Pasi
+Sweeping | Kufagia
+Mopping the Floor | Kudeki
+Washing Dishes | Kuosha Vyombo
+Making the Bed | Kutandika Kitanda
+Brushing Hair | Kuchana Nywele
+Putting on Makeup | Kujipodoa
+Shaving | Kunyoa Ndevu
+Looking in the Mirror | Kujitazama Kioo
+Baking a Cake | Kuoka Keki
+Changing a Light Bulb | Kubadilisha Balbu
+Opening a Tight Jar | Kufungua Chupa Ngumu ; ; diff=medium
+Losing Your Keys | Kupoteza Funguo
+Locked Out | Kufungiwa Nje ; ; diff=medium
+Sleepwalking | Kutembea Usingizini ; ; diff=medium
+# ── Body and health ──
+@ lang=mixed kind=action diff=easy shelf=evergreen conf=M src=GK
+Coughing | Kukohoa
+Hiccups | Kwikwi
+Having a Headache | Kuumwa Kichwa
+Toothache | Kuumwa Jino
+Getting an Injection | Kuchomwa Sindano
+Stung by a Bee | Kuumwa na Nyuki
+Stepping on a Thorn | Kukanyaga Mwiba
+Slipping and Falling | Kuteleza na Kuanguka
+Blowing Your Nose | Kupenga Kamasi
+Choking | Kupaliwa ; ; diff=medium
+Shivering | Kutetemeka
+Sweating | Kutoka Jasho
+Being Hungry | Kuwa na Njaa
+Drinking Water | Kunywa Maji
+Stretching | Kujinyoosha
+Doing Push-ups | Kupiga Push-up
+Doing Yoga ; ; diff=medium
+# ── Family and animals ──
+@ lang=mixed kind=action diff=easy shelf=evergreen conf=M src=GK
+Carrying a Baby | Kubeba Mtoto
+Changing a Nappy | Kubadilisha Nepi
+Feeding a Baby | Kumlisha Mtoto
+Milking a Cow | Kukamua Ng'ombe
+Herding Cows | Kuchunga Ng'ombe
+Feeding Chickens | Kulisha Kuku
+Chasing a Chicken | Kukimbiza Kuku
+Walking a Dog | Kutembeza Mbwa
+Riding a Horse | Kupanda Farasi
+Hunting | Kuwinda
+Swatting a Fly | Kufukuza Inzi
+# ── Work and outdoors ──
+@ lang=mixed kind=action diff=easy shelf=evergreen conf=M src=GK
+Farming | Kulima
+Planting Seeds | Kupanda Mbegu
+Climbing a Tree | Kupanda Mti
+Chopping Wood | Kupasua Kuni
+Lighting a Fire | Kuwasha Moto
+Painting a Wall | Kupaka Rangi Ukuta
+Hammering a Nail | Kugonga Msumari
+Changing a Tyre | Kubadilisha Tairi
+Lifting a Heavy Box | Kubeba Mzigo Mzito
+Flying a Kite | Kurusha Tiara
+Riding a Motorbike | Kuendesha Pikipiki
+Flying a Plane | Kurusha Ndege
+Teaching a Class | Kufundisha Darasa
+Giving a Speech | Kutoa Hotuba
+Typing | Kuandika kwa Kompyuta
+Counting Money | Kuhesabu Pesa
+Withdrawing Money | Kutoa Pesa
+Going Shopping | Kununua Vitu
+Stuck in a Lift | Kukwama Kwenye Lifti ; ; diff=medium
+Lost in a City | Kupotea Mjini
+# ── People and feelings ──
+@ lang=mixed kind=action diff=easy shelf=evergreen conf=M src=GK
+Taking a Photo | Kupiga Picha
+Texting | Kutuma Ujumbe
+Making a Phone Call | Kupiga Simu
+Reading a Book | Kusoma Kitabu
+Writing a Letter | Kuandika Barua
+Praying | Kusali
+Singing | Kuimba
+Whistling | Kupiga Mluzi
+Clapping | Kupiga Makofi
+Waving Goodbye | Kupunga Mkono
+Shaking Hands | Kupeana Mikono
+Hugging | Kukumbatia
+Fighting | Kupigana
+Hiding | Kujificha
+Spying | Kupeleleza ; ; diff=medium
+Tiptoeing | Kunyata ; ; diff=medium
+Being Angry | Kukasirika
+Being Scared | Kuogopa
+Being Shy | Kuona Aibu
+Being Surprised | Kushangaa
+Opening a Gift | Kufungua Zawadi
+Wrapping a Present | Kufunga Zawadi
+# ── Fun ──
+@ lang=mixed kind=action diff=easy shelf=evergreen conf=M src=GK
+Doing a Magic Trick | Kufanya Mazingaombwe ; ; diff=medium
+Juggling ; ; diff=medium
+Playing Video Games | Kucheza Gemu
+Watching a Scary Movie | Kuangalia Filamu ya Kutisha
+Being a Statue | Kusimama Kama Sanamu
+Robot Dance | Kucheza Kama Roboti
+Walking Like a Model | Kutembea Kama Mwanamitindo
+Eating with Chopsticks | Kula kwa Vijiti ; ; diff=medium
+Playing the Guitar | Kupiga Gitaa
+Playing the Piano | Kupiga Kinanda
+Skydiving ; ; diff=medium
+Surfing a Wave ; ; diff=medium
+Ice Skating ; ; diff=medium
+Building a Snowman ; ; diff=medium

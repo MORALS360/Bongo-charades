@@ -1,0 +1,127 @@
+# Daladala Diaries — commuting: daladala, bodaboda and bajaji rides, stops and moments. (The vehicles as street things stay in Mtaani.)
+@ lang=sw kind=person diff=easy shelf=evergreen conf=H src=bank,S19
+Konda
+Dereva wa Daladala ; ; conf=M src=bank
+@ lang=sw kind=thing diff=easy shelf=evergreen conf=M src=bank
+Nauli
+Chenji
+Siti ya Mbele
+Stendi ya Mwenge ; ; kind=place
+Stendi ya Gerezani ; ; kind=place
+Mwisho wa Gari ; ; kind=place
+Mzigo wa Abiria
+@ lang=sw kind=phrase diff=easy shelf=evergreen conf=M src=bank
+Shusha Hapa!
+Sogeeni Ndani
+Kubanana ; ; kind=action
+# ── People and vehicles ──
+@ lang=sw kind=person diff=easy shelf=evergreen conf=H src=S21
+Mpiga Debe ; ; src=S19,S21
+@ lang=sw kind=person diff=medium shelf=evergreen conf=V src=S19 note=Kamusi ya 2006; bado linatumika?
+Suka ; Dereva
+Pailoti ; Dereva
+Kipanya ; Daladala ndogo (Hiace) ; kind=thing
+@ lang=sw kind=thing diff=easy shelf=evergreen conf=M src=GK
+Kituo cha Daladala ; ; kind=place
+Coaster ; ; lang=mixed
+Kibao cha Ruti
+Rangi ya Ruti ; ; diff=medium
+Maandishi ya Daladala ; ; diff=medium
+Redio ya Daladala
+Siti ya Dirishani
+Siti ya Nyuma
+Bomba la Kushikilia
+Trafiki ; ; kind=person
+Tuta
+Mataa
+Honi
+Thumni ; Nauli ya zamani ; diff=hard shelf=nostalgia src=S21 conf=V note=Neno la zamani; linakumbukwa?
+# ── Getting on ──
+@ lang=sw kind=action diff=easy shelf=evergreen conf=M src=GK
+Kusubiri Daladala
+Kugombea Daladala
+Kupanda Dirishani
+Kuwahi Siti
+Kukimbiza Daladala
+Kuachwa na Daladala
+Daladala Imejaa
+Konda Anasema Kuna Nafasi
+Kuita Abiria ; ; src=S19
+Kusimamisha Daladala
+# ── Inside ──
+@ lang=sw kind=action diff=easy shelf=evergreen conf=M src=GK
+Kusimama Ndani
+Kushika Bomba
+Kukanyagwa Mguu
+Kubanwa Mlangoni
+Kumpisha Mzee Siti
+Kumpakata Mtoto wa Mtu
+Kusinzia Garini
+Kumlalia Jirani
+Kupitiliza Kituo
+Joto Ndani ya Daladala
+Dirisha Halifunguki
+Mvua Inavuja Ndani
+Muziki wa Sauti Kubwa
+Kuku Ndani ya Daladala
+Kubeba Ndoo Garini
+Kushika Pochi Vizuri
+Mwizi wa Mfukoni ; ; kind=person
+Kuongea Simu kwa Sauti
+Abiria Mhubiri ; ; kind=person diff=medium
+Muuza Dawa Garini ; ; kind=person diff=medium
+Kusoma Gazeti la Jirani
+# ── Fares ──
+@ lang=sw kind=action diff=easy shelf=evergreen conf=M src=GK
+Kulipa Nauli
+Konda Anakusanya Nauli
+Konda Anachezesha Sarafu
+Kusahau Chenji
+Chenji Haijarudi
+Sina Chenji ; ; kind=phrase
+Nauli ya Mwanafunzi ; ; kind=thing
+Kugombana na Konda
+Kukwepa Nauli
+Nauli Imepanda
+# ── The konda and the driver ──
+@ lang=sw kind=action diff=easy shelf=evergreen conf=M src=GK
+Konda Ananing'inia Mlangoni
+Konda Anagonga Bodi
+Dereva Anachomekea
+Kupita Service Road ; ; lang=mixed diff=medium
+Mashindano ya Daladala
+Kupiga Honi
+Kusimamishwa na Trafiki
+Daladala Inageuza Njiani
+Kushushwa Njiani
+Kujaza Mafuta na Abiria
+Daladala Imeharibika
+Kusukuma Gari
+Tairi Limepasuka
+Breki za Ghafla
+# ── Getting off ──
+@ lang=sw kind=phrase diff=easy shelf=evergreen conf=M src=GK
+Naomba Kushuka
+Hapo Hapo Dereva
+Konda Nishushe
+Kushuka Gari Likitembea ; ; kind=action
+Kituo cha Mwisho ; ; kind=place
+# ── Bodaboda, bajaji and others ──
+@ lang=sw kind=action diff=easy shelf=evergreen conf=M src=GK
+Kupanda Bodaboda
+Kupatana Bei na Boda
+Bodaboda Bila Helmeti
+Helmeti ; ; kind=thing
+Kijiwe cha Bodaboda ; ; kind=place
+Mshikaki ; Watu watatu kwenye pikipiki ; kind=thing diff=hard src=S19 conf=V note=Maana hii bado inatumika?
+Bodaboda Kwenye Mvua
+Kubeba Mzigo kwa Boda
+Kukodi Bajaji
+Bajaji ya Watu Watatu
+Kuita Bolt ; ; lang=mixed
+Dereva wa Bolt Anakupigia ; ; lang=mixed diff=medium
+Basi la Mkoani ; ; kind=thing
+Tiketi ya Basi ; ; kind=thing
+Kuchelewa Kazini
+Kuamka Alfajiri
+Kutembea kwa Miguu

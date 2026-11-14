@@ -4,7 +4,7 @@
 - **Framework**: React 19 + TypeScript (~7.0) + Vite 8.
 - **Styling**: CSS variables and utility classes in `src/styles/design-tokens.css` plus inline styles (no Tailwind).
 - **Testing**: Vitest for unit tests (`npm test`), and an optional Playwright browser script in `tests/e2e/`.
-- **Local-First Architecture**: Zero mandatory backend for the initial release. All categories, prompts, user settings, recently played categories, and local game history are stored and run client-side (`localStorage` + static TypeScript data modules).
+- **Local-First Architecture**: Zero mandatory backend for the initial release. All categories, prompts, user settings, recently played categories, recently played prompt ideas and local game history are stored and run client-side (`localStorage` + static TypeScript data modules).
 - **Strict Separation of Concerns**:
   - **UI Components** (`src/components/`) are pure and reusable.
   - **Screens / Pages** (`src/pages/`) assemble components for each stage of the user journey.
@@ -14,7 +14,7 @@
 
 ---
 
-## 2. Actual Directory Structure (verified 2026-11-11)
+## 2. Actual Directory Structure (verified 2026-11-14, Phase 5)
 
 > The original plan listed `src/i18n/`, `src/state/`, `services/storage.ts` and others. These **do not exist yet**. The tree below is what is actually in the repo.
 
@@ -26,19 +26,23 @@ bongo-charades/
 │   ├── App.tsx                  # Screen routing + wires game-session actions to screens
 │   ├── components/
 │   │   ├── illustrations/       # SvgGradients, CategoryIcon (26 icons + dice + forehead), UiIcons
-│   │   ├── ui/                  # PrimaryButton, SecondaryButton, CategoryCard, FeaturedCard, Panel, …
+│   │   ├── ui/                  # PrimaryButton, SecondaryButton, CategoryCard, FeaturedCard, Panel,
+│   │   │                        #   RecentPromptsControl ("Forget" recently played prompts), …
 │   │   ├── layout/              # AppShell (portrait/landscape), BottomNav, ErrorBoundary
 │   │   └── gameplay/            # TimerPill, FeedbackIcon, RotateDevicePrompt (+ ScorePill, TiltButton: unused since pre-Phase 5)
 │   ├── config/
-│   │   └── gameplay.ts          # ★ ALL tuning numbers: feedback time, tilt thresholds, calibration
+│   │   ├── gameplay.ts          # ★ ALL tuning numbers: feedback time, tilt thresholds, calibration
+│   │   └── dealing.ts           # ★ Dealing numbers: history size (600), balance rules, lookahead
 │   ├── data/
-│   │   ├── categories.ts        # 26 categories, names never translated
-│   │   ├── prompts.ts           # Prompt bank (GENERATED from scripts/content/build_prompts.py)
-│   │   │                        #   + selectPromptVariants / getFilteredPrompts
-│   │   └── prompts.test.ts      # Content validation (duplicates, language rules, counts)
+│   │   ├── categories.ts        # 29 categories, names never translated
+│   │   ├── promptBank.ts        # GENERATED prompt bank (4,179 prompts), one array per category. Never edit by hand
+│   │   ├── prompts.ts           # PROMPTS + selectPromptVariants / getFilteredPrompts
+│   │   └── prompts.test.ts      # Content validation (counts, duplicates, hints, metadata, language rules)
 │   ├── game/                    # ★ Pure game logic — no React, fully unit-tested
 │   │   ├── gameSession.ts       # Game rules reducer: phases, scoring, team rotation, ranking
-│   │   ├── promptDeck.ts        # Seeded shuffle, no-repeat deck
+│   │   ├── promptDeck.ts        # Seeded Fisher–Yates shuffle, no-repeat deck shared by all teams
+│   │   ├── dealing.ts           # Deal order: fresh before recently played, balanced (no clumps)
+│   │   ├── playHistory.ts       # Recently played ideas, saved on the phone (localStorage)
 │   │   ├── tilt.ts              # Screen-facing angle maths, calibration, relative gesture tracker
 │   │   └── *.test.ts            # Vitest unit tests
 │   ├── hooks/
@@ -60,8 +64,14 @@ bongo-charades/
 │   │                            # Gameplay, RoundTransition, Results, PendingScreen
 │   ├── styles/design-tokens.css
 │   └── types/index.ts
-├── scripts/content/build_prompts.py  # Human-friendly prompt source → src/data/prompts.ts
-├── docs/content/CONTENT_DIRECTION.md # Content rules, research ledger, review list
+├── scripts/content/
+│   ├── check_candidates.py      # Checks the curated lists; writes curation tables + owner tick-lists
+│   └── build_prompts.py         # Curated lists → src/data/promptBank.ts
+├── docs/content/
+│   ├── research/curation/<group>/<category>.txt  # ★ THE editable source of all prompts (29 files)
+│   ├── research/SOURCES.md      # Source registry (57 sources)
+│   ├── PHASE_5_*.md             # Strategy, research report, content audit
+│   └── CONTENT_DIRECTION.md     # Earlier content rules (pre-Phase 5)
 └── tests/e2e/full-game-flow.mjs # Playwright end-to-end browser simulation (optional, see file header)
 ```
 
@@ -94,6 +104,33 @@ Rules worth knowing:
 - **Orientation:** `requestLandscape()` runs inside the starting tap (fullscreen → `screen.orientation.lock('landscape')`, touch devices only). An effect in `App.tsx` calls `releaseLandscape()` whenever the route leaves forehead/countdown/gameplay. On a phone held upright, those three screens render `RotateDevicePrompt`: the countdown restarts and the round timer and tilt pause.
 - **Answer feedback:** `GameplayPage` scores immediately, then shows only the full-screen feedback for `FEEDBACK_MS` (800 ms); all input is ignored until it ends.
 - In development builds the current game state is exposed as `window.__bongoGame` for browser tests.
+
+---
+
+## 2c. Prompt content and dealing (Phase 5)
+
+**Where prompts come from.** The curated lists in `docs/content/research/curation/` are the only source. `scripts/content/build_prompts.py` turns them into `src/data/promptBank.ts`, with one array per category (a single 4,000-item array made TypeScript fail with "union type too complex"). Each prompt has:
+- a stable content-based `id`, such as `anim-lion-en` or `bf-pawa`;
+- `text`, `categoryId`, `language`;
+- optionally `concept` (links translation pairs) and `hint`;
+- `difficulty`, `kind`, `shelf`;
+- optionally `era`, `longTitle`, `needsReview`.
+
+Sources and confidence stay in the research files and are not shipped.
+
+**How a game's pile is built** (`game/dealing.ts`, numbers in `config/dealing.ts`):
+1. `getFilteredPrompts` picks one language version per idea for the chosen categories.
+2. `dealOrder` does a Fisher–Yates shuffle with a fresh seed.
+3. Ideas found in the phone's history (`game/playHistory.ts`, key `bongo-charades:recent-prompts:v1`, last 600 ideas) go to the bottom, oldest first. Nothing is removed, so small categories never run dry.
+4. `balanceOrder` breaks up clumps. When the next card would break a rule, it looks up to 20 cards ahead for one that fits:
+   - the same artist within 6 prompts;
+   - 3 of a minority kind in a row;
+   - 3 from one decade in a row;
+   - 3 hard prompts in a row;
+   - 3 from one category in a row, when several categories are chosen.
+5. All teams play from this one pile (`gameSession` reducer). After it is used up, it is reshuffled and balanced again, and never starts with the last card shown.
+
+`useGameSession` loads the history when a game starts or restarts, and records every prompt the moment it appears on screen. Storage failures are ignored: the game then simply plays without history.
 
 ---
 

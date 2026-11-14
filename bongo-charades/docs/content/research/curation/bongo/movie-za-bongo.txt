@@ -1,0 +1,143 @@
+# Movie za Bongo — Tanzanian film and TV: actors, titles, stock characters and typical scenes.
+# The weakest category for written evidence. Most names are from my own knowledge and need the owner's check.
+@ lang=mixed kind=person diff=easy shelf=evergreen conf=H src=bank,S28
+Steven Kanumba
+Wema Sepetu
+Irene Uwoya
+Monalisa ; Yvonne Cherrie
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=M src=bank
+Ray Kigosi
+JB
+Aunt Ezekiel
+Single Mtambalike ; Richie
+@ lang=mixed kind=title diff=hard shelf=evergreen conf=V src=bank note=Ilikuwa tayari kwenye orodha ya kukagua
+Huba
+Jua Kali
+Ze Comedy
+@ lang=sw kind=action diff=easy shelf=evergreen conf=M src=bank
+Filamu ya Kibongo ; ; kind=thing
+Kuigiza Kulia
+# ── Actors ──
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=H src=S28
+Elizabeth Michael ; Lulu
+Jacqueline Wolper
+Mimi Mars ; ; conf=M diff=hard
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=V src=GK note=Sina chanzo nilichosoma; anajulikana na wengi?
+Kajala Masanja
+Shamsa Ford
+Riyama Ally
+Johari ; Blandina Chagula
+Rose Ndauka
+Odama ; Jennifer Kyaka
+Batuli
+Irene Paul
+Dr. Cheni
+Hemedi PHD
+Gabo Zigamba
+Mzee Chilo
+Bi Mwenda
+Steve Nyerere
+Jimmy Mafufu ; ; diff=hard
+Duma ; Mwigizaji ; diff=hard
+Hashim Kambi ; ; diff=hard
+Natasha ; ; diff=hard
+# ── Comic actors ──
+@ lang=mixed kind=person diff=medium shelf=nostalgia conf=M src=S30
+King Majuto
+@ lang=mixed kind=person diff=medium shelf=nostalgia conf=V src=GK note=Sina chanzo nilichosoma; anajulikana na wengi?
+Kingwendu
+Sharo Milionea
+Muhogo Mchungu ; ; diff=hard
+Mzee Jangala ; ; diff=hard
+# ── Films ──
+@ lang=mixed kind=title diff=hard shelf=nostalgia conf=M src=S28
+Dar 2 Lagos ; Steven Kanumba
+This Is It ; Steven Kanumba
+Uncle JJ ; Steven Kanumba
+Devil Kingdom ; Steven Kanumba
+Big Daddy ; Steven Kanumba
+Sikitiko Langu ; Steven Kanumba
+Dangerous Desire ; Steven Kanumba
+Cross My Sin ; Steven Kanumba
+Village Pastor ; Steven Kanumba
+Kijiji cha Tambua Haki ; Steven Kanumba
+Off Side ; Steven Kanumba
+Red Valentine ; Steven Kanumba
+Young Billionaire ; Steven Kanumba
+Maangamizi ; Filamu ya 2001
+Vuta N'kuvute ; Filamu ya 2021 ; shelf=evergreen
+Bongoland ; Filamu ya 2003
+@ lang=mixed kind=title diff=hard shelf=evergreen conf=V src=GK note=Sina chanzo nilichosoma; inajulikana?
+Girlfriend ; Filamu ya 2003 ; shelf=nostalgia
+Siri ya Mtungi ; Tamthilia
+Binti ; Filamu ya 2021
+T-Junction ; Filamu ya 2017
+Kiumeni ; Filamu ya 2017
+Bahasha ; Filamu ya 2018
+Oprah ; Ray Kigosi ; shelf=nostalgia
+# ── TV series and shows ──
+@ lang=mixed kind=title diff=hard shelf=evergreen conf=V src=GK note=Sina chanzo nilichosoma; inajulikana?
+Kapuni ; Tamthilia
+Sarafu ; Tamthilia
+Pazia ; Tamthilia
+Panguso ; Tamthilia
+Mama Kimbo ; Tamthilia
+Mambo Hayo ; Tamthilia ya zamani ; shelf=nostalgia
+Kaole Sanaa Group ; ; shelf=nostalgia src=S28 conf=M
+Orijino Komedi ; ; src=S30 conf=M
+Futuhi ; Kipindi cha vichekesho
+Mizengwe ; Kipindi cha vichekesho
+Cheka Tu ; ; src=S30 conf=M
+Sultan ; Tamthilia ya Kituruki
+Maisha Magic Bongo ; Chaneli
+Sinema Zetu ; Chaneli
+ZIFF ; Tamasha la filamu Zanzibar
+# ── Stock characters ──
+@ lang=sw kind=person diff=easy shelf=evergreen conf=M src=GK
+Mganga wa Kienyeji
+Mama Mkwe Mkali
+Tajiri Mwenye Kitambi
+Hausigeli
+Mke Mwenza
+Baba Mkali
+Mchungaji Feki
+Binti wa Kijijini
+Mtoto wa Kishua
+Shangazi Mchawi ; ; diff=medium
+Jambazi Sugu
+Polisi wa Filamu
+Daktari wa Filamu
+Mwongozaji ; ; diff=medium
+Mpiga Kamera
+Muuza CD za Filamu ; ; shelf=nostalgia
+# ── Typical scenes ──
+@ lang=sw kind=action diff=easy shelf=evergreen conf=M src=GK
+Kuzimia kwa Mshtuko
+Kupigwa Kofi
+Kufumaniwa
+Kusikiliza Mlangoni
+Kupokea Simu ya Msiba
+Kufukuzwa Nyumbani
+Kurithi Mali
+Kusoma Wosia
+Kutia Sumu Chakulani ; ; diff=medium
+Kugongwa na Gari
+Kuamka Hospitalini
+Kupoteza Kumbukumbu
+Kukutana Baada ya Miaka
+Kupiga Magoti Kuomba Msamaha
+Harusi Imevunjika
+Kulia Mvua Ikinyesha
+Mapigano ya Slow Motion
+Kukimbizwa Usiku
+Ndoto Mbaya
+Part One, Part Two ; ; kind=thing conf=V note=Filamu kugawanywa sehemu mbili: inaeleweka?
+Itaendelea... ; ; kind=phrase
+Filamu Iliyotafsiriwa ; ; kind=thing conf=V note=Filamu za 'DJ' kutafsiri: zinaitwaje kwenu?
+Kuangalia Tamthilia
+Kusubiri Episode Mpya
+Kupiga Makofi Mwishoni
+Action! ; ; lang=mixed kind=phrase
+Kurudia Tukio ; ; diff=medium
+Kusahau Maneno ; ; diff=medium
+Tuzo za Filamu ; ; kind=thing

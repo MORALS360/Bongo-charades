@@ -1,9 +1,9 @@
 # Bongo Charades — Project Status
 
-**Last Updated**: 2026-11-13 (pre-Phase 5 refinement, second pass, branch `phase-4-polish`)  
-**Current Stage**: Phase 4 + pre-Phase 5 refinement complete in the browser. The owner tested the Phase 4 build on a real device via a Cloudflare tunnel. Device checks for the refinement (auto-landscape, iPhone fallback, new feedback) are pending. **Phase 5 has not started.**
+**Last Updated**: 2026-11-14 (Phase 5 complete in the browser; worktree branch `claude/bongo-charades-phase-4-c0f2f7`, not yet committed)  
+**Current Stage**: **Phase 5 (research-driven prompt bank + randomisation) is complete in the browser and in automated tests.** Open: the owner's content tick-lists (492 ideas), one real-phone game with the new content, and committing/merging the work into `phase-5-content`.
 
-> See `PRE_PHASE5_REFINEMENT_REPORT.md` (latest) and `PHASE_4_ACCEPTANCE_REPORT.md`.
+> See `PHASE_5_ACCEPTANCE_REPORT.md` (latest), `PRE_PHASE5_REFINEMENT_REPORT.md` and `PHASE_4_ACCEPTANCE_REPORT.md`.
 
 > See `PHASE_4_ACCEPTANCE_REPORT.md` for the full PASS / PARTIAL / FAIL / DEVICE TEST REQUIRED checklist.
 
@@ -52,6 +52,12 @@
   - Added Vitest (33 unit tests, `npm test`) and an end-to-end browser script (`tests/e2e/full-game-flow.mjs`, 31 checks).
   - Build ✅ · Lint ✅ · Unit tests ✅ · Browser simulation ✅ · **Physical device tilt test ❌ not yet done**.
 
+- [x] **Phase 5 — Research-driven prompt bank and randomisation (2026-11-14)**, seven stages, each approved by the owner:
+  - Audit → research strategy → research (57 sources; chart snapshots in `docs/content/research/data/`) → curation (lists in `docs/content/research/curation/`) → integration → randomisation → testing and docs.
+  - **3,738 ideas / 4,179 prompts.** 27 of 29 categories have 100+ ideas; Car Brands (61) and Watu Maarufu (81) are approved exceptions. 2025–26 hits added; Bongo Flava now runs to the November 2026 charts.
+  - New prompt fields: stable ids, `difficulty`, `kind`, `era`, `shelf`, `longTitle`. 496 prompts carry `needsReview` until the owner's tick-lists are done.
+  - Dealing: fresh Fisher–Yates shuffle each game; teams share one pile; the phone remembers the last 600 ideas and deals fresh ones first; balanced order (no clumps). "Forget" link on Play Mode.
+  - 91 unit tests, build and lint clean. Browser: Quick Play and Teams games played to results; history survives a page reload. Browser simulation script not run (Playwright not installed). Real-phone game not done.
 - [x] **Pre-Phase 5 refinement, second pass (2026-11-13)**:
   - Landscape lock retried on "I'm Ready"; installable app (manifest `display: fullscreen`, icons); `?debug=1` diagnostics; platform matrix in `docs/ORIENTATION.md`.
   - Tilt calibration stage ("Hold still…") → personal neutral; gestures measured relative to it, with smoothing, hold time, hysteresis, cooldown and drift correction. All tuning in `src/config/gameplay.ts`.
@@ -71,11 +77,12 @@
 
 ## 2. Current Codebase State
 - Flow: `#home` → `#categories` → `#play-mode` → (Quick Play → `#forehead`) | (Teams → `#setup` → `#forehead`) → `#calibrate` → `#countdown` → `#gameplay` → `#transition` (Teams, between teams) → `#results`.
-- 29 categories (Classic 11 · Bongo 12 · East Africa & Beyond 6); ~480 prompt ideas / 588 entries; source in `scripts/content/build_prompts.py`.
+- 29 categories (Classic 11 · Bongo 12 · East Africa & Beyond 6); **3,738 prompt ideas / 4,179 prompts**. Editable source: `docs/content/research/curation/<group>/<category>.txt` → `python3 scripts/content/build_prompts.py` → `src/data/promptBank.ts` (generated).
+- Recently played prompt ideas are saved on the phone (`localStorage`, last 600) so new games deal fresh prompts first.
 - Game in progress is held in memory only (refreshing mid-game returns to Setup).
 - `#settings`, `#create`, `#history`: still placeholder screens.
 - Installable (web app manifest + icons); no service worker / offline yet (Phase 7).
-- Git: `main` (pushed by owner) ← `phase-4-audit` (200d9ed) ← `phase-4-polish` (this work). Neither branch has been pushed by Claude.
+- Git: `main` (pushed by owner) ← `phase-4-audit` (200d9ed) ← `phase-4-polish` (267f7c1) ← `phase-5-content` (created, still at 267f7c1). Phase 5 work is uncommitted in the worktree branch `claude/bongo-charades-phase-4-c0f2f7`. Nothing has been pushed by Claude.
 
 ---
 
@@ -91,5 +98,6 @@ npm run lint
 ---
 
 ## 4. Next Planned Task
-1. **Owner:** run the second-pass device checklist at the end of `PRE_PHASE5_REFINEMENT_REPORT.md` (§5 of the second pass) and skim the content review list (`docs/content/CONTENT_DIRECTION.md` §6).
-2. **After approval: Phase 5, Cultural Research & Prompt Bank** (see `DEVELOPMENT_ROADMAP.md`). Not started.
+1. **Owner:** decide how to save the Phase 5 work (commit here, then merge into `phase-5-content`; push only on the owner's say-so).
+2. **Owner:** play one real game on a phone with the new content; work through the tick-lists in `docs/content/research/curation/*_OWNER_REVIEW.md` (Keep / Fix / Drop).
+3. **Then: Phase 6, Gameplay Polish & User Testing** (see `DEVELOPMENT_ROADMAP.md`).
