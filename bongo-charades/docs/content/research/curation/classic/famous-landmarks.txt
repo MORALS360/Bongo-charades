@@ -1,0 +1,114 @@
+# Famous Landmarks — world-famous places. African places already chosen for East African Vibes or African Cities stay there (owner rule, Stage 3C).
+@ lang=mixed kind=place diff=easy shelf=evergreen conf=H src=bank,S50
+Mount Kilimanjaro | Mlima Kilimanjaro
+Pyramids of Giza | Mapiramidi ya Giza
+Eiffel Tower
+Statue of Liberty
+Great Wall of China
+Taj Mahal
+Colosseum
+Burj Khalifa
+Sydney Opera House
+Big Ben
+Christ the Redeemer
+Leaning Tower of Pisa
+Machu Picchu
+Victoria Falls
+Table Mountain
+Golden Gate Bridge
+Mount Everest
+Niagara Falls
+Stonehenge
+Hollywood Sign
+Times Square
+# ── Africa (UNESCO list, S50) ──
+@ lang=mixed kind=place diff=medium shelf=evergreen conf=H src=S50
+Serengeti | Hifadhi ya Serengeti ; ; diff=easy
+Ngorongoro Crater | Kreta ya Ngorongoro ; ; diff=easy
+Kilwa Kisiwani ; ; diff=hard
+Robben Island
+Great Zimbabwe
+Okavango Delta ; ; diff=hard
+Gorée Island ; ; diff=hard
+Aksum Obelisks ; ; diff=hard
+@ lang=mixed kind=place diff=medium shelf=evergreen conf=M src=GK
+Great Sphinx
+Abu Simbel ; ; diff=hard
+Valley of the Kings ; ; diff=hard
+Suez Canal | Mfereji wa Suez
+River Nile | Mto Nile ; ; diff=easy
+Sahara Desert | Jangwa la Sahara ; ; diff=easy
+Cape of Good Hope ; ; diff=hard
+Lake Nyasa | Ziwa Nyasa
+Olduvai Gorge ; ; diff=hard
+Mount Meru | Mlima Meru
+Nyerere Bridge ; ; conf=V note=Not used in Hii Dar Yetu, which has "Daraja la Kigamboni"; drop if confusing
+# ── Europe ──
+@ lang=mixed kind=place diff=medium shelf=evergreen conf=M src=GK,S50
+Louvre Museum
+Arc de Triomphe
+Notre-Dame Cathedral
+Buckingham Palace
+Tower Bridge
+London Eye
+St. Peter's Basilica
+Vatican City
+Sistine Chapel ; ; diff=hard
+Trevi Fountain ; ; diff=hard
+Venice Canals
+Sagrada Família ; ; diff=hard
+Acropolis ; ; diff=hard
+Parthenon ; ; diff=hard
+Kremlin
+Red Square
+Berlin Wall
+Brandenburg Gate ; ; diff=hard
+Neuschwanstein Castle ; ; diff=hard
+Old Trafford ; Uwanja ; diff=easy
+Santiago Bernabéu ; Uwanja
+Camp Nou ; Uwanja
+Anfield ; Uwanja
+Wembley Stadium
+# ── Middle East and Asia ──
+@ lang=mixed kind=place diff=medium shelf=evergreen conf=M src=GK,S50
+Burj Al Arab
+Palm Jumeirah
+Kaaba ; ; conf=V note=Religious site; suitable for charades?
+Petra ; ; diff=hard
+Dead Sea | Bahari ya Chumvi
+Hagia Sophia ; ; diff=hard
+Blue Mosque ; ; diff=hard
+Mount Fuji
+Forbidden City
+Terracotta Army ; ; diff=hard
+Petronas Towers
+Marina Bay Sands ; ; diff=hard
+Angkor Wat ; ; diff=hard
+Golden Temple ; ; diff=hard
+# ── The Americas and Oceania ──
+@ lang=mixed kind=place diff=medium shelf=evergreen conf=M src=GK,S50
+Grand Canyon
+Mount Rushmore
+White House | Ikulu ya Marekani ; ; diff=easy
+Empire State Building
+Central Park
+Disneyland ; ; diff=easy
+Las Vegas Strip
+Yellowstone ; ; diff=hard
+Hoover Dam ; ; diff=hard
+Panama Canal
+Amazon Rainforest | Msitu wa Amazon
+Iguazu Falls ; ; diff=hard
+Chichen Itza ; ; diff=hard
+CN Tower ; ; diff=hard
+Galápagos Islands ; ; diff=hard
+Easter Island ; ; diff=hard
+Great Barrier Reef
+Uluru ; ; diff=hard
+# ── Natural wonders ──
+@ lang=mixed kind=place diff=medium shelf=evergreen conf=M src=GK,S50
+North Pole | Ncha ya Kaskazini
+Antarctica
+Pacific Ocean | Bahari ya Pasifiki
+Indian Ocean | Bahari ya Hindi ; ; diff=easy
+Northern Lights

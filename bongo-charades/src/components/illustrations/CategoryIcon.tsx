@@ -9,7 +9,7 @@ interface CategoryIconProps {
 }
 
 /**
- * Renders the exact 64x64 viewBox vector illustration for each of the 26 categories,
+ * Renders the exact 64x64 viewBox vector illustration for each category (29 as of 2026-11-13),
  * extracted verbatim from the master Claude Design HTML export.
  * Requires <SvgGradients /> to be mounted once in the application tree.
  */
@@ -95,12 +95,58 @@ function renderCategoryArtwork(icon: CategoryIconId): ReactNode {
         </>
       )
 
-    case 'countries-places':
+    case 'countries':
       return (
         <>
           <circle cx="32" cy="32" r="22" fill="url(#B)" />
           <path d="M18 24c6-6 12 0 10 6s-8 4-10-2z" fill="url(#G)" />
           <path d="M38 34c6-2 10 4 6 10s-10 0-6-10z" fill="url(#G)" />
+        </>
+      )
+
+    case 'famous-landmarks':
+      // Two pyramids under a sun — a world-landmark motif in the house SVG style
+      return (
+        <>
+          <circle cx="47" cy="15" r="8" fill="url(#Y)" />
+          <path d="M4 54L24 20l20 34z" fill="url(#O)" />
+          <path d="M24 20l20 34H30z" fill="url(#R)" />
+          <path d="M32 54l14-22 14 22z" fill="url(#Y)" />
+          <rect x="2" y="53" width="60" height="5" rx="2.5" fill="url(#W)" />
+        </>
+      )
+
+    case 'car-brands':
+      return (
+        <>
+          <path d="M14 30l6-11h22l8 11z" fill="url(#W)" />
+          <rect x="6" y="28" width="52" height="16" rx="7" fill="url(#R)" />
+          <rect x="22" y="22" width="9" height="7" rx="2" fill="url(#B)" />
+          <rect x="34" y="22" width="9" height="7" rx="2" fill="url(#B)" />
+          <circle cx="18" cy="45" r="7" fill="url(#K)" />
+          <circle cx="46" cy="45" r="7" fill="url(#K)" />
+          <circle cx="18" cy="45" r="2.5" fill="url(#W)" />
+          <circle cx="46" cy="45" r="2.5" fill="url(#W)" />
+          <rect x="52" y="32" width="5" height="4" rx="2" fill="url(#Y)" />
+        </>
+      )
+
+    case 'famous-brands':
+      // Shopping bag with a star tag
+      return (
+        <>
+          <path
+            d="M24 22v-5a8 8 0 0116 0v5"
+            stroke="#FFC83A"
+            strokeWidth="4"
+            strokeLinecap="round"
+            fill="none"
+          />
+          <rect x="12" y="20" width="40" height="36" rx="7" fill="url(#M)" />
+          <path
+            d="M32 29l3 6.2 6.8 1-4.9 4.8 1.2 6.8L32 44.6l-6.1 3.2 1.2-6.8-4.9-4.8 6.8-1z"
+            fill="url(#Y)"
+          />
         </>
       )
 
@@ -205,14 +251,20 @@ function renderCategoryArtwork(icon: CategoryIconId): ReactNode {
         </>
       )
 
-    case 'vijiweni':
+    case 'zilipendwa':
+      // Vintage radio — Tanzanian throwback music (Radio Tanzania era to the 2000s)
       return (
         <>
-          <rect x="5" y="10" width="36" height="26" rx="12" fill="url(#T)" />
-          <rect x="23" y="28" width="36" height="26" rx="12" fill="url(#Y)" />
-          <circle cx="15" cy="23" r="3" fill="url(#W)" />
-          <circle cx="23" cy="23" r="3" fill="url(#W)" />
-          <circle cx="31" cy="23" r="3" fill="url(#W)" />
+          <path d="M40 17L52 5" stroke="#FFC83A" strokeWidth="3" strokeLinecap="round" />
+          <circle cx="52" cy="5" r="3" fill="url(#Y)" />
+          <rect x="5" y="16" width="54" height="38" rx="9" fill="url(#O)" />
+          <circle cx="23" cy="35" r="12" fill="url(#K)" />
+          <circle cx="19" cy="31" r="2" fill="url(#W)" />
+          <circle cx="27" cy="31" r="2" fill="url(#W)" />
+          <circle cx="19" cy="39" r="2" fill="url(#W)" />
+          <circle cx="27" cy="39" r="2" fill="url(#W)" />
+          <rect x="40" y="24" width="13" height="7" rx="3.5" fill="url(#W)" />
+          <circle cx="46.5" cy="43" r="5.5" fill="url(#Y)" />
         </>
       )
 

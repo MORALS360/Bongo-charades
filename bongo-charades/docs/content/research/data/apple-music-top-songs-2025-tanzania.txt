@@ -1,0 +1,102 @@
+# Apple Music 'Top Songs of 2025: Tanzania' (plays Nov 2024 - Oct 2025). Source: https://music.apple.com/us/playlist/top-songs-of-2025-tanzania/pl.f03421d314de4ce58cf983d6632c2433 (accessed 2026-11-13)
+# position|track title (the page data did not include artist names)
+1|Nairobi
+2|Pawa
+3|Olodumare
+4|Me too
+5|Wangu
+6|Furaha
+7|Tunapendana (feat. Mbosso)
+8|My Darling
+9|Sober
+10|Residuals
+11|Biri Marung (feat. Sje Konka, Focalistic, DJ Maphorisa, Scotts Maphuma & CowBoii)
+12|With You (feat. Omah Lay)
+13|Isaka (6am)
+14|Holiday
+15|Salioo
+16|Salama (feat. Diamond Platnumz)
+17|Angel Numbers / Ten Toes
+18|Die With A Smile
+19|Aviola
+20|Laho
+21|luther
+22|Ordinary
+23|UNANCHEKESHA (Move On)
+24|Delusional
+25|Ngibolekeni (feat. Sean 1401, Leemckrazy, Blxckie, Pcee, Madumane & Kabelo Sings)
+26|Merijaah
+27|TETE
+28|Venus
+29|Ngishutheni
+30|2025
+31|Mazoea
+32|Mwizi
+33|Katam (feat. Bien)
+34|Joy is Coming
+35|ZENZELE (feat. Royal Musiq, CowBoii, Uncool MC & Xduppy)
+36|HA HA HA
+37|Not Like Us
+38|Arike
+39|Wale Wale (feat. Diamond Platnumz)
+40|Antenna
+41|BIRDS OF A FEATHER
+42|Looking For Love (feat. Mbosso)
+43|DUNIA
+44|Zali (feat. Alikiba)
+45|Nusu Saa
+46|OLOLUFE MI
+47|MVUA
+48|Mayday
+49|Tila Lila (feat. MwanaFA)
+50|KANTE (feat. Fave)
+51|Hakuna Matata
+52|Siko Single
+53|Extra Pressure
+54|My Darling (Mpenzi Wangu)
+55|Ngozi
+56|Fitingi (feat. Marioo)
+57|You Better Go
+58|Under the Influence
+59|K.O
+60|Jirani
+61|Last Heartbreak Song
+62|No One
+63|Commas
+64|Mapoz (feat. Mr. Blue & Jay Melody)
+65|GOD DESIGN
+66|Baby (Is It A Crime)
+67|Wrong Places
+68|Yebo (Nitawale)
+69|Babu (feat. Masterpiece_Yvk)
+70|Naogopa
+71|WILDFLOWER
+72|4 Kampé
+73|Wishi Wishi (feat. Scotts Maphuma & Young Stunna)
+74|Ova
+75|Msumari
+76|Top Notch (feat. Marioo)
+77|Bongoman (feat. Dj Awakening & S2Kizzy) [Remix]
+78|Uzizwa Kanjan
+79|Lonely At The Top
+80|Timeless
+81|Love Song
+82|Down (feat. Lintonto & Xman Rsa)
+83|Khuze (feat. Ney, Scotts Maphuma & CowBoii)
+84|Nani (feat. Zuchu)
+85|Pini
+86|Makonzi
+87|American Love
+88|Gere (feat. Alikiba)
+89|Ogechi (feat. Davido) [Remix]
+90|Bengicela (feat. JAZZWRLD)
+91|Yebo Lapho (Gogo) [feat. DJ Maphorisa & Djy Biza]
+92|Alhamdulillah
+93|4 Kampé II
+94|Kuna
+95|Copy & Paste
+96|Bila Bila
+97|Sensational (feat. Davido & Lojay)
+98|UNAVAILABLE (feat. Musa Keys)
+99|Wewe na mimi (feat. Jay melody) [bongo Flava]
+100|Afande

@@ -4,18 +4,29 @@ import { playTimeUpSound } from '../services/soundEffects'
 interface UseGameTimerOptions {
   durationSeconds: number
   active: boolean
+  /** While true the clock is frozen (e.g. the phone was turned to portrait) */
+  paused?: boolean
   onTimeUp: () => void
   soundEnabled?: boolean
 }
 
 /**
- * Hook providing a drift-free countdown timer for gameplay rounds.
- * Uses timestamp delta calculation (`Date.now()`) to guarantee clock precision.
- * Automatically stops at 0 and prevents post-round input.
+ * Round countdown timer.
+ *
+ * How it stays accurate: instead of "subtract 1 every second" (which drifts when the
+ * phone is busy), we keep the time REMAINING and, while running, an exact END time.
+ * Every 200 ms we compute "how long until the end". Pausing stores what's left;
+ * resuming sets a new end time from it.
+ *
+ * `hasExpired()` lets the gameplay screen reject an answer that arrives in the
+ * split-second between the real deadline and the next 200 ms tick.
+ *
+ * The parent remounts this hook (via a React `key`) for each new round.
  */
 export function useGameTimer({
   durationSeconds,
   active,
+  paused = false,
   onTimeUp,
   soundEnabled = true,
 }: UseGameTimerOptions) {
@@ -23,72 +34,56 @@ export function useGameTimer({
   const [isTimeUp, setIsTimeUp] = useState<boolean>(false)
 
   const onTimeUpRef = useRef(onTimeUp)
-  onTimeUpRef.current = onTimeUp
+  const soundEnabledRef = useRef(soundEnabled)
+  useEffect(() => {
+    onTimeUpRef.current = onTimeUp
+    soundEnabledRef.current = soundEnabled
+  }, [onTimeUp, soundEnabled])
 
+  const remainingMsRef = useRef(durationSeconds * 1000)
   const endTimeRef = useRef<number | null>(null)
-  const intervalIdRef = useRef<number | null>(null)
-  const isTimeUpFiredRef = useRef<boolean>(false)
-
-  const handleTimeUp = useCallback(() => {
-    if (isTimeUpFiredRef.current) return
-    isTimeUpFiredRef.current = true
-    setIsTimeUp(true)
-    setSecondsRemaining(0)
-
-    if (intervalIdRef.current) {
-      window.clearInterval(intervalIdRef.current)
-      intervalIdRef.current = null
-    }
-
-    if (soundEnabled) {
-      playTimeUpSound()
-    }
-
-    onTimeUpRef.current()
-  }, [soundEnabled])
+  const firedRef = useRef(false)
 
   useEffect(() => {
-    if (!active) {
-      setSecondsRemaining(durationSeconds)
-      setIsTimeUp(false)
-      isTimeUpFiredRef.current = false
-      if (intervalIdRef.current) {
-        window.clearInterval(intervalIdRef.current)
-        intervalIdRef.current = null
-      }
+    if (!active || paused || firedRef.current) {
+      endTimeRef.current = null
       return
     }
 
-    setIsTimeUp(false)
-    isTimeUpFiredRef.current = false
-    setSecondsRemaining(durationSeconds)
+    const endTime = Date.now() + remainingMsRef.current
+    endTimeRef.current = endTime
 
-    const startTime = Date.now()
-    const targetEndTime = startTime + durationSeconds * 1000
-    endTimeRef.current = targetEndTime
+    const tick = () => {
+      const remainingMs = endTime - Date.now()
+      remainingMsRef.current = Math.max(0, remainingMs)
+      setSecondsRemaining(Math.max(0, Math.ceil(remainingMs / 1000)))
 
-    intervalIdRef.current = window.setInterval(() => {
-      const now = Date.now()
-      const remainingMs = targetEndTime - now
-      const secondsLeft = Math.max(0, Math.ceil(remainingMs / 1000))
-
-      setSecondsRemaining(secondsLeft)
-
-      if (remainingMs <= 0) {
-        handleTimeUp()
-      }
-    }, 200)
-
-    return () => {
-      if (intervalIdRef.current) {
-        window.clearInterval(intervalIdRef.current)
-        intervalIdRef.current = null
+      if (remainingMs <= 0 && !firedRef.current) {
+        firedRef.current = true
+        window.clearInterval(intervalId)
+        setIsTimeUp(true)
+        if (soundEnabledRef.current) playTimeUpSound()
+        onTimeUpRef.current()
       }
     }
-  }, [active, durationSeconds, handleTimeUp])
+
+    const intervalId = window.setInterval(tick, 200)
+    return () => {
+      window.clearInterval(intervalId)
+      // Remember exactly how much time was left when pausing / unmounting
+      remainingMsRef.current = Math.max(0, endTime - Date.now())
+      endTimeRef.current = null
+    }
+  }, [active, paused])
+
+  const hasExpired = useCallback(() => {
+    if (firedRef.current) return true
+    return endTimeRef.current !== null && Date.now() >= endTimeRef.current
+  }, [])
 
   return {
     secondsRemaining,
     isTimeUp,
+    hasExpired,
   }
 }

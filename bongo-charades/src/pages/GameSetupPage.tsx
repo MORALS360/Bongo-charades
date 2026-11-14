@@ -2,18 +2,13 @@ import { Panel } from '../components/ui/Panel'
 import { PrimaryButton } from '../components/ui/PrimaryButton'
 import { CategoryChip } from '../components/ui/CategoryChip'
 import { SegmentedControl } from '../components/ui/SegmentedControl'
-import type {
-  Category,
-  PromptLanguage,
-  RoundDuration,
-  TeamCount,
-} from '../types'
+import type { Category, PromptLanguage, RoundDuration } from '../types'
 
 interface GameSetupPageProps {
   selectedCategories: Category[]
   isFeelingLucky: boolean
   durationSeconds: RoundDuration
-  teams: TeamCount
+  teams: number
   teamNames: string[]
   activeTeamNames: string[]
   promptLanguage: PromptLanguage
@@ -21,13 +16,21 @@ interface GameSetupPageProps {
   isTeamNamesValid: boolean
   emptyTeamIndices: number[]
   onDurationChange: (duration: RoundDuration) => void
-  onTeamsChange: (teams: TeamCount) => void
+  canAddTeam: boolean
+  canRemoveTeam: boolean
+  onAddTeam: () => void
+  onRemoveTeam: (index: number) => void
   onTeamNameChange: (index: number, name: string) => void
   onPromptLanguageChange: (lang: PromptLanguage) => void
   onRemoveCategory: (category: Category) => void
   onBackToCategories: () => void
+  /** Header back link (defaults to Categories) */
+  onBack?: () => void
+  backLabel?: string
   onStartGame: () => void
   onResetDefaults?: () => void
+  /** If set, Start Game is disabled and this message is shown (e.g. no prompts available) */
+  startBlockedMessage?: string
 }
 
 const DURATION_OPTIONS: { value: RoundDuration; label: string }[] = [
@@ -35,12 +38,6 @@ const DURATION_OPTIONS: { value: RoundDuration; label: string }[] = [
   { value: 60, label: '60s' },
   { value: 90, label: '90s' },
   { value: 120, label: '120s' },
-]
-
-const TEAM_OPTIONS: { value: TeamCount; label: string }[] = [
-  { value: 2, label: '2' },
-  { value: 3, label: '3' },
-  { value: 4, label: '4' },
 ]
 
 const PROMPT_LANG_OPTIONS: { value: PromptLanguage; label: string }[] = [
@@ -71,16 +68,22 @@ export function GameSetupPage({
   isTeamNamesValid,
   emptyTeamIndices,
   onDurationChange,
-  onTeamsChange,
+  canAddTeam,
+  canRemoveTeam,
+  onAddTeam,
+  onRemoveTeam,
   onTeamNameChange,
   onPromptLanguageChange,
   onRemoveCategory,
   onBackToCategories,
+  onBack,
+  backLabel = 'Categories',
   onStartGame,
   onResetDefaults,
+  startBlockedMessage,
 }: GameSetupPageProps) {
   const hasCategories = isFeelingLucky || selectedCategories.length > 0
-  const canStartGame = hasCategories && isTeamNamesValid
+  const canStartGame = hasCategories && isTeamNamesValid && !startBlockedMessage
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -95,7 +98,7 @@ export function GameSetupPage({
       >
         <button
           type="button"
-          onClick={onBackToCategories}
+          onClick={onBack ?? onBackToCategories}
           style={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -105,10 +108,10 @@ export function GameSetupPage({
             color: '#FFC83A',
             padding: '4px 0',
           }}
-          aria-label="Back to Categories"
+          aria-label={`Back to ${backLabel}`}
         >
           <span>←</span>
-          <span>Categories</span>
+          <span>{backLabel}</span>
         </button>
 
         {onResetDefaults && (
@@ -188,7 +191,7 @@ export function GameSetupPage({
                   opacity: 0.9,
                 }}
               >
-                Playing random words across all 26 categories.
+                Playing random words across all categories.
               </p>
             </div>
           </div>
@@ -243,13 +246,10 @@ export function GameSetupPage({
 
       {/* B. Teams Setup Panel */}
       <Panel>
-        <b>Teams</b>
-        <SegmentedControl
-          ariaLabel="Number of teams"
-          options={TEAM_OPTIONS}
-          value={teams}
-          onChange={onTeamsChange}
-        />
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+          <b>Teams</b>
+          <span style={{ fontSize: 13, fontWeight: 700, opacity: 0.85 }}>{teams} teams</span>
+        </div>
 
         <div
           style={{
@@ -275,6 +275,16 @@ export function GameSetupPage({
                     aria-label={`Name for Team ${index + 1}`}
                     aria-invalid={hasError}
                   />
+                  {canRemoveTeam && (
+                    <button
+                      type="button"
+                      className="team-remove"
+                      onClick={() => onRemoveTeam(index)}
+                      aria-label={`Remove Team ${index + 1}`}
+                    >
+                      ×
+                    </button>
+                  )}
                 </div>
                 {hasError && (
                   <span
@@ -292,6 +302,11 @@ export function GameSetupPage({
             )
           })}
         </div>
+        {canAddTeam && (
+          <button type="button" className="team-add" onClick={onAddTeam}>
+            + Add team
+          </button>
+        )}
       </Panel>
 
       {/* C. Duration Panel */}
@@ -336,7 +351,7 @@ export function GameSetupPage({
             <span style={{ opacity: 0.8 }}>Categories:</span>
             <span style={{ color: '#FFC83A', textAlign: 'right' }}>
               {isFeelingLucky
-                ? '🎲 Feeling lucky? (All 26)'
+                ? '🎲 Feeling lucky? (All)'
                 : `${selectedCategories.length} selected`}
             </span>
           </div>
@@ -371,7 +386,9 @@ export function GameSetupPage({
           >
             {!hasCategories
               ? 'Select at least one category to start.'
-              : 'Please enter a name for all active teams.'}
+              : !isTeamNamesValid
+                ? 'Please enter a name for all active teams.'
+                : startBlockedMessage}
           </p>
         )}
         <PrimaryButton

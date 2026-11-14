@@ -1,0 +1,133 @@
+# Shughuli za Familia — family events and gatherings: weddings, parties, religious days, mourning (handled gently), and family roles.
+@ lang=sw kind=thing diff=easy shelf=evergreen conf=M src=bank
+Kitchen Party ; ; lang=mixed src=bank,S35
+Kikao cha Harusi
+Mkesha wa Mwaka Mpya
+Kipaimara
+Kadi ya Mchango
+Bibi Harusi ; ; kind=person
+MC wa Sherehe ; ; kind=person
+Sherehe ya Kuzaliwa
+Shikamoo ; ; kind=phrase
+Shangazi ; ; kind=person
+Mjomba ; ; kind=person
+Bibi na Babu ; ; kind=person
+Masufuria ya Sherehe
+# ── Wedding people ──
+@ lang=sw kind=person diff=easy shelf=evergreen conf=M src=GK
+Bwana Harusi
+Maharusi
+Mpambe wa Bibi Harusi
+Mpambe wa Bwana Harusi
+Matron ; ; lang=mixed conf=V note=Je, husemwa 'matron' au jina lingine?
+Wazazi wa Maharusi
+Kamati ya Harusi ; ; kind=thing
+Mwenyekiti wa Kamati
+Mgeni Rasmi
+Mpiga Picha
+DJ wa Harusi ; ; lang=mixed
+Wapishi wa Sherehe
+# ── Wedding day ──
+@ lang=sw kind=action diff=easy shelf=evergreen conf=M src=GK
+Maharusi Wanaingia Ukumbini
+Kukata Keki
+Kulishana Keki
+Kufungua Shampeni
+Kurusha Shada la Maua
+Kupiga Vigelegele
+Kutunza Maharusi ; Kuwapa pesa wakicheza ; diff=medium
+Kutoa Zawadi
+Kufungua Dansi
+Kiapo cha Ndoa ; ; kind=thing
+Pete za Ndoa ; ; kind=thing
+Shela ; Gauni la bibi harusi ; kind=thing
+Suti ya Bwana Harusi ; ; kind=thing
+Sare ya Harusi ; Nguo za kufanana ; kind=thing diff=medium
+Msafara wa Harusi ; ; kind=thing
+Gari la Maharusi ; ; kind=thing
+Ukumbi wa Sherehe ; ; kind=place
+Kupamba Ukumbi
+Meza Kuu ; ; kind=thing
+Hotuba Ndefu ; ; kind=thing
+Nasaha kwa Maharusi ; ; kind=thing diff=medium
+Ndafu ; Mbuzi mzima wa sherehe ; kind=food diff=medium conf=V note=Inajulikana kwa jina hili?
+Foleni ya Chakula ; ; kind=thing
+Chakula Kimeisha
+Kufunga Chakula Nyumbani ; ; diff=medium
+Kreti ya Soda ; ; kind=thing
+Kugawa Soda
+Kuchelewa Kuanza Sherehe
+Video ya Harusi ; ; kind=thing
+Kuchangia Harusi
+Kuahidi Mchango
+Kumuaga Binti ; ; diff=medium
+Kupaka Hina ; ; diff=medium
+Zawadi za Vyombo ; ; kind=thing diff=medium
+Kanga za Sare ; ; kind=thing diff=medium
+# ── Other celebrations ──
+@ lang=sw kind=thing diff=easy shelf=evergreen conf=M src=GK
+Baby Shower ; ; lang=mixed
+Ubatizo
+Komunyo ya Kwanza
+Akika ; ; diff=hard
+Arobaini ya Mtoto ; ; diff=hard conf=V note=Inajulikana kwa jina hili?
+Maulidi ; ; diff=medium
+Sikukuu ya Iddi
+Futari
+Daku ; ; diff=medium
+Krismasi
+Mti wa Krismasi
+Pasaka
+Nguo Mpya za Sikukuu
+Fataki
+Kwenda Kijijini Krismasi ; ; kind=action
+Mahafali ya Chekechea
+Sherehe ya Kumaliza Shule
+Kuzima Mishumaa ; ; kind=action
+Kumwagiwa Maji Birthday ; ; lang=mixed kind=action conf=V note=Desturi hii ipo kwenu?
+Keki ya Birthday ; ; lang=mixed
+Kuhamia Nyumba Mpya ; ; kind=action
+Ngoma ya Asili
+Jando ; ; diff=hard conf=V note=Inafaa kwa mchezo?
+# ── Mourning (kept gentle) ──
+@ lang=sw kind=thing diff=medium shelf=evergreen conf=M src=GK note=Mada nyeti; ibaki au iondolewe?
+Msiba ; ; conf=V
+Kutoa Pole ; ; kind=action conf=V
+Mchango wa Msiba ; ; conf=V
+# ── Family roles ──
+@ lang=sw kind=person diff=easy shelf=evergreen conf=M src=GK
+Baba Mkubwa
+Baba Mdogo
+Mama Mkubwa
+Mama Mdogo
+Binamu
+Mpwa ; ; diff=medium
+Mjukuu
+Kaka Mkubwa
+Dada Mdogo
+Kitinda Mimba ; Mtoto wa mwisho ; diff=medium
+Kifungua Mimba ; Mtoto wa kwanza ; diff=medium
+Mapacha
+Wakwe
+# ── Family gatherings ──
+@ lang=sw kind=action diff=easy shelf=evergreen conf=M src=GK
+Kikao cha Familia ; ; kind=thing
+Kikao cha Ukoo ; ; kind=thing diff=medium
+WhatsApp Group la Familia ; ; lang=mixed kind=thing
+Picha ya Familia ; ; kind=thing
+Wageni Wamekuja
+Kumpokea Mgeni
+Kuandaa Chai ya Wageni
+Kusalimia Wakubwa
+Marahaba ; ; kind=phrase
+Kupiga Magoti Kusalimia ; ; diff=medium
+Kuombewa Baraka
+Hadithi za Babu ; ; kind=thing
+Kurudi Kijijini
+Zawadi za Kijijini ; ; kind=thing
+Kumtembelea Bibi
+Watoto Wanakula Jikoni ; ; diff=medium
+Kuosha Vyombo vya Sherehe
+Kucheza Muziki na Shangazi
+Ratiba ya Sherehe ; ; kind=thing
+Kuchinja Mbuzi

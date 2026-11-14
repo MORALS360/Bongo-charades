@@ -136,3 +136,32 @@ Every custom SVG illustration shares 9 global radial gradients:
 - **`History` Tab (in BottomNav)**: Present in the bottom navigation bar (note: Artboard 6 Settings shows `History` highlighted in the BottomNav, likely an export artifact), and does not have a dedicated History artboard.
 - **`Rewards` Gift Button (on Categories header)**: Top-right gift box icon button next to Settings on the Categories screen has no dedicated modal/screen in the export.
 - **Word List / Prompt Review on Results**: Results shows aggregate `Correct` and `Passed` counts (`12` and `3`); whether tapping those panels or scrolling reveals the individual words played can be decided during implementation.
+
+
+---
+
+## Addendum — Pre-Phase 5 refinement (2026-11-12)
+
+New and changed screens. They reuse existing tokens; no new colour system.
+
+| Element | Spec |
+|---|---|
+| **Play Mode screen** (new, portrait) | Back link (yellow), page title 36px "How do you want to play?", category summary. **Quick Play** card = Featured gradient (`#FFC83A → #F59A23`, night text). **Teams** card = `c2` purple `#8A55E8` + card border/shadow. Both 132px min height, radius 24. "Round length" + "Prompt language" segmented controls in a panel. |
+| **Teams list** (Game Setup) | Segmented 2/3/4 replaced by a list: 2 teams default, `+ Add team` (dashed pill), `×` remove (44px icon circle style) when more than 2. Max 8. |
+| **Instructions + countdown** | 230px golden countdown circle + column: "HOW TO ANSWER" label (yellow, uppercase), green tile "↓ Tilt down / CORRECT", red tile "↑ Tilt up / PASS", 3-2-1-GO pills (46px). |
+| **Gameplay** | Timer pill top-left; yellow category label; prompt 88px Baloo 2 (scales down); optional hint line 18px. No score pill, no tilt buttons. Fallback pills (44px, HUD surface, red/green outline) only without motion data. |
+| **Answer feedback** | Full screen. Correct = `radial-gradient(#3CCF6E → #1E9E4A)` (design `#G` family). Pass = `radial-gradient(#F2545F → #D62839)` (design `#R` family). White ringed icon 128px + Baloo 2 96px uppercase word. 800 ms. |
+| **Rotate prompt** | Full-screen app gradient, animated phone (rotates −90°), yellow arrow, "Turn your phone sideways". |
+| **Zilipendwa icon** | Vintage radio in the 64×64 style: `#O` body, `#K` speaker, `#W` grille/dial, `#Y` knob and antenna. |
+| **Consistency fixes** | On phones/tablets the app gradient is pinned to the viewport, so long screens don't fade to lavender. Panels (`.pl`) use a deep-purple tint `rgba(62,47,168,0.32)` (from the nav-bar colour) + card border + card shadow instead of plain 16% white, matching Home's cards. |
+
+
+## Addendum 2 — Second refinement pass (2026-11-13)
+| Element | Spec |
+|---|---|
+| **Get Ready** | Two columns: forehead illustration (290×196) and content. Teams only: yellow 14px line "Team 1 of 3 · Wana Dar" (no bubble). "Get ready!" 36px. Lead text 16px. Two control chips side by side: green "✓ **Tilt down** = Correct", red "⏩ **Tilt up** = Pass" (feedback gradients, 30px icons, card shadow). Hint 13px "Tap Ready, then hold still for a moment." I'm Ready (54px), Back / Home outlined. |
+| **Calibration** | Centred breathing ring (150px, 6px white 35% border) with a golden dot, "Hold still…" Baloo 2 44px. |
+| **Countdown** | Only the golden circle (up to 270px, 16px white ring), number 170px / "GO!" 104px. No pills, no text. |
+| **Feedback** | Unchanged visuals; duration 450 ms. |
+| **New category icons** | Famous Landmarks: pyramids + sun (`#O`/`#R`/`#Y`, `#W` ground). Car Brands: red car (`#R` body, `#W` roof, `#B` windows, `#K` wheels, `#Y` light). Famous Brands: magenta bag (`#M`) with yellow star tag and handle. Countries keeps the globe. |
+| **App icon** | `public/icon.svg` → PNG 192/512/maskable/apple-touch: app gradient, golden phone with "?" on a night-purple frame, three friend dots (`#O`, `#T`, `#M`). Replaces the Vite starter favicon. |

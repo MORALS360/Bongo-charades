@@ -1,0 +1,52 @@
+# Spotify weekly chart, Nigeria, top 50. Chart dated 2026-11-12. Source: https://kworb.net/spotify/country/ng_weekly.html (accessed 2026-11-14)
+# position|artist - track|weeks on chart|peak
+1|Peruzzi - INFERNO (w/ Zlatan , Shoday )|wks 3|pk 1
+2|BNXN - If You Like|wks 7|pk 2
+3|Seyi Vibez - BACK 2 U|wks 11|pk 1
+4|Asake - Gratitude|wks 28|pk 1
+5|Blaqbonez - IKEBE 3000 (w/ Asake )|wks 6|pk 1
+6|FOLA - miss u ii (nriri)|wks 6|pk 3
+7|Davido - B4 B4 (w/ Mayorkun , FOLA )|wks 15|pk 1
+8|Rema - Oh No|wks 9|pk 1
+9|FOLA - waf|wks 5|pk 2
+10|Seyi Vibez - GTA|wks 15|pk 2
+11|Asake - Forgiveness|wks 28|pk 1
+12|BNXN - Back Outside (w/ Sarz )|wks 30|pk 1
+13|Double Gee2x - Ore Agbako|wks 4|pk 9
+14|BNXN - Eja Meja (w/ Asake )|wks 16|pk 3
+15|BNXN - Online|wks 9|pk 5
+16|Blaqbonez - Chanel (w/ Asake )|wks 25|pk 1
+17|Kidd Carder - Big Bum Bum (w/ Mavo )|wks 37|pk 1
+18|Seyi Vibez - ILOME|wks 8|pk 1
+19|FOLA - attention!|wks 13|pk 10
+20|FOLA - treat u right (w/ Ayra Starr )|wks 19|pk 2
+21|Asake - MCBH|wks 28|pk 3
+22|Young Jonn - Elumelu|wks 24|pk 3
+23|Blaqbonez - BIG PERFORMER|wks 11|pk 3
+24|Seyi Vibez - VOLUME|wks 8|pk 1
+25|Victony - SLICK|wks 19|pk 1
+26|Skepta - Aloe Vera (w/ Asake , Lex Luger , Vanco )|wks 1|pk 26
+27|BNXN - 16|wks 7|pk 9
+28|FOLA - my type (w/ BNXN )|wks 5|pk 21
+29|FOLA - it's over (w/ Bella Shmurda , Zlatan )|wks 9|pk 3
+30|Rema - FUN|wks 62|pk 1
+31|Rema - TEA|wks 14|pk 3
+32|Darkoo - THAT GIRL! (w/ Asake )|wks 14|pk 13
+33|Seyi Vibez - DIAMONDS|wks 8|pk 7
+34|Seyi Vibez - PANSA|wks 8|pk 5
+35|FOLA - 2am in toronto (w/ Davido )|wks 5|pk 12
+36|BNXN - Shamaya (w/ FOLA )|wks 7|pk 12
+37|Seyi Vibez - GOD|wks 8|pk 6
+38|FOLA - fine ting (fine $hit)|wks 29|pk 11
+39|Asake - Wa|wks 28|pk 5
+40|Asake - Remember|wks 178|pk 9
+41|TxC - Nakupenda (w/ Davido , Shoday , Scotts Maphuma , Zlatan , Al Xapo )|wks 48|pk 3
+42|Wizkid - Jogodo (w/ Asake )|wks 43|pk 1
+43|TUFF KING - Waka Waka|wks 12|pk 16
+44|DJ Maphorisa - MONEY CONSTANT (w/ DJ Tunez , Wizkid , Mavo )|wks 55|pk 1
+45|BNXN - Very Soon (w/ FOLA )|wks 76|pk 1
+46|Asake - Nzaza|wks 189|pk 6
+47|OctobersRich - Nnamdi Azikiwe|wks 2|pk 47
+48|Famous Pluto - Tap Am|wks 13|pk 6
+49|Davido - I Know Who I Be (w/ JAZZWRLD , GL_Ceejay )|wks 20|pk 4
+50|Victony - TWIN (w/ FOLA )|wks 12|pk 32

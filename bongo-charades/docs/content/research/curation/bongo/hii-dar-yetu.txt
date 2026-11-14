@@ -1,0 +1,133 @@
+# Hii Dar Yetu — Dar es Salaam only: places, landmarks, and what living there feels like.
+@ lang=sw kind=place diff=easy shelf=evergreen conf=H src=bank,S23
+Kariakoo
+Coco Beach ; ; lang=mixed
+Mlimani City ; ; lang=mixed
+Daraja la Tanzanite
+Kivuko cha Kigamboni
+Daraja la Kigamboni
+Mnazi Mmoja
+Posta
+Samaki Samaki ; ; lang=mixed conf=M src=bank
+Flyover ya Tazara
+Soko la Samaki Feri
+@ lang=sw kind=thing diff=easy shelf=evergreen conf=H src=bank,S23
+Mwendokasi
+Foleni ; ; conf=M src=bank
+# ── Neighbourhoods and districts ──
+@ lang=sw kind=place diff=medium shelf=evergreen conf=H src=S23
+Mwenge
+Sinza
+Masaki
+Oysterbay ; ; lang=mixed
+Mikocheni
+Msasani
+Mbagala
+Kimara
+Mbezi Beach
+Magomeni
+Temeke
+Ubungo
+Kigamboni
+Kinondoni
+Ilala
+Upanga
+Kivukoni
+Kijitonyama
+Gongo la Mboto
+Kunduchi
+@ lang=sw kind=place diff=medium shelf=evergreen conf=M src=GK
+Manzese
+Tandale
+Buguruni
+Tabata
+Mwananyamala
+Tegeta
+Bunju
+Kawe
+Mabibo
+Tandika
+Ukonga
+Segerea
+Kinyerezi
+Vingunguti
+Chanika ; ; diff=hard
+Kibamba ; ; diff=hard
+# ── Landmarks and well-known spots ──
+@ lang=sw kind=place diff=medium shelf=evergreen conf=H src=S23
+Mnara wa Askari
+Kanisa la Azania Front
+Kanisa la St. Joseph
+Makumbusho ya Taifa
+Kijiji cha Makumbusho
+Uwanja wa Ndege
+Stesheni ya Tazara
+Slipway ; ; lang=mixed
+Kisiwa cha Bongoyo
+@ lang=sw kind=place diff=medium shelf=evergreen conf=M src=GK
+Kisiwa cha Mbudya
+Ikulu
+Bandari ya Dar
+Stesheni ya SGR
+Stendi ya Magufuli
+Stendi ya Ubungo ; ; shelf=nostalgia
+Hospitali ya Muhimbili
+Ocean Road
+Soko la Kariakoo
+Soko la Ilala
+Soko la Buguruni
+Soko la Tandale
+Vinyago vya Mwenge
+Mtaa wa Kongo
+Mtaa wa Samora
+Barabara ya Morogoro
+Barabara ya Bagamoyo
+Barabara ya Nyerere
+Daraja la Salender ; ; shelf=nostalgia
+Flyover ya Ubungo
+Mataa ya Morocco ; ; conf=V note=Je, watu husema 'Morocco' tu?
+Mto Msimbazi
+Bonde la Jangwani
+Uwanja wa Uhuru
+Leaders Club ; ; lang=mixed
+Ukumbi wa Diamond Jubilee
+Chuo Kikuu cha Dar
+Kunduchi Wet 'n' Wild ; ; lang=mixed conf=V note=Bado ipo na inajulikana?
+Bahari Beach ; ; lang=mixed
+Kigamboni Beach ; ; lang=mixed
+Kisutu ; ; diff=hard
+Karume ; Soko na uwanja ; diff=hard
+Mnara wa Saa ; ; diff=hard conf=V note=Mnara wa saa wa Posta: unajulikana kwa jina hili?
+# ── What Dar feels like ──
+@ lang=sw kind=action diff=easy shelf=evergreen conf=M src=GK
+Joto la Dar
+Jasho Jingi
+Mafuriko ya Jangwani
+Mvua ya Masika
+Foleni ya Asubuhi
+Kuvuka kwa Pantoni
+Kupanda Mwendokasi
+Kadi ya Mwendokasi ; ; kind=thing
+Kugombea Mwendokasi
+Kuogelea Coco Beach
+Mihogo ya Coco Beach ; ; kind=food
+Upepo wa Bahari
+Machweo ya Bahari
+Meli Bandarini
+Kupotea Kariakoo
+Msongamano wa Kariakoo
+Kubeba Mzigo Kariakoo
+Wamachinga wa Kariakoo ; ; kind=person
+Kuwasha Feni
+Kulala Nje kwa Joto
+Mbu wa Dar ; ; kind=thing
+Maji ya Chumvi ; ; kind=thing
+Kwenda Kigamboni
+Kuhamia Dar
+Mgeni wa Dar ; ; kind=person
+Kula Samaki Feri
+Kupiga Picha Tanzanite
+Bajaji za Posta ; ; kind=thing diff=medium
+Mwisho wa Mwezi Dar ; ; diff=hard conf=V note=Inaeleweka kama hali ya 'hela imeisha'?
+Jiji la Biashara ; ; kind=phrase diff=hard
+Bongo Land ; ; lang=mixed kind=phrase diff=hard conf=V note=Bado linatumika?

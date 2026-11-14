@@ -1,0 +1,124 @@
+# Famous Brands — brands players recognise. No car makers (Car Brands). Up to about 15 Tanzanian brands (owner rule, Stage 3C).
+@ lang=mixed kind=brand diff=easy shelf=evergreen conf=H src=bank,S51
+Apple
+Samsung
+Google
+Microsoft
+Amazon
+Netflix
+WhatsApp ; ; conf=M
+Instagram
+Disney
+PlayStation ; ; conf=M
+Nike
+Adidas ; ; conf=M
+Puma ; ; conf=M
+Gucci ; ; conf=M
+Louis Vuitton
+Chanel
+Tiffany & Co. ; ; conf=M diff=hard
+Zara ; ; conf=M
+Coca-Cola
+Pepsi ; ; conf=M
+McDonald's
+KFC ; ; conf=M
+Starbucks
+Red Bull ; ; conf=M
+IKEA ; ; conf=M diff=medium
+Lego ; ; conf=M
+Visa
+# ── Tech and apps (S51) ──
+@ lang=mixed kind=brand diff=easy shelf=evergreen conf=H src=S51
+YouTube
+TikTok
+Facebook
+Mastercard ; ; diff=medium
+Uber
+Huawei
+Nvidia ; ; diff=hard
+Spotify ; ; conf=M
+@ lang=mixed kind=brand diff=easy shelf=evergreen conf=M src=GK
+Tecno
+Infinix
+itel ; ; diff=medium
+Xiaomi ; ; diff=medium
+Nokia
+Sony
+LG
+HP ; ; diff=medium
+Dell ; ; diff=medium
+Canon ; ; diff=medium
+Android
+iPhone
+Snapchat ; ; diff=medium
+Telegram ; ; diff=medium
+Zoom ; ; diff=medium
+Gmail
+Bolt ; Programu ya usafiri
+Nintendo ; ; diff=medium
+Xbox ; ; diff=medium
+Marvel
+# ── Fashion and beauty ──
+@ lang=mixed kind=brand diff=medium shelf=evergreen conf=M src=S51,GK
+Hermès ; ; diff=hard src=S51 conf=H
+Rolex ; Saa ya kifahari
+Versace
+Prada
+Dior
+Calvin Klein
+Levi's
+Converse
+Air Jordan
+Timberland ; ; diff=hard
+H&M ; ; diff=hard
+Shein
+Nivea
+Vaseline ; ; diff=easy
+Colgate ; ; diff=easy
+Dettol ; ; diff=easy
+Gillette
+Dove
+Pampers ; ; diff=easy
+# ── Food and drink ──
+@ lang=mixed kind=brand diff=easy shelf=evergreen conf=M src=GK
+Fanta
+Sprite
+Nescafé
+Nestlé ; ; diff=medium
+Lipton
+Heineken ; ; diff=medium
+Guinness
+Nutella ; ; diff=medium
+Pringles ; ; diff=medium
+Oreo ; ; diff=medium
+Cadbury ; ; diff=medium
+Blue Band
+Omo ; Sabuni ya unga
+Burger King ; ; diff=medium
+Pizza Hut
+Domino's ; ; diff=medium
+Subway ; ; diff=medium
+# ── Travel and energy ──
+@ lang=mixed kind=brand diff=medium shelf=evergreen conf=M src=GK
+Emirates
+Qatar Airways
+DHL
+Shell ; ; src=S51
+TotalEnergies ; ; diff=hard
+# ── Tanzanian brands (owner rule: up to about 15) ──
+@ lang=mixed kind=brand diff=easy shelf=evergreen conf=V src=GK note=Brand everyone in Tanzania knows?
+Vodacom ; ; conf=M
+Airtel ; ; conf=M
+Yas ; Zamani Tigo ; note=New name: is 'Yas' known yet, or still 'Tigo'?
+Halotel
+Azam ; ; conf=M
+Kilimanjaro Lager
+Safari Lager
+Serengeti Lager
+Konyagi
+CRDB
+NMB
+Air Tanzania ; ; conf=M
+TANESCO ; ; note=A utility rather than a brand; keep?
+Dangote Cement ; ; diff=medium
+Mo Energy ; ; diff=medium note=Is this the name people use?

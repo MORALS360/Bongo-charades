@@ -1,0 +1,102 @@
+# YouTube weekly chart, South Africa. Week ending 2026-11-05. Source: https://kworb.net/youtube/insights/za.html (accessed 2026-11-14)
+# position|artist - track|weeks on chart|peak
+1|DJ Zinhle - Nayvee's Prayer|wks 6|pk 1
+2|Tman Xpress - Remember|wks 20|pk 1
+3|Empro - Polo|wks 2|pk 3
+4|Mshinwemali - Myeke (feat. Sne Ntuli)|wks 5|pk 3
+5|Bello B - BETHII BETHII (feat. Anathii Deejay & Frostiano)|wks 5|pk 5
+6|Mihlali The Guy - Wo Lo (feat. Sino Msolo & Konke)|wks 10|pk 4
+7|Thatohatsi - Ama hem hem (feat. ShaunMusiq)|wks 17|pk 2
+8|G-Jealous - Luqale sakudlala|wks 16|pk 3
+9|Focalistic - Gumba Fire (feat. Mr. JazziQ)|wks 9|pk 2
+10|Culture Motion - Ingoma Ezimnandi (iGwijo)|wks 3|pk 10
+11|FEZA - Distance|wks 8|pk 2
+12|Trechyson Molly vx - Botshelo Ke Eng|wks 38|pk 1
+13|Darque - uMoya 2.0 (Tycoon Remix) (feat. Soulful Disciple)|wks 8|pk 11
+14|Calvin Fallo - Everybody Wanna Be In Love|wks 27|pk 2
+15|DJ Zinhle - Baba Yilwa|wks 31|pk 15
+16|Makhadzi Entertainment - Seanamarena (feat. Prince Benza)|wks 14|pk 13
+17|Mzukulu - Isesheli (feat. OmaThwala)|wks 13|pk 9
+18|Uncool MC - Setla|wks 8|pk 17
+19|SIHAYO - Owabulala uBaba (feat. Shenge wasehlalankosi)|wks 21|pk 9
+20|MENZI MUSIC - Vuma|wks 24|pk 1
+21|Shakira - Dai Dai|wks 24|pk 1
+22|Royal MusiQ - H’s On The Table|wks 13|pk 6
+23|FEZA - Sengithole Omunye|wks 18|pk 1
+24|FEZA - Umaqondana|wks 17|pk 7
+25|Ntencane - UKHETHE MINA|wks 38|pk 2
+26|Skillz - Phumelela|wks 16|pk 25
+27|Nkeshemba - Usungikhombisile|wks 32|pk 23
+28|Zee Nxumalo - Ngithathiwe (feat. Dlala Thukzin)|wks 23|pk 10
+29|Khazozo - i1000 (feat. Big Zulu)|wks 1|pk 29
+30|Vystor X - Ngiswele imilomo|wks 5|pk 29
+31|Mr. JazziQ - Katalia (feat. SHAZZ RSA, Don Deeya & Magwe ZA)|wks 7|pk 10
+32|Ayra Starr - Heaven Baby (feat. ZAYN)|wks 8|pk 17
+33|Busta929 - Ngixolele|wks 2|pk 33
+34|Njabulo Langa - uBhanyazile (feat. MJIKELO)|wks 17|pk 22
+35|Glenn Jones - All for You|wks 41|pk 33
+36|Mahostela 97 - Yimi umaqondana|wks 14|pk 13
+37|Samthing Soweto - Hey Wena (feat. Alie Keys)|wks 9|pk 25
+38|Dlala Thukzin - Sobuye Sbonane|wks 1|pk 38
+39|DJ Maryko - Song of Hope (Zwi do luga) (feat. Newie)|wks 28|pk 5
+40|Ayeeh Beats Babethe - Commander (feat. 2Break4, Percy 5 & Real K Mfanakota)|wks 18|pk 30
+41|Santan Dave - Raindance|wks 3|pk 38
+42|Tribby Wadi Bhozza - Menateng (feat. Patron West, Gallarbass & Stellenbosch)|wks 38|pk 11
+43|Funky QLA - iXesha (feat. JAZZWRLD)|wks 1|pk 43
+44|Beekay Monalayzzar - Khanyisa|wks 6|pk 44
+45|W4DE - TEZE (feat. Royal MusiQ)|wks 13|pk 12
+46|Ndou Advocate - Thethelela Dlozi Lami|wks 11|pk 25
+47|Bushida Coffee - Bambulele uNomathemba (Gwijo Song) (feat. Gwijo Gang)|wks 3|pk 46
+48|Natiey Lepaka - Bjaleni(Skinny Malepolana) (feat. Patron West, Jojo Manjaro, Gallarbass, (Aofishehlaga)Steel Bosh & Fuego)|wks 44|pk 12
+49|BA BETHE GASHOAZEN - Skhethe (feat. Westboy, Caeser & DJ Janisto)|wks 26|pk 10
+50|PLG Chanty - Stofi Stofoza (2.0)|wks 27|pk 2
+51|Empro - Polo (Skuva Remix)|wks 2|pk 37
+52|Razolo - Lea chancer bafana|wks 17|pk 10
+53|Riky Rick - You And I (feat. Mlindo The Vocalist)|wks 41|pk 12
+54|Inkos'yamagcokama - AMABULAWO|wks 8|pk 44
+55|Kabza De Small - Sunday outfit 🔥😛|wks 1|pk 55
+56|Sannere - Maybe|wks 1|pk 56
+57|Maline Aura - Mabebuza (Mdu aka TRP Remix)|wks 39|pk 17
+58|Chris Brown - Residuals|wks 45|pk 3
+59|2Break4 - Sphalaphala (feat. Dolly Ditebogo, Ez Maestro & Criimora b.k.z)|wks 5|pk 52
+60|Sannere - Bigger Picture|wks 1|pk 60
+61|Kabza De Small - Imithandazo (feat. Young Stunna, DJ Maphorisa, Sizwe Alakine & umthakathi kush)|wks 63|pk 1
+62|Inkos'yamagcokama - ISAZOCHOMELANA (feat. Boohle)|wks 5|pk 48
+63|Mlindo - AmaBlesser|wks 63|pk 2
+64|Romeo Makota - Abangifuni|wks 53|pk 18
+65|DJ DANIE - Luda g - wally g Pum pum Dj Danie & Dj Tolla|wks 2|pk 54
+66|Mariah The Scientist - Is It a Crime|wks 1|pk 66
+67|Nasty C - SMA (feat. Rowlene)|wks 57|pk 1
+68|Dlala Thukzin - Ungenzani|wks 21|pk 67
+69|Lowdii beats - Touch Me Softly|wks 12|pk 56
+70|Litshepe Lr - Natala|wks 12|pk 32
+71|Noxolo Ngema - Siponono Sami|wks 1|pk 71
+72|Inkos'yamagcokama - BAHAMBA BONKE|wks 4|pk 60
+73|Offset - Different Species|wks 24|pk 48
+74|ShakaMan YKTV - Xigubu (feat. Ag'zo & Djy Mash SA)|wks 1|pk 74
+75|Focalistic - 2 Spin Jikeleza|wks 12|pk 53
+76|Musical Jazz - u'Jola Nobani (feat. ZinedinexSguche)|wks 4|pk 31
+77|Triple X Da Ghost - WAV. 2 (feat. Njelic & Leehleza)|wks 3|pk 55
+78|Shaun Stylist - Badimo ba Sgidongo (feat. Sabta D'Musiq)|wks 2|pk 74
+79|Eminem - Mockingbird|wks 41|pk 49
+80|Justin99 - Restart|wks 7|pk 64
+81|Mary J. Blige - Be Without You|wks 39|pk 54
+82|Benzoo - Asiwafuni (feat. Marvens)|wks 14|pk 14
+83|DJ Smallz - Ngyazama (feat. Brodie.Bro & Mdeshkayro)|wks 8|pk 54
+84|Kabza De Small - Ebusuku (feat. Nkosazana Daughter)|wks 43|pk 15
+85|Nkosazana Daughter - Vuma Vuma (feat. Master KG & Goon Flavour)|wks 20|pk 44
+86|Shandesh - Sefela sa Lekompo (feat. Wendy M)|wks 13|pk 32
+87|Mvelaboy - Psychological|wks 1|pk 87
+88|Big Nuz - Ngeke (feat. Dj Yamza)|wks 65|pk 1
+89|Bucie - Rejoice (feat. Black Motion)|wks 5|pk 77
+90|UMnotho - U XA (feat. Mjabulisi)|wks 8|pk 53
+91|Kabza De Small - Khanya Njalo|wks 7|pk 50
+92|Blxckie - bonkerz (feat. A-Reece)|wks 1|pk 92
+93|TRESOR - SONDELA (feat. Msaki)|wks 31|pk 11
+94|Spirit Of Praise - Mmeli Wami (Live) (feat. Nothando Hlophe)|wks 2|pk 58
+95|Sannere - Moratuoa|wks 1|pk 95
+96|Ayra Starr - Rush|wks 59|pk 6
+97|Xduppy - Ewe|wks 1|pk 97
+98|Bassie - Ekhaya|wks 3|pk 49
+99|Teddy Pendergrass - Can We Be Lovers|wks 38|pk 70
+100|ThackzinDj - Yini Sdakwa (feat. Dlala Thukzin, Nkosazana Daughter, Rascoe Kaos, Moscow & Mpura)|wks 1|pk 100

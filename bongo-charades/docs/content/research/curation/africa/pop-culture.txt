@@ -1,0 +1,170 @@
+# Pop Culture — trends, social media, challenges, celebrities, and AFRICAN films and series.
+# Global film and series titles live in Movies & TV; musicians live in the music categories.
+# The internet documents this category worst: most items are general knowledge and many need your check.
+@ lang=en kind=thing diff=easy shelf=evergreen conf=M src=bank
+TikTok Dance Challenge ; ; lang=mixed kind=action
+Viral Meme
+Red Carpet
+Trending on X ; ; lang=mixed
+YouTuber ; ; lang=mixed kind=person
+Podcast ; ; lang=mixed
+Celebrity Breakup
+Paparazzi ; ; lang=mixed kind=person
+Live Stream
+Jerusalema Dance Challenge ; ; lang=mixed kind=action
+Wakanda Forever Salute ; ; lang=mixed kind=action
+Big Brother Naija ; ; lang=mixed kind=title conf=H src=bank,S48
+Influencer ; ; lang=mixed kind=person
+Binge-watching ; ; kind=action
+# ── Social media ──
+@ lang=en kind=action diff=easy shelf=evergreen conf=M src=GK
+Going Viral
+Hashtag ; ; kind=thing
+Selfie Stick ; ; kind=thing
+Face Filter ; ; kind=thing
+Emoji ; ; kind=thing
+Unboxing Video ; ; kind=thing
+Prank Video ; ; kind=thing
+Reaction Video ; ; kind=thing
+Vlogging
+Mukbang ; ; diff=medium
+Lip Sync
+Photobomb
+Screenshot ; ; kind=thing
+Voice Note ; ; kind=thing
+Group Chat ; ; kind=thing
+Status Update ; ; kind=thing
+Verified Badge ; ; kind=thing
+Unfollowing Someone
+Clickbait ; ; kind=thing diff=medium
+Subscribe Button ; ; kind=thing
+Content Creator ; ; kind=person
+Brand Ambassador ; ; kind=person
+Online Giveaway ; ; kind=thing
+Fan Page ; ; kind=thing
+Getting Cancelled ; ; diff=medium
+Clout Chasing ; ; diff=medium
+Catfish ; ; kind=person diff=medium
+Ghosting ; ; diff=medium
+Throwback Thursday ; ; kind=thing
+Thrift Haul ; ; kind=thing diff=medium
+Sneakerhead ; ; kind=person diff=medium
+ChatGPT ; ; lang=mixed kind=brand
+Deepfake ; ; kind=thing diff=medium
+# ── African trend words ──
+@ lang=mixed kind=phrase diff=medium shelf=trending conf=V src=GK note=Sina chanzo; linajulikana Tanzania?
+Soft Life
+Detty December
+Japa ; Leaving Nigeria for abroad ; diff=hard
+Owambe ; Big Nigerian party ; diff=hard
+Aso Ebi ; Matching party outfits ; diff=hard
+Ankara Fashion ; ; conf=M
+Six Seven ; The meme ; src=S36 note=Meme ya '6-7': bado inajulikana?
+# ── Dances and challenges ──
+@ lang=mixed kind=action diff=easy shelf=nostalgia conf=H src=S48
+Dab
+The Floss
+Mannequin Challenge
+Kiki Challenge ; ; diff=medium
+Griddy ; ; diff=medium shelf=trending
+Skibidi ; ; diff=medium
+@ lang=mixed kind=action diff=medium shelf=evergreen conf=M src=S40,S45
+Azonto Dance
+Zanku Legwork
+Buga Challenge
+@ lang=mixed kind=action diff=medium shelf=evergreen conf=V src=GK note=Sina chanzo; inajulikana Tanzania?
+Shaku Shaku
+Gwara Gwara
+Tshwala Bam Challenge ; ; shelf=trending
+Amapiano Dance ; ; conf=M diff=easy
+Odi Dance ; ; diff=hard
+Ice Bucket Challenge ; ; conf=M diff=easy shelf=nostalgia
+Bottle Cap Challenge ; ; conf=M shelf=nostalgia
+Moonwalk ; ; conf=M diff=easy shelf=nostalgia
+Wednesday Dance ; ; conf=M src=S48
+Siuuu Celebration ; ; conf=M diff=easy
+# ── Nollywood ──
+@ lang=mixed kind=title diff=medium shelf=evergreen conf=H src=S48
+The Wedding Party
+King of Boys
+Everybody Loves Jenifa
+A Tribe Called Judah
+Omo Ghetto
+Chief Daddy
+Battle on Buka Street ; ; diff=hard
+@ lang=mixed kind=title diff=medium shelf=nostalgia conf=V src=GK note=Sina chanzo; inajulikana Tanzania?
+Living in Bondage
+Osuofia in London
+Aki na Ukwa
+Anikulapo ; ; shelf=evergreen
+Nollywood ; ; kind=thing conf=M diff=easy shelf=evergreen
+Movie za Kinigeria ; ; lang=sw kind=thing conf=M diff=easy shelf=evergreen
+# ── South Africa ──
+@ lang=mixed kind=title diff=medium shelf=evergreen conf=V src=GK note=Sina chanzo; inajulikana Tanzania?
+Blood & Water
+Young, Famous & African
+Shaka iLembe
+Generations ; Tamthilia ya Afrika Kusini ; shelf=nostalgia
+Isidingo ; Tamthilia ya Afrika Kusini ; shelf=nostalgia
+Sarafina! ; ; shelf=nostalgia conf=M
+Tsotsi ; ; shelf=nostalgia diff=hard
+The Gods Must Be Crazy ; ; shelf=nostalgia conf=M famous=yes
+# ── Kenya and Uganda ──
+@ lang=mixed kind=title diff=medium shelf=evergreen conf=V src=GK note=Sina chanzo; inajulikana Tanzania?
+Machachari ; Kipindi cha Kenya
+Tahidi High ; Kipindi cha Kenya
+Papa Shirandula ; Kipindi cha Kenya
+Churchill Show ; Kipindi cha Kenya
+Vioja Mahakamani ; Kipindi cha Kenya ; shelf=nostalgia
+Nairobi Half Life ; ; diff=hard
+Queen of Katwe
+Tusker Project Fame ; ; shelf=nostalgia
+Big Brother Africa ; ; shelf=nostalgia conf=H src=S48
+# ── Africa on the world's screen ──
+@ lang=mixed kind=title diff=medium shelf=evergreen conf=M src=GK
+The Woman King
+Coming to America
+Zamunda ; Coming to America ; kind=place
+Hotel Rwanda
+Blood Diamond
+# ── Channels, shows and big nights ──
+@ lang=mixed kind=thing diff=medium shelf=evergreen conf=M src=GK
+Africa Magic
+Telemundo ; ; diff=easy
+Zee World
+DStv ; ; kind=brand diff=easy
+Showmax ; ; kind=brand
+MTV Base
+Trace TV
+Coke Studio Africa
+Idols ; ; diff=easy
+Grammy Awards ; ; diff=easy
+The Oscars ; ; diff=easy
+Met Gala
+BET Awards
+Ballon d'Or ; ; diff=easy
+Super Bowl Halftime Show ; ; diff=hard
+Miss World ; ; diff=easy
+Afro Nation ; Tamasha la muziki ; diff=hard
+Nyege Nyege ; Tamasha la Uganda ; diff=hard conf=V note=Linajulikana Tanzania?
+# ── Celebrities who are not musicians ──
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=M src=GK
+Khaby Lame ; ; conf=H src=S48 diff=easy
+MrBeast ; ; conf=H src=S48
+Kim Kardashian ; ; diff=easy
+Kylie Jenner
+Kevin Hart ; ; diff=easy
+The Rock ; Dwayne Johnson ; diff=easy
+Oprah Winfrey
+Elon Musk ; ; diff=easy
+IShowSpeed ; ; shelf=trending conf=V note=Anajulikana Tanzania?
+Kai Cenat ; ; shelf=trending diff=hard conf=V note=Anajulikana Tanzania?
+# ── Streaming hits and games ──
+@ lang=mixed kind=title diff=medium shelf=trending conf=H src=S48
+KPop Demon Hunters
+@ lang=mixed kind=thing diff=easy shelf=evergreen conf=M src=GK
+Gaming Tournament ; ; lang=en
+Fortnite Dance ; ; kind=action diff=medium
+Candy Crush ; ; kind=brand
+FIFA Video Game ; ; kind=brand
+Free Fire ; ; kind=brand diff=medium conf=V note=Mchezo huu unajulikana kwa vijana?

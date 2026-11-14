@@ -1,0 +1,212 @@
+# Bongo Flava — Tanzanian music from 2014 onward (owner rule, Stage 3A). Gospel excluded (owner rule).
+# Line format:  text ; hint ; overrides      Section defaults start with @
+@ lang=mixed kind=person diff=easy shelf=evergreen conf=H src=bank
+Diamond Platnumz
+Ali Kiba
+Harmonize
+Zuchu
+Marioo
+Nandy
+Rayvanny
+Mbosso
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=H src=S1,S5
+Jay Melody
+Jux
+Darassa
+Barnaba ; ; src=S2,S3
+Ibraah ; ; src=S1,S3
+D Voice ; ; src=S1,S3
+Abigail Chams ; ; src=S2,S3 shelf=trending
+Billnass ; ; src=S1,S8
+Dulla Makabila ; ; src=S1,S6
+Lava Lava ; ; src=S5,S8
+Chino Kidd ; ; src=S5 conf=M shelf=trending
+Country Wizzy ; ; src=S5,S8 conf=M
+S2Kizzy ; Prodyuza ; src=S5 conf=M diff=hard
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=M src=S8
+Maua Sama
+Aslay
+Ben Pol
+Vanessa Mdee ; ; src=S8,S11 conf=H
+Ommy Dimpoz ; ; src=S8,S11 conf=H
+Navy Kenzo ; ; src=S8,S11 conf=H
+Man Fongo
+Meja Kunta
+Phina
+Young Lunya
+Weusi
+Joh Makini
+Nay wa Mitego
+Roma Mkatoliki
+Fid Q
+Chege ; ; src=S1,S8 conf=H
+Dogo Janja
+Shilole
+Ruby
+Christian Bella
+Yammi ; ; src=S1 shelf=trending
+Yamoto Band
+@ lang=mixed kind=thing diff=medium shelf=evergreen conf=H src=bank
+WCB Wasafi
+Singeli ; ; lang=sw
+Kucheza Singeli ; ; lang=sw kind=action diff=easy
+@ lang=mixed kind=thing diff=medium shelf=evergreen conf=M src=GK
+Konde Gang ; Lebo ya Harmonize
+Kings Music ; Lebo ya Ali Kiba
+Wasafi Festival
+Clouds FM ; ; src=S11 conf=H
+Tuzo za Muziki ; ; lang=sw src=S5 conf=H
+Konde Boy ; Jina la utani la Harmonize ; kind=person
+King Kiba ; Jina la utani la Ali Kiba ; kind=person
+Kurekodi Studio ; ; lang=sw kind=action diff=easy
+Kushuti Video ya Muziki ; ; lang=sw kind=action diff=easy
+Kuimba Jukwaani ; ; lang=sw kind=action diff=easy
+Kuachia Ngoma Mpya ; ; lang=sw kind=action conf=V note=Je, 'kuachia ngoma' ni lugha ya kawaida?
+Kutafuta Kiki ; ; lang=sw kind=action conf=V note=Je, 'kiki' bado inatumika?
+# ── Songs already in the game ──
+@ lang=mixed kind=song diff=medium shelf=evergreen conf=H src=bank,S8
+Tetema ; Rayvanny ft. Diamond Platnumz
+Kwangwaru ; Harmonize ft. Diamond Platnumz
+Sukari ; Zuchu
+Salome ; Diamond Platnumz ft. Rayvanny
+Waah! ; Diamond Platnumz
+Aje ; Ali Kiba
+Mi Amor ; Marioo ft. Jovial
+Mama Amina ; Marioo
+Hainaga Ushemeji ; Man Fongo
+Nyumba Ndogo ; Zuchu
+Kwetu ; Rayvanny
+Mwana ; Ali Kiba ; moved=zilipendwa
+Hawajui ; Vanessa Mdee ; moved=zilipendwa
+# ── 2014–2022, from the Notjustok decade ranking ──
+@ lang=mixed kind=song diff=medium shelf=evergreen conf=M src=S8
+Marry You ; Diamond Platnumz ft. Ne-Yo
+Iokote ; Maua Sama
+Hodari ; Mbosso
+Natamba ; Aslay
+Nakupenda ; Jay Melody ; src=S6,S8 conf=H
+Katika ; Navy Kenzo ft. Diamond Platnumz
+Puuh ; Billnass ft. Jay Melody ; src=S6,S8 conf=H
+Utanipenda ; Diamond Platnumz
+Zigo Remix ; AY ft. Diamond Platnumz
+Loyalty ; Darassa ft. Marioo & Nandy
+Makabila ; Dulla Makabila
+Muhudumu ; Aslay
+Raha ; Zuchu ; diff=hard
+Na Yule ; Ruby
+Far Away ; Diamond Platnumz ft. Vanessa Mdee ; src=S8,S16
+Nitasubiri ; Jux
+Inde ; Dully Sykes ft. Harmonize
+Nitaubeba ; Harmonize ; src=S6,S8 conf=H
+Teacher ; Harmonize ; diff=hard
+Mtasubiri ; Diamond Platnumz ft. Zuchu
+Kwikwi ; Zuchu ; src=S6,S8 conf=H
+Jini Kisirani ; Amber Lulu
+Mahaba Niue ; Maua Sama
+Mamu ; Meja Kunta
+Pita Huku ; Dulla Makabila ; src=S6,S8 conf=H
+Bora Tuachane ; Lava Lava
+Ngarenaro ; Dogo Janja
+Nashindwa ; Christian Bella
+Nakula Ujana ; Nay wa Mitego
+Chaf Pozi ; Billnass
+Huba Hulu ; Jay Melody
+Nakomaa na Jiji ; Shilole
+Huendi Mbinguni ; Whozu
+Upo Nyonyo ; Phina
+Moyo Sukuma Damu ; Ditto
+Moyo Mashine ; Ben Pol
+Basi Nenda ; Mo Music
+Siachani Nawe ; Barakah The Prince
+Waache Waoane ; Chege ft. Diamond Platnumz
+Mboga Saba ; Mr Blue ft. Ali Kiba
+Zimbabwe ; Roma Mkatoliki ; diff=hard
+Ndi Ndi Ndi ; Lady Jaydee
+Orugambo ; Saida Karoli
+Nitakupwelepweta ; Yamoto Band ; diff=hard
+Kajiandae ; Ommy Dimpoz ft. Ali Kiba
+Mfalme ; Mwana FA
+Gere ; Weusi
+Phone ; Ben Pol ft. Mr Eazi ; diff=hard
+Zilipendwa ; WCB Wasafi
+# ── 2019–2024, artist pages and my own knowledge (no chart source) ──
+@ lang=mixed kind=song diff=medium shelf=evergreen conf=M src=S16
+Jeje ; Diamond Platnumz
+Baba Lao ; Diamond Platnumz
+Kanyaga ; Diamond Platnumz
+Inama ; Diamond Platnumz ft. Fally Ipupa ; src=S1,S16 conf=H
+@ lang=mixed kind=song diff=medium shelf=evergreen conf=M src=GK
+Komasava ; Diamond Platnumz
+Muziki ; Darassa ft. Ben Pol ; diff=hard
+Kamatia ; Navy Kenzo
+Niroge ; Vanessa Mdee
+Seduce Me ; Ali Kiba
+Ninogeshe ; Nandy
+Kivuruge ; Nandy
+Uno ; Harmonize
+Ololufe Mi ; Jux ft. Diamond Platnumz ; src=S2,GK
+# ── Award years 2023–2024 ──
+@ lang=mixed kind=song diff=medium shelf=evergreen conf=H src=S5
+Single Again ; Harmonize
+Shu! ; Diamond Platnumz
+Falling ; Nandy
+Mahaba ; Ali Kiba
+Naringa ; Zuchu
+Honey ; Zuchu
+Enjoy ; Jux ft. Diamond Platnumz
+Yatapita ; Diamond Platnumz
+Sawa ; Jay Melody
+Baridi ; Jay Melody
+Tajiri ; Lava Lava
+Gibela ; Chino Kidd ; conf=M
+Kitu Kizito ; Rayvanny ft. Misso Misondo
+Nije Ama Nisije ; Dulla Makabila
+# ── 2025: Spotify Wrapped and Apple Music agree ──
+@ lang=mixed kind=song diff=medium shelf=trending conf=H src=S2,S3
+Pawa ; Mbosso
+Nairobi ; Marioo ft. Bien
+Me Too ; Abigail Chams & Harmonize
+Furaha ; Harmonize ; diff=hard
+Tunapendana ; D Voice & Mbosso
+Salama ; Barnaba ft. Diamond Platnumz ; diff=hard
+Wangu ; Marioo ; diff=hard
+Looking for Love ; Darassa ft. Mbosso
+2025 ; Marioo ; diff=hard
+Dharau ; Ibraah & Harmonize ; src=S3 conf=M
+Mapoz ; Diamond Platnumz ft. Mr Blue & Jay Melody ; src=S2,GK conf=M
+Naogopa ; Marioo ft. Harmonize ; src=S2,GK conf=M
+# ── 2026: YouTube chart, long-running tracks (20+ weeks) ──
+@ lang=mixed kind=song diff=medium shelf=trending conf=M src=S1
+Uhakika ; Ibraah
+Mombasa ; Marioo
+DJ ; Mbosso ; diff=hard
+Baridi ; D Voice
+Wewe ; Harmonize ; diff=hard
+Watu ; Marioo ; diff=hard
+Ozalima ; Mbosso
+Kidonda ; Dulla Makabila ft. Jay Melody
+Asante ; Nandy ; diff=hard
+Nani ; Diamond Platnumz ; diff=hard src=S1,S2 conf=H
+Msumari ; Diamond Platnumz ; src=S1,S2 conf=H
+Kipepeo ; Jux
+Hisia ; Jay Melody
+Nichum ; Yammi ft. Darassa
+Kumbe ; D Voice
+# ── 2026: newer chart entries (may fade quickly) ──
+@ lang=mixed kind=song diff=hard shelf=trending conf=M src=S1
+Mvua ya Baraka ; Zuchu
+Malaika ; Mbosso
+Banana ; D Voice ft. Jay Melody
+Oya ; Nandy
+Mtu Mzima ; Marioo
+Imeshindikana ; Harmonize
+Ubaya ; Chege
+Somebody ; Nandy
+Touch ; Rayvanny
+Natubu ; Ali Kiba
+Kautaka ; Abdukiba ft. Ali Kiba
+Baraka Nyingi ; Mwana FA
+Love Design ; Darassa
+Story za Bongo ; Ibraah
+Kudos ; Harmonize
+Siwezi ; Harmonize ft. Rayvanny

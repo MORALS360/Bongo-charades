@@ -1,0 +1,52 @@
+# Spotify weekly chart, South Africa, top 50. Chart dated 2026-11-12. Source: https://kworb.net/spotify/country/za_weekly.html (accessed 2026-11-14)
+# position|artist - track|weeks on chart|peak
+1|DJ Zinhle - Nayvee's Prayer (w/ Nayvee Womculo , Young Stunna )|wks 7|pk 1
+2|Mshinwemali - Myeke (w/ Sne Ntuli )|wks 5|pk 2
+3|G-Jealous - Luqale sakudlala|wks 18|pk 1
+4|Tman Xpress - Remember (w/ Mellow & Sleazy )|wks 19|pk 1
+5|Thatohatsi - Ama hem hem (w/ Sjava , Shaunmusiq )|wks 18|pk 1
+6|Zulu Queens - Distance (w/ Lwah Ndlunkulu , MaWhoo , Feza )|wks 12|pk 1
+7|Empro - Polo (w/ Mlindo The Vocalist )|wks 3|pk 7
+8|DJ Zinhle - Baba Yilwa (w/ DJ Lace , FunkTone , Thobani White )|wks 32|pk 2
+9|Nkeshemba - Usungikhombisile|wks 32|pk 9
+10|Mzukulu - Isesheli (w/ OmaThwala )|wks 13|pk 5
+11|Feza - Sengithole Omunye|wks 32|pk 1
+12|Bello B - BETHII BETHII (w/ Dladla Mshunqisi , Anathii Deejay , FROSTIYANO )|wks 5|pk 11
+13|SIHAYO - Owabulala uBaba (w/ Shenge Wasehlalankosi )|wks 22|pk 3
+14|Feza - Umaqondana|wks 51|pk 1
+15|Khazozo - i1000 (w/ Big Zulu )|wks 2|pk 15
+16|Darque - uMoya 2.0 - Tycoon Remix (w/ Atmos Blaq , Zawadi Yamungu , Tycoon , Soulful Disciple )|wks 9|pk 10
+17|Sami'Kay - Amanxeba (w/ Rox Roberson , Misokuhle )|wks 68|pk 4
+18|Mahostela 97 - Yimi umaqondana|wks 15|pk 7
+19|Ntencane - UKHETHE MINA|wks 39|pk 1
+20|Royal MusiQ - H’s On The Table|wks 13|pk 9
+21|Mihlali The Guy - Wo Lo (w/ Dankie Boi , Mr Thela , Cairo CPT , Sino Msolo , Konke )|wks 11|pk 13
+22|Inkos'yamagcokama - AMABULAWO|wks 16|pk 5
+23|Calvin Fallo - Everybody Wanna Be In Love|wks 28|pk 2
+24|Culture Motion - Ingoma Ezimnandi (iGwijo) (w/ Pro-Tee )|wks 4|pk 15
+25|W4DE - TEZE (w/ Royal MusiQ )|wks 15|pk 11
+26|Focalistic - Gumba Fire (w/ Optimist Music ZA , Benzoo , Mellow & Sleazy , Mr JazziQ )|wks 10|pk 7
+27|Sam Deep - Shela (w/ Nia Pearl , Boohle , Mano )|wks 65|pk 1
+28|Isitha sama ex - Imfene Yakho (w/ KaMaphanga )|wks 23|pk 20
+29|Empro - Polo - Skuva Remix (w/ Duncan )|wks 3|pk 29
+30|Skhanga - Thando lwathola kabi (w/ KaMaphanga , Yolokazi )|wks 8|pk 30
+31|DJ Maphorisa - Abantwana Bakho (w/ Xduppy , Kabza De Small , Thatohatsi , Young Stunna , Nkosazana Daughter )|wks 85|pk 3
+32|JIKIJIKI - Ngzomthatha|wks 28|pk 15
+33|UMnotho - U XA (w/ Mjabulisi )|wks 23|pk 21
+34|Zee Nxumalo - Ngithathiwe (w/ Funky Qla , Dlala Thukzin )|wks 26|pk 20
+35|Nkeshemba - Isibaya Sikababa|wks 57|pk 9
+36|Dave - Raindance (w/ Tems )|wks 55|pk 5
+37|Dlala Thukzin - Ungenzani (w/ MK Productions , Blaqseed )|wks 50|pk 25
+38|Miguel - Sure Thing|wks 306|pk 13
+39|Nothando Hlophe - Methodist Medley|wks 56|pk 19
+40|Njabulo Langa - uBhanyazile (w/ Mjikelo )|wks 18|pk 19
+41|Natiey Lepaka - MaDouble (w/ KayyKayy Production , Naija La Lekompo )|wks 23|pk 11
+42|Mzukulu - Thandolwethu (w/ Zamambo Mkhize , Umfana weKhansela )|wks 56|pk 22
+43|LIMIT NALA - Ama Baffalo Nama Elephant|wks 31|pk 2
+44|Mario - Let Me Love You|wks 371|pk 18
+45|Vystor X - Ngiswele imilomo|wks 5|pk 41
+46|Mfana Kah Gogo - Izinto (w/ Big John , Dj Karri , Deestar ZA , Eemoh , Manci-Dj )|wks 2|pk 46
+47|PLG Chanty - Macheleni (w/ Gusba Banana , Primo ZA )|wks 2|pk 47
+48|Ayeeh Beats Babethe - Commander (w/ Dolly Ditebogo , DIL Brill , Ez Maestro , 2Break4 , Percy 5 , REAL K MFANAKOTA )|wks 18|pk 23
+49|Mr JazziQ - Katalia (w/ Thesiix , Shazz RSA , Don Deeya , Magwe ZA )|wks 8|pk 19
+50|Funky Qla - iXesha (w/ Thukuthela , Babalwa M , GL_Ceejay , JAZZWRLD )|wks 2|pk 50

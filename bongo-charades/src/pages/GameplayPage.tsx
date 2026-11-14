@@ -1,225 +1,163 @@
-import { useCallback, useEffect, useState } from 'react'
-import type { Category, GamePrompt, GameplayAction } from '../types'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import type { Category, GamePrompt, GameplayAction, TiltSensitivity } from '../types'
 import { TimerPill } from '../components/gameplay/TimerPill'
-import { ScorePill } from '../components/gameplay/ScorePill'
-import { TiltButton } from '../components/gameplay/TiltButton'
+import { FeedbackIcon } from '../components/gameplay/FeedbackIcon'
+import { RotateDevicePrompt } from '../components/gameplay/RotateDevicePrompt'
 import { useGameTimer } from '../hooks/useGameTimer'
 import { useTiltControls } from '../hooks/useTiltControls'
+import { useIsPortraitPhone } from '../hooks/useIsPortraitPhone'
 import { playCorrectSound, playPassSound } from '../services/soundEffects'
+import { FEEDBACK_MS, SENSOR_GRACE_MS } from '../config/gameplay'
 
 interface GameplayPageProps {
   currentPrompt: GamePrompt
   currentCategory?: Category
-  currentTeamName: string
-  currentScore: number
   roundDurationSeconds: number
   onAnswer: (action: GameplayAction, prompt: GamePrompt) => void
   onRoundTimeUp: () => void
+  /** Player's calibrated neutral tilt angle (degrees); 0 = upright */
+  tiltBaseline?: number
   soundEnabled?: boolean
-  showTiltHints?: boolean
-  tiltSensitivity?: 'low' | 'medium' | 'high'
+  tiltSensitivity?: TiltSensitivity
 }
 
 function getPromptFontSize(text: string): { fontSize: number; lineHeight: string } {
   const len = text.length
-  if (len <= 14) return { fontSize: 84, lineHeight: '88px' }
-  if (len <= 22) return { fontSize: 64, lineHeight: '68px' }
-  if (len <= 32) return { fontSize: 48, lineHeight: '52px' }
-  return { fontSize: 38, lineHeight: '42px' }
+  if (len <= 14) return { fontSize: 88, lineHeight: '92px' }
+  if (len <= 22) return { fontSize: 68, lineHeight: '72px' }
+  if (len <= 32) return { fontSize: 52, lineHeight: '56px' }
+  return { fontSize: 40, lineHeight: '44px' }
 }
 
 /**
- * Bongo Charades — Active Gameplay Screen (Artboard 9 / PDF Page 9).
+ * Bongo Charades — Active Gameplay Screen (Artboard 9 / PDF Page 9, refined).
  *
- * Designed exclusively for landscape forehead play:
- * - Top-left: TimerPill (countdown to 0:00)
- * - Top-right: ScorePill (live round score)
- * - Top-center: Team badge + Category name
- * - Center: Large responsive Baloo 2 prompt
- * - Bottom-left: Manual Pass fallback button
- * - Bottom-right: Manual Correct fallback button
- * - Brief visual flash feedback on answer (+1 green / PASS orange)
- * - Mobile portrait rotation prompt overlay
+ * The prompt screen is deliberately clean: timer, category label and the prompt.
+ * The tilt instructions are shown on the countdown stage instead.
+ *
+ * Answer flow (same for Quick Play and Teams):
+ *   tilt / tap → score once → FULL-SCREEN green (Correct) or red (Pass) for FEEDBACK_MS
+ *   (src/config/gameplay.ts, currently 450 ms),
+ *   with the next prompt hidden → next prompt appears.
+ *
+ * Fallback controls: if the phone sends no motion data (desktop, motion permission
+ * denied, unsupported browser), small Pass / Correct buttons appear in the bottom
+ * corners. Keyboard: ↓ / Enter = Correct, ↑ = Pass.
+ *
+ * Turning the phone to portrait pauses the round behind a "turn your phone" screen.
  */
 export function GameplayPage({
   currentPrompt,
   currentCategory,
-  currentTeamName,
-  currentScore,
   roundDurationSeconds,
   onAnswer,
   onRoundTimeUp,
+  tiltBaseline = 0,
   soundEnabled = true,
-  showTiltHints = true,
   tiltSensitivity = 'medium',
 }: GameplayPageProps) {
-  const [feedback, setFeedback] = useState<'correct' | 'pass' | null>(null)
-  const [isPortraitWarning, setIsPortraitWarning] = useState<boolean>(false)
+  const isPortraitPhone = useIsPortraitPhone()
+  const [feedback, setFeedback] = useState<GameplayAction | null>(null)
+  const feedbackActiveRef = useRef(false)
+  const feedbackTimerRef = useRef<number | null>(null)
 
-  // Countdown round timer
-  const { secondsRemaining, isTimeUp } = useGameTimer({
+  const { secondsRemaining, isTimeUp, hasExpired } = useGameTimer({
     durationSeconds: roundDurationSeconds,
     active: true,
+    paused: isPortraitPhone,
     onTimeUp: onRoundTimeUp,
     soundEnabled,
   })
 
-  // Handle player answer (triggered by tilt or manual button)
-  const handleAction = useCallback(
-    (action: GameplayAction) => {
-      // Guard: strictly ignore answers if time is up
-      if (isTimeUp || secondsRemaining <= 0) {
-        return
-      }
-
-      if (action === 'correct') {
-        if (soundEnabled) playCorrectSound()
-        setFeedback('correct')
-      } else {
-        if (soundEnabled) playPassSound()
-        setFeedback('pass')
-      }
-
-      onAnswer(action, currentPrompt)
-
-      // Dismiss feedback overlay after 350ms
-      const timer = setTimeout(() => {
-        setFeedback(null)
-      }, 350)
-      return () => clearTimeout(timer)
+  useEffect(
+    () => () => {
+      if (feedbackTimerRef.current) window.clearTimeout(feedbackTimerRef.current)
     },
-    [isTimeUp, secondsRemaining, soundEnabled, onAnswer, currentPrompt],
+    [],
   )
 
-  // Physical motion / orientation controls hook
-  useTiltControls({
-    enabled: !isTimeUp && secondsRemaining > 0,
+  const handleAction = useCallback(
+    (action: GameplayAction) => {
+      // Ignore input after time is up, while feedback is showing, or while paused
+      if (hasExpired() || feedbackActiveRef.current || isPortraitPhone) return
+
+      feedbackActiveRef.current = true
+      setFeedback(action)
+      if (soundEnabled) {
+        if (action === 'correct') playCorrectSound()
+        else playPassSound()
+      }
+
+      // Score immediately (exactly once — the game session also rejects repeats)
+      onAnswer(action, currentPrompt)
+
+      feedbackTimerRef.current = window.setTimeout(() => {
+        feedbackActiveRef.current = false
+        setFeedback(null)
+      }, FEEDBACK_MS)
+    },
+    [hasExpired, isPortraitPhone, soundEnabled, onAnswer, currentPrompt],
+  )
+
+  const { sensorActive } = useTiltControls({
+    enabled: !isTimeUp && !isPortraitPhone,
     onAction: handleAction,
+    baseline: tiltBaseline,
     sensitivity: tiltSensitivity,
   })
 
-  // Detect if on mobile device held in portrait orientation
+  // Show manual buttons only if no motion data arrives
+  const [graceOver, setGraceOver] = useState(false)
   useEffect(() => {
-    const checkOrientation = () => {
-      if (typeof window === 'undefined') return
-      const isNarrowMobile = window.innerWidth < 640
-      const isHeightGreater = window.innerHeight > window.innerWidth
-      setIsPortraitWarning(isNarrowMobile && isHeightGreater)
-    }
-
-    checkOrientation()
-    window.addEventListener('resize', checkOrientation)
-    window.addEventListener('orientationchange', checkOrientation)
-    return () => {
-      window.removeEventListener('resize', checkOrientation)
-      window.removeEventListener('orientationchange', checkOrientation)
-    }
+    const t = window.setTimeout(() => setGraceOver(true), SENSOR_GRACE_MS)
+    return () => window.clearTimeout(t)
   }, [])
+  const showManualControls = graceOver && !sensorActive
+
+  // Keyboard controls (accessibility / desktop)
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowDown' || e.key === 'Enter') {
+        e.preventDefault()
+        handleAction('correct')
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault()
+        handleAction('pass')
+      }
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [handleAction])
+
+  if (isPortraitPhone) {
+    return <RotateDevicePrompt message="Round paused. Turn your phone sideways to keep playing." />
+  }
+
+  if (feedback) {
+    return (
+      <div
+        className={`answer-feedback answer-feedback--${feedback}`}
+        role="status"
+        aria-live="assertive"
+      >
+        <FeedbackIcon kind={feedback} size={128} />
+        <span className="d answer-feedback__word">{feedback === 'correct' ? 'Correct' : 'Pass'}</span>
+      </div>
+    )
+  }
 
   const fontStyle = getPromptFontSize(currentPrompt.text)
 
   return (
-    <div
-      style={{
-        position: 'relative',
-        width: '100%',
-        maxWidth: 844,
-        height: '100%',
-        minHeight: 360,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        overflow: 'hidden',
-        userSelect: 'none',
-      }}
-    >
-      {/* Visual Feedback Overlay (Green on Correct / Orange on Pass) */}
-      {feedback && (
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background:
-              feedback === 'correct'
-                ? 'rgba(20, 184, 166, 0.45)'
-                : 'rgba(245, 154, 35, 0.45)',
-            zIndex: 30,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            pointerEvents: 'none',
-            animation: 'flash-fade 0.35s ease-out forwards',
-          }}
-        >
-          <span
-            className="d"
-            style={{
-              fontSize: 72,
-              color: '#fff',
-              textShadow: '0 4px 16px rgba(0,0,0,0.4)',
-            }}
-          >
-            {feedback === 'correct' ? '✓ CORRECT +1' : 'PASS'}
-          </span>
-        </div>
-      )}
-
-      {/* Top Left: TimerPill */}
+    <div className="gameplay-stage">
       <div style={{ position: 'absolute', left: 20, top: 14, zIndex: 10 }}>
         <TimerPill secondsRemaining={secondsRemaining} />
       </div>
 
-      {/* Top Right: ScorePill */}
-      <div style={{ position: 'absolute', right: 20, top: 14, zIndex: 10 }}>
-        <ScorePill score={currentScore} />
-      </div>
-
-      {/* Top Center: Team Name & Category Title */}
-      <div
-        style={{
-          position: 'absolute',
-          top: 18,
-          left: '50%',
-          transform: 'translateX(-50%)',
-          textAlign: 'center',
-          zIndex: 10,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: 2,
-        }}
-      >
-        <span
-          style={{
-            fontSize: 12,
-            fontWeight: 800,
-            color: '#FFC83A',
-            letterSpacing: 0.5,
-            textTransform: 'uppercase',
-          }}
-        >
-          🎯 {currentTeamName}
-        </span>
-        <span
-          style={{
-            fontSize: 15,
-            fontWeight: 800,
-            color: '#FFFFFF',
-            opacity: 0.9,
-          }}
-        >
+      <div className="gameplay-stage__prompt" aria-live="polite">
+        <span className="gameplay-stage__category">
           {currentCategory ? currentCategory.name : 'All Categories'}
         </span>
-      </div>
-
-      {/* Center: Large Prompt Display */}
-      <div
-        style={{
-          padding: '70px 100px 80px',
-          textAlign: 'center',
-          maxWidth: '100%',
-        }}
-      >
         <h1
           className="d"
           style={{
@@ -227,83 +165,33 @@ export function GameplayPage({
             lineHeight: fontStyle.lineHeight,
             margin: 0,
             wordBreak: 'break-word',
-            color: '#FFFFFF',
             textShadow: '0 4px 16px rgba(30, 15, 90, 0.4)',
           }}
         >
           {currentPrompt.text}
         </h1>
+        {currentPrompt.hint && <span className="gameplay-stage__hint">{currentPrompt.hint}</span>}
       </div>
 
-      {/* Bottom Left: Pass Button */}
-      <div style={{ position: 'absolute', left: 20, bottom: 16, zIndex: 10 }}>
-        <TiltButton
-          action="pass"
-          onTrigger={handleAction}
-          showTiltHint={showTiltHints}
-          passLabel="Pass ↑"
-          tiltUpHint="Tilt up"
-        />
-      </div>
-
-      {/* Bottom Right: Correct Button */}
-      <div style={{ position: 'absolute', right: 20, bottom: 16, zIndex: 10 }}>
-        <TiltButton
-          action="correct"
-          onTrigger={handleAction}
-          showTiltHint={showTiltHints}
-          correctLabel="Correct ↓"
-          tiltDownHint="Tilt down"
-        />
-      </div>
-
-      {/* Mobile Portrait Orientation Prompt Overlay */}
-      {isPortraitWarning && (
-        <div
-          style={{
-            position: 'fixed',
-            inset: 0,
-            zIndex: 100,
-            background: 'rgba(26, 17, 71, 0.96)',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: 32,
-            textAlign: 'center',
-            gap: 16,
-          }}
-        >
-          <div
-            style={{
-              fontSize: 54,
-              animation: 'rotate-device 2s ease-in-out infinite',
-            }}
-          >
-            📱⟲
-          </div>
-          <h2 className="d" style={{ fontSize: 28, margin: 0 }}>
-            Rotate to Landscape
-          </h2>
-          <p style={{ fontSize: 16, fontWeight: 700, margin: 0, opacity: 0.9 }}>
-            Bongo Charades is played with your phone held horizontally against your forehead.
-          </p>
+      {showManualControls && (
+        <>
           <button
             type="button"
-            onClick={() => setIsPortraitWarning(false)}
-            style={{
-              marginTop: 12,
-              background: 'rgba(255, 255, 255, 0.2)',
-              border: '1px solid rgba(255, 255, 255, 0.4)',
-              borderRadius: 999,
-              padding: '8px 20px',
-              fontSize: 14,
-              color: '#fff',
-            }}
+            className="manual-answer manual-answer--pass"
+            onClick={() => handleAction('pass')}
+            aria-label="Pass"
           >
-            Dismiss hint
+            Pass
           </button>
-        </div>
+          <button
+            type="button"
+            className="manual-answer manual-answer--correct"
+            onClick={() => handleAction('correct')}
+            aria-label="Correct"
+          >
+            Correct
+          </button>
+        </>
       )}
     </div>
   )

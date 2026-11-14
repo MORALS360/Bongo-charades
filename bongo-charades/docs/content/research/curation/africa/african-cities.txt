@@ -1,0 +1,115 @@
+# African Cities — cities and towns only. Dar es Salaam places live in Hii Dar Yetu; other Tanzanian towns may appear here.
+# Capitals are checked against the 100-largest list (S44) where they appear; the rest are common knowledge.
+@ lang=mixed kind=place diff=easy shelf=evergreen conf=H src=bank,S44
+Dar es Salaam
+Nairobi
+Kampala
+Kigali
+Johannesburg
+Cape Town
+Lagos
+Cairo
+Accra
+Addis Ababa
+Kinshasa
+Marrakech
+Dakar
+# ── Capitals in the 100 largest ──
+@ lang=mixed kind=place diff=medium shelf=evergreen conf=H src=S44
+Luanda
+Khartoum
+Bamako
+Algiers
+Conakry ; ; diff=hard
+Yaoundé
+Ouagadougou ; ; diff=hard
+Antananarivo ; ; diff=hard
+Abuja
+Lusaka
+Tunis
+Lomé ; ; diff=hard
+Harare
+Maputo
+Brazzaville
+Mogadishu
+Rabat
+N'Djamena ; ; diff=hard
+Monrovia
+Tripoli
+Bangui ; ; diff=hard
+Niamey ; ; diff=hard
+Nouakchott ; ; diff=hard
+Freetown
+Lilongwe
+Banjul ; ; diff=hard
+Asmara ; ; diff=hard
+Pretoria
+# ── Other capitals ──
+@ lang=mixed kind=place diff=hard shelf=evergreen conf=M src=GK
+Dodoma ; ; diff=easy
+Juba ; ; diff=medium
+Gitega
+Djibouti ; ; diff=medium
+Windhoek ; ; diff=medium
+Gaborone ; ; diff=medium
+Maseru
+Mbabane
+Port Louis
+Victoria ; Shelisheli
+Moroni
+Libreville
+Malabo
+Porto-Novo
+Yamoussoukro
+Bissau
+Praia
+São Tomé
+# ── Famous cities that are not capitals ──
+@ lang=mixed kind=place diff=medium shelf=evergreen conf=H src=S44
+Abidjan
+Alexandria
+Kano
+Casablanca
+Durban
+Douala
+Ibadan ; ; diff=hard
+Lubumbashi
+Kumasi
+Port Harcourt
+Goma
+Bukavu ; ; diff=hard
+Bujumbura
+Fez ; ; diff=hard
+Tangier ; ; diff=hard
+Blantyre ; ; diff=hard
+Mwanza ; ; diff=easy
+Arusha ; ; diff=easy
+@ lang=mixed kind=place diff=medium shelf=evergreen conf=M src=GK
+Soweto
+Bloemfontein ; ; diff=hard
+Bulawayo ; ; diff=hard
+Livingstone ; ; diff=hard
+Beira ; ; diff=hard
+Timbuktu
+Luxor ; ; diff=hard
+Aswan ; ; diff=hard
+Sharm El Sheikh ; ; diff=hard
+Kisumu
+Nakuru
+Eldoret
+Malindi
+Lamu
+Entebbe
+Jinja
+Gulu ; ; diff=hard
+Mbeya ; ; diff=easy
+Tanga ; ; diff=easy
+Moshi ; ; diff=easy
+Morogoro ; ; diff=easy
+Kigoma ; ; diff=easy
+Bagamoyo ; ; diff=easy
+Mtwara ; ; diff=easy
+Bukoba ; ; diff=easy
+Iringa ; ; diff=easy
+Tabora ; ; diff=easy
+Stone Town ; ; diff=easy

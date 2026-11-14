@@ -1,0 +1,52 @@
+# Spotify weekly chart, Egypt, top 50. Chart dated 2026-11-12. Source: https://kworb.net/spotify/country/eg_weekly.html (accessed 2026-11-14)
+# position|artist - track|weeks on chart|peak
+1|Wegz - El Hazz|wks 3|pk 1
+2|حمو المرشدي - بتأفلم وتحور|wks 3|pk 2
+3|Amr Mostafa - عشان بحبك (w/ حمو المرشدي , Wezza Montaser )|wks 9|pk 1
+4|abulhawa - EL BADLA WEL FOSTAN|wks 9|pk 2
+5|Marwan Pablo - Shoft Kalam (w/ Lege-Cy , HatemBas )|wks 16|pk 1
+6|حمو المرشدي - اخوك جايبها م الصفر|wks 13|pk 4
+7|Afroto - Supreme (w/ حمو المرشدي , Coolpix )|wks 7|pk 2
+8|Ramy Sabry - M3a Nafsi|wks 15|pk 5
+9|حمو المرشدي - كوكب النسيان|wks 13|pk 4
+10|Tamer Ashour - Wlad ElHalal|wks 16|pk 9
+11|Ramy Sabry - الحب عيبنا|wks 87|pk 3
+12|حمو المرشدي - اركب الدبابه|wks 14|pk 3
+13|Red Bull Sika - يا حبيبنا | ريدبُل مزيكا صالونات (w/ Hakim , Houda )|wks 12|pk 9
+14|حمو المرشدي - لاعبت الكبار|wks 9|pk 7
+15|حمو المرشدي - الولا حمو جه|wks 24|pk 1
+16|TUL8TE - Garee2a Awy - A COLORS SHOW (w/ COLORS )|wks 19|pk 1
+17|Zaid Khaled - HASESS BIK (w/ Nasser )|wks 7|pk 11
+18|حمو المرشدي - صباحك بيور|wks 21|pk 8
+19|Ramy Sabry - لو تعرف|wks 21|pk 12
+20|Ramy Sabry - Kelma|wks 49|pk 3
+21|TUL8TE - Wala Ash Wala Kan|wks 14|pk 3
+22|حمو المرشدي - من تانى خدت الساحه|wks 10|pk 20
+23|Ramy Sabry - لما بيوحشني|wks 184|pk 9
+24|Lege-Cy - 3alam Kadaba|wks 64|pk 2
+25|TUL8TE - Men Gheir Kalam|wks 14|pk 11
+26|Houda - القلب مات|wks 6|pk 11
+27|حمو المرشدي - عيال جديدة لانج|wks 21|pk 7
+28|Mohamed Hamaki - و افتكرت|wks 169|pk 18
+29|Tamer Ashour - Makrehtosh|wks 95|pk 2
+30|Ramy Sabry - Seket Leh|wks 126|pk 11
+31|Houda - خيبت توقعاتك|wks 46|pk 2
+32|Nabil - Tayeh Fel Amaken|wks 30|pk 27
+33|Tamer Ashour - Merayt El Hob|wks 17|pk 31
+34|TUL8TE - Nano (w/ Saint Levant )|wks 24|pk 1
+35|Tamer Ashour - Ghebet El Habayeb|wks 95|pk 18
+36|Tawsen - Estanna, (w/ Fares Sokar )|wks 18|pk 13
+37|Ramy Sabry - بحكيلك عن الأيام|wks 62|pk 21
+38|Sherine - Ya Layaly|wks 182|pk 37
+39|Essam Sasa - استفدت ايه بكبريائك|wks 2|pk 39
+40|Tamer Ashour - Msh Fare2ly|wks 17|pk 22
+41|Ramy Sabry - بتفتكرني ساعات|wks 150|pk 37
+42|Bahaa Sultan - معايا|wks 51|pk 2
+43|Houda - غبي|wks 22|pk 8
+44|Ramy Sabry - علي بالي|wks 12|pk 38
+45|Jung Kook - Seven (w/ Latto )|wks 81|pk 4
+46|Ramy Sabry - Masadaat Etabelna|wks 33|pk 40
+47|Tamer Ashour - Yaah|wks 99|pk 8
+48|حمو المرشدي - طول منا عالي طول منا ناجح|wks 34|pk 1
+49|TUL8TE - Heseeny|wks 67|pk 1
+50|ZIAD ZAZA - WALA MEEN (w/ Ismail Nosrat , Lege Cy )|wks 71|pk 4

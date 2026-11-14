@@ -1,0 +1,197 @@
+# Mpira & Mashabiki — Tanzanian football: clubs, players, stadiums, competitions and fan life.
+@ lang=mixed kind=thing diff=easy shelf=evergreen conf=H src=bank,S31,S32
+Simba SC
+Yanga SC
+Azam FC
+Taifa Stars
+Kariakoo Derby ; ; lang=sw
+Uwanja wa Mkapa ; ; lang=sw kind=place
+@ lang=sw kind=action diff=easy shelf=evergreen conf=M src=bank
+Jangwani ; Makao makuu ya Yanga ; kind=place
+Vuvuzela ; ; kind=thing
+Kadi Nyekundu ; ; kind=thing
+Kipa Amedaka
+Goli Dakika ya 90
+Ndondo Cup ; ; kind=thing
+Shabiki Analia
+Kubeti
+# ── Clubs ──
+@ lang=mixed kind=thing diff=medium shelf=evergreen conf=M src=S32,GK
+Singida Black Stars
+Coastal Union
+Namungo FC
+KMC FC
+Mtibwa Sugar
+Kagera Sugar
+Tanzania Prisons
+JKT Tanzania
+Dodoma Jiji
+Mashujaa FC
+Pamba Jiji
+Tabora United
+Mbeya City
+Geita Gold ; ; diff=hard
+Ruvu Shooting ; ; diff=hard shelf=nostalgia
+Pan African ; ; diff=hard shelf=nostalgia
+Majimaji FC ; ; diff=hard shelf=nostalgia
+Toto Africans ; ; diff=hard shelf=nostalgia
+Simba Queens
+Yanga Princess
+JKT Queens ; ; diff=hard
+Twiga Stars
+Serengeti Boys
+Kilimanjaro Stars ; ; diff=hard
+Zanzibar Heroes ; ; diff=hard
+# ── Nicknames, mottos and club days ──
+@ lang=sw kind=phrase diff=medium shelf=evergreen conf=H src=S31
+Wekundu wa Msimbazi ; Simba SC
+Wananchi ; Yanga SC
+@ lang=sw kind=phrase diff=medium shelf=evergreen conf=V src=GK note=Sina chanzo nilichosoma; thibitisha
+Mnyama ; Simba SC
+Nguvu Moja ; Kauli mbiu ya Simba
+Daima Mbele Nyuma Mwiko ; Kauli mbiu ya Yanga
+Wana Lambalamba ; Azam FC
+Wagosi wa Kaya ; Coastal Union
+Simba Day
+Wiki ya Mwananchi
+Goli la Mama ; Zawadi ya Rais kwa kila goli
+Kwa Mkapa Hatoki Mtu
+Utopolo ; Utani wa mashabiki ; diff=hard note=Utani wa mashabiki: unafaa kwa mchezo, au unaudhi?
+Kolo ; Utani wa mashabiki ; diff=hard note=Utani wa mashabiki: unafaa kwa mchezo, au unaudhi?
+# ── Tanzanian players, past and present (names from S32; fame judged by me) ──
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=M src=S32
+Simon Msuva
+Mrisho Ngassa ; ; shelf=nostalgia
+Juma Kaseja ; ; shelf=nostalgia
+Aishi Manula
+Shomari Kapombe
+Feisal Salum ; Fei Toto
+Dickson Job
+Bakari Mwamnyeto
+Mudathir Yahya
+Kibu Denis
+Clement Mzize
+Novatus Miroshi ; ; diff=hard
+Thomas Ulimwengu
+Kelvin John ; ; diff=hard
+Himid Mao ; ; diff=hard
+Erasto Nyoni
+Jonas Mkude
+Kelvin Yondani ; ; shelf=nostalgia
+Nadir Haroub ; Cannavaro ; shelf=nostalgia
+Haruna Moshi ; Boban ; shelf=nostalgia diff=hard
+Amri Kiemba ; ; shelf=nostalgia diff=hard
+Shadrack Nsajigwa ; ; shelf=nostalgia diff=hard
+Ivo Mapunda ; ; shelf=nostalgia diff=hard
+Shiza Kichuya ; ; diff=hard
+Jerson Tegete ; ; shelf=nostalgia diff=hard
+Mzamiru Yassin ; ; diff=hard
+Sunday Manara ; ; shelf=nostalgia diff=hard
+Leodegar Tenga ; ; shelf=nostalgia diff=hard
+Juma Pondamali ; ; shelf=nostalgia diff=hard
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=V src=GK note=Sina chanzo nilichosoma; anajulikana?
+John Bocco
+Mohamed Hussein ; Tshabalala
+Ibrahim Bacca
+Peter Tino ; ; shelf=nostalgia diff=hard
+Zamoyoni Mogella ; ; shelf=nostalgia diff=hard
+Edibily Lunyamila ; ; shelf=nostalgia diff=hard
+# ── Foreign stars of the Tanzanian league ──
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=V src=GK note=Sina chanzo nilichosoma; bado anakumbukwa?
+Clatous Chama
+Fiston Mayele
+Stephane Aziz Ki
+Pacôme Zouzoua
+Djigui Diarra
+Khalid Aucho
+Prince Dube
+Meddie Kagere ; ; shelf=nostalgia
+Emmanuel Okwi ; ; shelf=nostalgia
+Luis Miquissone
+Bernard Morrison ; ; shelf=nostalgia
+Haruna Niyonzima ; ; shelf=nostalgia
+Amissi Tambwe ; ; shelf=nostalgia diff=hard
+# ── Coaches and officials ──
+@ lang=mixed kind=person diff=hard shelf=trending conf=V src=GK note=Sina chanzo nilichosoma; anajulikana?
+Nasreddine Nabi
+Miguel Gamondi
+Fadlu Davids
+Hersi Said ; Rais wa Yanga
+Ali Kamwe ; Msemaji wa Yanga
+# ── Competitions ──
+@ lang=sw kind=thing diff=medium shelf=evergreen conf=H src=S32
+Ligi Kuu Bara
+Ngao ya Jamii
+Kombe la Mapinduzi
+Kombe la Shirikisho
+Ligi ya Mabingwa Afrika ; ; conf=M
+AFCON ; ; lang=mixed conf=M src=GK
+CHAN ; ; lang=mixed conf=M src=GK diff=hard
+# ── Stadiums ──
+@ lang=sw kind=place diff=hard shelf=evergreen conf=M src=GK
+Azam Complex Chamazi
+Uwanja wa Amaan ; Zanzibar
+CCM Kirumba ; Mwanza
+Uwanja wa Sokoine ; Mbeya
+Uwanja wa Mkwakwani ; Tanga
+Uwanja wa Jamhuri ; Dodoma
+Uwanja wa Kaitaba ; Bukoba
+# ── On the pitch ──
+@ lang=sw kind=action diff=easy shelf=evergreen conf=M src=GK
+Kadi ya Njano ; ; kind=thing
+Kona
+Faulo
+Ameotea ; Offside
+VAR ; ; lang=mixed kind=thing
+Chenga
+Tobo ; Mpira kupita katikati ya miguu ; diff=medium
+Kanzu ; Kumpitishia mpira juu ya kichwa ; diff=hard conf=V note=Maana hii ni sahihi?
+Bao la Kisigino ; ; diff=medium
+Bao la Kichwa
+Hat-trick ; ; lang=mixed
+Kujifunga
+Kukosa Penalti
+Mikwaju ya Penalti
+Dakika za Nyongeza
+Nahodha ; ; kind=person
+Refa ; ; kind=person
+Mshika Kibendera ; ; kind=person
+Kocha Analalamika
+Kocha Kafukuzwa
+Benchi la Wachezaji ; ; kind=thing
+Kupasha Misuli
+Kushangilia Goli
+Kuvua Jezi Kushangilia
+Kupoteza Muda
+Kujiangusha
+Mchezaji Kaumia
+Machela ; ; kind=thing diff=medium
+Kombe la Ubingwa ; ; kind=thing
+Kunyanyua Kombe
+Gwaride la Ubingwa ; ; diff=medium
+Sare
+Kipigo Kikubwa
+# ── Fan life ──
+@ lang=sw kind=action diff=easy shelf=evergreen conf=M src=GK
+Jezi Mpya ya Msimu ; ; kind=thing
+Skafu ya Timu ; ; kind=thing
+Kupaka Rangi Usoni
+Ngoma za Mashabiki ; ; kind=thing
+Kuzomea Refa
+Shabiki Amezimia
+Shabiki wa Kutupwa ; ; kind=person diff=medium
+Kutaniana Baada ya Mechi
+Mkeka wa Kubeti ; ; kind=thing conf=V note=Je, 'mkeka' ndilo neno la kawaida?
+Mkeka Umechanika ; ; conf=V diff=medium note=Je, husemwa hivi mtu akipoteza beti?
+Kukata Tiketi
+Foleni ya Tiketi
+Msemaji wa Klabu ; ; kind=person
+Dirisha la Usajili ; ; kind=thing diff=medium
+Kumpokea Mchezaji Mpya ; ; diff=medium
+Mtangazaji wa Mpira ; ; kind=person
+Kusikiliza Mpira Redioni ; ; shelf=nostalgia
+Mechi ya Kirafiki ; ; kind=thing
+Mpira wa Mchangani ; ; kind=thing
+Mpira wa Makaratasi ; ; kind=thing shelf=nostalgia conf=V note=Au 'mpira wa matambara'?
+Kucheza Peku ; ; diff=medium
+Chandimu ; Mpira wa mtaani ; kind=thing diff=hard conf=V note=Neno hili linajulikana?

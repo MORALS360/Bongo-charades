@@ -1,0 +1,207 @@
+# Zilipendwa — Tanzanian music from 2013 or earlier (owner rule). Songs, plus bands, legendary artists and dance styles (owner rule).
+# ── Songs already in the game ──
+@ lang=mixed kind=song diff=medium shelf=nostalgia conf=H src=bank,S18 era=1970s
+Shida ; Mbaraka Mwinshehe
+Pole Dada ; Mbaraka Mwinshehe
+Neema ; DDC Mlimani Park Orchestra ; era=1980s
+Mambo kwa Soksi ; Remmy Ongala ; era=1990s
+Kifo ; Remmy Ongala ; era=1980s
+Kipenda Roho ; Remmy Ongala ; era=1990s
+@ lang=mixed kind=song diff=medium shelf=nostalgia conf=H src=bank,S9 era=2000s
+Kidali Po ; Mr Nice
+Siamini ; TID
+Umenikataa ; Ray C
+Kimya Kimya ; Jay Moe ft. Ngwair
+Habari Ndiyo Hiyo ; Mwana FA ft. AY
+Mapozi ; Mr Blue
+Binti Kiziwi ; Z Anto
+Nakshi Mrembo ; Ali Kiba
+Bembeleza ; Marlaw
+Siku Hazigandi ; Lady Jaydee
+Dar Mpaka Moro ; TMK Wanaume
+Nalia kwa Furaha ; Bushoke
+Anita ; Matonya ft. Lady Jaydee
+Maria Salome ; Saida Karoli ; src=bank,S16 note=Was flagged for review; now confirmed by the artist page
+My Number One ; Diamond Platnumz ; era=2010s src=bank,S8
+Me & You ; Ommy Dimpoz ft. Vanessa Mdee ; era=2010s src=bank,S7,S8
+# ── 1960s–80s dansi ──
+@ lang=mixed kind=song diff=hard shelf=nostalgia conf=M src=S17 era=1970s
+Georgina ; Marijani Rajab
+Mwanameka ; Marijani Rajab
+Zuwena ; Marijani Rajab ; src=S19,GK
+Msafiri ; King Kiki ; src=S12
+Tanzania Ndio Nchi ya Furaha ; Mzee Hiza ; src=S5 conf=H famous=yes era=1960s
+@ lang=mixed kind=song diff=hard shelf=nostalgia conf=V src=GK era=1970s note=Kumbukumbu yangu tu; muulize mzazi au mtu mzima
+Expo 70 ; Mbaraka Mwinshehe
+Dr. Kleruu ; Mbaraka Mwinshehe
+Mtaa wa Saba ; Mbaraka Mwinshehe
+Kitambaa Cheupe ; King Kiki ; era=1980s
+Kassim Amefilisika ; DDC Mlimani Park Orchestra ; era=1980s
+Mtoto Akililia Wembe ; DDC Mlimani Park Orchestra ; era=1980s
+Barua kutoka kwa Mama ; DDC Mlimani Park Orchestra ; era=1980s
+Hiba ; DDC Mlimani Park Orchestra ; era=1980s
+Karubandika ; Orchestra Maquis Original ; era=1980s
+Ngalula ; Orchestra Maquis Original ; era=1980s
+Makumbele ; Orchestra Maquis Original ; era=1980s
+Narudi Nyumbani ; Remmy Ongala ; era=1980s
+Mariamu Wangu ; Remmy Ongala ; era=1980s
+Njenje ; Kilimanjaro Band ; era=1990s src=S7,GK
+# ── Taarab ──
+@ lang=mixed kind=song diff=hard shelf=nostalgia conf=M src=S15
+Njiwa Peleka Salamu ; Patricia Hillary
+Subalkheri Mpenzi ; Taarab ya zamani
+Nyama ya Bata ni Tamu ; Issa Matona ; famous=yes
+Muhogo wa Jang'ombe ; Bi Kidude ; src=S16
+@ lang=mixed kind=song diff=medium shelf=nostalgia conf=H src=S7 era=2010s
+Mjini Chuo Kikuu ; Khadija Kopa
+Daktari wa Mapenzi ; Jahazi Modern Taarab
+My Valentine ; Jahazi Modern Taarab
+Nani Kama Mama ; Isha Mashauzi
+# ── 1990s and early 2000s hip hop ──
+@ lang=mixed kind=song diff=hard shelf=nostalgia conf=M src=S12 era=1990s
+Ni Mimi ; Mr II (Sugu)
+Ni Wapi Tunakwenda ; Mr II (Sugu)
+Chemsha Bongo ; Hard Blasters
+Msimu kwa Msimu ; X Plastaz ; era=2000s
+Hili Game ; Juma Nature ; era=2000s
+# ── 2000s Bongo Flava ──
+@ lang=mixed kind=song diff=medium shelf=nostalgia conf=M src=S16 era=2000s
+Zali la Mentali ; Professor Jay ft. Juma Nature
+Nikusaidiaje ; Professor Jay ft. Ferooz
+Ndio Mzee ; Professor Jay
+Bongo Dar es Salaam ; Professor Jay
+Joto Hasira ; Lady Jaydee ft. Professor Jay
+Machozi ; Lady Jaydee
+Na Wewe Milele ; Ray C
+Sogea Sogea ; Ray C
+Zeze ; TID
+Nyota Yako ; TID
+We Dada ; TID
+Julieta ; Dully Sykes
+Historia ya Kweli ; Dully Sykes
+Leah ; Dully Sykes
+Salome ; Dully Sykes
+Cinderella ; Ali Kiba
+Usiniseme ; Ali Kiba
+Mapenzi Yana Run Dunia ; Ali Kiba
+Macmuga ; Ali Kiba
+Umoja wa Tanzania ; Juma Nature ; src=S17
+Ubinadamu Kazi ; Juma Nature
+Mikasi ; Ngwair ; src=S19
+Mtoto wa Geti Kali ; Gangwe Mobb ; src=S19
+Lala Salama ; Diamond Platnumz ; era=2010s
+Mbagala ; Diamond Platnumz ; era=2010s
+Mawazo ; Diamond Platnumz ; era=2010s
+@ lang=mixed kind=song diff=medium shelf=nostalgia conf=V src=GK era=2000s note=Kumbukumbu yangu tu; thibitisha wimbo na msanii
+Fagilia ; Mr Nice
+Kikulacho ; Mr Nice
+Starehe ; Ferooz ft. Professor Jay
+Distance ; Lady Jaydee
+Vaileti ; Matonya
+Taxi Bubu ; Matonya
+Mume Bwege ; Bushoke
+Latifah ; MB Dogg
+Rita ; Marlaw
+Mugambo ; Juma Nature
+Sitaki Demu ; Juma Nature
+Bado Nipo Nipo ; Mwana FA
+Machoni Kama Watu ; AY ft. Lady Jaydee
+Tabasamu ; Mr Blue
+Kamanda ; Daz Nundaz
+Tanga Kunani ; Wagosi wa Kaya
+Ghetto Langu ; Ngwair
+Mwanangu Huna Nidhamu ; Dudu Baya
+Sumu ya Penzi ; Belle 9 ; era=2010s
+Single Boy ; Ali Kiba ft. Lady Jaydee ; era=2010s
+Nataka Kulewa ; Diamond Platnumz ; era=2010s
+Kesho ; Diamond Platnumz ; era=2010s
+Mjomba ; Mrisho Mpoto ; era=2010s
+# ── 2009–2013 award winners and nominees ──
+@ lang=mixed kind=song diff=medium shelf=nostalgia conf=H src=S7 era=2010s
+Kamwambie ; Diamond Platnumz
+Tamaa Mbaya ; 20 Percent
+Hakunaga ; Suma Lee
+Dear God ; Kala Jeremiah
+Pii Pii ; Marlaw
+Stimu Zimelipiwa ; Joh Makini
+Nipigie ; AT ft. Stara Thomas
+Mwana Dar es Salaam ; Twanga Pepeta
+Nikipata Nauli ; Mrisho Mpoto
+Ya Nini Malumbano ; 20 Percent
+Nikikupata ; Ben Pol
+Dushelele ; Ali Kiba
+Nai Nai ; Ommy Dimpoz ft. Ali Kiba
+Mathematics ; Roma Mkatoliki
+Maneno Maneno ; Queen Darleen
+Moyo Wangu ; Diamond Platnumz
+Baadaye ; Ommy Dimpoz
+Risasi Kidole ; Mashujaa Band
+Yahaya ; Lady Jaydee ; src=S8,S16
+# ── Legendary artists ──
+@ lang=mixed kind=person diff=medium shelf=nostalgia conf=H src=S13,S14
+Mbaraka Mwinshehe
+Remmy Ongala ; ; src=S16
+Marijani Rajab ; ; src=S17 diff=hard
+Bi Kidude ; ; src=S16
+Siti binti Saad ; ; src=S16 diff=hard
+King Kiki ; ; src=S12 diff=hard
+Hukwe Zawose ; ; src=S16 diff=hard
+Khadija Kopa ; ; src=S7
+Mzee Yusuf ; ; src=S7
+Saida Karoli ; ; src=S16
+@ lang=mixed kind=person diff=easy shelf=nostalgia conf=H src=S11
+Professor Jay ; ; moved=watu-maarufu
+Lady Jaydee ; ; moved=watu-maarufu
+Mr Nice
+TID
+Ray C
+Juma Nature
+Dully Sykes
+AY
+Mr II (Sugu) ; ; src=S12 diff=medium
+Ngwair ; ; src=S19 diff=medium
+Mwana FA ; ; src=S9
+Mr Blue ; ; src=S9
+Matonya ; ; src=S9 diff=medium
+Marlaw ; ; src=S7,S9 diff=medium
+Bushoke ; ; src=S9 diff=medium
+20 Percent ; ; src=S7 diff=medium
+Mrisho Mpoto ; ; src=S7 diff=medium
+@ lang=mixed kind=person diff=medium shelf=nostalgia conf=V src=GK note=Je, bado wanakumbukwa?
+Banana Zorro
+Q Chief
+MB Dogg
+Ferooz
+Dudu Baya
+Stara Thomas ; ; src=S7 conf=M
+# ── Bands and crews ──
+@ lang=mixed kind=thing diff=medium shelf=nostalgia conf=H src=S13,S14
+Msondo Ngoma
+DDC Mlimani Park
+Orchestra Maquis Original ; ; diff=hard
+Vijana Jazz ; ; diff=hard
+Morogoro Jazz ; ; diff=hard
+Twanga Pepeta ; ; src=S7
+Jahazi Modern Taarab ; ; src=S7
+Mashujaa Band ; ; src=S7 diff=hard
+Kilimanjaro Band ; ; src=S7,GK conf=M
+TMK Wanaume ; ; src=S9,S11
+Kwanza Unit ; ; src=S12 diff=hard
+Hard Blasters ; ; src=S12 diff=hard
+X Plastaz ; ; src=S12 diff=hard
+Gangwe Mobb ; ; src=S19 conf=M diff=hard
+@ lang=mixed kind=thing diff=medium shelf=nostalgia conf=V src=GK note=Je, bado wanakumbukwa?
+FM Academia
+Daz Nundaz
+East Coast Team
+# ── Dance styles and genres ──
+@ lang=sw kind=thing diff=medium shelf=nostalgia conf=H src=S14
+Sikinde
+Ogelea Piga Mbizi ; Mtindo wa dansi ; kind=action
+Kamanyola ; Mtindo wa dansi ; diff=hard
+Zembwela ; Mtindo wa dansi ; diff=hard
+Pamba Moto ; Mtindo wa dansi ; diff=hard
+Muziki wa Dansi
+Taarab ; ; src=S15
+Mdundiko ; Ngoma ya asili ; src=GK conf=M
+Mchiriku ; ; src=GK conf=M diff=hard

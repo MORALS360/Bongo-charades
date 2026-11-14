@@ -1,0 +1,148 @@
+# East African Vibes — life in Kenya, Uganda, Rwanda, Burundi, DR Congo, South Sudan and Ethiopia.
+# Things that are plainly Tanzanian belong in the Bongo group. Pairs are written  English | Kiswahili.
+@ lang=mixed kind=thing diff=easy shelf=evergreen conf=M src=bank
+Matatu ; ; conf=H src=bank,S46
+Rolex ; Ugandan street snack ; kind=food conf=H src=bank,S46
+Kitenge
+Lake Victoria | Ziwa Victoria ; ; kind=place
+Gorilla Trekking | Kutembelea Sokwe ; ; kind=action
+Safari
+Great Migration
+Maasai Jumping Dance | Ngoma ya Kimaasai ; ; kind=action
+Kanga
+Nyama Choma ; ; kind=food conf=H src=bank,S46
+Mombasa ; ; kind=place
+Zanzibar ; ; kind=place
+Source of the Nile ; ; kind=place
+# ── Kenya ──
+@ lang=mixed kind=food diff=medium shelf=evergreen conf=H src=S46
+Githeri
+Sukuma Wiki
+Irio ; ; diff=hard
+Mahamri
+Mursik ; Kenyan fermented milk ; diff=hard
+Omena ; Small lake fish ; diff=hard
+@ lang=mixed kind=place diff=medium shelf=evergreen conf=M src=GK
+Maasai Mara ; ; diff=easy
+Mount Kenya ; ; diff=easy
+Diani Beach
+Lamu Island
+Fort Jesus
+Lake Nakuru
+Lake Turkana ; ; diff=hard
+Great Rift Valley
+Hell's Gate ; ; diff=hard
+Kibera
+Uhuru Park ; ; diff=hard
+KICC ; Nairobi tower ; diff=hard
+@ lang=mixed kind=thing diff=medium shelf=evergreen conf=M src=GK
+Safari Rally ; ; src=S46 conf=H
+Madaraka Express ; Kenyan train
+M-Pesa ; ; diff=easy
+Harambee
+Maasai Shuka
+Maasai Beadwork
+Kikoy ; ; diff=hard
+Kiondo Basket ; ; diff=hard
+Tyre Sandals ; Akala ; diff=hard
+Kenyan Tea
+Tusker ; Kenyan beer ; kind=brand src=S46
+Marathon Champion ; ; kind=person diff=easy
+Matatu Conductor ; ; kind=person diff=easy
+Matatu Graffiti ; ; src=S46 conf=H
+Loud Matatu Music ; ; src=S46 conf=H diff=easy
+Flamingos ; ; diff=easy
+Mutura ; Kenyan street sausage ; kind=food diff=hard conf=V note=Inajulikana Tanzania?
+# ── Sheng and Kenyan sayings (owner rule: at most about ten, all for your check) ──
+@ lang=mixed kind=phrase diff=hard shelf=evergreen conf=V src=S46 note=Sheng; linajulikana Tanzania?
+Sheng ; Kenyan street language ; kind=thing diff=medium
+Mathree ; Matatu
+Chapo ; Chapati
+Thao ; One thousand shillings
+Kanjo ; City council officer
+Ocha ; Home village
+Msee ; Guy
+Manzi ; Girl
+Hakuna Matata ; ; diff=easy src=GK
+# ── Uganda ──
+@ lang=mixed kind=food diff=medium shelf=evergreen conf=H src=S46
+Luwombo ; Ugandan stew in banana leaves ; diff=hard
+Posho ; Ugandan ugali
+Groundnut Sauce
+Waragi ; Ugandan gin ; diff=hard
+Malewa ; Bamboo shoots ; diff=hard
+@ lang=mixed kind=place diff=medium shelf=evergreen conf=M src=GK
+Bwindi Forest
+Murchison Falls
+Rwenzori Mountains
+Lake Bunyonyi ; ; diff=hard
+Ssese Islands ; ; diff=hard
+Kasubi Tombs ; ; diff=hard
+The Equator ; ; diff=easy
+@ lang=mixed kind=thing diff=medium shelf=evergreen conf=M src=GK
+Kabaka ; King of Buganda ; kind=person
+Gomesi ; Ugandan dress ; diff=hard
+Uganda Cranes ; Football team
+Crested Crane ; Uganda's national bird
+White-water Rafting ; ; kind=action diff=easy
+Nile Perch ; ; kind=food
+Gonja ; Roasted plantain ; kind=food diff=hard
+Luganda ; ; diff=hard
+Katogo ; Ugandan breakfast ; kind=food diff=hard conf=V note=Inajulikana Tanzania?
+# ── Rwanda and Burundi ──
+@ lang=mixed kind=thing diff=medium shelf=evergreen conf=M src=GK
+Brochette ; ; kind=food src=S46 conf=H
+Isombe ; Cassava-leaf dish ; kind=food src=S46 conf=H diff=hard
+Umuganda ; Community clean-up day
+Land of a Thousand Hills ; Rwanda ; kind=place famous=yes
+Intore Dance ; ; kind=action
+Volcanoes National Park ; ; kind=place
+Lake Kivu ; ; kind=place
+Agaseke Basket ; ; diff=hard
+Visit Rwanda ; ; kind=phrase
+Kigali Convention Centre ; ; kind=place diff=hard
+Canopy Walk ; Nyungwe Forest ; kind=action
+Tour du Rwanda ; Cycling race ; diff=hard
+Burundi Drummers ; ; kind=person
+Lake Tanganyika | Ziwa Tanganyika ; ; kind=place diff=easy
+# ── Ethiopia ──
+@ lang=mixed kind=food diff=medium shelf=evergreen conf=H src=S46
+Injera ; ; diff=easy
+Doro Wat ; ; diff=hard
+Kitfo ; ; diff=hard
+Tibs ; ; diff=hard
+Tej ; Honey wine ; diff=hard
+@ lang=mixed kind=thing diff=medium shelf=evergreen conf=M src=GK
+Coffee Ceremony ; ; kind=action
+Lalibela Churches ; ; kind=place
+Ethiopian Airlines ; ; kind=brand diff=easy
+Eskista ; Ethiopian shoulder dance ; kind=action
+Lucy ; The famous fossil ; diff=hard
+Simien Mountains ; ; kind=place diff=hard
+Blue Nile Falls ; ; kind=place diff=hard
+Thirteen-Month Calendar ; ; diff=hard
+Timkat ; Ethiopian festival ; diff=hard
+# ── DR Congo and South Sudan ──
+@ lang=mixed kind=thing diff=medium shelf=evergreen conf=M src=GK
+Sapeurs ; Stylish men of Kinshasa ; kind=person
+Congo River | Mto Kongo ; ; kind=place diff=easy
+Virunga ; ; kind=place
+Nyiragongo Volcano ; ; kind=place
+Okapi ; ; diff=hard
+Lingala ; ; diff=hard
+White Nile ; ; kind=place diff=hard
+# ── Shared across the region ──
+@ lang=mixed kind=thing diff=easy shelf=evergreen conf=M src=GK
+East African Community ; ; src=S46 conf=H diff=medium
+Swahili Coast
+Dhow | Jahazi
+The Big Five
+Game Drive ; ; kind=action
+Wildebeest Crossing ; ; kind=action
+Tea Plantation ; ; kind=place
+Coffee Farm ; ; kind=place
+Border Crossing ; ; kind=action
+Namanga Border ; ; kind=place diff=medium
+Mount Elgon ; ; kind=place diff=hard
+Maasai Warrior ; ; kind=person
+Pamoja AFCON 2027 ; ; diff=medium shelf=trending conf=V note=Jina hili ndilo linalotumika?

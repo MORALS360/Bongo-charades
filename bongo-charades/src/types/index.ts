@@ -28,7 +28,10 @@ export type CategoryIconId =
   | 'movies-tv'
   | 'music-artists'
   | 'sports'
-  | 'countries-places'
+  | 'countries'
+  | 'famous-landmarks'
+  | 'car-brands'
+  | 'famous-brands'
   | 'everyday-things'
   | 'act-it-out'
   | 'food-drinks'
@@ -37,7 +40,7 @@ export type CategoryIconId =
   | 'daladala-diaries'
   | 'bongo-flava'
   | 'mtaani'
-  | 'vijiweni'
+  | 'zilipendwa'
   | 'chakula-chetu'
   | 'watu-maarufu'
   | 'movie-za-bongo'
@@ -70,19 +73,54 @@ export interface CategorySection {
   categories: Category[]
 }
 
-/** Individual charades word or phrase prompt */
+/**
+ * Individual charades prompt.
+ *
+ * `language` meaning:
+ *  - 'en'    = English wording
+ *  - 'sw'    = Kiswahili wording
+ *  - 'mixed' = works in any language (proper names, song titles, brands) or a natural
+ *              Sheng/Kiswahili–English blend
+ */
 export interface GamePrompt {
   id: string
   text: string
   categoryId: CategoryIconId
   language: PromptLanguage
+  /**
+   * Translation key: prompts that share a `concept` are the SAME idea in different
+   * languages (e.g. "Lion" / "Simba"). Only one version of a concept is dealt per game.
+   */
+  concept?: string
+  /** Small helper line shown under the prompt (e.g. the artist of a song title) */
+  hint?: string
+  /** true = content flagged for human review before Phase 5 sign-off */
+  needsReview?: boolean
+  /** How hard it is to act out or describe (not how obscure it is). Used for balanced dealing. */
+  difficulty?: PromptDifficulty
+  /** What sort of thing it is. Used to avoid, for example, five artists in a row. */
+  kind?: PromptKind
+  /** Decade, for music and nostalgia prompts only (e.g. '1980s'). */
+  era?: string
+  /** evergreen = re-check yearly · trending = re-check every 3 months · nostalgia = re-check yearly */
+  shelf?: PromptShelf
+  /** true = a really famous title allowed to exceed the usual 4-word limit (max 6) */
+  longTitle?: boolean
 }
+
+export type PromptDifficulty = 'easy' | 'medium' | 'hard'
+export type PromptKind =
+  | 'person' | 'song' | 'place' | 'thing' | 'action' | 'phrase' | 'title' | 'brand' | 'food'
+export type PromptShelf = 'evergreen' | 'trending' | 'nostalgia'
 
 /** Supported round durations in seconds */
 export type RoundDuration = 30 | 60 | 90 | 120
 
-/** Supported number of teams */
-export type TeamCount = 2 | 3 | 4
+/** Number of teams in Teams mode (2 by default, players can add more up to MAX_TEAMS) */
+export type TeamCount = number
+
+/** Game mode: Quick Play (one shared score, no teams) or Teams (turn-based) */
+export type PlayMode = 'quick' | 'teams'
 
 /** Tilt sensor sensitivity setting */
 export type TiltSensitivity = 'low' | 'medium' | 'high'
@@ -139,10 +177,13 @@ export type BottomNavTab = 'home' | 'categories' | 'create' | 'history'
 export type ScreenRoute =
   | 'home'
   | 'categories'
+  | 'play-mode'
   | 'setup'
   | 'forehead'
+  | 'calibrate'
   | 'countdown'
   | 'gameplay'
+  | 'transition'
   | 'results'
   | 'settings'
   | 'create'

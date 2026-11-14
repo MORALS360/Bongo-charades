@@ -1,0 +1,70 @@
+# Car Brands — vehicle makers only (owner rule). Includes truck and bus brands seen on Tanzanian roads and rising Chinese brands (owner rule, Stage 3C).
+# Approved exception: about 60–70, not 100. Motorcycle-only brands are left out.
+@ lang=mixed kind=brand diff=easy shelf=evergreen conf=M src=bank
+Toyota ; ; conf=H src=bank,S51,S56
+Mercedes-Benz ; ; conf=H src=bank,S51
+BMW ; ; conf=H src=bank,S51
+Audi
+Volkswagen
+Nissan ; ; conf=H src=bank,S56
+Honda ; ; conf=H src=bank,S51
+Mazda
+Subaru
+Suzuki ; ; conf=H src=bank,S56
+Mitsubishi
+Isuzu ; ; conf=H src=bank,S56
+Hyundai ; ; conf=H src=bank,S51
+Kia
+Ford ; ; conf=H src=bank,S56
+Chevrolet
+Jeep
+Tesla ; ; conf=H src=bank,S51
+Land Rover
+Volvo
+Peugeot
+Mini
+Ferrari
+Lamborghini
+Porsche
+Rolls-Royce
+Bentley ; ; diff=medium
+Bugatti ; ; diff=medium
+# ── Cars ──
+@ lang=mixed kind=brand diff=medium shelf=evergreen conf=M src=GK
+Lexus ; ; diff=easy
+Jaguar
+Renault
+Citroën
+Fiat
+Alfa Romeo ; ; diff=hard
+Maserati ; ; diff=hard
+Aston Martin
+McLaren
+Opel ; ; diff=hard
+Daihatsu
+Skoda ; ; diff=hard
+Cadillac
+Dodge
+Infiniti ; ; diff=hard
+# ── Chinese and Indian brands ──
+@ lang=mixed kind=brand diff=medium shelf=trending conf=M src=S56,GK
+Chery
+BYD
+Geely ; ; diff=hard
+Haval ; ; diff=hard
+Mahindra
+# ── Trucks and buses (owner rule) ──
+@ lang=mixed kind=brand diff=medium shelf=evergreen conf=M src=S56,GK
+Ashok Leyland
+Scania
+Tata
+Hino
+Fuso
+MAN ; ; diff=hard
+Yutong
+King Long ; ; diff=hard
+Howo ; Sinotruk ; conf=V note=Is 'Howo' how people name these trucks?
+FAW ; ; diff=hard conf=V note=Known on Tanzanian roads?
+Iveco ; ; diff=hard conf=V note=Known on Tanzanian roads?
+Hummer
+Datsun ; ; shelf=nostalgia

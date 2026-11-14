@@ -1,0 +1,102 @@
+# Watu Maarufu — well-known Tanzanians who are NOT musicians (musicians: Bongo Flava / Zilipendwa),
+# NOT film actors (Movie za Bongo) and NOT footballers (Mpira & Mashabiki). Neutral, respectful; no controversy-based prompts.
+# Sitting politicians other than the President are left out on purpose.
+@ lang=mixed kind=person diff=easy shelf=evergreen conf=M src=bank
+Mwalimu Nyerere ; ; lang=sw conf=H
+Samia Suluhu Hassan ; ; conf=H
+Haji Manara
+Millard Ayo
+Idris Sultan
+Jokate Mwegelo
+Ahmed Ally
+Masoud Kipanya
+Mandonga Mtu Kazi
+Mbwana Samatta ; ; conf=H src=bank,S32
+# ── Leaders and history ──
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=M src=GK
+John Magufuli ; ; diff=easy
+Jakaya Kikwete ; ; diff=easy
+Benjamin Mkapa
+Ali Hassan Mwinyi
+Abeid Karume
+Rashidi Kawawa ; ; diff=hard
+Edward Sokoine ; ; diff=hard
+Bibi Titi Mohamed ; ; diff=hard
+Mtemi Mkwawa
+Mtemi Mirambo ; ; diff=hard
+Kinjikitile Ngwale ; Vita vya Maji Maji ; diff=hard src=S27 conf=H
+Tippu Tip ; ; diff=hard
+Salim Ahmed Salim ; ; diff=hard
+Asha-Rose Migiro ; ; diff=hard
+Getrude Mongella ; ; diff=hard
+Tulia Ackson ; ; diff=hard
+Mama Maria Nyerere ; ; diff=hard
+# ── Writers and thinkers ──
+@ lang=mixed kind=person diff=hard shelf=evergreen conf=M src=GK
+Shaaban Robert ; Mshairi
+Abdulrazak Gurnah ; Tuzo ya Nobel 2021
+# ── Business ──
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=H src=S27
+Reginald Mengi
+Mohammed Dewji ; Mo
+Said Salim Bakhresa ; ; src=GK conf=M
+# ── Athletes (not footballers) ──
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=M src=GK
+Filbert Bayi ; Mwanariadha
+Juma Ikangaa ; Mwanariadha ; diff=hard
+Alphonce Simbu ; Mwanariadha wa marathon
+Gabriel Geay ; Mwanariadha wa marathon ; diff=hard
+Magdalena Shauri ; Mwanariadha wa marathon ; diff=hard
+Hasheem Thabeet ; Mpira wa kikapu ; src=S27 conf=H
+Francis Cheka ; Bondia
+Twaha Kiduku ; Bondia
+Rashid Matumla ; Bondia ; diff=hard shelf=nostalgia
+# ── Models and pageants ──
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=H src=S27
+Flaviana Matata
+Nancy Sumari
+Miriam Odemba ; ; src=GK conf=M diff=hard
+Millen Magese ; ; src=GK conf=M diff=hard
+Hamisa Mobetto ; ; src=GK conf=M
+# ── Comedians ──
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=M src=S30
+Joti
+Mpoki
+Masanja Mkandamizaji
+@ lang=mixed kind=person diff=medium shelf=trending conf=V src=GK note=Sina chanzo nilichosoma; anajulikana na wengi?
+Mkojani
+Dullvani
+Eliud Samwel
+Leonardo ; Cheka Tu
+Coy Mzungu
+MC Pilipili
+Steve Mweusi
+Ndaro
+Oka Martin
+Mzee Small ; ; shelf=nostalgia
+Bambo ; ; shelf=nostalgia
+Pembe ; ; shelf=nostalgia
+Senga ; ; shelf=nostalgia
+# ── Broadcasters and presenters ──
+@ lang=mixed kind=person diff=medium shelf=evergreen conf=V src=GK note=Sina chanzo nilichosoma; anajulikana na wengi?
+Salim Kikeke
+Zuhura Yunus
+Tido Mhando ; ; diff=hard
+Charles Hilary ; ; diff=hard
+Maulid Kitenge
+Salama Jabir
+Zamaradi Mketema
+Lil Ommy
+Meena Ally
+B Dozen
+Adam Mchomvu
+Gardner G Habash ; ; diff=hard
+Baraka Mpenja ; Mtangazaji wa mpira
+Ruge Mutahaba ; ; diff=hard shelf=nostalgia
+# ── Other public figures ──
+@ lang=mixed kind=person diff=hard shelf=evergreen conf=V src=GK note=Sina chanzo nilichosoma; anajulikana na wengi?
+Babu Tale ; Meneja wa wasanii
+Sallam SK ; Meneja wa wasanii
+Sheria Ngowi ; Mbunifu wa mavazi
+Ally Rehmtullah ; Mbunifu wa mavazi
+Mama Dangote ; Mama wa Diamond

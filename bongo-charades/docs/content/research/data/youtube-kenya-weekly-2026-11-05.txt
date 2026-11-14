@@ -1,0 +1,102 @@
+# YouTube weekly chart, Kenya. Week ending 2026-11-05. Source: https://kworb.net/youtube/insights/ke.html (accessed 2026-11-14)
+# position|artist - track|weeks on chart|peak
+1|Bien - I'll Be Okay|wks 4|pk 1
+2|Shakira - Dai Dai|wks 24|pk 1
+3|Ayra Starr - Heaven Baby (feat. ZAYN)|wks 12|pk 2
+4|Kapitani - Kitemeo|wks 15|pk 1
+5|Bien - Finale|wks 33|pk 1
+6|Mbosso - Ozalima|wks 24|pk 1
+7|Kapitani - Shing (feat. Toxic Lyrikali)|wks 4|pk 2
+8|Toxic Lyrikali - Most Wanted|wks 1|pk 8
+9|Collo Blue - Dance Samawaah!|wks 25|pk 3
+10|Zzero Sufuri - Zzero Sufuri Otero Ft Toxic Lyrikali|wks 3|pk 7
+11|Ywaya Tajiri - Chai ya saa kumi|wks 30|pk 3
+12|Prince Indah - Rapudo|wks 52|pk 1
+13|Kusslove - Moyo (feat. Rayvanny)|wks 20|pk 6
+14|Toxic Lyrikali - Hongo Ya Karao (Vol. 2) (feat. Mauru Gwash & Kapitani)|wks 11|pk 1
+15|Victony - SLICK|wks 17|pk 8
+16|Collo Blue - Ukining'inia|wks 13|pk 8
+17|Mejja Genge - Mboka|wks 16|pk 3
+18|KABI CATHOLIC - Tumaini Letu|wks 4|pk 16
+19|Soul Touch Brand - Mdomo uliponza kichwa|wks 32|pk 2
+20|Wakadinali - BLOW (DELUXE)|wks 4|pk 20
+21|Joshua Baraka - Wrong Places|wks 55|pk 14
+22|Zuchu - Mvua Ya Baraka|wks 1|pk 22
+23|D Voice - Baridi|wks 29|pk 12
+24|Zuchu - Kucheza Unajua Dance|wks 6|pk 9
+25|Ayra Starr - Commas|wks 61|pk 4
+26|Otile Brown - Kwa Neema (feat. Darassa)|wks 2|pk 11
+27|Collo Blue - Up Burukanga|wks 41|pk 2
+28|Rema - Oh No|wks 6|pk 28
+29|Mejja Genge - Siaka|wks 21|pk 2
+30|Toxic Lyrikali - Mafia Boss|wks 1|pk 30
+31|JETTI - Party Lit|wks 26|pk 17
+32|Joel Lwaga - Nikumbuke|wks 7|pk 1
+33|Khaligraph Jones - Aura Farm|wks 1|pk 33
+34|Ruger - Bounce|wks 73|pk 9
+35|Santan Dave - Raindance|wks 3|pk 31
+36|Ruger - Bae Bae (Live)|wks 54|pk 8
+37|Elisha Toto - Natafuta Doo|wks 31|pk 16
+38|Siji. - Komsa|wks 2|pk 38
+39|Valiant - Woii|wks 14|pk 36
+40|Lewis Capaldi - Someone You Loved|wks 46|pk 40
+41|Dolly Babe - Pink Blush|wks 12|pk 30
+42|Iyanii - Hallelujah|wks 5|pk 15
+43|Major Lazer - Particula (feat. Nasty C, Ice Prince, Patoranking & Jidenna)|wks 56|pk 1
+44|DJ Smallz 732 - ZEP (feat. Uncool MC)|wks 7|pk 44
+45|Harmonize - Imeshindikana|wks 9|pk 9
+46|Collo Blue - Top Shotta|wks 18|pk 15
+47|Ayra Starr - Rush|wks 63|pk 1
+48|Harmonize - Wewe|wks 31|pk 3
+49|Ywaya Tajiri - Somebody's Daughter|wks 2|pk 49
+50|Laurinha Costa - SIX SEVEN|wks 20|pk 30
+51|Diamond Platnumz - Tse Monate (feat. Focalistic, Uncool MC, Angekebabuye Mc & Ricky Lenyora)|wks 1|pk 51
+52|Rudeboy of P-Square - Reason With Me|wks 8|pk 52
+53|Maroon 5 - Girls Like You (feat. Cardi B)|wks 70|pk 4
+54|Spyro - Who Is Your Guy? (Remix)|wks 63|pk 1
+55|El Chombo - Dame Tu Cosita (feat. Cutty Ranks)|wks 34|pk 13
+56|Gyptian - Hold You (Hold Yuh)|wks 32|pk 51
+57|PAUL CLEMENT - Mwokozi|wks 7|pk 32
+58|Shenseea - Hit & Run (feat. Masicka & Di Genius)|wks 62|pk 2
+59|Collo Blue - Stingo Gani Iyo (feat. Ray Beast)|wks 2|pk 52
+60|Sunvera Scott - PRAY FOR ME|wks 6|pk 24
+61|Mauru Gwash - Vurugu (feat. Toxic Lyrikali)|wks 19|pk 48
+62|Bahati Musiq - UINULIWE|wks 1|pk 62
+63|Wilberforce Musyoka - Niwa Yiulu|wks 3|pk 21
+64|Moliy - Shake It To The Max (FLY) (Remix)|wks 53|pk 1
+65|Justin Bieber - Ghost|wks 47|pk 36
+66|Valiant - Passenger Princess|wks 22|pk 59
+67|DJ Goja - Mi Chico|wks 4|pk 57
+68|Minister James - Niseme nini Baba|wks 8|pk 35
+69|Davido - KANTE|wks 43|pk 25
+70|Fireboy DML - Bandana|wks 68|pk 5
+71|Ibraah - Uhakika|wks 18|pk 10
+72|Charly Black - Gyal You a Party Animal|wks 27|pk 53
+73|Neema Gospel Choir - Lango (Live)|wks 9|pk 39
+74|Sammy G - Nikumbuke (Remix)|wks 6|pk 13
+75|Burna Boy - Tested, Approved & Trusted|wks 27|pk 26
+76|Joshua Baraka - YoYo|wks 2|pk 16
+77|Ayra Starr - Who’s Dat Girl|wks 33|pk 7
+78|Central Cee - BAND4BAND|wks 32|pk 10
+79|Empire - Cough|wks 55|pk 4
+80|Wiz Khalifa - See You Again (feat. Charlie Puth)|wks 65|pk 1
+81|MORDECAI DEX - PAloMA|wks 2|pk 81
+82|Ciza - Isaka (6am)|wks 29|pk 41
+83|Burna Boy - On The Low|wks 56|pk 6
+84|Willy Paul - Miti (feat. Jay melody)|wks 1|pk 84
+85|Chris Brown - Residuals|wks 25|pk 7
+86|Justin Bieber - Intentions (feat. Quavo)|wks 53|pk 7
+87|Kapitani - Niwashe|wks 15|pk 46
+88|Jux - Kipepeo|wks 18|pk 8
+89|Worship music - Malebo|wks 1|pk 89
+90|Rayvanny - Number One (feat. Zuchu)|wks 67|pk 2
+91|Kapitani - More|wks 2|pk 25
+92|Elisha Toto - LOVE PER DAY|wks 18|pk 41
+93|Rayvanny - Touch|wks 6|pk 17
+94|Kapitani - Control|wks 18|pk 33
+95|Zuchu - Zuchu (kwikwi)|wks 7|pk 75
+96|Koppa Gekon - Calender ya mungu|wks 20|pk 29
+97|Phina - Sisi Ni Wale|wks 49|pk 2
+98|Sifaeli Mwabuka - ACHA NISHUKURU MUNGU|wks 2|pk 64
+99|Justin Bieber - Baby (feat. Ludacris)|wks 5|pk 75
+100|Rhoda Suleiman - Mu Hiiti (feat. Grace Mukuhi)|wks 3|pk 67

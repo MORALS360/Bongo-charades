@@ -1,7 +1,7 @@
 import type { Category, CategoryIconId, CategorySection } from '../types'
 
 /**
- * All 26 approved Bongo Charades categories across the 3 design system groups.
+ * All 29 Bongo Charades categories (Classic 11, Bongo 12, East Africa & Beyond 6) across the 3 design system groups.
  * IMPORTANT: Category `name` values must NEVER be translated when AppLanguage changes.
  */
 export const CATEGORIES: Category[] = [
@@ -10,7 +10,10 @@ export const CATEGORIES: Category[] = [
   { id: 'movies-tv', name: 'Movies & TV', group: 'c1', icon: 'movies-tv' },
   { id: 'music-artists', name: 'Music & Artists', group: 'c1', icon: 'music-artists' },
   { id: 'sports', name: 'Sports', group: 'c1', icon: 'sports' },
-  { id: 'countries-places', name: 'Countries & Places', group: 'c1', icon: 'countries-places' },
+  { id: 'countries', name: 'Countries', group: 'c1', icon: 'countries' },
+  { id: 'famous-landmarks', name: 'Famous Landmarks', group: 'c1', icon: 'famous-landmarks' },
+  { id: 'car-brands', name: 'Car Brands', group: 'c1', icon: 'car-brands' },
+  { id: 'famous-brands', name: 'Famous Brands', group: 'c1', icon: 'famous-brands' },
   { id: 'everyday-things', name: 'Everyday Things', group: 'c1', icon: 'everyday-things' },
   { id: 'act-it-out', name: 'Act It Out', group: 'c1', icon: 'act-it-out' },
   { id: 'food-drinks', name: 'Food & Drinks', group: 'c1', icon: 'food-drinks' },
@@ -20,7 +23,7 @@ export const CATEGORIES: Category[] = [
   { id: 'daladala-diaries', name: 'Daladala Diaries', group: 'c2', icon: 'daladala-diaries' },
   { id: 'bongo-flava', name: 'Bongo Flava', group: 'c2', icon: 'bongo-flava' },
   { id: 'mtaani', name: 'Mtaani', group: 'c2', icon: 'mtaani' },
-  { id: 'vijiweni', name: 'Vijiweni', group: 'c2', icon: 'vijiweni' },
+  { id: 'zilipendwa', name: 'Zilipendwa', group: 'c2', icon: 'zilipendwa' },
   { id: 'chakula-chetu', name: 'Chakula Chetu', group: 'c2', icon: 'chakula-chetu' },
   { id: 'watu-maarufu', name: 'Watu Maarufu', group: 'c2', icon: 'watu-maarufu' },
   { id: 'movie-za-bongo', name: 'Movie za Bongo', group: 'c2', icon: 'movie-za-bongo' },
@@ -42,7 +45,7 @@ export const CATEGORIES: Category[] = [
     icon: 'east-african-vibes',
   },
   { id: 'african-icons', name: 'African Icons', group: 'c3', icon: 'african-icons' },
-  { id: 'african-music', name: 'African Music', group: 'c3', icon: 'african-music' },
+  { id: 'african-music', name: 'African Music & Artists', group: 'c3', icon: 'african-music' },
   { id: 'african-cities', name: 'African Cities', group: 'c3', icon: 'african-cities' },
   { id: 'pop-culture', name: 'Pop Culture', group: 'c3', icon: 'pop-culture' },
   { id: 'throwback-hits', name: 'Throwback Hits', group: 'c3', icon: 'throwback-hits' },

@@ -1,0 +1,139 @@
+# Chuo Life — university and college life in Tanzania. Almost nothing is written down online:
+# the owner (a student) is the main source, so campus terms are marked for his check.
+@ lang=sw kind=thing diff=easy shelf=evergreen conf=M src=bank
+Boom ; ; conf=H src=bank,S26
+Hosteli ; ; kind=place
+Mtihani wa UE
+Kupiga Msuli ; ; kind=action
+Lecture ; ; lang=mixed
+Kanteeni ; ; kind=place
+Mahafali
+Carry Over ; ; lang=mixed
+Sapu ; ; conf=V note=Ilikuwa tayari kwenye orodha ya kukagua
+Notes za Mtihani
+Mhadhiri Mkali ; ; kind=person
+Kugombea Siti ; ; kind=action
+Group Discussion ; ; lang=mixed
+# ── Universities ──
+@ lang=mixed kind=place diff=medium shelf=evergreen conf=H src=S25
+UDSM
+UDOM
+SUA
+MUHAS
+Chuo cha Mzumbe ; ; lang=sw
+Chuo cha Ardhi ; ; lang=sw
+Chuo Kikuu Huria ; ; lang=sw
+SUZA ; ; diff=hard
+@ lang=mixed kind=place diff=medium shelf=evergreen conf=M src=GK
+IFM
+CBE
+DIT
+SAUT
+TIA ; ; diff=hard
+NIT ; ; diff=hard
+# ── People ──
+@ lang=sw kind=person diff=easy shelf=evergreen conf=M src=GK
+Mwanachuo
+First Year ; ; lang=mixed
+Finalist ; ; lang=mixed
+Profesa
+CR ; Kiongozi wa darasa ; lang=mixed conf=V note=Je, 'CR' ndilo jina la kawaida?
+Rais wa Wanafunzi
+Roommate ; ; lang=mixed
+Warden ; ; lang=mixed diff=medium
+Dean of Students ; ; lang=mixed diff=medium
+Supervisor ; ; lang=mixed
+Mlinzi wa Geti
+Mama Ntilie wa Chuo ; ; diff=medium
+# ── Money ──
+@ lang=sw kind=action diff=easy shelf=evergreen conf=V src=GK note=Hali halisi ya chuo; ndivyo mnavyosema?
+Boom Limeingia
+Boom Limechelewa
+Kusaini Boom
+Bodi ya Mikopo ; ; kind=thing conf=M
+Kulipa Ada ; ; conf=M
+Kuishiwa Hela ; ; conf=M
+Kukopa kwa Roommate ; ; lang=mixed
+Kusubiri Hela ya Nyumbani ; ; conf=M
+Kula Chipsi Kila Siku ; ; conf=M
+Kupika Hosteli
+Kuficha Jiko ; ; diff=medium
+Hita ya Maji ; ; kind=thing diff=medium
+# ── Classes and exams ──
+@ lang=mixed kind=thing diff=easy shelf=evergreen conf=M src=GK
+Test One ; ; conf=V note=Ndivyo mnavyoita?
+Coursework
+Assignment
+Deadline
+Presentation
+Group Assignment
+Timetable
+Semester
+GPA
+First Class
+Past Papers
+Research
+Dissertation
+Field ; Mafunzo kwa vitendo ; conf=V note=Je, 'kwenda field' ndilo neno?
+Logbook ; ; diff=medium
+Maktaba ; ; lang=sw kind=place
+Wi-Fi ya Chuo ; ; lang=sw
+Kitambulisho cha Chuo ; ; lang=sw
+Namba ya Usajili ; ; lang=sw diff=medium
+Notice Board
+Projector
+Disco ; Kufukuzwa chuo kwa kufeli ; diff=hard conf=V note=Maana hii inajulikana?
+Desa ; Notes za kukopi ; lang=sw diff=hard conf=V note=Neno hili linatumika?
+@ lang=sw kind=action diff=easy shelf=evergreen conf=M src=GK
+Kuchelewa Lecture ; ; lang=mixed
+Kukwepa Lecture ; ; lang=mixed
+Kukaa Nyuma Darasani
+Kusaini Mahudhurio
+Kumsainia Rafiki ; ; diff=medium
+Mhadhiri Hajaja
+Lecture Imeahirishwa ; ; lang=mixed
+Venue Imebadilishwa ; ; lang=mixed diff=medium
+Darasa la Saa Moja ; ; kind=thing diff=medium
+Kuandika Notes ; ; lang=mixed
+Kukopi Assignment ; ; lang=mixed
+Assignment Dakika za Mwisho ; ; lang=mixed
+Mzembe wa Group ; ; lang=mixed diff=medium
+Kuprinti Assignment ; ; lang=mixed
+Kutoa Photocopy ; ; lang=mixed
+Kusoma Usiku Kucha
+Kukesha Maktaba
+Kulala Maktaba
+Kufuata Wi-Fi
+Kuingia Chumba cha Mtihani
+Kupekuliwa Kabla ya Mtihani ; ; diff=medium
+Kuangalia Jibu la Jirani
+Kusubiri Matokeo
+Kuangalia Matokeo
+Kufeli Mtihani
+Kufaulu Mtihani
+Kwenda Field ; ; lang=mixed conf=V note=Ndivyo mnavyosema?
+Kutetea Research ; ; lang=mixed diff=medium
+# ── Hostel and campus life ──
+@ lang=sw kind=action diff=easy shelf=evergreen conf=M src=GK
+Kupanga Geto ; ; conf=V note=Kupanga chumba nje ya chuo: ndivyo mnavyosema?
+Kitanda cha Double Decker ; ; lang=mixed kind=thing
+Kushea Kitanda ; ; conf=V note=Ndivyo mnavyosema?
+Roommate Msumbufu ; ; lang=mixed kind=person
+Mgeni wa Roommate ; ; lang=mixed kind=person
+Kelele za Hosteli ; ; kind=thing
+Maji Yamekatika Hosteli
+Kuchota Maji kwa Ndoo
+Kufua Jumamosi
+Kuibiwa Nguo Kambani
+Kuazima Chaja
+Kampeni za Uchaguzi Chuoni ; ; kind=thing diff=medium
+Fresher's Night ; ; lang=mixed kind=thing conf=V note=Sherehe ya kukaribisha wapya: inaitwaje?
+Bonanza la Chuo ; ; kind=thing
+Couple ya Chuo ; ; lang=mixed kind=person
+WhatsApp Group la Darasa ; ; lang=mixed kind=thing
+Tangazo la CR ; ; lang=mixed kind=thing conf=V note=Inategemea 'CR'
+Joho la Mahafali ; ; kind=thing
+Kurusha Kofia ya Mahafali
+Picha ya Mahafali ; ; kind=thing
+Kutafuta Kazi
+Kuandika CV ; ; lang=mixed

@@ -1,0 +1,132 @@
+# Sports — sports, equipment, moves, events and global athletes. African athletes live in African Icons; Tanzanian football in Mpira & Mashabiki.
+@ lang=mixed kind=thing diff=easy shelf=evergreen conf=M src=bank,S54
+Football | Mpira wa Miguu
+Basketball | Mpira wa Kikapu
+Boxing | Ngumi
+Swimming | Kuogelea ; ; kind=action
+Running | Kukimbia ; ; kind=action
+Goalkeeper | Kipa ; ; kind=person
+Penalty | Penalti
+Cycling | Mbio za Baiskeli
+Volleyball | Mpira wa Wavu
+Tennis
+Olympics
+@ lang=mixed kind=person diff=easy shelf=evergreen conf=H src=bank,S54
+Cristiano Ronaldo
+Lionel Messi
+Usain Bolt ; ; conf=M
+# ── Sports (Olympic list, S54) ──
+@ lang=mixed kind=thing diff=easy shelf=evergreen conf=H src=S54
+Netball | Mpira wa Pete ; ; src=S54,S55
+Handball | Mpira wa Mikono ; ; diff=medium
+Table Tennis
+Badminton
+Golf
+Rugby
+Cricket ; ; diff=medium
+Baseball ; ; diff=medium
+Hockey ; ; diff=medium
+Wrestling | Mieleka
+Karate
+Judo ; ; diff=medium
+Taekwondo ; ; diff=medium
+Weightlifting | Kunyanyua Vyuma
+Gymnastics ; ; diff=medium
+High Jump | Kuruka Juu
+Long Jump ; ; diff=medium
+Hurdles | Kuruka Viunzi ; ; diff=medium
+Marathon
+Relay Race | Mbio za Kupokezana ; ; diff=medium
+Javelin | Kurusha Mkuki ; ; diff=medium
+Shot Put | Kurusha Tufe ; ; diff=medium
+Archery | Kurusha Mishale ; ; diff=medium
+Fencing ; ; diff=hard
+Skiing ; ; diff=medium
+Surfing ; ; diff=medium
+Skateboarding ; ; diff=medium
+Diving | Kupiga Mbizi
+Rowing | Kupiga Makasia ; ; diff=medium
+@ lang=mixed kind=thing diff=easy shelf=evergreen conf=M src=GK
+Kung Fu
+Kickboxing ; ; diff=medium
+Sumo Wrestling ; ; diff=medium
+Snooker ; ; diff=medium
+Darts
+Chess | Sataranji ; ; conf=V note=Je, 'sataranji' au 'chesi'?
+Tug of War | Kuvuta Kamba
+Sack Race | Mbio za Magunia
+Egg and Spoon Race ; ; famous=yes diff=medium
+Formula 1
+Horse Racing | Mbio za Farasi
+Mountain Climbing | Kupanda Mlima
+Bowling ; ; diff=medium
+Bungee Jumping ; ; diff=medium
+# ── Moves and equipment ──
+@ lang=mixed kind=action diff=easy shelf=evergreen conf=M src=GK
+Free Kick
+Bicycle Kick ; ; diff=medium
+Slam Dunk
+Three-Pointer ; ; diff=medium
+Tennis Serve ; ; diff=medium
+Knockout Punch ; ; diff=medium
+Golf Swing
+Penalty Shootout ; ; diff=medium
+Offside Trap ; ; diff=hard
+Trophy | Kombe ; ; kind=thing
+Gold Medal | Medali ya Dhahabu ; ; kind=thing
+Whistle | Filimbi ; ; kind=thing
+Stopwatch ; ; kind=thing diff=medium
+Scoreboard ; ; kind=thing diff=medium
+Boxing Gloves | Glovu za Ngumi ; ; kind=thing
+Football Boots | Njumu ; ; kind=thing conf=V note=Je, 'njumu' ndilo neno la kawaida?
+Treadmill ; ; kind=thing diff=medium
+Cheerleader ; ; kind=person diff=medium
+Coach | Kocha ; ; kind=person
+# ── Events ──
+@ lang=mixed kind=thing diff=medium shelf=evergreen conf=H src=S54
+World Cup | Kombe la Dunia ; ; diff=easy
+Champions League ; ; diff=easy
+Premier League ; ; diff=easy
+El Clásico
+Wimbledon
+Tour de France ; ; diff=hard
+NBA
+UFC
+Commonwealth Games ; ; diff=hard
+# ── Athletes (Forbes 2025–26, Ballon d'Or, S54) ──
+@ lang=mixed kind=person diff=easy shelf=evergreen conf=H src=S54
+Neymar
+Kylian Mbappé
+Erling Haaland
+LeBron James
+Stephen Curry ; ; diff=medium
+Lewis Hamilton ; ; diff=medium
+Canelo Álvarez ; ; diff=medium
+Tyson Fury ; ; diff=medium
+Karim Benzema ; ; diff=medium
+@ lang=mixed kind=person diff=easy shelf=evergreen conf=M src=GK
+Michael Jordan
+Kobe Bryant
+Shaquille O'Neal ; ; diff=medium
+Muhammad Ali
+Mike Tyson
+Floyd Mayweather
+Anthony Joshua
+Conor McGregor ; ; diff=medium
+Serena Williams
+Roger Federer
+Rafael Nadal
+Novak Djokovic
+Tiger Woods
+Michael Phelps ; ; diff=medium
+Simone Biles ; ; diff=medium
+Pelé
+Diego Maradona
+Zinedine Zidane
+Ronaldinho
+David Beckham
+Thierry Henry ; ; diff=medium
+Wayne Rooney ; ; diff=medium
+Kaká ; ; diff=medium
+Lamine Yamal ; ; diff=medium shelf=trending
+Vinícius Júnior ; ; diff=medium shelf=trending

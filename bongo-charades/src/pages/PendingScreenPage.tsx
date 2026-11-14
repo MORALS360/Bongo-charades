@@ -84,7 +84,7 @@ export function PendingScreenPage({
         <Panel title={isFeelingLucky ? 'Selected Mode' : 'Selected Categories'}>
           {isFeelingLucky ? (
             <p style={{ margin: '8px 0 0', fontWeight: 800, color: '#FFC83A' }}>
-              🎲 Feeling lucky? — Random words across all 26 categories.
+              🎲 Feeling lucky? — Random words across all categories.
             </p>
           ) : selectedCategories.length > 0 ? (
             <div

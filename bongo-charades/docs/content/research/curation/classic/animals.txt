@@ -1,0 +1,126 @@
+# Animals — universal; every item is an English | Kiswahili pair where a common Kiswahili name exists.
+# Common knowledge (Stage 2 rule): no per-item source. Kiswahili names to be read through by the owner.
+@ lang=mixed kind=thing diff=easy shelf=evergreen conf=M src=bank
+Lion | Simba
+Elephant | Tembo
+Giraffe | Twiga
+Leopard | Chui
+Hippo | Kiboko
+Crocodile | Mamba
+Monkey | Tumbili
+Zebra | Pundamilia
+Snake | Nyoka
+Dog | Mbwa
+Cat | Paka
+Chicken | Kuku
+Rhino | Kifaru
+Frog | Chura
+Cow | Ng'ombe
+Fish | Samaki
+# ── Wild animals ──
+@ lang=mixed kind=thing diff=easy shelf=evergreen conf=M src=GK,S57
+Cheetah | Duma
+Buffalo | Nyati
+Hyena | Fisi
+Wildebeest | Nyumbu ; ; diff=medium
+Gazelle | Swala ; ; diff=medium
+Ostrich | Mbuni
+Gorilla | Sokwe
+Baboon | Nyani
+Warthog | Ngiri ; ; diff=medium
+Kudu | Tandala ; ; diff=hard
+Impala ; ; diff=medium
+Jackal | Mbweha ; ; diff=medium
+Wild Dog | Mbwa Mwitu ; ; diff=medium
+Pangolin | Kakakuona ; ; diff=hard
+Porcupine | Nungunungu ; ; diff=medium
+Mongoose | Nguchiro ; ; diff=hard
+Bush Baby | Komba ; ; diff=hard
+Squirrel | Kindi ; ; diff=medium
+Hedgehog ; ; diff=medium
+Bat | Popo
+Tiger
+Bear | Dubu
+Polar Bear
+Panda
+Kangaroo
+Koala ; ; diff=medium
+Wolf
+Fox
+Deer | Kulungu ; ; diff=medium
+Camel | Ngamia
+Chimpanzee ; ; diff=medium
+# ── Farm and home ──
+@ lang=mixed kind=thing diff=easy shelf=evergreen conf=M src=GK
+Goat | Mbuzi
+Sheep | Kondoo
+Pig | Nguruwe
+Donkey | Punda
+Horse | Farasi
+Rabbit | Sungura
+Rooster | Jogoo
+Chick | Kifaranga
+Duck | Bata
+Turkey | Bata Mzinga ; Ndege ; diff=medium
+Rat | Panya
+Hamster ; ; diff=medium
+Goldfish ; ; diff=medium
+Parrot | Kasuku
+Pigeon | Njiwa
+# ── Birds ──
+@ lang=mixed kind=thing diff=easy shelf=evergreen conf=M src=GK
+Eagle | Tai
+Owl | Bundi
+Peacock | Tausi
+Crow | Kunguru
+Vulture | Tumbusi ; ; diff=medium
+Penguin
+Flamingo ; ; diff=medium
+Woodpecker ; ; diff=medium
+Pelican ; ; diff=hard
+Swan ; ; diff=medium
+Bird | Ndege
+# ── Water animals ──
+@ lang=mixed kind=thing diff=easy shelf=evergreen conf=M src=GK
+Shark | Papa
+Whale | Nyangumi
+Dolphin | Pomboo ; ; diff=medium
+Octopus
+Crab | Kaa
+Jellyfish
+Starfish ; ; diff=medium
+Seahorse ; ; diff=medium
+Sea Turtle | Kasa ; ; diff=medium
+Seal ; ; diff=medium
+Lobster ; ; diff=medium
+# ── Reptiles ──
+@ lang=mixed kind=thing diff=easy shelf=evergreen conf=M src=GK
+Tortoise | Kobe
+Lizard | Mjusi
+Chameleon | Kinyonga
+Python | Chatu
+Cobra ; ; diff=medium
+# ── Insects and small creatures ──
+@ lang=mixed kind=thing diff=easy shelf=evergreen conf=M src=GK
+Spider | Buibui
+Ant | Sisimizi
+Termite | Mchwa ; ; diff=medium
+Bee | Nyuki
+Mosquito | Mbu
+Fly | Inzi
+Butterfly | Kipepeo
+Cockroach | Mende
+Grasshopper | Panzi
+Snail | Konokono
+Worm | Mnyoo
+Scorpion | Nge
+Caterpillar | Kiwavi ; ; diff=medium
+Bedbug | Kunguni
+Ladybird ; ; diff=medium
+Dung Beetle ; ; diff=medium
+# ── Imaginary and prehistoric ──
+@ lang=mixed kind=thing diff=easy shelf=evergreen conf=M src=GK
+Dinosaur
+Dragon
+Unicorn
+Mermaid | Nguva ; ; diff=medium
